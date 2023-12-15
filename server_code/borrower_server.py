@@ -11,7 +11,7 @@ from datetime import datetime
 
 @anvil.server.callable
 def add_borrower_step1(full_name,gender,dob,user_id):
-  row = app_tables.user_profile.search(coustmer_id=user_id)
+  row = app_tables.user_profile.search(customer_id=user_id)
   if row:
     row[0]['full_name'] = full_name
     row[0]['gender'] = gender
@@ -20,7 +20,7 @@ def add_borrower_step1(full_name,gender,dob,user_id):
 
 @anvil.server.callable
 def add_borrower_3a1_form(street_adress_1,street_address_2,city,user_id):
-  row = app_tables.user_profile.search(coustmer_id=user_id)
+  row = app_tables.user_profile.search(customer_id=user_id)
   if row:
     row[0]['street_adress_1'] = street_adress_1
     row[0]['street_address_2'] = street_address_2
@@ -28,7 +28,7 @@ def add_borrower_3a1_form(street_adress_1,street_address_2,city,user_id):
     row[0]['form_count']=3
 @anvil.server.callable
 def add_borrower_step2(mobile_no,user_photo,alternate_email,user_id):
-  row=app_tables.user_profile.search(coustmer_id=user_id)
+  row=app_tables.user_profile.search(customer_id=user_id)
   if row:
     row[0]['mobile']=mobile_no
     row[0]['user_photo']=user_photo
@@ -39,7 +39,7 @@ def add_borrower_step2(mobile_no,user_photo,alternate_email,user_id):
 
 @anvil.server.callable
 def add_borrower_step3(aadhar,aadhar_card,pan,pan_card,user_id):
-  row=app_tables.user_profile.search(coustmer_id=user_id)
+  row=app_tables.user_profile.search(customer_id=user_id)
   if row:
     row[0]['aadhaar_no']=aadhar
     row[0]['aadhaar_photo']=aadhar_card
@@ -50,7 +50,7 @@ def add_borrower_step3(aadhar,aadhar_card,pan,pan_card,user_id):
 
 @anvil.server.callable
 def add_borrower_step3a(father_name,father_age,mother_name,mother_age,user_id):
-  row = app_tables.user_profile.search(coustmer_id=user_id)
+  row = app_tables.user_profile.search(customer_id=user_id)
   if row:
     row[0]['father_name'] = father_name
     row[0]['father_age'] = father_age
@@ -60,7 +60,7 @@ def add_borrower_step3a(father_name,father_age,mother_name,mother_age,user_id):
 
 @anvil.server.callable
 def add_borrower_step3c(status_of_user,user_id):
-  row = app_tables.user_profile.search(coustmer_id=user_id)
+  row = app_tables.user_profile.search(customer_id=user_id)
   if row:
     row[0]['profficen'] = status_of_user
     row[0]['form_count']=5
@@ -68,14 +68,14 @@ def add_borrower_step3c(status_of_user,user_id):
 
 @anvil.server.callable
 def add_borrower_step4(marital_status,user_id):
-  row = app_tables.user_profile.search(coustmer_id=user_id)
+  row = app_tables.user_profile.search(customer_id=user_id)
   if row:
     row[0]['marital_status']=marital_status
     row[0]['form_count']=6
 
 @anvil.server.callable
 def add_borrower_student(college_name,college_id,college_proof,college_address,user_id):
-  row=app_tables.user_profile.search(coustmer_id=user_id)
+  row=app_tables.user_profile.search(customer_id=user_id)
   if row:
     row[0]['college_name']=college_name
     row[0]['college_id']=college_id
@@ -85,7 +85,7 @@ def add_borrower_student(college_name,college_id,college_proof,college_address,u
     
 @anvil.server.callable
 def add_borrower_step4a(spouse_name,marrege_date,spouse_mobile_no,user_id):
-  row=app_tables.user_profile.search(coustmer_id=user_id)
+  row=app_tables.user_profile.search(customer_id=user_id)
   if row:
    row[0]['spouse_name']=spouse_name
    row[0]['Date_mariage']=marrege_date
@@ -93,7 +93,7 @@ def add_borrower_step4a(spouse_name,marrege_date,spouse_mobile_no,user_id):
 
 @anvil.server.callable
 def add_borrower_step5(spouse_company_name,spouse_company_address,spouse_profficen,user_id):
-  row = app_tables.user_profile.search(coustmer_id=user_id)
+  row = app_tables.user_profile.search(customer_id=user_id)
   if row:
     row[0]['spouse_company_name']=spouse_company_name
     row[0]['spouse_company_address']=spouse_company_address
@@ -101,14 +101,14 @@ def add_borrower_step5(spouse_company_name,spouse_company_address,spouse_proffic
 
 @anvil.server.callable
 def add_borrower_spouse(annual_ctc,office_number,user_id):
-  row=app_tables.user_profile.search(coustmer_id=user_id)
+  row=app_tables.user_profile.search(customer_id=user_id)
   if row:
     row[0]['spouse_annual_ctc']=annual_ctc
     row[0]['spouse_office_number']=office_number
 
 @anvil.server.callable
 def add_borrower_step7(home_loan,other_loan,live_loan,user_id):
-  row = app_tables.user_profile.search(coustmer_id=user_id)
+  row = app_tables.user_profile.search(customer_id=user_id)
   if row:
     row[0]['running_Home_Loan'] = home_loan
     row[0]['running_or_live loans']= live_loan
@@ -116,7 +116,7 @@ def add_borrower_step7(home_loan,other_loan,live_loan,user_id):
     row[0]['form_count']=7
 @anvil.server.callable
 def add_borrower_step8(account_name, account_type,account_number,bank_name, user_id):
-  row = app_tables.user_profile.search(coustmer_id=user_id)
+  row = app_tables.user_profile.search(customer_id=user_id)
   if row:
     row[0]['account_name'] = account_name
     row[0]['account_type'] = account_type
@@ -126,7 +126,7 @@ def add_borrower_step8(account_name, account_type,account_number,bank_name, user
 
 @anvil.server.callable
 def add_borrower_step9(ifsc,salary_type,select_bank,net_bank, user_id):
-  row = app_tables.user_profile.search(coustmer_id=user_id)
+  row = app_tables.user_profile.search(customer_id=user_id)
   if row:
     row[0]['ifsc_code'] = ifsc
     row[0]['salary_type'] = salary_type
@@ -149,7 +149,7 @@ def add_loan_details(loan_amount, credit_limit, tenure, user_id):
     loan_id = generate_loan_id()
 
     # Search for the user profile
-    user_profiles = app_tables.user_profile.search(coustmer_id=user_id)
+    user_profiles = app_tables.user_profile.search(customer_id=user_id)
     
     if user_profiles and len(user_profiles) > 0:
         # If there is a user profile, get the first one
@@ -167,7 +167,7 @@ def add_loan_details(loan_amount, credit_limit, tenure, user_id):
             coustmer_id=user_id,
             full_name=full_name,
             email_id=email_id,                 
-            timestamp=datetime.now()
+            timestamp=datetime.now().date()
         )
 
         # Return the generated loan ID to the client
