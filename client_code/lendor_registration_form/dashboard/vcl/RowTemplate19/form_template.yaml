@@ -1,0 +1,38 @@
+is_package: true
+container: {type: DataRowPanel}
+components:
+- type: Label
+  properties: {}
+  name: label_1
+  layout_properties: {column: JKSDUP}
+  data_bindings:
+  - {property: text, code: 'self.item[''coustmer_id'']'}
+- type: Label
+  properties: {}
+  name: label_2
+  layout_properties: {column: VJQQOR}
+  data_bindings:
+  - {property: text, code: 'self.item[''loan_id'']'}
+- type: Label
+  properties: {}
+  name: label_3
+  layout_properties: {column: OJLQEN}
+  data_bindings:
+  - {property: text, code: 'self.item[''full_name'']'}
+- type: Label
+  properties: {}
+  name: label_4
+  layout_properties: {column: KSBCBX}
+  data_bindings:
+  - {property: text, code: 'self.item[''loan_amount'']'}
+- type: Label
+  properties: {}
+  name: label_5
+  layout_properties: {column: LAPEXU}
+  data_bindings:
+  - {property: text, code: 'self.item[''closed_type'']'}
+- type: Link
+  properties: {text: View Details, underline: true, bold: false, foreground: '#0876e8'}
+  name: link_1
+  layout_properties: {column: OETPGZ}
+  event_bindings: {click: link_1_click}

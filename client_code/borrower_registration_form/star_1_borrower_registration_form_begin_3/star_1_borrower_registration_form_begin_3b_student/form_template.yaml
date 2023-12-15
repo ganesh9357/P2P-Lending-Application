@@ -1,0 +1,84 @@
+container: {type: ColumnPanel}
+components:
+- name: image_1_copy_1_copy_1_copy_1_copy_1_copy_1
+  properties: {role: null, vertical_align: center, height: 48, tooltip: '', border: '',
+    foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small,
+    source: _/theme/kotackpng.png, spacing_below: small, background: '', horizontal_align: left}
+  type: Image
+  layout_properties: {grid_position: 'GCTYGT,PXMBUI'}
+- name: home_borrower_registration_form_copy_1_copy_1_copy_1
+  properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
+    foreground: black, visible: true, text: Home, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
+    bold: true, underline: false, icon: 'fa:home'}
+  type: Button
+  layout_properties: {grid_position: 'GCTYGT,TKYCQY'}
+  event_bindings: {click: home_borrower_registration_form_copy_1_click}
+- name: label_1_copy_1_copy_1_copy_1
+  properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: Student Details, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
+  type: Label
+  layout_properties: {grid_position: 'KUSTUQ,UEUGAG'}
+- name: label_1
+  properties: {text: 'College Name:', align: center, bold: true}
+  type: Label
+  layout_properties: {grid_position: 'JJRAJQ,WPNTZU'}
+- name: borrower_college_name_text
+  properties: {background: 'theme:On Primary'}
+  type: TextBox
+  layout_properties: {grid_position: 'JJRAJQ,OVIRZH XJAWJU,JRKLVS'}
+- name: label_5
+  properties: {foreground: red}
+  type: Label
+  layout_properties: {grid_position: 'JJRAJQ,OVIRZH BQSXBW,HIWWRK'}
+- name: label_2
+  properties: {text: 'College Id:', align: center, bold: true}
+  type: Label
+  layout_properties: {grid_position: 'ETIKUL,OQZJVW'}
+- name: borrower_college_id_text
+  properties: {background: 'theme:On Primary'}
+  type: TextBox
+  layout_properties: {grid_position: 'ETIKUL,OBTINV NILWPL,JQMAZW'}
+- name: label_6
+  properties: {foreground: red}
+  type: Label
+  layout_properties: {grid_position: 'ETIKUL,OBTINV PQEXWP,NBMDZP'}
+- name: label_3
+  properties: {text: 'College Proof:', align: center, bold: true}
+  type: Label
+  layout_properties: {grid_position: 'EIUQCI,SNVTWO'}
+- name: borrower_college_proof_img
+  properties: {}
+  type: FileLoader
+  layout_properties: {grid_position: 'EIUQCI,PJYIKM ZJPZWR,VIQKOO'}
+- name: label_7
+  properties: {foreground: red}
+  type: Label
+  layout_properties: {grid_position: 'EIUQCI,PJYIKM FUQYHB,EJCPJV'}
+- name: label_4
+  properties: {text: 'College Address:', align: center, bold: true}
+  type: Label
+  layout_properties: {grid_position: 'CESJQI,RDIOWV'}
+- name: borrower_college_address_text
+  properties: {background: 'theme:On Primary'}
+  type: TextArea
+  layout_properties: {grid_position: 'CESJQI,LXAHIL SYXIDX,IXIAHE'}
+- name: label_8
+  properties: {foreground: red}
+  type: Label
+  layout_properties: {grid_position: 'CESJQI,LXAHIL CWQOKO,FPMKOV'}
+- name: button_1_copy_1_copy_1_copy_1
+  properties: {text: prev, background: '#0876E8', icon: 'fa:angle-double-left', align: right,
+    foreground: black, bold: true, role: elevated-button}
+  type: Button
+  layout_properties: {grid_position: 'XJCUHW,ERSCCC'}
+  event_bindings: {click: button_1_copy_1_copy_1_copy_1_click}
+- name: button_1_next_copy_1
+  properties: {text: Next, background: '#0876E8', icon: 'fa:angle-double-right', align: left,
+    foreground: black, bold: true, role: elevated-button, icon_align: right}
+  type: Button
+  layout_properties: {grid_position: 'XJCUHW,TFTNUB'}
+  event_bindings: {click: button_1_next_copy_1_click}
+is_package: true

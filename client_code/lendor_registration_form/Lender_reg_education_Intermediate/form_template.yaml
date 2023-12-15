@@ -1,0 +1,72 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: FlowPanel
+  properties: {}
+  name: flow_panel_1
+  layout_properties: {grid_position: 'HZQEFD,BBTOLR'}
+  components:
+  - name: image_1_copy_1_copy_1
+    properties: {role: null, vertical_align: center, height: 48, tooltip: '', border: '',
+      foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small,
+      source: _/theme/kotackpng.png, spacing_below: small, background: '', horizontal_align: left}
+    type: Image
+    layout_properties:
+      col_widths: {}
+      grid_position: TIYFPR,YGXTOI
+      width: 296
+- type: Button
+  properties: {role: filled-button, align: right, tooltip: '', border: '', enabled: true,
+    foreground: black, visible: true, text: home, font_size: 13, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '#0876e8',
+    bold: true, underline: false, icon: 'fa:home'}
+  name: button_3
+  layout_properties: {grid_position: 'HZQEFD,KJAYDA'}
+  event_bindings: {click: button_3_click}
+- name: label_1_copy_1
+  properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: Education Details, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
+  type: Label
+  layout_properties: {grid_position: ''}
+- name: label_1
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 10th class, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
+  type: Label
+  layout_properties: {grid_position: 'GCADCB,RUKNLC'}
+- type: FileLoader
+  properties: {}
+  name: file_loader_1
+  layout_properties: {grid_position: 'GCADCB,MABORK'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Intermediate / PUC, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
+  name: label_2
+  layout_properties: {grid_position: 'JDKXXI,QBZSHY'}
+- type: FileLoader
+  properties: {}
+  name: file_loader_2
+  layout_properties: {grid_position: 'JDKXXI,UDIKJN'}
+- name: button_1
+  properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
+    foreground: 'theme:On Primary Container', visible: true, text: Prev, font_size: null,
+    font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+    background: '#0876E8', bold: true, underline: false, icon: 'fa:angle-double-left'}
+  type: Button
+  layout_properties: {grid_position: 'RJFHAY,XEFCAP'}
+  event_bindings: {click: button_1_click}
+- name: button_2
+  properties: {role: elevated-button, align: left, tooltip: '', border: '', enabled: true,
+    foreground: 'theme:On Primary Container', visible: true, text: Next, font_size: null,
+    font: '', spacing_above: small, icon_align: right, spacing_below: small, italic: false,
+    background: '#0876E8', bold: true, underline: false, icon: 'fa:angle-double-right'}
+  type: Button
+  layout_properties: {grid_position: 'RJFHAY,SJKWCZ'}
+  event_bindings: {click: button_2_click}
+is_package: true

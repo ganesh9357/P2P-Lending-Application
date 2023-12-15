@@ -1,0 +1,104 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}', visible: true}
+components:
+- type: FlowPanel
+  properties: {}
+  name: flow_panel_1
+  layout_properties: {grid_position: 'GCTUEC,ZCBONA'}
+  components:
+  - name: image_1_copy_1_copy_1_copy_4
+    properties: {role: null, vertical_align: center, height: 49, tooltip: '', border: '',
+      foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small,
+      source: _/theme/kotackpng.png, spacing_below: small, background: '', horizontal_align: left}
+    type: Image
+    layout_properties:
+      col_widths: {}
+      grid_position: ',RHCVUB'
+      width: 268
+- type: Button
+  properties: {role: filled-button, align: right, tooltip: '', border: '', enabled: true,
+    foreground: black, visible: true, text: Home, font_size: 13, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '#0876e8',
+    bold: true, underline: false, icon: 'fa:home'}
+  name: button_3
+  layout_properties: {grid_position: 'GCTUEC,GEZZSE'}
+  event_bindings: {click: button_3_click}
+- name: label_1_copy_1
+  properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: 'Employment Information:', font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
+  type: Label
+  layout_properties: {grid_position: ''}
+- name: label_2_copy_1
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Annual salary, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
+  type: Label
+  layout_properties: {grid_position: 'GUHTRC,SIRBDK'}
+- name: text_box_1
+  properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+    border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+    font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+    background: 'theme:On Primary', bold: false, underline: false}
+  type: TextBox
+  layout_properties: {grid_position: 'GUHTRC,BCBQBT'}
+- name: label_3_copy_1
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Designation, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
+  type: Label
+  layout_properties: {grid_position: 'UTMAFU,OZAOYV'}
+- name: text_box_2
+  properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+    border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+    font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+    background: 'theme:On Primary', bold: false, underline: false}
+  type: TextBox
+  layout_properties: {grid_position: 'UTMAFU,KXCRKN'}
+- name: label_1
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Upload Employee Id
+
+      (Image Size less-than 2MB)', font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
+  type: Label
+  layout_properties: {grid_position: 'OJCELP,UGSODQ'}
+- name: file_loader_1
+  properties: {}
+  type: FileLoader
+  layout_properties: {grid_position: 'OJCELP,GGXQEK'}
+- name: label_2
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Upload last six months bank Statements
+
+      (Image size less-than 2MB)(Spouse)', font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
+  type: Label
+  layout_properties: {grid_position: 'FGKBFF,EMZAAK'}
+- name: file_loader_2
+  properties: {}
+  type: FileLoader
+  layout_properties: {grid_position: 'FGKBFF,QISVDQ'}
+- name: button_1
+  properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
+    foreground: 'theme:On Primary Container', visible: true, text: Prev, font_size: null,
+    font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+    background: '#0876E8', bold: true, underline: false, icon: 'fa:angle-double-left'}
+  type: Button
+  layout_properties: {grid_position: 'WWICGT,ZBALEX'}
+  event_bindings: {click: button_1_click}
+- name: button_2
+  properties: {role: elevated-button, align: left, tooltip: '', border: '', enabled: true,
+    foreground: 'theme:On Primary Container', visible: true, text: Next, font_size: null,
+    font: '', spacing_above: small, icon_align: right, spacing_below: small, italic: false,
+    background: '#0876E8', bold: true, underline: false, icon: 'fa:angle-double-right'}
+  type: Button
+  layout_properties: {grid_position: 'WWICGT,AGUQTM'}
+  event_bindings: {click: button_2_click}
+is_package: true

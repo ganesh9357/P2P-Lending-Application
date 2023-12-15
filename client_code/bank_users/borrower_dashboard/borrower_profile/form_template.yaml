@@ -1,0 +1,170 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- name: button_1_copy
+  properties: {role: tonal-button, align: right, tooltip: '', border: '', enabled: true,
+    foreground: black, visible: true, text: Home, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
+    bold: true, underline: false, icon: 'fa:home'}
+  type: Button
+  layout_properties:
+    col_widths: {}
+    grid_position: HJAOEA,HDCZRI
+  event_bindings: {click: button_1_copy_click}
+- name: button_1
+  properties: {role: tonal-button, align: right, tooltip: '', border: '', enabled: true,
+    foreground: black, visible: true, text: Edit, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
+    bold: true, underline: false, icon: ''}
+  type: Button
+  layout_properties:
+    col_widths: {}
+    grid_position: HSGGUZ,DSTRMU
+  event_bindings: {click: button_1_click}
+- name: spacer_1
+  properties: {height: 32}
+  type: Spacer
+  layout_properties:
+    col_widths: {}
+    grid_position: PNDNDM,TKYEBB
+- name: label_1_copy_1_copy_1
+  properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: View Profile, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
+  type: Label
+  layout_properties:
+    col_widths: {}
+    grid_position: KDHAAT,CKVRJM
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Full Name:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_1
+  layout_properties: {grid_position: 'ZAHTSU,YHWPJW'}
+- type: Label
+  properties: {}
+  name: full_name_label
+  layout_properties: {grid_position: 'ZAHTSU,LLBNLX'}
+  data_bindings:
+  - {property: text, code: 'self.item[''fullname'']'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Email ID:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_3
+  layout_properties: {grid_position: 'JFGHKK,FPGJUV'}
+- type: Label
+  properties: {}
+  name: email_id_label
+  layout_properties: {grid_position: 'JFGHKK,LZOCYL'}
+  data_bindings:
+  - {property: text, code: 'self.item[''email_id'']'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Mobile No:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_5
+  layout_properties: {grid_position: 'ZZXLBX,XJHXPC'}
+- type: Label
+  properties: {}
+  name: mobile_no_label
+  layout_properties: {grid_position: 'ZZXLBX,BGDOZM'}
+  data_bindings:
+  - {property: text, code: 'self.item[''mobile_no'']'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Date Of Birth:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_7
+  layout_properties: {grid_position: 'ANEGHE,OIVWVJ'}
+- type: Label
+  properties: {}
+  name: date_of_birth_label
+  layout_properties: {grid_position: 'ANEGHE,THXTDX'}
+  data_bindings:
+  - {property: text, code: 'self.item[''date_of_birth'']'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: City, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_9
+  layout_properties: {grid_position: 'JIPXWO,FEXTHJ'}
+- type: Label
+  properties: {}
+  name: city_label
+  layout_properties: {grid_position: 'JIPXWO,ZZNIPF'}
+  data_bindings:
+  - {property: text, code: 'self.item[''city'']'}
+- name: label_23
+  properties: {text: 'Pan Number:'}
+  type: Label
+  layout_properties: {grid_position: 'TMVNCD,WJCPUH EBHVDO,IYCEGV'}
+- name: label_25
+  properties: {text: 'Aadhaar Number:'}
+  type: Label
+  layout_properties: {grid_position: 'TMVNCD,WJCPUH RNOQWY,AWRIMZ'}
+- type: Label
+  properties: {}
+  name: pan_no_label
+  layout_properties: {grid_position: 'TMVNCD,FXCWVF XNNAOW,IWMQZL'}
+  data_bindings:
+  - {property: text, code: 'self.item[''upload_pan_card'']'}
+- name: aadhaar_no_label
+  properties: {}
+  type: Label
+  layout_properties: {grid_position: 'TMVNCD,FXCWVF MSPNKI,IKIEES'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Gender:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_13
+  layout_properties: {grid_position: 'ZTAFPA,GHVDYC'}
+- type: Label
+  properties: {}
+  name: gender_label
+  layout_properties: {grid_position: 'ZTAFPA,WDMJPV'}
+  data_bindings:
+  - {property: text, code: 'self.item[''gender'']'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Mother Tounge:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_15
+  layout_properties: {grid_position: 'ZZYYSN,TIWZVY'}
+- type: Label
+  properties: {}
+  name: mother_tounge_label
+  layout_properties: {grid_position: 'ZZYYSN,AQRDLE'}
+  data_bindings:
+  - {property: text, code: 'self.item[''mother_tounge'']'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Marrital Status:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_17
+  layout_properties: {grid_position: 'BLHQIW,ILIRMK ASYFRC,GQGNVR'}
+- name: label_19
+  properties: {text: User Type}
+  type: Label
+  layout_properties: {grid_position: 'BLHQIW,ILIRMK LNUICI,NXRLRV'}
+- type: Label
+  properties: {}
+  name: marrital_status_label
+  layout_properties: {grid_position: 'BLHQIW,NYSLTL SGWYRL,ZYEDWB'}
+  data_bindings:
+  - {property: text, code: 'self.item[''marrital_status'']'}
+- name: user_type_label
+  properties: {}
+  type: Label
+  layout_properties: {grid_position: 'BLHQIW,NYSLTL ZJDDTK,RBQSIF'}
+is_package: true

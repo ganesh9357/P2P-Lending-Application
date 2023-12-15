@@ -1,0 +1,122 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: FlowPanel
+  properties: {}
+  name: flow_panel_1
+  layout_properties: {grid_position: 'KBRCTC,WSYTTU'}
+  components:
+  - name: image_1_copy_1_copy_1_copy_4
+    properties: {role: null, vertical_align: center, height: 49, tooltip: '', border: '',
+      foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small,
+      source: _/theme/kotackpng.png, spacing_below: small, background: '', horizontal_align: left}
+    type: Image
+    layout_properties:
+      col_widths: {}
+      grid_position: ',RHCVUB'
+      width: 268
+- type: Button
+  properties: {role: filled-button, align: right, tooltip: '', border: '', enabled: true,
+    foreground: black, visible: true, text: Home, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '#0876e8',
+    bold: false, underline: false, icon: 'fa:home'}
+  name: button_3
+  layout_properties: {grid_position: 'KBRCTC,AKHUOC'}
+  event_bindings: {click: button_3_click}
+- name: label_1_copy_1
+  properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: Lender Registration, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
+  type: Label
+  layout_properties: {grid_position: ',undefined'}
+- name: label_2_copy_1
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Lending Type, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
+  type: Label
+  layout_properties: {grid_position: 'JWWMUR,JVXVFN'}
+- name: lending_type_dropdown
+  properties:
+    role: null
+    align: full
+    tooltip: ''
+    placeholder: Select one
+    border: ''
+    enabled: true
+    foreground: ''
+    items: [Institutional, Individual]
+    visible: true
+    font_size: null
+    font: ''
+    spacing_above: small
+    spacing_below: small
+    italic: false
+    background: theme:On Primary
+    bold: false
+    underline: false
+    include_placeholder: true
+  type: DropDown
+  layout_properties: {grid_position: 'JWWMUR,ZJEQIT'}
+- name: label_3_copy_1
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Investment, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
+  type: Label
+  layout_properties: {grid_position: 'GJGPBZ,ZPBBNS'}
+- type: TextBox
+  properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+    border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+    font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+    background: white, bold: false, underline: false}
+  name: text_box_1
+  layout_properties: {grid_position: 'GJGPBZ,RPHNXL'}
+- name: label_1
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Lending Period, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
+  type: Label
+  layout_properties: {grid_position: 'HULYYQ,TLJPZE'}
+- type: DropDown
+  properties:
+    role: null
+    align: full
+    tooltip: ''
+    placeholder: Select one
+    border: ''
+    enabled: true
+    foreground: ''
+    items: [1 year, 2-3 Years, 4-5 years, 5 above years, '']
+    visible: true
+    font_size: null
+    font: ''
+    spacing_above: small
+    spacing_below: small
+    italic: false
+    background: theme:On Primary
+    bold: false
+    underline: false
+    include_placeholder: true
+  name: drop_down_2
+  layout_properties: {grid_position: 'HULYYQ,FYJUTX'}
+- name: button_1
+  properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
+    foreground: 'theme:On Primary Container', visible: true, text: Prev, font_size: null,
+    font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+    background: '#0876E8', bold: true, underline: false, icon: 'fa:angle-double-left'}
+  type: Button
+  layout_properties: {grid_position: 'XNRZNH,MQATHY'}
+  event_bindings: {click: button_1_click}
+- name: button_2
+  properties: {role: elevated-button, align: left, tooltip: '', border: '', enabled: true,
+    foreground: 'theme:On Primary Container', visible: true, text: Next, font_size: null,
+    font: '', spacing_above: small, icon_align: right, spacing_below: small, italic: false,
+    background: '#0876E8', bold: true, underline: false, icon: 'fa:angle-double-right'}
+  type: Button
+  layout_properties: {grid_position: 'XNRZNH,CTCQDL'}
+  event_bindings: {click: button_2_click}
+is_package: true

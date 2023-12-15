@@ -1,0 +1,52 @@
+container: {type: DataRowPanel}
+components:
+- type: Link
+  properties: {}
+  name: link_1
+  layout_properties: {column: RSMZQS}
+  data_bindings:
+  - {property: text, code: 'self.item[''coustmer_id'']'}
+  event_bindings: {click: link_1_click}
+- type: Label
+  properties: {}
+  name: label_1
+  layout_properties: {column: ZNJCAZ}
+  data_bindings:
+  - {property: text, code: 'self.item[''full_name'']'}
+- type: Label
+  properties: {}
+  name: label_2
+  layout_properties: {column: AMTTBE}
+  data_bindings:
+  - {property: text, code: 'self.item[''email_user'']'}
+- type: Label
+  properties: {}
+  name: label_3
+  layout_properties: {column: ZFAQSV}
+  data_bindings:
+  - {property: text, code: 'self.item[''last_confirm'']'}
+- type: Label
+  properties: {}
+  name: label_4
+  layout_properties: {column: ITSHDG}
+  data_bindings:
+  - {property: text, code: 'self.item[''usertype'']'}
+- type: Label
+  properties: {}
+  name: label_5
+  layout_properties: {column: MKJUDU}
+  data_bindings:
+  - {property: text, code: 'self.item[''date_of_birth'']'}
+- type: Label
+  properties: {}
+  name: label_6
+  layout_properties: {column: LNLBNV}
+  data_bindings:
+  - {property: text, code: 'self.item[''mobile'']'}
+- type: Label
+  properties: {}
+  name: label_7
+  layout_properties: {column: RQAQUE}
+  data_bindings:
+  - {property: text, code: 'self.item[''registration_approve'']'}
+is_package: true

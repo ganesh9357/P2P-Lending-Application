@@ -1,0 +1,65 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: GridPanel
+  properties: {}
+  name: grid_panel_1
+  layout_properties: {grid_position: 'RWPLCY,NOMFMJ'}
+  components:
+  - type: Label
+    properties: {}
+    name: label_1
+    layout_properties: {row: HUKGQK, width_xs: 6, col_xs: 0}
+  - type: Button
+    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: white, visible: true, text: Back, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '#db2332',
+      bold: false, underline: false, icon: ''}
+    name: button_1
+    layout_properties: {row: HUKGQK, width_xs: 2, col_xs: 10, width: 99.9875}
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: white,
+      visible: true, text: REPORT A BUG, font_size: 18, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '#083973',
+      bold: false, underline: true, icon: ''}
+    name: label_2
+    layout_properties: {row: LZSMVC, width_xs: 12, col_xs: 0, width: 750}
+  - type: Spacer
+    properties: {height: 21}
+    name: spacer_1
+    layout_properties: {grid_position: 'PFLPRP,MOSNPD', row: WXAOEV, width_xs: 12,
+      col_xs: 0}
+  - type: ColumnPanel
+    properties: {role: outlined-card, col_widths: '{}'}
+    name: outlined_card_1
+    layout_properties: {row: GFMJRE, width_xs: 12, col_xs: null}
+    components:
+    - type: DataGrid
+      properties:
+        role: tonal-data-grid
+        columns:
+        - {id: JTSYEP, title: User Issues, data_key: column_1, $$hashKey: 'object:34880'}
+        - {id: SBBIDK, title: Specific Issue, data_key: column_2, $$hashKey: 'object:34881'}
+        - {id: FWKZPI, title: User Discription, data_key: column_3, $$hashKey: 'object:34882'}
+        - {id: KZGPHN, title: Feedback Form, data_key: column_4, $$hashKey: 'object:35018'}
+        - {id: RPGLXM, title: '', data_key: column_5, $$hashKey: 'object:35020'}
+        auto_header: true
+        tooltip: ''
+        border: ''
+        foreground: ''
+        rows_per_page: 20
+        visible: true
+        wrap_on: never
+        show_page_controls: true
+        spacing_above: small
+        spacing_below: small
+        background: ''
+      name: data_grid_1
+      layout_properties: {grid_position: 'MMDKWL,LGBWZT'}
+      components:
+      - type: RepeatingPanel
+        properties: {spacing_above: none, spacing_below: none, item_template: admin.user_issue.user_buganalysis.RowTemplate17}
+        name: repeating_panel_1
+        layout_properties: {}
+is_package: true

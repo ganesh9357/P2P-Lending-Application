@@ -1,0 +1,32 @@
+is_package: true
+container: {type: DataRowPanel}
+components:
+- name: loan_id
+  properties: {}
+  type: Label
+  layout_properties: {column: JKSDUP}
+  data_bindings:
+  - {property: text, code: 'self.item[''loan_id'']', writeback: false}
+- name: loan_amount
+  properties: {}
+  type: Label
+  layout_properties: {column: VJQQOR}
+  data_bindings:
+  - {property: text, code: 'self.item[''loan_amount'']', writeback: false}
+- name: today_due
+  properties: {}
+  type: Label
+  layout_properties: {column: OJLQEN}
+  data_bindings:
+  - {property: text, code: 'self.item[''due_date'']', writeback: false}
+- name: link_1
+  properties: {bold: true, text: View Details}
+  type: Link
+  layout_properties: {column: SPXQVA}
+  event_bindings: {click: link_1_click}
+- name: days_left
+  properties: {}
+  type: Label
+  layout_properties: {column: VLUBHH}
+  data_bindings:
+  - {property: text, code: 'self.item[''days_left'']', writeback: false}

@@ -1,0 +1,27 @@
+container: {type: DataRowPanel}
+components:
+- type: Label
+  properties: {}
+  name: label_1
+  layout_properties: {column: EPCWQG}
+  data_bindings:
+  - {property: text, code: 'self.item[''loan_id'']'}
+- type: Label
+  properties: {}
+  name: label_2
+  layout_properties: {column: WMIWXU}
+  data_bindings:
+  - {property: text, code: 'self.item[''coustmer_id'']'}
+- type: Label
+  properties: {}
+  name: label_3
+  layout_properties: {column: PVBYZX}
+  data_bindings:
+  - {property: text, code: 'self.item[''full_name'']'}
+- type: Label
+  properties: {}
+  name: label_4
+  layout_properties: {column: HCAQYD}
+  data_bindings:
+  - {property: text, code: 'self.item[''loan_updated_status'']'}
+is_package: true

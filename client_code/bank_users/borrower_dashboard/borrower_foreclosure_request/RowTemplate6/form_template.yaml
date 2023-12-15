@@ -1,0 +1,35 @@
+container: {type: DataRowPanel}
+components:
+- type: Label
+  properties: {}
+  name: label_1
+  layout_properties: {column: YRBSTU}
+  data_bindings:
+  - {property: text, code: 'self.item[''loan_id'']'}
+- type: Label
+  properties: {}
+  name: label_2
+  layout_properties: {column: BBLWGQ}
+  data_bindings:
+  - {property: text, code: 'self.item[''full_name'']'}
+- type: Label
+  properties: {}
+  name: label_3
+  layout_properties: {column: JNXGTJ}
+  data_bindings:
+  - {property: text, code: 'self.item[''loan_amount'']'}
+- type: Label
+  properties: {}
+  name: label_4
+  layout_properties: {column: SNBEBY}
+  data_bindings:
+  - {property: text, code: 'self.item[''tenure'']'}
+- type: Link
+  properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '#0876E8',
+    visible: true, text: click here, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
+    spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
+    italic: false, background: '', bold: false, underline: false, icon: ''}
+  name: link_1
+  layout_properties: {column: UJRMZF}
+  event_bindings: {click: link_1_click}
+is_package: true
