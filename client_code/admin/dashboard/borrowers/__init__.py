@@ -29,7 +29,7 @@ class borrowers(borrowersTemplate):
     
     for i in self.data:
       a+=1
-      self.list_1.append(i['coustmer_id'])
+      self.list_1.append(i['customer_id'])
       self.list_2.append(i['full_name'])
       self.list_3.append(i['email_user'])
       self.list_4.append(i['usertype'])

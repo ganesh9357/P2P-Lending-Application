@@ -24,7 +24,7 @@ class loan_disbursed(loan_disbursedTemplate):
   
     self.result = []
     for i in self.user_profile:
-      self.id.append(i['coustmer_id'])
+      self.id.append(i['customer_id'])
       self.type.append(i['usertype'])
       self.account.append(i['account_number'])
 
