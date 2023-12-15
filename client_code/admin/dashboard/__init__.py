@@ -33,7 +33,7 @@ class dashboard(dashboardTemplate):
 
   def button_6_click(self, **event_args):
     """This method is called when the button is clicked"""
-    open_form('admin.dashboard.manage_products.add_product_categories_and_groups')
+    open_form('admin.dashboard.manage_products.add_product_categories_and_group')
 
   def button_7_click(self, **event_args):
     """This method is called when the button is clicked"""
