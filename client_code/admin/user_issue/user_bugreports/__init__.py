@@ -48,7 +48,7 @@ class user_bugreports(user_bugreportsTemplate):
     for i in name:
       c+=1
       email_user.append(i['email_user'])
-      coustmer_id.append(i['coustmer_id'])
+      coustmer_id.append(i['customer_id'])
 
     
     data = tables.app_tables.user_issues_bugreports.search()
