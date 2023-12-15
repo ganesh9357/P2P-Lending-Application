@@ -11,7 +11,7 @@ from anvil.tables import app_tables
 class star_1_borrower_registration_form_begin_3e(star_1_borrower_registration_form_begin_3eTemplate):
   def __init__(self,user_id, **properties):
     self.userId = user_id
-    user_data=app_tables.user_profile.get(coustmer_id=user_id)
+    user_data=app_tables.user_profile.get(customer_id=user_id)
     if user_data:
       self.text_box_1.text=user_data['company_address']
       self.text_box_2.text=user_data['company_landmark']

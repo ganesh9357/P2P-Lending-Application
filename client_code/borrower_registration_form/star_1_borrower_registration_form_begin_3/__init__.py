@@ -13,7 +13,7 @@ class star_1_borrower_registration_form_begin_3(star_1_borrower_registration_for
     # Set Form properties and Data Bindings.
     self.userId = user_id
     self.init_components(**properties)
-    user_data=app_tables.user_profile.get(coustmer_id=user_id)
+    user_data=app_tables.user_profile.get(customer_id=user_id)
     if user_data:
       self.borrower_registration_aadhar_text.text=user_data['aadhaar_no']
       self.borrower_registration_pan_text.text=user_data['pan_number']

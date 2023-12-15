@@ -11,7 +11,7 @@ import re
 class star_1_borrower_registration_form_begin_3a(star_1_borrower_registration_form_begin_3aTemplate):
   def __init__(self,user_id, **properties):
     self.userId = user_id
-    user_data=app_tables.user_profile.get(coustmer_id=user_id)
+    user_data=app_tables.user_profile.get(customer_id=user_id)
     if user_data:
       self.father_name_br3a_text.text=user_data['father_name']
       self.father_age_br3a_text.text=user_data['father_age']
