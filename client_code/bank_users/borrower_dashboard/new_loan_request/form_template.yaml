@@ -1,7 +1,13 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {col_widths: '{"JLWSFC":30,"JNFGNN":30}'}
 components:
+- name: image_1_copy_1_copy_1_copy_1_copy_1_copy_1
+  properties: {role: null, vertical_align: center, height: 48, tooltip: '', border: '',
+    foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small,
+    source: _/theme/kotackpng.png, spacing_below: small, background: '', horizontal_align: left}
+  type: Image
+  layout_properties: {grid_position: 'NEAHIU,OYXVAL'}
 - name: button_1
   properties: {role: tonal-button, align: right, tooltip: '', border: '', enabled: true,
     foreground: black, visible: true, text: Home, font_size: null, font: '', spacing_above: small,
@@ -10,26 +16,35 @@ components:
   type: Button
   layout_properties: {grid_position: 'NEAHIU,IWBTBX'}
   event_bindings: {click: button_1_click}
+- type: Spacer
+  properties: {height: 48}
+  name: spacer_1
+  layout_properties: {grid_position: 'GAQDQF,NOUIYL'}
 - type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: Credit Limit, font_size: null, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: false, background: '', bold: true, underline: false,
-    icon: ''}
+  properties: {role: headline, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: Credit Limit, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
   name: label_5
   layout_properties:
     col_widths: {}
     grid_position: RIFDPA,FXDAEC
 - name: max_amount_lb
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-    italic: false, background: white, bold: false, underline: false, icon: ''}
+  properties: {role: headline, align: left, tooltip: '', border: '', foreground: green,
+    visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: white, bold: false, underline: false,
+    icon: ''}
   type: Label
   layout_properties: {grid_position: 'RIFDPA,WXMQBR'}
+- type: Spacer
+  properties: {height: 32}
+  name: spacer_2
+  layout_properties: {grid_position: 'NJMYBL,OMVYHI'}
 - type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: Product Group, font_size: null, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: false, background: '', bold: false, underline: false,
-    icon: ''}
+  properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: Product Group, font_size: 20, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
   name: label_1
   layout_properties: {grid_position: 'ADFVSS,JLWSFC'}
 - type: DropDown
@@ -55,14 +70,32 @@ components:
   name: drop_down_1
   layout_properties: {grid_position: 'ADFVSS,JNFGNN'}
 - type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: Product Categories, font_size: null, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: false, background: '', bold: false, underline: false,
-    icon: ''}
+  properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+    visible: false, text: Product Categories, font_size: 20, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
   name: label_2
   layout_properties: {grid_position: 'LNCQEK,HSNNKG'}
 - type: DropDown
-  properties: {}
+  properties:
+    role: null
+    align: full
+    tooltip: ''
+    placeholder: ''
+    border: ''
+    enabled: true
+    foreground: ''
+    items: []
+    visible: false
+    font_size: null
+    font: ''
+    spacing_above: small
+    spacing_below: small
+    italic: false
+    background: white
+    bold: false
+    underline: false
+    include_placeholder: false
   name: drop_down_2
   layout_properties: {grid_position: 'LNCQEK,AQSEPS'}
 - type: Button
