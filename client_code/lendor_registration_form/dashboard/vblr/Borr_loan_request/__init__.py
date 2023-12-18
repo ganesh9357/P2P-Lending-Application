@@ -13,7 +13,7 @@ class Borr_loan_request(Borr_loan_requestTemplate):
         self.init_components(**properties)
 
         # Populate labels with the selected row details
-        self.label_user_id.text = f"{selected_row['coustmer_id']}"
+        self.label_user_id.text = f"{selected_row['customer_id']}"
         self.label_name.text = f"{selected_row['full_name']}"
         self.label_loan_amount_applied.text = f"{selected_row['loan_amount']}"
         self.label_loan_acc_number.text = f"{selected_row['loan_id']}"
@@ -23,7 +23,7 @@ class Borr_loan_request(Borr_loan_requestTemplate):
 
         # Fetch additional details from the 'borrower' table
         try:
-            user_request = app_tables.borrower.get(coustmer_id=str(selected_row['coustmer_id']))
+            user_request = app_tables.borrower.get(customer_id=str(selected_row['customer_id']))
             if user_request is not None:
                 # Assuming 'bank_acc_details' is a valid column name in the 'borrower' table
                 bank_acc_details = user_request['bank_acc_details']
