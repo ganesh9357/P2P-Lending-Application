@@ -599,8 +599,8 @@ db_schema:
     - name: borrowing_status
       admin_ui: {width: 200, order: 7}
       type: bool
-    - name: borrower_approve_date_time
-      admin_ui: {width: 200, order: 8}
+    - name: borrower_approve_date
+      admin_ui: {order: 8, width: 200}
       type: datetime
     - name: beseem_score
       admin_ui: {width: 200, order: 9}
