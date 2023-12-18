@@ -25,10 +25,11 @@ class loan_type(loan_typeTemplate):
         # Manually fetch loan types from the 'product_group' table
         loan_types = app_tables.product_group.search()
 
-        # Populate the dropdown with fetched loan types
+        # # Populate the dropdown with fetched loan types
         if loan_types:
             self.drop_down_1.items = [loan['name'] for loan in loan_types]
             self.drop_down_1.selected_value = loan_types[0]['name']  # Set the default selection
+
 
     def populate_product_categories(self):
         # Manually fetch product categories from the 'product_category' table
