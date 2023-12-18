@@ -16,7 +16,7 @@ class borrower_profile(borrower_profileTemplate):
     self.init_components(**properties)
     
     # Any code you write here will run before the form opens.
-    user_profile=app_tables.user_profile.get(coustmer_id=self.user_id)
+    user_profile=app_tables.user_profile.get(customer_id=self.user_id)
     if user_profile: 
       
       self.full_name_label.text=user_profile['full_name']

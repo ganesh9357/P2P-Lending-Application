@@ -12,7 +12,7 @@ import re
 class star_1_borrower_registration_form_begin_3b_student(star_1_borrower_registration_form_begin_3b_studentTemplate):
   def __init__(self,user_id, **properties):
     self.user_id=user_id
-    user_data=app_tables.user_profile.get(coustmer_id=user_id)
+    user_data=app_tables.user_profile.get(customer_id=user_id)
     if user_data:
      self.borrower_college_name_text.text=user_data['college_name']
      self.borrower_college_id_text.text=user_data['college_id']

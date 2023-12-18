@@ -39,7 +39,7 @@ class check_out_business(check_out_businessTemplate):
                 if most_recent_request is None or request['timestamp'] > most_recent_request['timestamp']:
                     most_recent_request = request
 
-            self.customer_id = most_recent_request['coustmer_id']
+            self.customer_id = most_recent_request['customer_id']
             loan_amount = most_recent_request['loan_amount']
             tenure = most_recent_request['tenure']
             credit_limit = most_recent_request['credit_limit']

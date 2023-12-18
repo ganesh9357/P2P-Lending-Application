@@ -16,13 +16,15 @@ class new_loan_request(new_loan_requestTemplate):
         tenure = self.tenure_dd.selected_value
         user_id = self.user_id
         
-        anvil.server.call('add_loan_details',loan_amount, credit_limit, tenure, user_id)
-
-        if self.check_box_1.checked:
-            open_form('bank_users.borrower_dashboard.new_loan_request.loan_type')
+        # Check if the checkbox is checked
+        if not loan_amount or not tenure:
+            Notification('please fill all details')
+        elif not self.check_box_1.checked:
+            anvil.server.call('add_loan_details', loan_amount, credit_limit, tenure, user_id)
+            Notification('Please select Terms and Conditions').show()
         else:
-            alert('Please select Terms and Conditions')
-
+            open_form('bank_users.borrower_dashboard.new_loan_request.loan_type')
+            
     def link_1_click(self, **event_args):
         """This method is called when the link is clicked"""
         alert('Agreements, Privacy Policy, and Applicant should accept the following: Please note that any information concealed (as what we ask for) would be construed as illegitimate action on your part and an intentional attempt to hide material information, which if found in the future, would attract necessary action(s) at your sole cost. Hence, request to be truthful to your best knowledge while sharing your details)')

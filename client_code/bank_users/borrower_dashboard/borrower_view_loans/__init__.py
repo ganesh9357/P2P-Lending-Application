@@ -13,11 +13,11 @@ class borrower_view_loans(borrower_view_loansTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.user_id=main_form_module.userId
-    self.repeating_panel_1.items=app_tables.loan_details.search(loan_updated_status=q.like('open%'),coustmer_id=self.user_id)
-    self.repeating_panel_2.items=app_tables.loan_details.search(loan_updated_status=q.like('close%'),coustmer_id=self.user_id)
-    self.repeating_panel_3.items=app_tables.loan_details.search(loan_updated_status=q.like('reject%'),coustmer_id=self.user_id)
-    self.repeating_panel_4.items=app_tables.loan_details.search(loan_updated_status=q.like('underprocess%'),coustmer_id=self.user_id)
-    self.repeating_panel_5.items=app_tables.loan_details.search(loan_updated_status=q.like('foreclosure%'),coustmer_id=self.user_id)
+    self.repeating_panel_1.items=app_tables.loan_details.search(loan_updated_status=q.like('open%'),customer_id=self.user_id)
+    self.repeating_panel_2.items=app_tables.loan_details.search(loan_updated_status=q.like('close%'),customer_id=self.user_id)
+    self.repeating_panel_3.items=app_tables.loan_details.search(loan_updated_status=q.like('reject%'),customer_id=self.user_id)
+    self.repeating_panel_4.items=app_tables.loan_details.search(loan_updated_status=q.like('underprocess%'),customer_id=self.user_id)
+    self.repeating_panel_5.items=app_tables.loan_details.search(loan_updated_status=q.like('foreclosure%'),customer_id=self.user_id)
     self.label_5.text = str(len(self.repeating_panel_1.items))
     self.label_6.text=str(len(self.repeating_panel_2.items))
     self.label_7.text=str(len(self.repeating_panel_3.items))
