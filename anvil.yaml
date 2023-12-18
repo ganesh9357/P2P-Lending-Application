@@ -29,7 +29,7 @@ db_schema:
     server: full
     columns:
     - name: product_name
-      admin_ui: {width: 200}
+      admin_ui: {order: 0, width: 200}
       type: string
     - name: product_categories
       admin_ui: {width: 200}
@@ -46,12 +46,6 @@ db_schema:
     - name: interest_type
       admin_ui: {width: 200}
       type: string
-    - name: max_days
-      admin_ui: {width: 200}
-      type: number
-    - name: min_days
-      admin_ui: {width: 200}
-      type: number
     - name: roi
       admin_ui: {width: 200}
       type: number
@@ -61,9 +55,24 @@ db_schema:
     - name: product_id
       admin_ui: {order: -1, width: 200}
       type: string
-    - name: product_group
-      admin_ui: {width: 200}
+    - name: tenure
+      admin_ui: {width: 200, order: 4.5}
+      type: number
+    - name: late_fee
+      admin_ui: {width: 200, order: 2.5}
+      type: number
+    - name: max_amount
+      admin_ui: {width: 200, order: 4.75}
+      type: number
+    - name: min_amount
+      admin_ui: {width: 200, order: 4.625}
+      type: number
+    - name: foreclose_type
+      admin_ui: {width: 200, order: 12}
       type: string
+    - name: extension_allowed
+      admin_ui: {width: 200, order: 13}
+      type: bool
   user_profile:
     client: full
     server: full
