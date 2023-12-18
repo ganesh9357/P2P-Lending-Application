@@ -61,6 +61,10 @@ components:
     icon: ''}
   name: label_2
   layout_properties: {grid_position: 'LNCQEK,HSNNKG'}
+- type: DropDown
+  properties: {}
+  name: drop_down_2
+  layout_properties: {grid_position: 'LNCQEK,AQSEPS'}
 - type: Button
   properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
     foreground: black, visible: true, text: Next, font_size: null, font: '', spacing_above: small,
