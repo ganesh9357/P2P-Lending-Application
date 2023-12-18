@@ -174,6 +174,7 @@ unique_ids:
     admin.dashboard.manage_products.edit_form: '1700713167379525299380252.5991'
   modules:
     bank_users: '1697785066420255019039536.32742'
+    admin.products_module: '1702876544414871005317756.6404'
     borrower_registration_form: '1697801606303980155019216.2473'
     bank_users.user_form.user_module: '1698214640397501426321190.87915'
     bank_users.main_form.main_form_module: '1697797787236242664445.2286908'
