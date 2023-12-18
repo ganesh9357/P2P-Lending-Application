@@ -440,8 +440,8 @@ db_schema:
     - name: total_repayment_amount
       admin_ui: {order: -0.00390625, width: 200}
       type: number
-    - name: customer_id
-      admin_ui: {order: 3, width: 200}
+    - name: borrower_customer_id
+      admin_ui: {order: 14, width: 200}
       type: number
     - name: member_rom
       admin_ui: {width: 200, order: 11.5}
@@ -584,12 +584,6 @@ db_schema:
     - name: user_name
       admin_ui: {width: 200, order: 2}
       type: string
-    - name: out_standing_amount
-      admin_ui: {width: 200, order: 4}
-      type: number
-    - name: loan_id
-      admin_ui: {width: 200, order: 5}
-      type: number
     - name: admin_approve
       admin_ui: {width: 200, order: 6}
       type: bool
