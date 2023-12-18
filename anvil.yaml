@@ -61,6 +61,15 @@ db_schema:
     - name: late_fee
       admin_ui: {width: 200, order: 2.5}
       type: number
+    - name: max_amount
+      admin_ui: {width: 200, order: 4.75}
+      type: number
+    - name: min_amount
+      admin_ui: {width: 200, order: 4.625}
+      type: number
+    - name: foreclose_type
+      admin_ui: {width: 200, order: 12}
+      type: string
   user_profile:
     client: full
     server: full
