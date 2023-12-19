@@ -9,6 +9,7 @@ from anvil import open_form
 
 class Borr_loan_request(Borr_loan_requestTemplate):
     def __init__(self, selected_row, **properties):
+        self.selected_row = selected_row
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
 
@@ -27,8 +28,8 @@ class Borr_loan_request(Borr_loan_requestTemplate):
             if user_request is not None:
                 # Assuming 'bank_acc_details' is a valid column name in the 'borrower' table
                 bank_acc_details = user_request['bank_acc_details']
-                borrower_approve_date_time = user_request['borrower_approve_date_time']
-                self.label_member_since.text = f"{borrower_approve_date_time}"
+                borrower_approve_date = user_request['borrower_approve_date']
+                self.label_member_since.text = f"{borrower_approve_date}"
                 self.label_bank_acc_details.text = f"{bank_acc_details}"
                 
                 # Fetch additional details from the 'loan_details' table
@@ -71,33 +72,24 @@ class Borr_loan_request(Borr_loan_requestTemplate):
       """This method is called when the button is clicked"""
       open_form('lendor_registration_form.dashboard.vblr')
 
+  
     def accepted_click(self, **event_args):
-        """This method is called when the button is clicked"""
-        try:
-          loan_details_column = app_tables.loan_details.get(loan_updated_status=str(selected_row['loan_updated_status']))
-          if loan_details is not None:
-            
-
-          # Update the 'loan_status' column in the 'loan_details' table to 'accepted'
-            selected_row['loan_updated_status'] = 'accepted'
-          
-          # Save changes to the table
-            selected_row.update()
-          
-            Notification("Borrower will get notified").show()
-            open_form("lendor_registration_form.dashboard.vblr")
-          
-        except Exception as e:
-          print(f"Error: {e}")
+       """This method is called when the button is clicked"""
+      # Update the 'loan_status' column in the 'loan_details' table to 'accepted'
+       self.selected_row['loan_updated_status'] = 'accepted'
+       # Save changes to the table
+       self.selected_row.update()      
+       Notification("Borrower will get notified").show()
+       open_form("lendor_registration_form.dashboard.vblr")
 
   
-    # def rejected_click(self, **event_args):
-    #   """This method is called when the button is clicked"""
-    #   # Delete the entire row from the 'loan details' table
-    #   self.selected_row.delete()
+    def rejected_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      # Delete the entire row from the 'loan details' table
+      self.selected_row.delete()
 
-    #   # Close the form after deletion
-    #   open_form("lendor_registration_form.dashboard.vblr")
+      # Close the form after deletion
+      open_form("lendor_registration_form.dashboard.vblr")
       
         
         
