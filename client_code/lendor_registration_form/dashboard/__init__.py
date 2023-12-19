@@ -34,7 +34,7 @@ class dashboard(dashboardTemplate):
     """This method is called when the button is clicked"""
     open_form("lendor_registration_form.dashboard.vblr")
 
-  def button_6_click(self, **event_args):
+  def button__click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form("lendor_registration_form.dashboard.ld")
 
