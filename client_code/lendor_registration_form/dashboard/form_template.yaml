@@ -125,7 +125,7 @@ components:
         italic: false, background: '#0876e8', bold: false, underline: false, icon: ''}
       type: Button
       layout_properties: {grid_position: 'FFRNUM,RQFISK'}
-      event_bindings: {click: button__click}
+      event_bindings: {click: button_5_click}
   - type: LinearPanel
     properties: {}
     name: linear_panel_4
@@ -203,7 +203,7 @@ components:
         italic: false, background: '#0876e8', bold: false, underline: false, icon: ''}
       type: Button
       layout_properties: {grid_position: 'WKLSTO,NFLNFH'}
-      event_bindings: {click: button_5_click}
+      event_bindings: {click: button_6_click}
   - type: LinearPanel
     properties: {}
     name: linear_panel_10
