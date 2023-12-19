@@ -11,7 +11,10 @@ class new_loan_request(new_loan_requestTemplate):
         self.user_id = main_form_module.userId
         self.init_components(**properties)
         self.max_amount_lb.text = f"200000"
-        self.drop_down_1= app_tables.product_group.search()
+        options = app_tables.product_group.search()
+        option_strings = [option['name'] for option in options]
+        self.name.items = option_strings
+        self.name.selected_value = option_strings[0] if option_strings else None 
 
 
     def button_1_click(self, **event_args):
