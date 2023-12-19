@@ -65,17 +65,32 @@ class Borr_loan_request(Borr_loan_requestTemplate):
             print(f"Error converting min_amount_text to numeric: {e}")
             return 0
 
-    def button_2_click(self, **event_args):
-        """This method is called when the button is clicked"""
-        open_form('lendor_registration_form.dashboard.vblr')
+    
 
     def button_1_click(self, **event_args):
       """This method is called when the button is clicked"""
       open_form('lendor_registration_form.dashboard.vblr')
 
-    def button_3_click(self, **event_args):
+    def accepted_click(self, **event_args):
+        """This method is called when the button is clicked"""
+        # Update the 'loan_status' column in the 'loan_details' table to 'accepted'
+      
+        self.selected_row['loan_updated_status'] = 'accepted'
+        # Save changes to the table
+        self.selected_row.update()
+        Notification("Borrower will get notified").show()
+        open_form("lendor_registration_form.dashboard.vblr")
+  
+    def rejected_click(self, **event_args):
       """This method is called when the button is clicked"""
-      pass
+      # Delete the entire row from the 'loan details' table
+      self.selected_row.delete()
+
+      # Close the form after deletion
+      open_form("lendor_registration_form.dashboard.vblr")
+      
+        
+        
 
 
 
