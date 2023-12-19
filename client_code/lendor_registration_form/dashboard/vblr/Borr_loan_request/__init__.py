@@ -23,13 +23,13 @@ class Borr_loan_request(Borr_loan_requestTemplate):
 
         # Fetch additional details from the 'borrower' table
         try:
-            user_request = app_tables.borrower.get(customer_id=str(selected_row['customer_id']))
+            user_request = app_tables.borrower.get(customer_id=str(selected_row['borrower_customer_id']))
             if user_request is not None:
                 # Assuming 'bank_acc_details' is a valid column name in the 'borrower' table
                 bank_acc_details = user_request['bank_acc_details']
                 borrower_approve_date_time = user_request['borrower_approve_date_time']
-                self.label_member_since.text = f"{'borrower_approve_date_time'}"
-                self.label_bank_acc_details.text = f"{'bank_acc_details'}"
+                self.label_member_since.text = f"{borrower_approve_date_time}"
+                self.label_bank_acc_details.text = f"{bank_acc_details}"
                 
                 # Fetch additional details from the 'loan_details' table
                 try:
