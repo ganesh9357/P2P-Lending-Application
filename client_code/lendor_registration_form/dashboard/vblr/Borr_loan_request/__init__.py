@@ -80,9 +80,9 @@ class Borr_loan_request(Borr_loan_requestTemplate):
        # Save changes to the table
        self.selected_row.update()
       
-      # Disable the "Accept" button
+       # Disable the "Accept" button
        self.accepted_btn.enabled = False
-      # Set the text of the Output Label with blue color
+       # Set the text of the Output Label with blue color
        self.output_label1.text = "This Borrower Loan is Accepted"
        self.output_label1.foreground = '#0000FF' # Blue color
        self.output_label1.visible = True
