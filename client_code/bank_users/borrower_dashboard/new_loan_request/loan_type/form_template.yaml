@@ -59,7 +59,7 @@ components:
       border: ''
       enabled: true
       foreground: black
-      items: []
+      items: ['6', '12', '18', '24', '30', '36', '42', '48']
       visible: true
       font_size: null
       font: ''
@@ -94,10 +94,12 @@ components:
       underline: false, icon: ''}
     name: label_6
     layout_properties: {grid_position: 'RWDUHK,ZLLTWE'}
+    event_bindings: {show: label_6_show}
   - type: Label
     properties: {}
     name: label_5
     layout_properties: {grid_position: 'RWDUHK,ZUNUAS'}
+    event_bindings: {show: label_5_show}
   - type: Label
     properties: {text: Minimum Tenure}
     name: label_12
@@ -125,6 +127,7 @@ components:
     properties: {}
     name: label_11
     layout_properties: {grid_position: 'MQALFP,WKQTKQ'}
+    event_bindings: {show: label_11_show}
   - type: Label
     properties: {text: Maximum Tenure}
     name: label_14
