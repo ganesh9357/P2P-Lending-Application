@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"HIIQHH":10,"CRYIRK":20,"PDIDDX":30,"JDDGOM":10,"PFNXDB":20,"XJITYJ":30}'}
+  properties: {col_widths: '{"HIIQHH":10,"CRYIRK":20,"PDIDDX":30,"JDDGOM":10,"PFNXDB":20,"XJITYJ":30,"TDCKOL":3,"NXTEDB":22,"YUNZEC":3,"OHCQLQ":34,"NHTIAY":10}'}
 components:
 - type: Image
   properties: {role: null, vertical_align: center, height: '45', tooltip: '', border: '',
@@ -42,6 +42,32 @@ components:
   properties: {height: 32}
   name: spacer_3
   layout_properties: {grid_position: 'UOBCSP,PDIDDX'}
+- type: Spacer
+  properties: {height: 32}
+  name: spacer_5
+  layout_properties: {grid_position: 'YKJCUS,NHTIAY'}
+- type: CheckBox
+  properties: {text: check_box_1}
+  name: check_box_1
+  layout_properties: {grid_position: 'YKJCUS,TDCKOL'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: One Time, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_22
+  layout_properties: {grid_position: 'YKJCUS,NXTEDB'}
+- type: CheckBox
+  properties: {text: check_box_2}
+  name: check_box_2
+  layout_properties: {grid_position: 'YKJCUS,YUNZEC'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Monthly EMI, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_23
+  layout_properties: {grid_position: 'YKJCUS,OHCQLQ'}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: Tenure, font_size: null, font: '', spacing_above: small, icon_align: left,
