@@ -216,7 +216,7 @@ components:
       layout_properties: {grid_position: 'TISPBT,NHDUVG'}
     - name: output_label1
       properties: {text: '', role: null, background: '', align: center, bold: true,
-        font: a, font_size: 18, visible: false}
+        font: a, font_size: 20, visible: false}
       type: Label
       layout_properties: {grid_position: 'UECLBR,HWTNHE'}
       event_bindings: {}
