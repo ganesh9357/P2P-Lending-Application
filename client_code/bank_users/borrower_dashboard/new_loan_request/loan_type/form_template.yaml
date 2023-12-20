@@ -58,7 +58,7 @@ components:
     border: ''
     enabled: true
     foreground: black
-    items: ['6', '12', '18', '24', '30', '36', '42', '48']
+    items: ['3', '6', '12', '18', '24', '30', '36', '42', '48']
     visible: true
     font_size: null
     font: ''
@@ -81,10 +81,10 @@ components:
   layout_properties: {grid_position: 'HUCDSN,ZMWFUY'}
 - type: ColumnPanel
   properties: {role: elevated-card, tooltip: '', border: '', foreground: black, visible: true,
-    wrap_on: tablet, col_spacing: small, spacing_above: medium, col_widths: '{}',
+    wrap_on: tablet, col_spacing: small, spacing_above: medium, col_widths: '{"QDVQOM":10,"ZBWHEY":10,"TALGBU":10,"OUFHNM":10,"ZYUWEF":11,"FSRIXA":10}',
     spacing_below: medium, background: blue}
   name: column_panel_1
-  layout_properties: {grid_position: 'BRUTJN,GTBGJE'}
+  layout_properties: {grid_position: 'BRUTJN,GTBGJE', full_width_row: true, row_background: ''}
   components:
   - type: ColumnPanel
     properties: {col_widths: '{}'}
@@ -102,6 +102,7 @@ components:
     properties: {}
     name: label_7
     layout_properties: {grid_position: 'HUGMZZ,FGSVFG'}
+    event_bindings: {show: label_7_show}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: Min Amount, font_size: null, font: '', spacing_above: small,
@@ -123,6 +124,7 @@ components:
     properties: {}
     name: label_13
     layout_properties: {grid_position: 'HUGMZZ,SYXHLZ'}
+    event_bindings: {show: label_13_show}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: Forclosure Eligibility, font_size: null, font: '', spacing_above: small,
@@ -134,6 +136,7 @@ components:
     properties: {}
     name: label_9
     layout_properties: {grid_position: 'YPBOAV,BYNWYK'}
+    event_bindings: {show: label_9_show}
   - type: Label
     properties: {text: Max Amount}
     name: label_10
@@ -151,22 +154,7 @@ components:
     properties: {}
     name: label_15
     layout_properties: {grid_position: 'YPBOAV,KMXVOR'}
-  - type: Label
-    properties: {text: Monthly EMI}
-    name: label_16
-    layout_properties: {grid_position: 'HSFTCE,FDLGLF'}
-  - type: Label
-    properties: {}
-    name: label_17
-    layout_properties: {grid_position: 'HSFTCE,TBHWHD'}
-  - type: Label
-    properties: {text: Total Repayment}
-    name: label_18
-    layout_properties: {grid_position: 'HSFTCE,HOXKPI'}
-  - type: Label
-    properties: {}
-    name: label_19
-    layout_properties: {grid_position: 'HSFTCE,CVHLRX'}
+    event_bindings: {show: label_15_show}
   - type: Label
     properties: {text: Processing fee}
     name: label_20
@@ -174,11 +162,29 @@ components:
   - type: Label
     properties: {}
     name: label_21
-    layout_properties: {grid_position: 'HSFTCE,APFBFO'}
+    layout_properties: {grid_position: 'HSFTCE,ZBWHEY'}
+    event_bindings: {show: label_21_show}
+  - type: Label
+    properties: {}
+    name: label_17
+    layout_properties: {grid_position: 'HSFTCE,TALGBU'}
+  - type: Label
+    properties: {}
+    name: label_18
+    layout_properties: {grid_position: 'HSFTCE,OUFHNM'}
+  - type: Label
+    properties: {}
+    name: label_19
+    layout_properties: {grid_position: 'HSFTCE,ZYUWEF'}
+  - type: Label
+    properties: {}
+    name: label_16
+    layout_properties: {grid_position: 'HSFTCE,FSRIXA'}
 - name: spacer_1
-  properties: {height: 67}
+  properties: {visible: true, spacing_above: small, spacing_below: small, height: 67,
+    tooltip: ''}
   type: Spacer
-  layout_properties: {grid_position: 'ZUZLAG,YLKZBV'}
+  layout_properties: {grid_position: 'ZUZLAG,YLKZBV', full_width_row: true}
 - type: Button
   properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
     foreground: black, visible: true, text: ' Back', font_size: null, font: '', spacing_above: small,
