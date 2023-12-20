@@ -36,6 +36,7 @@ components:
     icon: ''}
   type: Label
   layout_properties: {grid_position: 'RIFDPA,WXMQBR'}
+  event_bindings: {show: max_amount_lb_show}
 - type: Spacer
   properties: {height: 32}
   name: spacer_2
