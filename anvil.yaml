@@ -489,7 +489,7 @@ db_schema:
       admin_ui: {width: 200, order: 19}
       type: datetime
     - name: lender_email_id
-      admin_ui: {width: 200}
+      admin_ui: {order: 2, width: 200}
       type: string
     - name: days_left
       admin_ui: {width: 200, order: 21}
@@ -599,9 +599,6 @@ db_schema:
     - name: borrowing_status
       admin_ui: {width: 200, order: 7}
       type: bool
-    - name: borrower_approve_date_time
-      admin_ui: {width: 200, order: 8}
-      type: datetime
     - name: beseem_score
       admin_ui: {width: 200, order: 9}
       type: string
@@ -611,6 +608,9 @@ db_schema:
     - name: credit_limit
       admin_ui: {width: 200}
       type: number
+    - name: borrower_approve_date
+      admin_ui: {width: 200, order: 11}
+      type: date
   product_categories:
     client: full
     server: full

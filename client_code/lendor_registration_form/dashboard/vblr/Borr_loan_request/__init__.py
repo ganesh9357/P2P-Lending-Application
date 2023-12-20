@@ -9,11 +9,12 @@ from anvil import open_form
 
 class Borr_loan_request(Borr_loan_requestTemplate):
     def __init__(self, selected_row, **properties):
+        self.selected_row = selected_row
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
 
         # Populate labels with the selected row details
-        self.label_user_id.text = f"{selected_row['customer_id']}"
+        self.label_user_id.text = f"{selected_row['borrower_customer_id']}"
         self.label_name.text = f"{selected_row['full_name']}"
         self.label_loan_amount_applied.text = f"{selected_row['loan_amount']}"
         self.label_loan_acc_number.text = f"{selected_row['loan_id']}"
@@ -23,12 +24,12 @@ class Borr_loan_request(Borr_loan_requestTemplate):
 
         # Fetch additional details from the 'borrower' table
         try:
-            user_request = app_tables.borrower.get(customer_id=str(selected_row['customer_id']))
+            user_request = app_tables.borrower.get(customer_id=str(selected_row['borrower_customer_id']))
             if user_request is not None:
                 # Assuming 'bank_acc_details' is a valid column name in the 'borrower' table
                 bank_acc_details = user_request['bank_acc_details']
-                borrower_approve_date_time = user_request['borrower_approve_date_time']
-                self.label_member_since.text = f"{borrower_approve_date_time}"
+                borrower_approve_date = user_request['borrower_approve_date']
+                self.label_member_since.text = f"{borrower_approve_date}"
                 self.label_bank_acc_details.text = f"{bank_acc_details}"
                 
                 # Fetch additional details from the 'loan_details' table
@@ -65,13 +66,33 @@ class Borr_loan_request(Borr_loan_requestTemplate):
             print(f"Error converting min_amount_text to numeric: {e}")
             return 0
 
-    def button_2_click(self, **event_args):
-        """This method is called when the button is clicked"""
-        open_form('lendor_registration_form.dashboard.vblr')
+    
 
     def button_1_click(self, **event_args):
       """This method is called when the button is clicked"""
       open_form('lendor_registration_form.dashboard.vblr')
+
+  
+    def accepted_click(self, **event_args):
+       """This method is called when the button is clicked"""
+      # Update the 'loan_status' column in the 'loan_details' table to 'accepted'
+       self.selected_row['loan_updated_status'] = 'accepted'
+       # Save changes to the table
+       self.selected_row.update()      
+       Notification("Borrower will get notified").show()
+       open_form("lendor_registration_form.dashboard.vblr")
+
+  
+    def rejected_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      # Delete the entire row from the 'loan details' table
+      self.selected_row.delete()
+
+      # Close the form after deletion
+      open_form("lendor_registration_form.dashboard.vblr")
+      
+        
+        
 
 
 

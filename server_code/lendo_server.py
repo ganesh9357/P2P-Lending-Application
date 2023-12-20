@@ -191,7 +191,7 @@ def search_user(query):
     ]
   return result
 
-
+  
 # In your Anvil server module (e.g., server_module.py)
 
 import anvil.server
