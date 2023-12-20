@@ -52,7 +52,7 @@ components:
     role: null
     align: full
     tooltip: ''
-    placeholder: ''
+    placeholder: Select product group
     border: ''
     enabled: true
     foreground: ''
@@ -66,10 +66,11 @@ components:
     background: white
     bold: false
     underline: false
-    include_placeholder: false
+    include_placeholder: true
   name: name
   layout_properties: {grid_position: 'ADFVSS,JNFGNN'}
   data_bindings: []
+  event_bindings: {change: name_change}
 - type: Label
   properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
     visible: false, text: Product Categories, font_size: 20, font: '', spacing_above: small,
@@ -82,7 +83,7 @@ components:
     role: null
     align: full
     tooltip: ''
-    placeholder: ''
+    placeholder: Select product categories
     border: ''
     enabled: true
     foreground: ''
@@ -96,7 +97,7 @@ components:
     background: white
     bold: false
     underline: false
-    include_placeholder: false
+    include_placeholder: true
   name: drop_down_2
   layout_properties: {grid_position: 'LNCQEK,AQSEPS'}
 - type: Button
