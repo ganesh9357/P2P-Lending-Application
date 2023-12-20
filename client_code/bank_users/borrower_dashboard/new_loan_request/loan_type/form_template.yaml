@@ -82,9 +82,9 @@ components:
 - type: ColumnPanel
   properties: {role: elevated-card, tooltip: '', border: '', foreground: black, visible: true,
     wrap_on: tablet, col_spacing: small, spacing_above: medium, col_widths: '{"QDVQOM":10,"ZBWHEY":10,"TALGBU":10,"OUFHNM":10,"ZYUWEF":11,"NWASTJ":10}',
-    spacing_below: medium, background: blue}
+    spacing_below: medium, background: lightblue}
   name: column_panel_1
-  layout_properties: {grid_position: 'BRUTJN,GTBGJE', full_width_row: true, row_background: 'theme:On
+  layout_properties: {grid_position: 'BRUTJN,GTBGJE', full_width_row: false, row_background: 'theme:On
       Secondary'}
   components:
   - type: ColumnPanel
