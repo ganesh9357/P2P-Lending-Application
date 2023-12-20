@@ -78,10 +78,13 @@ class Borr_loan_request(Borr_loan_requestTemplate):
       # Update the 'loan_status' column in the 'loan_details' table to 'accepted'
        self.selected_row['loan_updated_status'] = 'accepted'
        # Save changes to the table
-       self.selected_row.update()   
-
-       self.accepted.enabled = False
+       self.selected_row.update()
+      
+      # Disable the "Accept" button
+       self.accepted_btn.enabled = False
+      # Set the text of the Output Label with blue color
        self.output_label1.text = "This Borrower Loan is Accepted"
+       self.output_label1.foreground = '#0000FF' # Blue color
        self.output_label1.visible = True
       
        Notification("Borrower will get notified").show()
@@ -91,7 +94,13 @@ class Borr_loan_request(Borr_loan_requestTemplate):
     def rejected_btn_click(self, **event_args):
       """This method is called when the button is clicked"""
       # Delete the entire row from the 'loan details' table
-      self.selected_row.delete()
+      #self.selected_row.delete()   
+
+      self.rejected_btn.enabled = False
+      # Set the text of the Output Label with red color
+      self.output_label1.text = "This Borrower Loan is Rejected"
+      self.output_label1.foreground = '#FF0000'  # Red color
+      self.output_label1.visible = True
 
       # Close the form after deletion
       open_form("lendor_registration_form.dashboard.vblr")
