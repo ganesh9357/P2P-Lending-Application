@@ -20,7 +20,7 @@ class view_profile_4(view_profile_4Template):
 
     for i in self.user:
       self.type.append(i['usertype'])
-      self.id.append(i['coustmer_id'])
+      self.id.append(i['customer_id'])
 
     if value_to_display in self.id:
       a = self.id.index(value_to_display)
@@ -49,7 +49,7 @@ class view_profile_4(view_profile_4Template):
     for i in self.data:
       a+=1
       self.list_1.append(i['loan_id'])
-      self.list_2.append(i['coustmer_id'])
+      self.list_2.append(i['customer_id'])
       self.list_3.append(i['full_name'])
       self.list_4.append(i['loan_status'])
       self.list_5.append(i['application_status'])
