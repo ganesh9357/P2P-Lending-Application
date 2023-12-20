@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {col_widths: '{"HIIQHH":10,"CRYIRK":20,"PDIDDX":30,"JDDGOM":10,"PFNXDB":20,"XJITYJ":30}'}
 components:
 - type: Image
   properties: {role: null, vertical_align: center, height: '45', tooltip: '', border: '',
@@ -17,149 +17,164 @@ components:
   event_bindings: {click: button_1_click}
 - type: Label
   properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-    visible: true, text: Loan Application, font_size: null, font: '', spacing_above: small,
+    visible: true, text: Loan Application, font_size: 30, font: '', spacing_above: small,
     icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
     underline: false, icon: ''}
   name: label_1
   layout_properties:
     col_widths: {}
     grid_position: KRFTUN,IXWXSI
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Loan Amount, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_2
+  layout_properties: {grid_position: 'UOBCSP,HIIQHH'}
+- type: TextBox
+  properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+    border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+    font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+    background: white, bold: false, underline: false}
+  name: text_box_1
+  layout_properties: {grid_position: 'UOBCSP,CRYIRK'}
+- type: Spacer
+  properties: {height: 32}
+  name: spacer_3
+  layout_properties: {grid_position: 'UOBCSP,PDIDDX'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Tenure, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_3
+  layout_properties: {grid_position: 'SMNMJJ,JDDGOM'}
+- type: DropDown
+  properties:
+    role: null
+    align: full
+    tooltip: ''
+    placeholder: Select Tenure
+    border: ''
+    enabled: true
+    foreground: black
+    items: ['6', '12', '18', '24', '30', '36', '42', '48']
+    visible: true
+    font_size: null
+    font: ''
+    spacing_above: small
+    spacing_below: small
+    italic: false
+    background: white
+    bold: false
+    underline: false
+    include_placeholder: true
+  name: drop_down_1
+  layout_properties: {grid_position: 'SMNMJJ,PFNXDB'}
+- type: Spacer
+  properties: {height: 32}
+  name: spacer_4
+  layout_properties: {grid_position: 'SMNMJJ,XJITYJ'}
+- type: Spacer
+  properties: {height: 17}
+  name: spacer_2
+  layout_properties: {grid_position: 'HUCDSN,ZMWFUY'}
 - type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {role: elevated-card, tooltip: '', border: '', foreground: black, visible: true,
+    wrap_on: tablet, col_spacing: small, spacing_above: medium, col_widths: '{}',
+    spacing_below: medium, background: blue}
   name: column_panel_1
   layout_properties: {grid_position: 'BRUTJN,GTBGJE'}
   components:
-  - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Loan Amount, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
-    name: label_2
-    layout_properties: {grid_position: 'HBCAVN,OBOEOD'}
-  - type: TextBox
-    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-      background: white, bold: false, underline: false}
-    name: text_box_1
-    layout_properties: {grid_position: 'HBCAVN,NQEHIV'}
-  - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Tenure, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
-    name: label_3
-    layout_properties: {grid_position: 'TOTBDG,DWHCXP'}
-  - type: DropDown
-    properties:
-      role: null
-      align: full
-      tooltip: ''
-      placeholder: Select Tenure
-      border: ''
-      enabled: true
-      foreground: black
-      items: ['6', '12', '18', '24', '30', '36', '42', '48']
-      visible: true
-      font_size: null
-      font: ''
-      spacing_above: small
-      spacing_below: small
-      italic: false
-      background: white
-      bold: false
-      underline: false
-      include_placeholder: true
-    name: drop_down_1
-    layout_properties: {grid_position: 'TOTBDG,UCAPSM'}
-  - type: Spacer
-    properties: {height: 17}
-    name: spacer_2
-    layout_properties: {grid_position: 'GGGEMH,HNWTZC'}
-  - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Interest Rate, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
-    name: label_4
-    layout_properties: {grid_position: 'RWDUHK,UNLSPS'}
+  - type: ColumnPanel
+    properties: {col_widths: '{}'}
+    name: column_panel_2
+    layout_properties: {grid_position: 'HUGMZZ,QNHJET'}
+    components:
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Interest Rate, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_4
+      layout_properties: {grid_position: 'ZDRBQH,CIYYDX'}
   - type: Label
     properties: {}
     name: label_7
-    layout_properties: {grid_position: 'RWDUHK,YGQZRB'}
+    layout_properties: {grid_position: 'HUGMZZ,FGSVFG'}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: Min Amount, font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
     name: label_6
-    layout_properties: {grid_position: 'RWDUHK,ZLLTWE'}
+    layout_properties: {grid_position: 'HUGMZZ,OJMFHT'}
     event_bindings: {show: label_6_show}
   - type: Label
     properties: {}
     name: label_5
-    layout_properties: {grid_position: 'RWDUHK,ZUNUAS'}
+    layout_properties: {grid_position: 'HUGMZZ,EIVVGU'}
     event_bindings: {show: label_5_show}
   - type: Label
     properties: {text: Minimum Tenure}
     name: label_12
-    layout_properties: {grid_position: 'RWDUHK,DOUXLB'}
+    layout_properties: {grid_position: 'HUGMZZ,IMLZYU'}
   - type: Label
     properties: {}
     name: label_13
-    layout_properties: {grid_position: 'RWDUHK,ULZAXW'}
+    layout_properties: {grid_position: 'HUGMZZ,SYXHLZ'}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: Forclosure Eligibility, font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
     name: label_8
-    layout_properties: {grid_position: 'MQALFP,RWMJFO'}
+    layout_properties: {grid_position: 'YPBOAV,ATDGSJ'}
   - type: Label
     properties: {}
     name: label_9
-    layout_properties: {grid_position: 'MQALFP,WANILZ'}
+    layout_properties: {grid_position: 'YPBOAV,BYNWYK'}
   - type: Label
     properties: {text: Max Amount}
     name: label_10
-    layout_properties: {grid_position: 'MQALFP,NKCELY'}
+    layout_properties: {grid_position: 'YPBOAV,FFWLUG'}
   - type: Label
     properties: {}
     name: label_11
-    layout_properties: {grid_position: 'MQALFP,WKQTKQ'}
+    layout_properties: {grid_position: 'YPBOAV,TOBYEC'}
     event_bindings: {show: label_11_show}
   - type: Label
     properties: {text: Maximum Tenure}
     name: label_14
-    layout_properties: {grid_position: 'MQALFP,TORBYW'}
+    layout_properties: {grid_position: 'YPBOAV,JFXAZN'}
   - type: Label
     properties: {}
     name: label_15
-    layout_properties: {grid_position: 'MQALFP,WVHUMR'}
+    layout_properties: {grid_position: 'YPBOAV,KMXVOR'}
   - type: Label
     properties: {text: Monthly EMI}
     name: label_16
-    layout_properties: {grid_position: 'LZIUXQ,AJPGLE'}
+    layout_properties: {grid_position: 'HSFTCE,FDLGLF'}
   - type: Label
     properties: {}
     name: label_17
-    layout_properties: {grid_position: 'LZIUXQ,BQANVO'}
+    layout_properties: {grid_position: 'HSFTCE,TBHWHD'}
   - type: Label
     properties: {text: Total Repayment}
     name: label_18
-    layout_properties: {grid_position: 'LZIUXQ,TZWCGI'}
+    layout_properties: {grid_position: 'HSFTCE,HOXKPI'}
   - type: Label
     properties: {}
     name: label_19
-    layout_properties: {grid_position: 'LZIUXQ,IKNHDC'}
+    layout_properties: {grid_position: 'HSFTCE,CVHLRX'}
   - type: Label
     properties: {text: Processing fee}
     name: label_20
-    layout_properties: {grid_position: 'LZIUXQ,JLPKUD'}
+    layout_properties: {grid_position: 'HSFTCE,QDVQOM'}
   - type: Label
     properties: {}
     name: label_21
-    layout_properties: {grid_position: 'LZIUXQ,YBVKQA'}
+    layout_properties: {grid_position: 'HSFTCE,APFBFO'}
 - name: spacer_1
   properties: {height: 67}
   type: Spacer
