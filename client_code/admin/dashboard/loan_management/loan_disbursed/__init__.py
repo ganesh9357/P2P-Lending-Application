@@ -82,7 +82,7 @@ class loan_disbursed(loan_disbursedTemplate):
     for i in self.data:
       a+=1
       self.list_1.append(i['loan_id'])
-      self.list_2.append(i['coustmer_id'])
+      self.list_2.append(i['customer_id'])
       self.list_3.append(i['full_name'])
       self.list_4.append(i['loan_updated_status'])
     print(a)

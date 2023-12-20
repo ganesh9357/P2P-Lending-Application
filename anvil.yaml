@@ -14,7 +14,7 @@ services:
 - source: /runtime/services/anvil/email.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: bank_users.main_form}
+startup: {type: form, module: admin.dashboard.loan_management}
 package_name: bank_client
 allow_embedding: false
 name: P2P Lending App
@@ -500,6 +500,15 @@ db_schema:
     - name: closed_date
       admin_ui: {width: 200, order: 23}
       type: date
+    - name: customer_id
+      admin_ui: {width: 200, order: 24}
+      type: number
+    - name: min_amount
+      admin_ui: {width: 200, order: 25}
+      type: number
+    - name: max_amount
+      admin_ui: {width: 200, order: 26}
+      type: number
     title: loan_details
   product_group:
     title: product_group
