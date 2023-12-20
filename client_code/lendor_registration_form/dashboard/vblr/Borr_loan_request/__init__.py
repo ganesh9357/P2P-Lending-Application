@@ -88,7 +88,7 @@ class Borr_loan_request(Borr_loan_requestTemplate):
        open_form("lendor_registration_form.dashboard.vblr")
 
   
-    def rejected_click(self, **event_args):
+    def rejected_btn_click(self, **event_args):
       """This method is called when the button is clicked"""
       # Delete the entire row from the 'loan details' table
       self.selected_row.delete()

@@ -196,12 +196,12 @@ components:
       properties: {height: 32}
       type: Spacer
       layout_properties: {grid_position: 'TISPBT,BFUQZJ'}
-    - name: rejected
+    - name: rejected_btn
       properties: {text: Rejected, align: right, background: '#FF0000', foreground: BLACK,
         bold: true}
       type: Button
       layout_properties: {grid_position: 'TISPBT,ZWPHOA'}
-      event_bindings: {click: rejected_click}
+      event_bindings: {click: rejected_btn_click}
     - type: Button
       properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
         foreground: black, visible: true, text: Accepted, font_size: null, font: '',
