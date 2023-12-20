@@ -74,3 +74,18 @@ class loan_type(loan_typeTemplate):
     def button_3_click(self, **event_args):
         """This method is called when the button is clicked"""
         open_form('bank_users.borrower_dashboard.new_loan_request.check_out_form')
+
+    def label_11_show(self, **event_args):
+      """This method is called when the Label is shown on the screen"""
+      data =app_tables.product_details.search()
+      data1_strings = [data['max_amount'] for data in data]
+      self.label_11.text = data1_strings
+      self.label_11.text = data1_strings if data1_strings else None
+
+    def label_5_show(self, **event_args):
+      """This method is called when the Label is shown on the screen"""
+      min_amt =app_tables.product_details.search()
+      min_amount_strings = [min_amt['min_amount'] for min_amt in min_amt]
+      self.label_5.text = min_amount_strings
+      self.label_5.text = min_amount_strings if min_amount_strings else None
+      
