@@ -14,7 +14,7 @@ services:
 - source: /runtime/services/anvil/email.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: bank_users.borrower_dashboard}
+startup: {type: form, module: admin.dashboard.manage_products.update_form}
 package_name: bank_client
 allow_embedding: false
 name: P2P Lending App
@@ -73,6 +73,15 @@ db_schema:
     - name: extension_allowed
       admin_ui: {width: 200, order: 13}
       type: bool
+    - name: max_tenure
+      admin_ui: {width: 200, order: 9.5}
+      type: number
+    - name: min_tenure
+      admin_ui: {width: 200, order: 9.75}
+      type: number
+    - name: lapsed_status
+      admin_ui: {width: 200, order: 15}
+      type: string
   user_profile:
     client: full
     server: full
