@@ -116,8 +116,7 @@ class Borr_loan_request(Borr_loan_requestTemplate):
         # # Close the form after deletion
         # open_form("lendor_registration_form.dashboard.vblr")
 
-   
-
+      
         self.rejected_btn.enabled = False
         # Set the text of the Output Label with red color
         self.output_label1.text = "This Borrower Loan is Rejected"
