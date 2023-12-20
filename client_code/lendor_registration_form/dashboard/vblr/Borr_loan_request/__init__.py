@@ -85,6 +85,8 @@ class Borr_loan_request(Borr_loan_requestTemplate):
             self.output_label1.visible = True
             # Disable the "Accept" button
             self.accepted_btn.enabled = False
+            self.accepted_btn.visible = False
+            self.rejected_btn.visible = False
         elif loan_status == 'rejected':
             # Set the text of the Output Label with red color
             self.output_label1.text = "This Borrower Loan is Rejected"
@@ -92,10 +94,20 @@ class Borr_loan_request(Borr_loan_requestTemplate):
             self.output_label1.visible = True
             # Disable the "Reject" button
             self.rejected_btn.enabled = False
-
+            self.accepted_btn.visible = False
+            self.rejected_btn.visible = False
   
     def accepted_btn_click(self, **event_args):
         """This method is called when the button is clicked"""
+        self.accepted_btn.visible = True
+        self.rejected_btn.visible = False
+
+        self.accepted_btn.visible = False
+        # Set the text of the Output Label with blue color
+        self.output_label1.text = "This Borrower Loan is Accepted"
+        self.output_label1.foreground = '#0000FF'  # Blue color
+        self.output_label1.visible = True
+      
         # Update the 'loan_updated_status' column in the 'loan_details' table to 'accepted'
         self.selected_row['loan_updated_status'] = 'accepted'
         # Save changes to the table
@@ -109,22 +121,28 @@ class Borr_loan_request(Borr_loan_requestTemplate):
 
     def rejected_btn_click(self, **event_args):
         """This method is called when the button is clicked"""
-
-        # # Update UI based on the new status
-        # self.update_ui_based_on_status()
-
-        # # Close the form after deletion
-        # open_form("lendor_registration_form.dashboard.vblr")
-
+        
+        self.accepted_btn.visible = False
+        self.rejected_btn.visible = True
       
-        self.rejected_btn.enabled = False
-        # Set the text of the Output Label with red color
+        self.rejected_btn.visible = False
+        # Set the text of the Output Label with blue color
         self.output_label1.text = "This Borrower Loan is Rejected"
         self.output_label1.foreground = '#FF0000'  # Red color
         self.output_label1.visible = True
+        # Update the 'loan_updated_status' column in the 'loan_details' table to 'accepted'
+        self.selected_row['loan_updated_status'] = 'rejected'
+        # Save changes to the table
+        self.selected_row.update()
+        # Update UI based on the new status
+        self.update_ui_based_on_status()
+        
 
         # Close the form after deletion
         open_form("lendor_registration_form.dashboard.vblr")
+
+      
+        
 
    
         
