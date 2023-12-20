@@ -15,11 +15,11 @@ class loan_type(loan_typeTemplate):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
 
-        # # Manually fetch loan data and populate the dropdowns
-        # self.populate_loan_types()
-        # self.populate_product_categories()
+    #     # Manually fetch loan data and populate the dropdowns
+    #     self.populate_loan_types()
+    #     self.populate_product_categories()
 
-        # Any code you write here will run before the form opens.
+    #     Any code you write here will run before the form opens.
 
     # def populate_loan_types(self):
     #     # Manually fetch loan types from the 'product_group' table
