@@ -9,8 +9,8 @@ from anvil import open_form
 
 class Borr_loan_request(Borr_loan_requestTemplate):
     def __init__(self, selected_row, **properties):
+       # Set Form properties and Data Bindings.
         self.selected_row = selected_row
-        # Set Form properties and Data Bindings.
         self.init_components(**properties)
 
         # Populate labels with the selected row details
@@ -73,12 +73,17 @@ class Borr_loan_request(Borr_loan_requestTemplate):
       open_form('lendor_registration_form.dashboard.vblr')
 
   
-    def accepted_click(self, **event_args):
+    def accepted_btn_click(self, **event_args):
        """This method is called when the button is clicked"""
       # Update the 'loan_status' column in the 'loan_details' table to 'accepted'
        self.selected_row['loan_updated_status'] = 'accepted'
        # Save changes to the table
-       self.selected_row.update()      
+       self.selected_row.update()   
+
+       self.accepted.enabled = False
+       self.output_label1.text = "This Borrower Loan is Accepted"
+       self.output_label1.visible = True
+      
        Notification("Borrower will get notified").show()
        open_form("lendor_registration_form.dashboard.vblr")
 
@@ -90,7 +95,8 @@ class Borr_loan_request(Borr_loan_requestTemplate):
 
       # Close the form after deletion
       open_form("lendor_registration_form.dashboard.vblr")
-      
+
+   
         
         
 
