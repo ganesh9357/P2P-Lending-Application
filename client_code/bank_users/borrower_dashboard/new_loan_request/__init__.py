@@ -44,3 +44,12 @@ class new_loan_request(new_loan_requestTemplate):
     def button_1_copy_click(self, **event_args):
       """This method is called when the button is clicked"""
       open_form('bank_users.borrower_dashboard.new_loan_request.loan_type')
+
+    def max_amount_lb_show(self, **event_args):
+      """This method is called when the Label is shown on the screen"""
+              
+        options = app_tables.product_detai
+        option_strings = [option['max_amount'] for option in options]
+        self.name.items = option_strings
+        self.name.selected_value = option_strings[0] if option_strings else None 
+
