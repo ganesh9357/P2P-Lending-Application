@@ -118,11 +118,12 @@ class loan_type(loan_typeTemplate):
       forclosure_eligibility = [forclos_eligibility['foreclose_type'] for forclos_eligibility in forclos_eligibility]
       self.label_9.text = forclosure_eligibility
       self.label_9.text = forclosure_eligibility if forclosure_eligibility else None
-      
-      
+
+    def label_18_show(self, **event_args):
+      member_type = app_tables.product_details.search()
+      membership_type = [member_type['membership_type'] for member_type in member_type]
+      self.label_18.text = membership_type
+      self.label_18.text = membership_type if membership_type else None
 
 
-      
-      
-      
       

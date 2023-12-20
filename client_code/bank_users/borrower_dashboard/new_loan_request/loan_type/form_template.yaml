@@ -81,10 +81,11 @@ components:
   layout_properties: {grid_position: 'HUCDSN,ZMWFUY'}
 - type: ColumnPanel
   properties: {role: elevated-card, tooltip: '', border: '', foreground: black, visible: true,
-    wrap_on: tablet, col_spacing: small, spacing_above: medium, col_widths: '{"QDVQOM":10,"ZBWHEY":10,"TALGBU":10,"OUFHNM":10,"ZYUWEF":11,"FSRIXA":10}',
+    wrap_on: tablet, col_spacing: small, spacing_above: medium, col_widths: '{"QDVQOM":10,"ZBWHEY":10,"TALGBU":10,"OUFHNM":10,"ZYUWEF":11,"NWASTJ":10}',
     spacing_below: medium, background: blue}
   name: column_panel_1
-  layout_properties: {grid_position: 'BRUTJN,GTBGJE', full_width_row: true, row_background: ''}
+  layout_properties: {grid_position: 'BRUTJN,GTBGJE', full_width_row: true, row_background: 'theme:On
+      Secondary'}
   components:
   - type: ColumnPanel
     properties: {col_widths: '{}'}
@@ -165,13 +166,17 @@ components:
     layout_properties: {grid_position: 'HSFTCE,ZBWHEY'}
     event_bindings: {show: label_21_show}
   - type: Label
-    properties: {}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Membership Type, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
     name: label_17
     layout_properties: {grid_position: 'HSFTCE,TALGBU'}
   - type: Label
     properties: {}
     name: label_18
     layout_properties: {grid_position: 'HSFTCE,OUFHNM'}
+    event_bindings: {show: label_18_show}
   - type: Label
     properties: {}
     name: label_19
@@ -179,7 +184,7 @@ components:
   - type: Label
     properties: {}
     name: label_16
-    layout_properties: {grid_position: 'HSFTCE,FSRIXA'}
+    layout_properties: {grid_position: 'HSFTCE,NWASTJ'}
 - name: spacer_1
   properties: {visible: true, spacing_above: small, spacing_below: small, height: 67,
     tooltip: ''}
