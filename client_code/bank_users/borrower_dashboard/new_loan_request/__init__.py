@@ -46,10 +46,9 @@ class new_loan_request(new_loan_requestTemplate):
       open_form('bank_users.borrower_dashboard.new_loan_request.loan_type')
 
     def max_amount_lb_show(self, **event_args):
-      """This method is called when the Label is shown on the screen"""
-              
-        options = app_tables.product_detai
-        option_strings = [option['max_amount'] for option in options]
-        self.name.items = option_strings
-        self.name.selected_value = option_strings[0] if option_strings else None 
-
+      data =app_tables.product_details.search()
+      data1_strings = [data['max_amount'] for data in data]
+      self.max_amount_lb.text = data1_strings
+      self.max_amount_lb.text = data1_strings[0] if data1_strings else None
+      
+    
