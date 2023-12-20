@@ -57,7 +57,7 @@ components:
     border: ''
     enabled: true
     foreground: ''
-    items: []
+    items: ['']
     visible: true
     font_size: null
     font: ''
