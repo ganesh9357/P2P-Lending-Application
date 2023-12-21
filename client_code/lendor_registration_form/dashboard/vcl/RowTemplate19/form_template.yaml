@@ -6,7 +6,7 @@ components:
   name: label_1
   layout_properties: {column: JKSDUP}
   data_bindings:
-  - {property: text, code: 'self.item[''coustmer_id'']'}
+  - {property: text, code: 'self.item[''c'']'}
 - type: Label
   properties: {}
   name: label_2
