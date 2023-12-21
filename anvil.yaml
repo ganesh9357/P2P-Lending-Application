@@ -452,9 +452,6 @@ db_schema:
     - name: application_status
       admin_ui: {width: 200}
       type: bool
-    - name: borrower_timestamp
-      admin_ui: {order: 4.125, width: 200}
-      type: datetime
     - name: total_repayment_amount
       admin_ui: {order: 7.25, width: 200}
       type: number
@@ -480,7 +477,7 @@ db_schema:
       admin_ui: {order: -0.0625, width: 200}
       type: string
     - name: member_since
-      admin_ui: {width: 200, order: 17}
+      admin_ui: {order: 16, width: 200}
       type: date
     - name: loan_id
       admin_ui: {order: -1, width: 200}
@@ -503,14 +500,17 @@ db_schema:
     - name: lender_customer_id
       admin_ui: {order: -0.125, width: 200}
       type: number
-    - name: lender_timestamp
-      admin_ui: {order: 4.5625, width: 200}
-      type: datetime
     - name: beseem_score
       admin_ui: {order: 6.5, width: 200}
       type: number
     - name: emi_due_date
       admin_ui: {width: 200, order: 17}
+      type: date
+    - name: lender_accepted_timestamp
+      admin_ui: {order: 4.0625, width: 223}
+      type: date
+    - name: borrower_loan_created_timestamp
+      admin_ui: {order: 4.03125, width: 261}
       type: date
     title: loan_details
   product_group:
