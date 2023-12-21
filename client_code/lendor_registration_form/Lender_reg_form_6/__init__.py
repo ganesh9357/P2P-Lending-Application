@@ -61,7 +61,7 @@ class Lender_reg_form_6(Lender_reg_form_6Template):
                 user_row.update()
             else:
                 # If the row doesn't exist, add a new row
-                app_tables.lender.add_row(customer_id = user_id, lending_type=lending_type, investment=str(investment), lending_period=lending_period, membership=self.calculate_membership(float(investment)))
+                app_tables.lender.add_row(customer_id = user_id, lending_type=lending_type, investment=int(investment), lending_period=lending_period, membership=self.calculate_membership(float(investment)))
 
             if lending_type == 'Individual':
                 open_form('lendor_registration_form.Lender_reg_individual_form_1', user_id=user_id)
