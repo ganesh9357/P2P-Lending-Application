@@ -18,5 +18,3 @@ user_id=""
 userId = 0
 
 # this is from the borrower data enters
-
-d
