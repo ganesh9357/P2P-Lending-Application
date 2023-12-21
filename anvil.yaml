@@ -437,14 +437,14 @@ db_schema:
     client: full
     server: full
     columns:
-    - name: email_id
-      admin_ui: {width: 200, order: 1}
+    - name: borrower_email_id
+      admin_ui: {order: -0.03125, width: 200}
       type: string
-    - name: full_name
+    - name: borrower_full_name
       admin_ui: {order: -0.25, width: 200}
       type: string
     - name: interest_rate
-      admin_ui: {order: -0.0078125, width: 200}
+      admin_ui: {order: 4, width: 200}
       type: number
     - name: loan_status
       admin_ui: {order: 10, width: 200}
@@ -452,72 +452,66 @@ db_schema:
     - name: application_status
       admin_ui: {width: 200}
       type: bool
-    - name: timestamp
-      admin_ui: {order: -0.015625, width: 200}
+    - name: borrower_timestamp
+      admin_ui: {order: 4.125, width: 200}
       type: datetime
     - name: total_repayment_amount
-      admin_ui: {order: -0.00390625, width: 200}
+      admin_ui: {order: 7.25, width: 200}
       type: number
     - name: borrower_customer_id
-      admin_ui: {order: 14, width: 200}
+      admin_ui: {order: -0.5, width: 200}
       type: number
     - name: member_rom
       admin_ui: {width: 200, order: 11.5}
       type: string
-    - name: beseem_score
-      admin_ui: {width: 200, order: 11.75}
-      type: string
-    - name: payment_done
-      admin_ui: {order: -0.01171875, width: 200}
-      type: number
     - name: credit_limit
       admin_ui: {order: -0.0625, width: 200}
       type: string
     - name: loan_amount
-      admin_ui: {order: -0.125, width: 200}
+      admin_ui: {order: 0.5, width: 200}
       type: string
     - name: tenure
-      admin_ui: {order: -0.03125, width: 200}
+      admin_ui: {order: 3, width: 200}
       type: string
     - name: loan_updated_status
       admin_ui: {width: 200}
       type: string
-    - name: lender_name
-      admin_ui: {width: 200, order: 16}
+    - name: lender_full_name
+      admin_ui: {order: -0.0625, width: 200}
       type: string
     - name: member_since
       admin_ui: {width: 200, order: 17}
       type: date
     - name: loan_id
-      admin_ui: {width: 200, order: -0.1875}
+      admin_ui: {order: -1, width: 200}
       type: string
-    - name: monthly_emi
-      admin_ui: {width: 200, order: -0.005859375}
+    - name: borrower_compLeted_monthly_emi
+      admin_ui: {order: 10, width: 262}
       type: number
-    - name: due_date
-      admin_ui: {width: 200, order: 19}
-      type: datetime
     - name: lender_email_id
-      admin_ui: {order: 2, width: 200}
+      admin_ui: {order: -0.015625, width: 200}
       type: string
     - name: days_left
       admin_ui: {width: 200, order: 21}
       type: number
-    - name: closed_type
-      admin_ui: {width: 200, order: 22}
+    - name: foreclosure_type
+      admin_ui: {order: 22, width: 200}
       type: string
-    - name: closed_date
-      admin_ui: {width: 200, order: 23}
+    - name: loan_closed_date
+      admin_ui: {order: 23, width: 200}
       type: date
-    - name: customer_id
-      admin_ui: {width: 200, order: 24}
+    - name: lender_customer_id
+      admin_ui: {order: -0.125, width: 200}
       type: number
-    - name: min_amount
-      admin_ui: {width: 200, order: 25}
+    - name: lender_timestamp
+      admin_ui: {order: 4.5625, width: 200}
+      type: datetime
+    - name: beseem_score
+      admin_ui: {order: 6.5, width: 200}
       type: number
-    - name: max_amount
-      admin_ui: {width: 200, order: 26}
-      type: number
+    - name: emi_due_date
+      admin_ui: {width: 200, order: 17}
+      type: date
     title: loan_details
   product_group:
     title: product_group
@@ -561,32 +555,17 @@ db_schema:
     client: full
     server: full
     columns:
-    - name: user_name
-      admin_ui: {width: 200}
-      type: number
     - name: email_id
-      admin_ui: {width: 200}
-      type: string
-    - name: top_up
-      admin_ui: {width: 200}
-      type: string
-    - name: investment
       admin_ui: {width: 200}
       type: string
     - name: lending_period
       admin_ui: {width: 200}
       type: string
-    - name: date_time
-      admin_ui: {width: 200}
-      type: datetime
     - name: customer_id
-      admin_ui: {order: 7, width: 200}
+      admin_ui: {order: -3, width: 200}
       type: number
     - name: lending_type
       admin_ui: {width: 200, order: 17}
-      type: string
-    - name: email
-      admin_ui: {width: 200}
       type: string
     - name: final_rta
       admin_ui: {width: 200, order: 15}
@@ -597,6 +576,41 @@ db_schema:
     - name: make_visibility
       admin_ui: {width: 200, order: 11}
       type: bool
+    - name: investment
+      admin_ui: {width: 200, order: 1.5}
+      type: number
+    - name: user_name
+      admin_ui: {width: 200, order: -2}
+      type: string
+    - name: admin_approved_date_time
+      admin_ui: {order: 6, width: 234}
+      type: date
+    - name: available_balance
+      admin_ui: {order: 2.75, width: 200}
+      type: number
+  top_up:
+    client: none
+    server: full
+    columns:
+    - name: lender_customer_id
+      admin_ui: {width: 200, order: 0}
+      type: number
+    - name: lender_full_name
+      admin_ui: {width: 200, order: 1}
+      type: string
+    - name: top_up_id
+      admin_ui: {width: 200, order: 2}
+      type: string
+    - name: top_up_amount
+      admin_ui: {width: 200, order: 3}
+      type: number
+    - name: before_top_available_balance
+      admin_ui: {width: 200, order: 4}
+      type: number
+    - name: after_top_available_balance
+      admin_ui: {width: 200, order: 5}
+      type: number
+    title: top_up
   borrower:
     title: borrower
     client: full
@@ -617,9 +631,6 @@ db_schema:
     - name: borrowing_status
       admin_ui: {width: 200, order: 7}
       type: bool
-    - name: beseem_score
-      admin_ui: {width: 200, order: 9}
-      type: string
     - name: bank_acc_details
       admin_ui: {width: 200, order: 10}
       type: string
@@ -629,6 +640,15 @@ db_schema:
     - name: borrower_approve_date
       admin_ui: {width: 200, order: 11}
       type: date
+    - name: beseem_score
+      admin_ui: {width: 200, order: 3.5}
+      type: number
+    - name: total_loan_amount
+      admin_ui: {width: 200, order: 9}
+      type: number
+    - name: borrower_amount
+      admin_ui: {order: 6, width: 200}
+      type: number
   product_categories:
     client: full
     server: full
