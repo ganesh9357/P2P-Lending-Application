@@ -14,7 +14,7 @@ class check_out_form(check_out_formTemplate):
         self.names = 'roi'
 
         # Initialize self.interest_rate as an instance variable
-        # self.roi = None
+        self.roi = None
 
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
