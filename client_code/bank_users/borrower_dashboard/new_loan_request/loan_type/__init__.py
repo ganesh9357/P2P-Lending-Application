@@ -125,13 +125,8 @@ class loan_type(loan_typeTemplate):
       self.label_18.text = membership_type
       self.label_18.text = membership_type if membership_type else None
 
-    def check_box_2_show(self, **event_args):
-
+    def check_box_2_change(self, **event_args):
+      if self.check_box_2:
         self.drop_down_1.visible = True
         self.label_3.visible = True
-      else:
-        None
 
-
-
-      

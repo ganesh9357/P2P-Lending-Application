@@ -68,7 +68,7 @@ components:
     bold: false, checked: false, underline: false}
   name: check_box_2
   layout_properties: {grid_position: 'YKJCUS,YUNZEC'}
-  event_bindings: {show: check_box_2_show}
+  event_bindings: {show: check_box_2_show, change: check_box_2_change}
 - type: Spacer
   properties: {height: 12}
   name: spacer_7
