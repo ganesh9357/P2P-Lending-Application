@@ -17,7 +17,7 @@ components:
   name: loan_status_label
   layout_properties: {column: OJLQEN}
   data_bindings:
-  - {property: text, code: 'self.item[''loan_amount'']'}
+  - {property: text, code: 'self.item[''loan_status'']'}
 - type: Link
   properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
     visible: true, text: View Details, font_size: null, wrap_on: mobile, font: '',
