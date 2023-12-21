@@ -11,9 +11,10 @@ from ... import borrower_main_form_module as main_form_module
 
 class loan_type(loan_typeTemplate):
     def __init__(self, **properties):
-        self.user_id = main_form_module.userId
+      self.user_id = main_form_module.userId
+
         # Set Form properties and Data Bindings.
-        self.init_components(**properties)
+      self.init_components(**properties)
 
     #     # Manually fetch loan data and populate the dropdowns
     #     self.populate_loan_types()
@@ -125,5 +126,8 @@ class loan_type(loan_typeTemplate):
       self.label_18.text = membership_type
       self.label_18.text = membership_type if membership_type else None
 
+    def check_box_2_change(self, **event_args):
+      if self.check_box_2:
+        self.drop_down_1.visible = True
+        self.label_3.visible = True
 
-      

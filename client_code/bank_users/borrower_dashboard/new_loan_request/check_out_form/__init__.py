@@ -11,20 +11,20 @@ from ... import borrower_main_form_module as main_form_module
 class check_out_form(check_out_formTemplate):
   def __init__(self, **properties):
         # Initialize self.names as an instance variable
-        self.names = 'k-12 education loan'
+        self.names = 'roi'
 
         # Initialize self.interest_rate as an instance variable
-        self.interest_rate = None
+        self.roi = None
 
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
 
         # Any code you write here will run before the form opens.
-        user_request = app_tables.product_borrower.get(name=self.names)
+        user_request = app_tables.product_details.get(product_categories=self.names)
 
         if user_request:
-            self.interest_rate = user_request['interest_rate']
-            self.int_rate.text = f"Interest rate : {self.interest_rate} %"
+            self.roi = user_request['roi']
+            self.roi.text = f"Interest rate : {self.roi} %"
         else:
             self.int_rate.text = "Interest rate not found."
             return  # Exit the __init__ method if interest_rate is not available

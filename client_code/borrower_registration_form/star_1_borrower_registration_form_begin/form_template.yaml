@@ -44,6 +44,7 @@ components:
     background: 'theme:Light Overlay 1', bold: false, underline: false}
   type: TextBox
   layout_properties: {grid_position: 'GMNRMZ,RLKRFK NRJKBG,IWNQXB'}
+  event_bindings: {show: borrower_full_name_test_show}
 - name: full_name_label
   properties: {visible: true, foreground: Red}
   type: Label
