@@ -15,6 +15,6 @@ from anvil.tables import app_tables
 
 user_id=""
 
-userId = 0
+userId = None
 
 # this is from the borrower data enters
