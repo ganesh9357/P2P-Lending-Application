@@ -1,0 +1,25 @@
+is_package: true
+container: {type: ColumnPanel}
+components:
+- name: loan_id_label
+  properties: {}
+  type: Label
+  layout_properties: {grid_position: 'SBCIST,KUXZQV'}
+  data_bindings:
+  - {property: text, code: 'self.item[''loan_id'']', writeback: false}
+- name: loan_amount_label
+  properties: {}
+  type: Label
+  layout_properties: {grid_position: 'SBCIST,OFXKHD'}
+  data_bindings:
+  - {property: text, code: 'self.item[''loan_amount'']', writeback: false}
+- name: loan_status_label
+  properties: {}
+  type: Label
+  layout_properties: {grid_position: 'SBCIST,QCWHJK'}
+  data_bindings:
+  - {property: text, code: 'self.item[''loan_amount'']', writeback: false}
+- name: view_profile_link
+  properties: {text: View Details}
+  type: Link
+  layout_properties: {grid_position: 'SBCIST,QNQJZK'}
