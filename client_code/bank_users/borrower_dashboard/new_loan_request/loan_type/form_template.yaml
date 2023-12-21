@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"HIIQHH":15,"CRYIRK":20,"PDIDDX":30,"JDDGOM":10,"PFNXDB":20,"XJITYJ":30,"TDCKOL":6,"YUNZEC":12,"NHTIAY":4,"WVQUVC":10}'}
+  properties: {col_widths: '{"HIIQHH":15,"CRYIRK":20,"PDIDDX":30,"JDDGOM":10,"PFNXDB":25,"XJITYJ":30,"TDCKOL":6,"YUNZEC":12,"NHTIAY":4,"WVQUVC":10,"IXWAHV":10}'}
 components:
 - type: Image
   properties: {role: null, vertical_align: center, height: '45', tooltip: '', border: '',
@@ -68,13 +68,18 @@ components:
     bold: false, checked: false, underline: false}
   name: check_box_2
   layout_properties: {grid_position: 'YKJCUS,YUNZEC'}
+  event_bindings: {show: check_box_2_show}
 - type: Spacer
   properties: {height: 12}
   name: spacer_7
   layout_properties: {grid_position: 'PUECAC,UIRKOV'}
+- type: Spacer
+  properties: {height: 32}
+  name: spacer_9
+  layout_properties: {grid_position: 'SMNMJJ,IXWAHV'}
 - type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: Tenure, font_size: null, font: '', spacing_above: small, icon_align: left,
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: false,
+    text: Tenure, font_size: 20, font: '', spacing_above: small, icon_align: left,
     spacing_below: small, italic: false, background: '', bold: false, underline: false,
     icon: ''}
   name: label_3
@@ -89,7 +94,7 @@ components:
     enabled: true
     foreground: black
     items: ['3', '6', '12', '18', '24', '30', '36', '42', '48']
-    visible: true
+    visible: false
     font_size: null
     font: ''
     spacing_above: small
