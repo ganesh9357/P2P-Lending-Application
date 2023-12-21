@@ -15,7 +15,7 @@ class opbal(opbalTemplate):
 
         # Fetch all rows from the table and get the latest one based on timestamp
         all_requests = app_tables.lender.search(
-            tables.order_by("date_time", ascending=False)
+            tables.order_by("lender_accepted_timestamp", ascending=False)
         )
 
         if all_requests:

@@ -14,7 +14,7 @@ services:
 - source: /runtime/services/anvil/email.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: bank_users.main_form}
+startup: {type: form, module: lendor_registration_form.dashboard}
 package_name: bank_client
 allow_embedding: false
 name: P2P Lending App
@@ -588,6 +588,9 @@ db_schema:
     - name: available_balance
       admin_ui: {order: 0.75, width: 200}
       type: number
+    - name: lender_accepted_timestamp
+      admin_ui: {width: 200, order: 12}
+      type: date
   top_up:
     client: none
     server: full
