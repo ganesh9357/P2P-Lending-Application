@@ -67,4 +67,4 @@ class star_1_borrower_registration_form_begin(star_1_borrower_registration_form_
         dob = self.borrower_date_of_birth_date_picker.date
         if not dob or dob > datetime.now().date():
             self.dob_label.text = ''
-     
+
