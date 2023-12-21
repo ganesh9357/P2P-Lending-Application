@@ -133,6 +133,11 @@ class dashboard(dashboardTemplate):
       lender_row[0]['make_visibility'] = False
       lender_row[0].update()
 
+  def outlined_button_11_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form("lendor_registration_form.dashboard.lender_view_loans")
+    
+
 
 
 
