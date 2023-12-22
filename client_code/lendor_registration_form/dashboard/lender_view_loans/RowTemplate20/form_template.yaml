@@ -25,4 +25,5 @@ components:
     italic: false, background: '', bold: false, underline: false, icon: ''}
   name: view_profile_link
   layout_properties: {column: QSSLLG}
+  event_bindings: {click: view_profile_link_click}
 is_package: true
