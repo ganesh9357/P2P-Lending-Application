@@ -18,13 +18,17 @@ class rta(rtaTemplate):
     all_requests = app_tables.lender.search(
             tables.order_by("lender_accepted_timestamp", ascending=False)
         )
-    top_up = self.tp_tb.text
+    # top_up = self.tp_tb.text
     final_rta = self.final_rta
+
+    all_requests = app_tables.top_up.search()
+    top_up = self.tp_tb
+    
     
     if all_requests:
         latest_request = all_requests[0]
-        investment = latest_request['investment']
-        final_rta = int(latest_request['investment']) + int(top_up)
+        available_balance = latest_request['available_balance']
+        final_rta = int(latest_request['available_balance']) + int(top_up)
         #user_name = self.user_name
         self.final_rta.text = f"Total Available Amount: {final_rta}"
 

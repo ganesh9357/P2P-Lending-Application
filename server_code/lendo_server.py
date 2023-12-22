@@ -172,14 +172,18 @@ def add_lendor_bank_details_form_2(ifsc,salary_type,branch_name,net_bank, user_i
 # this one for dashboard start 
 
 @anvil.server.callable
-def add_rtr_form(top_up,final_rta):
+def add_rtr_form(final_rta):
   #row = app_tables.lender.search()
   row = app_tables.lender.search(tables.order_by("lender_accepted_timestamp", ascending=False))
   if row:
     # row[0]['top_up'] = top_up
     row[0]['final_rta'] = final_rta
-  
 
+@anvil.server.callable
+def add_top_up_amount(top_up,user_id):
+  row= app_tables.top_up.search(lender_customer_id = user_id)
+  if row:
+    row[0]['top_up_amount'] = top_up
 #code for foreclose request
 
 @anvil.server.callable
