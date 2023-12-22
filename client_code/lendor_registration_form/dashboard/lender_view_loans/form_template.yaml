@@ -17,12 +17,12 @@ components:
   event_bindings: {click: home_lender_registration_form_copy_1_click}
   layout_properties: {grid_position: 'DGIQAU,JMABXK'}
 - name: outlined_card_1
-  properties: {role: outlined-card, background: '#0876E8'}
+  properties: {role: outlined-card, background: 'theme:Tertiary Container', visible: true}
   type: ColumnPanel
   layout_properties: {grid_position: 'NLMVZE,NDTUKL'}
   components:
   - name: button_1
-    properties: {text: "Open \nLoans"}
+    properties: {text: "Open \nLoans", visible: true, foreground: black}
     type: Button
     layout_properties: {grid_position: 'YUTUEO,ZDKIXA'}
     event_bindings: {click: button_1_click}
@@ -31,12 +31,12 @@ components:
     type: Label
     layout_properties: {grid_position: 'NZNCOP,SKGMZB'}
 - name: outlined_card_2
-  properties: {role: outlined-card, background: '#0876E8'}
+  properties: {role: outlined-card, background: 'theme:Tertiary Container'}
   type: ColumnPanel
   layout_properties: {grid_position: 'NLMVZE,XCLNWI'}
   components:
   - name: button_2
-    properties: {text: "Closd \nLoans"}
+    properties: {text: "Closed \nLoans", foreground: black}
     type: Button
     layout_properties: {grid_position: 'FNHLVB,HDEYKB'}
     event_bindings: {click: button_2_click}
@@ -45,12 +45,12 @@ components:
     type: Label
     layout_properties: {grid_position: 'UZVEOM,KGCRHE'}
 - name: outlined_card_3
-  properties: {role: outlined-card, background: '#0876E8'}
+  properties: {role: outlined-card, background: 'theme:Tertiary Container'}
   type: ColumnPanel
   layout_properties: {grid_position: 'NLMVZE,YRIBYB'}
   components:
   - name: button_3
-    properties: {text: "Rejected \nLoans"}
+    properties: {text: "Rejected \nLoans", foreground: black}
     type: Button
     layout_properties: {grid_position: 'TYKZVH,HTOGIY'}
     event_bindings: {click: button_3_click}
@@ -59,12 +59,12 @@ components:
     type: Label
     layout_properties: {grid_position: 'XIDDNT,YUSBUB'}
 - name: outlined_card_4
-  properties: {role: outlined-card, background: '#0876E8'}
+  properties: {role: outlined-card, background: 'theme:Tertiary Container'}
   type: ColumnPanel
   layout_properties: {grid_position: 'NLMVZE,VZYYMA'}
   components:
   - name: button_4
-    properties: {text: Underprocess Loans}
+    properties: {text: Underprocess Loans, foreground: black}
     type: Button
     layout_properties: {grid_position: 'ZATBCN,CWOXRK'}
     event_bindings: {click: button_4_click}
@@ -73,15 +73,18 @@ components:
     type: Label
     layout_properties: {grid_position: 'WXCULQ,LTJFAT'}
 - name: outlined_card_5
-  properties: {role: outlined-card, background: '#0876E8'}
+  properties: {role: outlined-card, background: 'theme:Tertiary Container'}
   type: ColumnPanel
   layout_properties: {grid_position: 'NLMVZE,RUAZEQ'}
   components:
   - name: button_5
-    properties: {text: ForeClousure Loans, bold: true}
+    properties: {text: 'ForeClousure Loans
+
+        ', bold: true, foreground: ''}
     type: Button
     layout_properties: {grid_position: 'NMQGPC,HLVLHH'}
     event_bindings: {click: button_5_click}
+    data_bindings: []
   - name: label_9
     properties: {align: center}
     type: Label
