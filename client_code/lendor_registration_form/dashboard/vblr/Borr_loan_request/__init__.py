@@ -139,7 +139,8 @@ class Borr_loan_request(Borr_loan_requestTemplate):
           open_form("lendor_registration_form.dashboard.vblr")
       else:
           # Insufficient balance, prompt the user to top-up the amount
-          alert("You don't have enough balance. Please top-up the amount.", buttons=[("OK", lambda : self.open_opbal_form())])
+          alert("You don't have enough balance. Please top-up the amount.", buttons=[("OK")])
+          self.open_opbal_form()
                                                                                      
     def open_opbal_form(self):
       try:

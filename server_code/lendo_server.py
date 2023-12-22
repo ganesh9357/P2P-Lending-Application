@@ -174,10 +174,11 @@ def add_lendor_bank_details_form_2(ifsc,salary_type,branch_name,net_bank, user_i
 @anvil.server.callable
 def add_rtr_form(top_up,final_rta):
   #row = app_tables.lender.search()
-  row = app_tables.lender.search(tables.order_by("date_time", ascending=False))
+  row = app_tables.lender.search(tables.order_by("lender_accepted_timestamp", ascending=False))
   if row:
-    row[0]['top_up'] = top_up
+    # row[0]['top_up'] = top_up
     row[0]['final_rta'] = final_rta
+  
 
 #code for foreclose request
 
