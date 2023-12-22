@@ -143,9 +143,9 @@ class Borr_loan_request(Borr_loan_requestTemplate):
                                                                                      
     def open_opbal_form(self):
       try:
-        open_form("lendor_registration_form.dashboard.opbal")
+          open_form("lendor_registration_form.dashboard.opbal")
       except Exception as e:
-        print(f"Error opening opbal form: {e}")
+          print(f"Error opening opbal form: {e}")
         
 
 
