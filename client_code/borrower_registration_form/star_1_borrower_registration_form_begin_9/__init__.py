@@ -16,7 +16,6 @@ class star_1_borrower_registration_form_begin_9(star_1_borrower_registration_for
       self.text_box_1.text=user_data['ifsc_code']
       self.drop_down_1.selected_value=user_data['salary_type']
       self.text_box_2.text=user_data['select_bank']
-      self.text_box_3.text=user_data['net_bank']
       # Set Form properties and Data Bindings.
       self.init_components(**properties)
 

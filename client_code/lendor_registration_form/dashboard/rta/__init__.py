@@ -23,7 +23,7 @@ class rta(rtaTemplate):
 
     all_requests = app_tables.top_up.search()
     top_up = self.tp_tb.text
-    user_id = self.userId 
+    
     all_requests = app_tables.lender.search(
             tables.order_by("lender_accepted_timestamp", ascending=False)
         )
