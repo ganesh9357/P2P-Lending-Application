@@ -17,23 +17,23 @@ class lender_view_loans(lender_view_loansTemplate):
         self.user_id = main_form_module.userId
 
         # Retrieve and display open loans
-        self.repeating_panel_1.items = app_tables.loan_details.search(loan_updated_status=q.like('open%'), lender_customer_id=self.user_id)
+        self.repeating_panel_1.items = app_tables.loan_details.search(loan_updated_status=q.like('open%'))
         self.label_5.text = str(len(self.repeating_panel_1.items))
 
         # Retrieve and display closed loans
-        self.repeating_panel_2.items = app_tables.loan_details.search(loan_updated_status=q.like('close%'), lender_customer_id=self.user_id)
+        self.repeating_panel_2.items = app_tables.loan_details.search(loan_updated_status=q.like('close%'))
         self.label_6.text = str(len(self.repeating_panel_2.items))
 
         # Retrieve and display rejected loans
-        self.repeating_panel_3.items = app_tables.loan_details.search(loan_updated_status=q.like('reject%'), lender_customer_id=self.user_id)
+        self.repeating_panel_3.items = app_tables.loan_details.search(loan_updated_status=q.like('reject%'))
         self.label_7.text = str(len(self.repeating_panel_3.items))
 
         # Retrieve and display underprocess loans
-        self.repeating_panel_4.items = app_tables.loan_details.search(loan_updated_status=q.like('underprocess%'), lender_customer_id=self.user_id)
+        self.repeating_panel_4.items = app_tables.loan_details.search(loan_updated_status=q.like('underprocess%'))
         self.label_8.text = str(len(self.repeating_panel_4.items))
 
         # Retrieve and display foreclosure loans
-        self.repeating_panel_5.items = app_tables.loan_details.search(loan_updated_status=q.like('foreclosure%'), lender_customer_id=self.user_id)
+        self.repeating_panel_5.items = app_tables.loan_details.search(loan_updated_status=q.like('foreclosure%'))
         self.label_9.text = str(len(self.repeating_panel_5.items))
 
         # Any code you write here will run before the form opens.
