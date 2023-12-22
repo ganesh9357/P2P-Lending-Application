@@ -84,6 +84,8 @@ components:
   layout_properties:
     col_widths: {}
     grid_position: SUHLHK,RUEBFD
+  data_bindings:
+  - {property: text, code: 'self.item[''date_of_apply'']'}
 - name: label_2
   properties: {bold: true, text: 'Loan Updated Status:'}
   type: Label
