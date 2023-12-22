@@ -33,5 +33,5 @@ class view_details_1(view_details_1Template):
 
   def button_1_copy_click(self, **event_args):
     """This method is called when the button is clicked"""
-
+    open_form('lendor_registration_form.dashboard')
 

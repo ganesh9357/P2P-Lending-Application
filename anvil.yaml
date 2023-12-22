@@ -512,12 +512,6 @@ db_schema:
     - name: borrower_loan_created_timestamp
       admin_ui: {order: 5.375, width: 261}
       type: date
-    - name: date_of_apply
-      admin_ui: {width: 200, order: 25}
-      type: date
-    - name: timestamp
-      admin_ui: {width: 200, order: 26}
-      type: string
     title: loan_details
   product_group:
     title: product_group

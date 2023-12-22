@@ -17,7 +17,7 @@ class lender_view_loans(lender_view_loansTemplate):
         self.user_id = main_form_module.userId
 
         # Retrieve and display open loans
-        self.repeating_panel_1.items = app_tables.loan_details.search()
+        self.repeating_panel_1.items = app_tables.loan_details.search(loan_updated_status=q.like('open%'), lender_customer_id=self.user_id)
         self.label_5.text = str(len(self.repeating_panel_1.items))
 
         # Retrieve and display closed loans
