@@ -153,13 +153,12 @@ def add_lendor_bank_details_form_1(account_name, account_type,account_number,ban
 
 
 @anvil.server.callable
-def add_lendor_bank_details_form_2(ifsc,salary_type,branch_name,net_bank, user_id):
+def add_lendor_bank_details_form_2(ifsc,salary_type,branch_name, user_id):
   row = app_tables.user_profile.search(customer_id = user_id)
   if row:
     row[0]['ifsc_code'] = ifsc
     row[0]['salary_type'] = salary_type
     row[0]['branch_name'] = branch_name
-    row[0]['net_bank'] = net_bank
     row[0]['usertype'] = 'lender'
     row[0]['last_confirm'] = True
 

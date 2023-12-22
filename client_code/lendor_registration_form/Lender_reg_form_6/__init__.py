@@ -55,7 +55,7 @@ class Lender_reg_form_6(Lender_reg_form_6Template):
                 # If the row exists, update the existing row
                 user_row = user_data[0]
                 user_row['lending_type'] = lending_type
-                user_row['investment'] = str(investment)
+                user_row['investment'] = int(investment)
                 user_row['lending_period'] = lending_period
                 user_row['membership'] = self.calculate_membership(float(investment))
                 user_row.update()

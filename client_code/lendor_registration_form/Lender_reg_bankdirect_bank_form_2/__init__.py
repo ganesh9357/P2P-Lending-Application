@@ -25,8 +25,6 @@ class Lender_reg_bankdirect_bank_form_2(Lender_reg_bankdirect_bank_form_2Templat
         self.ifsc = ''
         self.salary_type = ''
         self.branch_name = ''
-       
-        
 
        #Restore previously entered data if available
     if self.ifsc:
