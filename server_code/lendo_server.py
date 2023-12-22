@@ -180,10 +180,12 @@ def add_rtr_form(final_rta, available_balance):
     row[0]['available_balance'] = available_balance
 
 @anvil.server.callable
-def add_top_up_amount(top_up, user_id):
-  row= app_tables.top_up.search(lender_customer_id = user_id)
+def add_top_up_amount(top_up):
+  row= app_tables.top_up.search()
   if row:
+    top_up = int(top_up)
     row[0]['top_up_amount'] = top_up
+
 
 
 #code for foreclose request

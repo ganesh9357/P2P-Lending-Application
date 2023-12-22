@@ -15,11 +15,7 @@ class rta(rtaTemplate):
 
     # Any code you write here will run before the form opens.
   def button_2_click(self, **event_args):
-    # all_requests = app_tables.lender.search(
-    #         tables.order_by("lender_accepted_timestamp", ascending=False)
-    #     )
-    # # top_up = self.tp_tb.text
-    # final_rta = self.final_rta
+    
 
     all_requests = app_tables.top_up.search()
     top_up = self.tp_tb.text
