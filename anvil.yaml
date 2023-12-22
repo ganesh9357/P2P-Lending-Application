@@ -592,7 +592,7 @@ db_schema:
       admin_ui: {width: 200, order: 12}
       type: date
   top_up:
-    client: none
+    client: full
     server: full
     columns:
     - name: lender_customer_id

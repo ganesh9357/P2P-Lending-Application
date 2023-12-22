@@ -17,8 +17,8 @@ class star_1_borrower_registration_form_begin_9(star_1_borrower_registration_for
       self.drop_down_1.selected_value=user_data['salary_type']
       self.text_box_2.text=user_data['select_bank']
       self.text_box_3.text=user_data['net_bank']
-    # Set Form properties and Data Bindings.
-    self.init_components(**properties)
+      # Set Form properties and Data Bindings.
+      self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
 
@@ -26,12 +26,12 @@ class star_1_borrower_registration_form_begin_9(star_1_borrower_registration_for
     ifsc = self.text_box_1.text
     salary_type = self.drop_down_1.selected_value
     select_bank = self.text_box_2.text
-    net_bank = self.text_box_3.text
+    # net_bank = self.text_box_3.text
     user_id = self.userId
-    if not ifsc or not salary_type or not select_bank or not net_bank:
+    if not ifsc or not salary_type or not select_bank:
       Notification("please fill all required fields").show()
     else:
-      anvil.server.call('add_borrower_step9', ifsc,salary_type,select_bank,net_bank, user_id)
+      anvil.server.call('add_borrower_step9', ifsc,salary_type,select_bank, user_id)
       open_form('bank_users.borrower_dashboard')
 
   def button_1_click(self, **event_args):
