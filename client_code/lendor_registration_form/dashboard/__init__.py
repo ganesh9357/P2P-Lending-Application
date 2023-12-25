@@ -48,7 +48,7 @@ class dashboard(dashboardTemplate):
 
   def outlined_button_3_click(self, **event_args):
     """This method is called when the button is clicked"""
-    open_form("lendor_registration_form.dashboard.vcl")
+    open_form("lendor_registration_form.dashboard.lender_view_loans")
 
   def outlined_button_4_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -132,10 +132,6 @@ class dashboard(dashboardTemplate):
       lender_row = app_tables.lender.search()# Assuming you have a row with id=1 for the lender
       lender_row[0]['make_visibility'] = False
       lender_row[0].update()
-
-  def outlined_button_12_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    open_form("lendor_registration_form.dashboard.lender_view_loans")
 
 
 
