@@ -14,7 +14,7 @@ services:
 - source: /runtime/services/anvil/email.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: lendor_registration_form.dashboard}
+startup: {type: form, module: bank_users.main_form}
 package_name: bank_client
 allow_embedding: false
 name: P2P Lending App
@@ -369,6 +369,29 @@ db_schema:
       admin_ui: {width: 200, order: 93}
       type: string
     title: user_profile
+  wallet:
+    client: full
+    server: full
+    columns:
+    - name: lender_customer_id
+      admin_ui: {width: 200, order: 0}
+      type: number
+    - name: lender_full_name
+      admin_ui: {width: 200, order: 1}
+      type: string
+    - name: lender_wallet_id
+      admin_ui: {order: 2, width: 200}
+      type: string
+    - name: wallet_amount
+      admin_ui: {order: 3, width: 200}
+      type: number
+    - name: before_wallet_available_balance
+      admin_ui: {order: 4, width: 242}
+      type: number
+    - name: after_wallet_available_balance
+      admin_ui: {order: 5, width: 200}
+      type: number
+    title: wallet
   user_issues_bugreports:
     title: user_issues_bugreports
     client: full
@@ -591,29 +614,6 @@ db_schema:
     - name: lender_accepted_timestamp
       admin_ui: {width: 200, order: 12}
       type: date
-  top_up:
-    client: full
-    server: full
-    columns:
-    - name: lender_customer_id
-      admin_ui: {width: 200, order: 0}
-      type: number
-    - name: lender_full_name
-      admin_ui: {width: 200, order: 1}
-      type: string
-    - name: top_up_id
-      admin_ui: {width: 200, order: 2}
-      type: string
-    - name: top_up_amount
-      admin_ui: {width: 200, order: 3}
-      type: number
-    - name: before_top_available_balance
-      admin_ui: {width: 200, order: 4}
-      type: number
-    - name: after_top_available_balance
-      admin_ui: {width: 200, order: 5}
-      type: number
-    title: top_up
   borrower:
     title: borrower
     client: full
