@@ -277,7 +277,7 @@ components:
       - type: Label
         properties: {}
         name: label_22
-        layout_properties: {x: 188, y: 445.796875, width: 160}
+        layout_properties: {x: 194, y: 445.796875, width: 160}
 - type: FlowPanel
   properties: {}
   name: navbar_links
