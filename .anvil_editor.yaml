@@ -82,6 +82,7 @@ unique_ids:
     bank_users.borrower_dashboard.borrower_foreclosure_request.RowTemplate6: '1700745206852325214857298.85956'
     bank_users.borrower_dashboard.borrower_view_loans.view_profile: '1701149621405989016570674.1494'
     admin.dashboard.borrowers: '1699528468358308523806957.0701'
+    lendor_registration_form.dashboard.wallet.RowTemplate25: '1703498985331318465098761.16345'
     admin.dashboard.loan_management: '1699528569921998135077477.3452'
     bank_users.borrower_dashboard.new_loan_request.loan_type: '1698663480920279749801604.1442'
     admin.dashboard.loan_management.rejected_loans: '1699528958889169021462649.09222'

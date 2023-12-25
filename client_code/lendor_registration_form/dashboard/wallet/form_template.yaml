@@ -1,6 +1,7 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{}', background: 'theme:On Tertiary'}
+  properties: {col_widths: '{"KXQLST":35,"FFLGKA":25}', background: 'theme:On Tertiary',
+    role: outlined-card}
 components:
 - name: flow_panel_1
   properties: {align: justify}
@@ -55,52 +56,66 @@ components:
     layout_properties: {}
     event_bindings: {click: wallet_link_click}
 - name: label_1
-  properties: {text: Balance, bold: true, font: a, font_size: 22}
+  properties: {text: Balance, bold: true, font: a, font_size: 24}
   type: Label
   layout_properties: {grid_position: 'TCFZQX,YSDIEN'}
-- type: Label
-  properties: {text: Balance available, bold: true}
-  name: label_2
-  layout_properties: {grid_position: 'WKVHLQ,GUPXOR'}
-- name: balance_text_box
-  properties: {placeholder: ₹0.oo, foreground: '', background: 'theme:On Tertiary'}
-  type: TextBox
-  layout_properties: {grid_position: 'INGWDQ,SOMQSJ'}
 - name: spacer_1
   properties: {height: -50.4444580078125}
   type: Spacer
   layout_properties: {grid_position: 'MSMUKQ,FGXLDL'}
+- name: column_panel_1
+  properties: {role: outlined-card, background: 'theme:On Tertiary'}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'YMJQIZ,KXQLST FSUHBG,DCIJJS', row_background: 'theme:On
+      Tertiary'}
+  components:
+  - type: Label
+    properties: {text: Balance available, bold: true}
+    name: label_2
+    layout_properties: {grid_position: 'FKUVGP,ARXDRD'}
+  - name: balance_text_box
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: ₹0.00,
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+      background: 'theme:On Tertiary', bold: false, underline: false}
+    type: TextBox
+    layout_properties: {grid_position: 'QONJFS,ZTCPNP'}
 - type: ColumnPanel
   properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
     wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
     spacing_below: small, background: 'theme:On Secondary'}
   name: outlined_card_1
-  layout_properties: {grid_position: 'YMJQIZ,KXQLST'}
+  layout_properties: {grid_position: 'YMJQIZ,KXQLST AGKNPX,EMKVHY', row_background: 'theme:On
+      Tertiary'}
   components:
   - name: label_3
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: Opening Balance, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
     type: Label
     layout_properties: {grid_position: 'FLZHAQ,KKYCWC', row_background: 'theme:On
         Tertiary'}
   - name: text_box_1
-    properties: {background: 'theme:On Tertiary', placeholder: ₹0.00, visible: true,
-      enabled: true}
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: ₹0.00,
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+      background: 'theme:On Tertiary', bold: false, underline: false}
     type: TextBox
-    layout_properties: {grid_position: 'FLZHAQ,ENCJRD', row_background: 'theme:On
-        Tertiary'}
+    layout_properties: {grid_position: 'FLZHAQ,ENCJRD', row_background: ''}
   - name: spacer_2
-    properties: {height: 9.66668701171875}
+    properties: {height: 12.444427490234375}
     type: Spacer
     layout_properties: {grid_position: 'IKITGX,KIXBAN'}
   - name: label_4
-    properties: {text: Loans}
+    properties: {text: Loans, bold: true}
     type: Label
     layout_properties: {grid_position: 'MSTRFH,LAGHOY'}
   - name: text_box_2
-    properties: {background: 'theme:On Tertiary', placeholder: ₹0.00}
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: ₹0.00,
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+      background: 'theme:On Tertiary', bold: false, underline: false}
     type: TextBox
     layout_properties: {grid_position: 'MSTRFH,KTQQDJ'}
   - type: Spacer
@@ -112,11 +127,73 @@ components:
     type: Label
     layout_properties: {grid_position: 'LNMXNY,HREYCT'}
   - name: text_box_3
-    properties: {background: 'theme:On Tertiary', placeholder: ₹0.00}
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: ₹0.00,
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+      background: 'theme:On Tertiary', bold: false, underline: false}
     type: TextBox
     layout_properties: {grid_position: 'LNMXNY,NFQHZI'}
-- name: drop_down_1
-  properties: {}
-  type: DropDown
-  layout_properties: {grid_position: 'QPMFDF,OKEGIC'}
+- type: ColumnPanel
+  properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: 'theme:On Tertiary'}
+  name: outlined_card_2
+  layout_properties: {grid_position: 'YMJQIZ,KXQLST GUHACD,NJOQYN', row_background: 'theme:On
+      Tertiary'}
+  components:
+  - name: all_transaction_btn
+    properties: {role: null, align: left, tooltip: '', border: black, enabled: true,
+      foreground: black, visible: true, text: 'All Transactions                                                                                      ',
+      font_size: null, font: '', spacing_above: medium, icon_align: right, spacing_below: small,
+      italic: false, background: '', bold: true, underline: false, icon: 'fa:angle-right'}
+    type: Button
+    layout_properties: {grid_position: 'TYVIHV,YYMHBP', row_background: 'theme:On
+        Secondary'}
+- name: outlined_card_3
+  properties: {role: outlined-card, background: 'theme:On Tertiary', col_widths: '{"MRBEEJ":20,"KYDIOE":25,"QOYHVV":15}'}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'YMJQIZ,FFLGKA', row_background: 'theme:On Tertiary'}
+  components:
+  - name: label_6
+    properties: {text: DEPOSIT, bold: true}
+    type: Label
+    layout_properties: {grid_position: 'WYNKDJ,MRBEEJ'}
+  - name: label_7
+    properties: {text: WITHDRAW, bold: true, visible: false}
+    type: Label
+    layout_properties: {grid_position: 'WYNKDJ,KYDIOE'}
+  - name: spacer_7
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'WYNKDJ,QOYHVV'}
+  - name: spacer_6
+    properties: {height: 47.666656494140625}
+    type: Spacer
+    layout_properties: {grid_position: 'OGEYCO,BRHTGJ'}
+  - name: label_8
+    properties: {text: Enter Amount}
+    type: Label
+    layout_properties: {grid_position: 'SXAGSG,ZNLSNN'}
+  - name: text_box_4
+    properties: {placeholder: ₹ 5000, background: 'theme:On Tertiary'}
+    type: TextBox
+    layout_properties: {grid_position: 'SXAGSG,ICLLMB'}
+  - name: spacer_4
+    properties: {height: 58.444427490234375}
+    type: Spacer
+    layout_properties: {grid_position: 'YBJOJP,RQITTG'}
+  - name: outlined_button_1
+    properties: {text: 'UPI                                                                   ',
+      role: null, icon: 'fa:angle-right', enabled: true, icon_align: right}
+    type: Button
+    layout_properties: {grid_position: 'DQECSB,YFMRNO'}
+  - name: spacer_5
+    properties: {height: 33.11102294921875}
+    type: Spacer
+    layout_properties: {grid_position: 'GLSLZD,EJLLID'}
+  - name: button_1
+    properties: {text: DEPOSIT MONEY, role: null, icon_align: left, foreground: White}
+    type: Button
+    layout_properties: {grid_position: 'YEIQFG,MDHRMZ', full_width_row: false, row_background: 'theme:Primary
+        Container'}
 is_package: true
