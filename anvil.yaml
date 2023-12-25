@@ -82,6 +82,9 @@ db_schema:
     - name: lapsed_status
       admin_ui: {width: 200, order: 15}
       type: string
+    - name: emi_payment
+      admin_ui: {width: 200, order: 18}
+      type: string
   user_profile:
     client: full
     server: full
