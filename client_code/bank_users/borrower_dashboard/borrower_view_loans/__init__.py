@@ -8,6 +8,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from .. import borrower_main_form_module as main_form_module
+
 class borrower_view_loans(borrower_view_loansTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.

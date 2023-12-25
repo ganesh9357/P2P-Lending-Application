@@ -8,13 +8,13 @@ from anvil.tables import app_tables
 # This is a module.
 # You can define variables and functions here, and use them from any form. For example, in a top-level form:
 #
-#    from .bank_users.borrower_rgistration_form import Module1
+#    from .lendor_registration_form.dashboard import Module3
 #
-#    Module1.say_hello()
+#    Module3.say_hello()
 #
 
+# def say_hello():
+#   print("Hello, world")
 user_id=""
 
 userId = 0
-
-# this is from the borrower data enters
