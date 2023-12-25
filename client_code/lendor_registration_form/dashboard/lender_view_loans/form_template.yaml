@@ -80,7 +80,7 @@ components:
   - name: button_5
     properties: {text: 'ForeClousure Loans
 
-        ', bold: true, foreground: ''}
+        ', bold: false, foreground: black}
     type: Button
     layout_properties: {grid_position: 'NMQGPC,HLVLHH'}
     event_bindings: {click: button_5_click}
