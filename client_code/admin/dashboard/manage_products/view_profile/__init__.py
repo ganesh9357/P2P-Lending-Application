@@ -13,6 +13,8 @@ class view_profile(view_profileTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
+    
+
     # Any code you write here will run before the form opens.
     self.data = tables.app_tables.product_details.search()
     
@@ -72,7 +74,7 @@ class view_profile(view_profileTemplate):
         self.label_15.text = self.min_tenure_list[b]
         self.label_16.text = self.max_tenure_list[b]
         self.label_10.text = self.roi[b]
-        self.label_18.text = self.emi_payment[]
+        self.label_18.text = self.emi_payment[b]
         self.label_12.text = self.dis_cou[b]
 
   def button_1_click(self, **event_args):
