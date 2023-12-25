@@ -588,8 +588,11 @@ db_schema:
     - name: available_balance
       admin_ui: {order: 0.75, width: 200}
       type: number
+    - name: lender_accepted_timestamp
+      admin_ui: {width: 200, order: 12}
+      type: date
   top_up:
-    client: none
+    client: full
     server: full
     columns:
     - name: lender_customer_id

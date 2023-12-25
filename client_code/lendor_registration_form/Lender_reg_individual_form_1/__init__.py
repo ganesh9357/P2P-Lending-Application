@@ -48,8 +48,6 @@ class Lender_reg_individual_form_1(Lender_reg_individual_form_1Template):
       anvil.server.call('add_lendor_individual_form_1', company_name,org_type,emp_type,user_id)
     open_form('lendor_registration_form.Lender_reg_individual_form_2',user_id=self.userId)
 
-
-
   
   def button_1_click(self, **event_args):
      user_id = self.userId

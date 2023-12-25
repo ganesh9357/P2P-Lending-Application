@@ -41,7 +41,7 @@ components:
   layout_properties: {grid_position: 'GWGGWL,RIVZFD'}
 - name: label_3_copy_1
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: Salary Paid, font_size: null, font: '', spacing_above: small, icon_align: left,
+    text: Salary Type, font_size: null, font: '', spacing_above: small, icon_align: left,
     spacing_below: small, italic: false, background: '', bold: true, underline: false,
     icon: ''}
   type: Label
@@ -55,7 +55,7 @@ components:
     border: ''
     enabled: true
     foreground: ''
-    items: [Via Cash, Deposit]
+    items: ['cash ', net banking, check]
     visible: true
     font_size: null
     font: ''
@@ -82,35 +82,6 @@ components:
     background: 'theme:On Primary', bold: false, underline: false}
   type: TextBox
   layout_properties: {grid_position: 'ATVVGU,UINLQT'}
-- name: label_2
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: Net Banking(Yes/NO), font_size: null, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: false, background: '', bold: true, underline: false,
-    icon: ''}
-  type: Label
-  layout_properties: {grid_position: 'EKNMQN,APJIXV'}
-- type: DropDown
-  properties:
-    role: null
-    align: full
-    tooltip: ''
-    placeholder: ''
-    border: ''
-    enabled: true
-    foreground: ''
-    items: [Select one, 'Yes', 'No']
-    visible: true
-    font_size: null
-    font: ''
-    spacing_above: small
-    spacing_below: small
-    italic: false
-    background: theme:On Primary
-    bold: false
-    underline: false
-    include_placeholder: false
-  name: drop_down_2
-  layout_properties: {grid_position: 'EKNMQN,OMHVBE'}
 - name: button_1
   properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
     foreground: 'theme:On Primary Container', visible: true, text: Prev, font_size: null,

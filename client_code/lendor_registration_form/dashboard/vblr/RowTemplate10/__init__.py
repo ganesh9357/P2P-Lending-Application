@@ -1,5 +1,3 @@
-
-    
 from ._anvil_designer import RowTemplate10Template
 from anvil import *
 import anvil.server

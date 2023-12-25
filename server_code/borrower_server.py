@@ -125,13 +125,12 @@ def add_borrower_step8(account_name, account_type,account_number,bank_name, user
     row[0]['form_count']=8
 
 @anvil.server.callable
-def add_borrower_step9(ifsc,salary_type,select_bank,net_bank, user_id):
+def add_borrower_step9(ifsc,salary_type,select_bank, user_id):
   row = app_tables.user_profile.search(customer_id=user_id)
   if row:
     row[0]['ifsc_code'] = ifsc
     row[0]['salary_type'] = salary_type
     row[0]['select_bank'] = select_bank
-    row[0]['net_bank'] = net_bank
     row[0]['usertype'] = 'borrower'
     row[0]['last_confirm'] = True
     row[0]['form_count']=9
