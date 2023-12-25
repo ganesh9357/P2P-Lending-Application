@@ -60,6 +60,7 @@ unique_ids:
     bank_users.borrower_dashboard.borrower_view_loans.RowTemplate15: '1701149147768679142681951.7627'
     admin.dashboard.revenue_share: '1699529452988469665100106.9467'
     bank_users.main_form.career_main_form: '1700563797991728540622095.9799'
+    lendor_registration_form.dashboard.wallet_copy: '1703503748228873680203309.9425'
     bank_users.borrower_dashboard.borrower_dashboard_contact: '1701024135120380095014250.6585'
     admin.dashboard.loan_management.closed_loans.RowTemplate14: '1701079863491503664452804.4547'
     bank_users.main_form.products_main_form: '1700563558734712481921773.0997'
