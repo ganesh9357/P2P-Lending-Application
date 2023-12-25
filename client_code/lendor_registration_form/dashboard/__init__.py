@@ -133,6 +133,14 @@ class dashboard(dashboardTemplate):
       lender_row[0]['make_visibility'] = False
       lender_row[0].update()
 
+  def notification_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('lendor_registration_form.dashboard.notification')
+
+  def wallet_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('lendor_registration_form.dashboard.wallet')
+
 
 
 

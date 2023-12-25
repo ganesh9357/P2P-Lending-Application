@@ -1,11 +1,12 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {col_widths: '{"KXQLST":35,"FFLGKA":25}', background: 'theme:On Tertiary',
+    role: outlined-card}
 components:
 - name: flow_panel_1
   properties: {align: justify}
   type: FlowPanel
-  layout_properties: {grid_position: 'PKNEVQ,CFEOIP', full_width_row: true}
+  layout_properties: {grid_position: 'WPEYAS,HYNSXQ'}
   components:
   - name: image_1_copy_copy_1
     properties: {role: null, vertical_align: center, height: 39, tooltip: '', border: '',
@@ -14,20 +15,14 @@ components:
       spacing_below: small, background: '', horizontal_align: center}
     type: Image
     layout_properties: {width: 181}
-  - name: login_signup_button
-    properties: {text: Logout, background: '#db2332', foreground: white, bold: true,
-      align: right}
-    type: Button
-    layout_properties: {grid_position: 'MZSSJU,LLFNMG', full_width_row: true}
-    event_bindings: {click: login_signup_button_click}
 - name: navbar_links_copy_1
   properties: {role: null, vertical_align: full, spacing: huge, align: center, tooltip: '',
     border: '', foreground: '', visible: true, spacing_above: none, spacing_below: small,
     background: '#0b2547'}
   type: FlowPanel
-  layout_properties: {grid_position: 'SNEWND,QKTAJE'}
+  layout_properties: {grid_position: 'QDKZIB,UCTKNQ', full_width_row: true}
   components:
-  - name: home_main_form_link_copy_1
+  - name: home_main_form_link_click
     properties: {role: null, url: '', align: center, tooltip: '', border: '', foreground: white,
       visible: true, text: Home, font_size: 15, wrap_on: mobile, font: '', col_spacing: medium,
       spacing_above: small, icon_align: left, col_widths: '{}', spacing_below: small,
@@ -35,7 +30,7 @@ components:
     type: Link
     layout_properties: {grid_position: 'KHIQYH,ISMTDW'}
     event_bindings: {click: home_main_form_link_click}
-  - name: about_main_form_link_copy_1
+  - name: about_main_form_link_click
     properties: {role: null, url: '', align: center, tooltip: '', border: '', foreground: white,
       visible: true, text: About Us, font_size: 15, wrap_on: mobile, font: '', col_spacing: medium,
       spacing_above: small, icon_align: left, col_widths: '{}', spacing_below: small,
@@ -43,7 +38,7 @@ components:
     type: Link
     layout_properties: {grid_position: 'BEBBVL,XIXDMT'}
     event_bindings: {click: about_main_form_link_click}
-  - name: contact_main_form_link_copy_1
+  - name: contact_main_form_link
     properties: {role: null, url: '', align: center, tooltip: '', border: '', foreground: white,
       visible: true, text: 'Contact ', font_size: 15, wrap_on: mobile, font: '', col_spacing: medium,
       spacing_above: small, icon_align: left, col_widths: '{}', spacing_below: small,
@@ -56,229 +51,153 @@ components:
     type: Link
     event_bindings: {click: notification_link_click}
   - name: wallet_link
-    properties: {text: Wallet, foreground: white, icon: 'fa:folder-open'}
+    properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: white,
+      visible: true, text: Wallet, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
+      spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
+      italic: false, background: '', bold: false, underline: false, icon: 'data:image/png;base64,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'}
     type: Link
     layout_properties: {}
     event_bindings: {click: wallet_link_click}
-- type: FlowPanel
-  properties: {role: null, vertical_align: full, spacing: medium, align: center, tooltip: '',
-    border: '', foreground: '', visible: true, spacing_above: small, spacing_below: small,
-    background: ''}
-  name: flow_panel_2
-  layout_properties: {grid_position: 'WVFJGA,RDOSGB'}
+    data_bindings: []
+- name: label_1
+  properties: {text: Balance, bold: true, font: a, font_size: 24}
+  type: Label
+  layout_properties: {grid_position: 'TCFZQX,YSDIEN', full_width_row: true}
+- name: spacer_1
+  properties: {height: -50.4444580078125}
+  type: Spacer
+  layout_properties: {grid_position: 'MSMUKQ,FGXLDL'}
+- name: column_panel_1
+  properties: {role: outlined-card, background: 'theme:On Tertiary'}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'YMJQIZ,KXQLST FSUHBG,DCIJJS', row_background: 'theme:On
+      Tertiary'}
   components:
   - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Make Visibilty, font_size: null, font: '', spacing_above: none,
-      icon_align: left, spacing_below: none, italic: false, background: '', bold: true,
-      underline: true, icon: ''}
-    name: label_status
-    layout_properties: {}
-  - type: form:lendor_registration_form.Toggleswitch
-    properties: {}
-    name: toggleswitch_1
-    layout_properties: {width: 61}
-    event_bindings: {x_change: toggleswitch_1_x_change}
-  - type: Button
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: '', font_size: 15, font: '', spacing_above: none,
-      icon_align: left, spacing_below: none, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
-    name: button_status
-    layout_properties: {}
-    event_bindings: {click: button_click, show: button_show, hide: button_hide}
-- name: spacer_1_copy_1
-  properties: {height: 39}
-  type: Spacer
-  layout_properties: {grid_position: 'NLHLXU,ZIIOHH'}
-- type: GridPanel
-  properties: {}
-  name: grid_panel_1
-  layout_properties: {grid_position: 'PDPNFL,NBADJT'}
+    properties: {text: Balance available, bold: true}
+    name: label_2
+    layout_properties: {grid_position: 'FKUVGP,ARXDRD'}
+  - name: balance_text_box
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: ₹0.00,
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+      background: 'theme:On Tertiary', bold: false, underline: false}
+    type: TextBox
+    layout_properties: {grid_position: 'QONJFS,ZTCPNP'}
+- type: ColumnPanel
+  properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: 'theme:On Secondary'}
+  name: outlined_card_1
+  layout_properties: {grid_position: 'YMJQIZ,KXQLST AGKNPX,EMKVHY', row_background: 'theme:On
+      Tertiary'}
   components:
-  - type: LinearPanel
-    properties: {}
-    name: linear_panel_2
-    layout_properties: {row: VNSVWA, width_xs: 3, col_xs: 0}
-    components:
-    - name: button_3
-      properties: {role: outlined-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: black, visible: true, text: 'View Opening Balance       ',
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '#0876e8', bold: false, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'FFRNUM,BQWTYF'}
-      event_bindings: {click: button_3_click}
-  - type: LinearPanel
-    properties: {}
-    name: linear_panel_1
-    layout_properties: {row: VNSVWA, width_xs: 3, col_xs: 0}
-    components:
-    - name: button_4
-      properties: {role: outlined-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: black, visible: true, text: 'View Available Balance        ',
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '#0876e8', bold: false, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'FFRNUM,YUGGPU'}
-      event_bindings: {click: button_4_click}
-  - type: LinearPanel
-    properties: {}
-    name: linear_panel_3
-    layout_properties: {row: VNSVWA, width_xs: 3, col_xs: 6}
-    components:
-    - name: button_5
-      properties: {role: outlined-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: black, visible: true, text: 'View Loan Requests             ',
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '#0876e8', bold: false, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'FFRNUM,RQFISK'}
-      event_bindings: {click: button_5_click}
-  - type: LinearPanel
-    properties: {}
-    name: linear_panel_4
-    layout_properties: {row: VNSVWA, width_xs: 3, col_xs: 9}
-    components:
-    - name: outlined_button_1
-      properties: {role: outlined-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: black, visible: true, text: 'Today''s Due                                        ',
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '#0876e8', bold: false, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'FFRNUM,QDDEAN'}
-      event_bindings: {click: outlined_button_1_click}
-  - type: LinearPanel
-    properties: {}
-    name: linear_panel_5
-    layout_properties: {row: UZTNPF, width_xs: 3, col_xs: 0}
-    components:
-    - name: outlined_button_3
-      properties: {role: outlined-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: black, visible: true, text: '  View  Loans           ',
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '#0876e8', bold: false, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'OOVWBY,LHNMKW'}
-      event_bindings: {click: outlined_button_3_click}
-  - type: LinearPanel
-    properties: {}
-    name: linear_panel_6
-    layout_properties: {row: UZTNPF, width_xs: 3, col_xs: 3}
-    components:
-    - name: outlined_button_2
-      properties: {role: outlined-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: black, visible: true, text: 'View Lost Opportunities     ',
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '#0876e8', bold: false, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'OOVWBY,XCINXZ'}
-      event_bindings: {click: outlined_button_2_click}
-  - type: LinearPanel
-    properties: {}
-    name: linear_panel_7
-    layout_properties: {row: UZTNPF, width_xs: 3, col_xs: 6}
-    components:
-    - name: outlined_button_6
-      properties: {role: outlined-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: black, visible: true, text: 'Request Top-up Amount     ',
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '#0876e8', bold: false, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'OOVWBY,OVGQFM'}
-      event_bindings: {click: outlined_button_6_click}
-  - type: LinearPanel
-    properties: {}
-    name: linear_panel_8
-    layout_properties: {row: UZTNPF, width_xs: 3, col_xs: 9}
-    components:
-    - name: outlined_button_7
-      properties: {role: outlined-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: black, visible: true, text: 'View/Download Portfolio      ',
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '#0876e8', bold: false, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'OOVWBY,MQPFTP'}
-      event_bindings: {click: outlined_button_7_click}
-  - type: LinearPanel
-    properties: {}
-    name: linear_panel_9
-    layout_properties: {row: ZOEATB, width_xs: 3, col_xs: 0}
-    components:
-    - name: button_6
-      properties: {role: outlined-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: black, visible: true, text: 'Loan Disbursement              ',
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '#0876e8', bold: false, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'WKLSTO,NFLNFH'}
-      event_bindings: {click: button_6_click}
-  - type: LinearPanel
-    properties: {}
-    name: linear_panel_10
-    layout_properties: {row: ZOEATB, width_xs: 3, col_xs: 3}
-    components:
-    - name: outlined_button_8
-      properties: {role: outlined-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: black, visible: true, text: 'View/Edit Profile                      ',
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '#0876e8', bold: false, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'WKLSTO,NJIISR'}
-      event_bindings: {click: outlined_button_8_click}
-  - type: LinearPanel
-    properties: {}
-    name: linear_panel_11
-    layout_properties: {row: ZOEATB, width_xs: 3, col_xs: 6}
-    components:
-    - name: outlined_button_9
-      properties: {role: outlined-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: black, visible: true, text: ' View/Send Notifications     ',
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '#0876e8', bold: false, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'WKLSTO,OADNKX'}
-      event_bindings: {click: outlined_button_9_click}
-  - type: LinearPanel
-    properties: {}
-    name: linear_panel_12
-    layout_properties: {row: ZOEATB, width_xs: 3, col_xs: 9}
-    components:
-    - name: outlined_button_10
-      properties: {role: outlined-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: black, visible: true, text: 'Change Password                       ',
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '#0876e8', bold: false, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'WKLSTO,JDEXLX'}
-      event_bindings: {click: outlined_button_10_click}
-  - type: LinearPanel
-    properties: {}
-    name: linear_panel_13
-    layout_properties: {row: CFIOXM, width_xs: 3, col_xs: 0}
-    components:
-    - name: outlined_button_4
-      properties: {role: outlined-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: black, visible: true, text: "  View Loan\n Extension\
-          \ Requests             ", font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '#0876e8',
-        bold: false, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'SPNLTZ,GGCOHO'}
-      event_bindings: {click: outlined_button_4_click}
-  - type: LinearPanel
-    properties: {}
-    name: linear_panel_14
-    layout_properties: {row: CFIOXM, width_xs: 3, col_xs: 3}
-    components:
-    - name: outlined_button_5
-      properties: {role: outlined-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: black, visible: true, text: "  View Loan \nForeclosure\
-          \ Requests              ", font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '#0876e8',
-        bold: false, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'SPNLTZ,TRGJPZ'}
-      event_bindings: {click: outlined_button_5_click}
+  - name: label_3
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Opening Balance, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'FLZHAQ,KKYCWC', row_background: 'theme:On
+        Tertiary'}
+  - name: text_box_1
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: ₹0.00,
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+      background: 'theme:On Tertiary', bold: false, underline: false}
+    type: TextBox
+    layout_properties: {grid_position: 'FLZHAQ,ENCJRD', row_background: ''}
+  - name: spacer_2
+    properties: {height: 12.444427490234375}
+    type: Spacer
+    layout_properties: {grid_position: 'IKITGX,KIXBAN'}
+  - name: label_4
+    properties: {text: Loans, bold: true}
+    type: Label
+    layout_properties: {grid_position: 'MSTRFH,LAGHOY'}
+  - name: text_box_2
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: ₹0.00,
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+      background: 'theme:On Tertiary', bold: false, underline: false}
+    type: TextBox
+    layout_properties: {grid_position: 'MSTRFH,KTQQDJ'}
+  - type: Spacer
+    properties: {height: 15}
+    name: spacer_3
+    layout_properties: {grid_position: 'XTUSPP,DCDJLT'}
+  - name: label_5
+    properties: {text: Balance available, bold: true}
+    type: Label
+    layout_properties: {grid_position: 'LNMXNY,HREYCT'}
+  - name: text_box_3
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: ₹0.00,
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+      background: 'theme:On Tertiary', bold: false, underline: false}
+    type: TextBox
+    layout_properties: {grid_position: 'LNMXNY,NFQHZI'}
+- type: ColumnPanel
+  properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: 'theme:On Tertiary'}
+  name: outlined_card_2
+  layout_properties: {grid_position: 'YMJQIZ,KXQLST GUHACD,NJOQYN', row_background: 'theme:On
+      Tertiary'}
+  components:
+  - name: all_transaction_btn
+    properties: {role: null, align: left, tooltip: '', border: black, enabled: true,
+      foreground: black, visible: true, text: 'All Transactions                                                                                      ',
+      font_size: null, font: '', spacing_above: medium, icon_align: right, spacing_below: small,
+      italic: false, background: '', bold: true, underline: false, icon: 'fa:angle-right'}
+    type: Button
+    layout_properties: {grid_position: 'TYVIHV,YYMHBP', row_background: 'theme:On
+        Secondary'}
+- name: outlined_card_3
+  properties: {role: outlined-card, background: 'theme:On Tertiary', col_widths: '{"MRBEEJ":20,"KYDIOE":25,"QOYHVV":15}'}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'YMJQIZ,FFLGKA', row_background: 'theme:On Tertiary'}
+  components:
+  - name: label_6
+    properties: {text: DEPOSIT, bold: true, align: center}
+    type: Label
+    layout_properties: {grid_position: 'WYNKDJ,MRBEEJ'}
+  - name: label_7
+    properties: {text: WITHDRAW, bold: true, visible: true, align: center}
+    type: Label
+    layout_properties: {grid_position: 'WYNKDJ,KYDIOE'}
+  - name: spacer_7
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'WYNKDJ,QOYHVV'}
+  - name: spacer_6
+    properties: {height: 47.666656494140625}
+    type: Spacer
+    layout_properties: {grid_position: 'OGEYCO,BRHTGJ'}
+  - name: label_8
+    properties: {text: Enter Amount}
+    type: Label
+    layout_properties: {grid_position: 'SXAGSG,ZNLSNN'}
+  - name: text_box_4
+    properties: {placeholder: ₹ 5000, background: 'theme:On Tertiary'}
+    type: TextBox
+    layout_properties: {grid_position: 'SXAGSG,ICLLMB'}
+  - name: spacer_4
+    properties: {height: 58.444427490234375}
+    type: Spacer
+    layout_properties: {grid_position: 'YBJOJP,RQITTG'}
+  - name: outlined_button_1
+    properties: {text: 'UPI                                                                   ',
+      role: null, icon: 'fa:angle-right', enabled: true, icon_align: right}
+    type: Button
+    layout_properties: {grid_position: 'DQECSB,YFMRNO'}
+  - name: spacer_5
+    properties: {height: 33.11102294921875}
+    type: Spacer
+    layout_properties: {grid_position: 'GLSLZD,EJLLID'}
+  - name: button_1
+    properties: {text: DEPOSIT MONEY, role: null, icon_align: left, foreground: White}
+    type: Button
+    layout_properties: {grid_position: 'YEIQFG,MDHRMZ', full_width_row: false, row_background: 'theme:Primary
+        Container'}
 is_package: true
-custom_component: true
