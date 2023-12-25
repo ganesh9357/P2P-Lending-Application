@@ -6,7 +6,7 @@ components:
 - name: flow_panel_1
   properties: {align: justify}
   type: FlowPanel
-  layout_properties: {grid_position: 'WPEYAS,HYNSXQ'}
+  layout_properties: {grid_position: 'WPEYAS,HYNSXQ', full_width_row: true}
   components:
   - name: image_1_copy_copy_1
     properties: {role: null, vertical_align: center, height: 39, tooltip: '', border: '',
@@ -62,7 +62,7 @@ components:
 - name: label_1
   properties: {text: Balance, bold: true, font: a, font_size: 24}
   type: Label
-  layout_properties: {grid_position: 'TCFZQX,YSDIEN', full_width_row: true}
+  layout_properties: {grid_position: 'TCFZQX,YSDIEN', full_width_row: false}
 - name: spacer_1
   properties: {height: -50.4444580078125}
   type: Spacer
@@ -154,28 +154,41 @@ components:
     layout_properties: {grid_position: 'TYVIHV,YYMHBP', row_background: 'theme:On
         Secondary'}
 - name: outlined_card_3
-  properties: {role: outlined-card, background: 'theme:On Tertiary', col_widths: '{"MRBEEJ":20,"KYDIOE":25,"QOYHVV":15}'}
+  properties: {role: outlined-card, background: 'theme:On Tertiary', col_widths: '{"UYRCJG":30,"SYHSRD":30,"XKSLOU":20,"NWDEAB":25,"ZFTXOO":15}'}
   type: ColumnPanel
   layout_properties: {grid_position: 'YMJQIZ,FFLGKA', row_background: 'theme:On Tertiary'}
   components:
-  - name: label_6
-    properties: {text: DEPOSIT, bold: true, align: center}
-    type: Label
-    layout_properties: {grid_position: 'WYNKDJ,MRBEEJ'}
-  - name: label_7
-    properties: {text: WITHDRAW, bold: true, visible: true, align: center}
-    type: Label
-    layout_properties: {grid_position: 'WYNKDJ,KYDIOE'}
-  - name: spacer_7
+  - name: deposit_btn
+    properties: {text: DEPOSIT, foreground: black, bold: true}
+    type: Button
+    layout_properties: {grid_position: 'MDXWZU,XKSLOU'}
+  - name: withdraw_btn
+    properties: {text: WITHDRAW, bold: true, foreground: black}
+    type: Button
+    layout_properties: {grid_position: 'MDXWZU,NWDEAB'}
+    event_bindings: {click: withdraw_btn_click}
+  - name: spacer_9
     properties: {height: 32}
     type: Spacer
-    layout_properties: {grid_position: 'WYNKDJ,QOYHVV'}
+    layout_properties: {grid_position: 'MDXWZU,ZFTXOO'}
   - name: spacer_6
-    properties: {height: 47.666656494140625}
+    properties: {height: 18.599990844726562}
     type: Spacer
     layout_properties: {grid_position: 'OGEYCO,BRHTGJ'}
+  - name: label_9
+    properties: {text: 'Withdrawable ', bold: true, align: left, visible: false}
+    type: Label
+    layout_properties: {grid_position: 'ILDOYP,UYRCJG'}
+  - name: text_box_5
+    properties: {placeholder: ₹0.00, background: 'theme:On Tertiary', visible: false}
+    type: TextBox
+    layout_properties: {grid_position: 'ILDOYP,SYHSRD'}
+  - name: spacer_8
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'UDZMJW,AHVXST'}
   - name: label_8
-    properties: {text: Enter Amount}
+    properties: {text: Enter Amount, bold: true, align: left}
     type: Label
     layout_properties: {grid_position: 'SXAGSG,ZNLSNN'}
   - name: text_box_4
@@ -183,12 +196,13 @@ components:
     type: TextBox
     layout_properties: {grid_position: 'SXAGSG,ICLLMB'}
   - name: spacer_4
-    properties: {height: 58.444427490234375}
+    properties: {height: 19}
     type: Spacer
     layout_properties: {grid_position: 'YBJOJP,RQITTG'}
   - name: outlined_button_1
     properties: {text: 'UPI                                                                   ',
-      role: null, icon: 'fa:angle-right', enabled: true, icon_align: right}
+      role: null, icon: 'fa:angle-right', enabled: true, icon_align: right, bold: true,
+      foreground: black, align: center}
     type: Button
     layout_properties: {grid_position: 'DQECSB,YFMRNO'}
   - name: spacer_5

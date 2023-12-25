@@ -39,3 +39,15 @@ class wallet(walletTemplate):
     """This method is called when the button is clicked"""
     pass
 
+  def withdraw_show(self, **event_args):
+    """This method is called when the Label is shown on the screen"""
+    pass
+
+  def withdraw_btn_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.label_9.visible = True
+    self.text_box_5.visible = True
+    
+
+self.accepted_btn.visible = False
+        self.rejected_btn.visible = True
