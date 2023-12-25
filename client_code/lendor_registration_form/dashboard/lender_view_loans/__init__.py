@@ -7,29 +7,43 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from ....bank_users.main_form import main_form_module
+from .. import lendor_main_form_module as main_form_module
 
 
 class lender_view_loans(lender_view_loansTemplate):
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
-    self.init_components(**properties)
-    self.user_id=main_form_module.userId
-    self.repeating_panel_1.items=app_tables.loan_details.search(loan_updated_status=q.like('open%'),borrower_customer_id=self.user_id)
-    self.repeating_panel_2.items=app_tables.loan_details.search(loan_updated_status=q.like('close%'),borrower_customer_id=self.user_id)
-    self.repeating_panel_3.items=app_tables.loan_details.search(loan_updated_status=q.like('reject%'),borrower_customer_id=self.user_id)
-    self.repeating_panel_4.items=app_tables.loan_details.search(loan_updated_status=q.like('underprocess%'),borrower_customer_id=self.user_id)
-    self.repeating_panel_5.items=app_tables.loan_details.search(loan_updated_status=q.like('foreclosure%'),borrower_customer_id=self.user_id)
-    self.label_5.text = str(len(self.repeating_panel_1.items))
-    self.label_6.text=str(len(self.repeating_panel_2.items))
-    self.label_7.text=str(len(self.repeating_panel_3.items))
-    self.label_8.text=str(len(self.repeating_panel_4.items))
-    self.label_9.text=str(len(self.repeating_panel_5.items))
+        # Set Form properties and Data Bindings.
+        self.init_components(**properties)
+        self.user_id = main_form_module.userId
+
+        # Retrieve and display open loans
+        self.repeating_panel_1.items = app_tables.loan_details.search(loan_updated_status=q.like('open%'))
+        self.label_5.text = str(len(self.repeating_panel_1.items))
+
+        # Retrieve and display closed loans
+        self.repeating_panel_2.items = app_tables.loan_details.search(loan_updated_status=q.like('close%'))
+        self.label_6.text = str(len(self.repeating_panel_2.items))
+
+        # Retrieve and display rejected loans
+        self.repeating_panel_3.items = app_tables.loan_details.search(loan_updated_status=q.like('reject%'))
+        self.label_7.text = str(len(self.repeating_panel_3.items))
+
+        # Retrieve and display underprocess loans
+        self.repeating_panel_4.items = app_tables.loan_details.search(loan_updated_status=q.like('underprocess%'))
+        self.label_8.text = str(len(self.repeating_panel_4.items))
+
+        # Retrieve and display foreclosure loans
+        self.repeating_panel_5.items = app_tables.loan_details.search(loan_updated_status=q.like('foreclosure%'))
+        self.label_9.text = str(len(self.repeating_panel_5.items))
+
+        # Any code you write here will run before the form opens.
+
+    # ... (other methods)
+
     # Any code you write here will run before the form opens.
 
-  def home_borrower_registration_form_copy_1_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    open_form('bank_users.borrower_dashboard')
+  
+
 
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -95,3 +109,7 @@ class lender_view_loans(lender_view_loansTemplate):
     self.data_grid_3.visible=False
     self.data_grid_4.visible=False
     self.data_grid_5.visible=True
+
+  def home_lender_registration_form_copy_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form("lendor_registration_form.dashboard")
