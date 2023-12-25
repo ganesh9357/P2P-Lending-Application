@@ -198,6 +198,5 @@ components:
   - name: button_1
     properties: {text: DEPOSIT MONEY, role: null, icon_align: left, foreground: White}
     type: Button
-    layout_properties: {grid_position: 'YEIQFG,MDHRMZ', full_width_row: false, row_background: 'theme:Primary
-        Container'}
+    layout_properties: {grid_position: 'YEIQFG,MDHRMZ', full_width_row: false, row_background: '#0876E8'}
 is_package: true
