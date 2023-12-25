@@ -153,13 +153,12 @@ def add_lendor_bank_details_form_1(account_name, account_type,account_number,ban
 
 
 @anvil.server.callable
-def add_lendor_bank_details_form_2(ifsc,salary_type,branch_name,net_bank, user_id):
+def add_lendor_bank_details_form_2(ifsc,salary_type,branch_name, user_id):
   row = app_tables.user_profile.search(customer_id = user_id)
   if row:
     row[0]['ifsc_code'] = ifsc
     row[0]['salary_type'] = salary_type
     row[0]['branch_name'] = branch_name
-    row[0]['net_bank'] = net_bank
     row[0]['usertype'] = 'lender'
     row[0]['last_confirm'] = True
 
@@ -171,13 +170,23 @@ def add_lendor_bank_details_form_2(ifsc,salary_type,branch_name,net_bank, user_i
 
 # this one for dashboard start 
 
+# code for rta 
 @anvil.server.callable
-def add_rtr_form(top_up,final_rta):
+def add_rtr_form(final_rta, available_balance):
   #row = app_tables.lender.search()
-  row = app_tables.lender.search(tables.order_by("date_time", ascending=False))
+  row = app_tables.lender.search(tables.order_by("lender_accepted_timestamp", ascending=False))
   if row:
-    row[0]['top_up'] = top_up
     row[0]['final_rta'] = final_rta
+    row[0]['available_balance'] = available_balance
+
+@anvil.server.callable
+def add_top_up_amount(top_up):
+  row= app_tables.top_up.search()
+  if row:
+    top_up = int(top_up)
+    row[0]['top_up_amount'] = top_up
+
+
 
 #code for foreclose request
 

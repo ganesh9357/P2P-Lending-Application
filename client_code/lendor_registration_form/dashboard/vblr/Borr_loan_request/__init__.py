@@ -15,7 +15,7 @@ class Borr_loan_request(Borr_loan_requestTemplate):
 
         # Populate labels with the selected row details
         self.label_user_id.text = f"{selected_row['borrower_customer_id']}"
-        self.label_name.text = f"{selected_row['full_name']}"
+        self.label_name.text = f"{selected_row['lender_full_name']}"
         self.label_loan_amount_applied.text = f"{selected_row['loan_amount']}"
         self.label_loan_acc_number.text = f"{selected_row['loan_id']}"
         self.label_beseem_score.text = f"{selected_row['beseem_score']}"
@@ -97,27 +97,58 @@ class Borr_loan_request(Borr_loan_requestTemplate):
             self.accepted_btn.visible = False
             self.rejected_btn.visible = False
   
-    def accepted_btn_click(self, **event_args):
-        """This method is called when the button is clicked"""
-        self.accepted_btn.visible = True
-        self.rejected_btn.visible = False
+    # def accepted_btn_click(self, **event_args):
+    #     """This method is called when the button is clicked"""
+    #     self.accepted_btn.visible = True
+    #     self.rejected_btn.visible = False
 
-        self.accepted_btn.visible = False
-        # Set the text of the Output Label with blue color
-        self.output_label1.text = "This Borrower Loan is Accepted"
-        self.output_label1.foreground = '#0000FF'  # Blue color
-        self.output_label1.visible = True
+    #     self.accepted_btn.visible = False
+    #     # Set the text of the Output Label with blue color
+    #     self.output_label1.text = "This Borrower Loan is Accepted"
+    #     self.output_label1.foreground = '#0000FF'  # Blue color
+    #     self.output_label1.visible = True
       
-        # Update the 'loan_updated_status' column in the 'loan_details' table to 'accepted'
-        self.selected_row['loan_updated_status'] = 'accepted'
-        # Save changes to the table
-        self.selected_row.update()
+    #     # Update the 'loan_updated_status' column in the 'loan_details' table to 'accepted'
+    #     self.selected_row['loan_updated_status'] = 'accepted'
+    #     # Save changes to the table
+    #     self.selected_row.update()
 
-        # Update UI based on the new status
-        self.update_ui_based_on_status()
+    #     # Update UI based on the new status
+    #     self.update_ui_based_on_status()
 
-        Notification("Borrower will get notified").show()
-        open_form("lendor_registration_form.dashboard.vblr")
+    #     Notification("Borrower will get notified").show()
+    #     open_form("lendor_registration_form.dashboard.vblr")
+
+    def accepted_btn_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      # self.accepted_btn_click(selected_row=self.selected_row)
+      loan_amount_applied = self.selected_row['loan_amount']
+    
+      lender = app_tables.lender.get(customer_id=int(self.selected_row['lender_customer_id']))
+    
+      if int(lender['available_balance']) >= int(loan_amount_applied):
+          # Sufficient balance available, proceed with accepting the loan
+          self.accepted_btn.visible = False
+          self.output_label1.text = "This Borrower Loan is Accepted"
+          self.output_label1.foreground = '#0000FF'  # Blue color
+          self.output_label1.visible = True
+          self.selected_row['loan_updated_status'] = 'accepted'
+          self.selected_row.update()
+          self.update_ui_based_on_status()
+          Notification("Borrower will get notified").show()
+          open_form("lendor_registration_form.dashboard.vblr")
+      else:
+          # Insufficient balance, prompt the user to top-up the amount
+          alert("You don't have enough balance. Please top-up the amount.", buttons=[("OK")])
+          self.open_opbal_form()
+                                                                                     
+    def open_opbal_form(self):
+      try:
+          open_form("lendor_registration_form.dashboard.opbal")
+      except Exception as e:
+          print(f"Error opening opbal form: {e}")
+        
+
 
     def rejected_btn_click(self, **event_args):
         """This method is called when the button is clicked"""

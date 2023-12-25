@@ -15,21 +15,27 @@ class rta(rtaTemplate):
 
     # Any code you write here will run before the form opens.
   def button_2_click(self, **event_args):
-    all_requests = app_tables.lender.search(
-            tables.order_by("date_time", ascending=False)
-        )
+    
+
+    all_requests = app_tables.top_up.search()
     top_up = self.tp_tb.text
+    
+    all_requests = app_tables.lender.search(
+            tables.order_by("lender_accepted_timestamp", ascending=False)
+        )
     final_rta = self.final_rta
     
     if all_requests:
         latest_request = all_requests[0]
-        investment = latest_request['investment']
-        final_rta = int(latest_request['investment']) + int(top_up)
+        available_balance = latest_request['available_balance']
+        final_rta = int(latest_request['available_balance']) + int(top_up)
         #user_name = self.user_name
         self.final_rta.text = f"Total Available Amount: {final_rta}"
 
         # Call the server function with the correct name and parameter
-        anvil.server.call('add_rtr_form', top_up,final_rta )
+        anvil.server.call('add_rtr_form', final_rta, available_balance)
+        anvil.server.call('add_top_up_amount', top_up)
+      
         Notification("Topup added successfully").show()
 
   def button_1_click(self, **event_args):
