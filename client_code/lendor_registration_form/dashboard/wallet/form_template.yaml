@@ -1,4 +1,6 @@
-container: {type: ColumnPanel}
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}', background: 'theme:On Tertiary'}
 components:
 - name: flow_panel_1
   properties: {align: justify}
@@ -52,4 +54,69 @@ components:
     type: Link
     layout_properties: {}
     event_bindings: {click: wallet_link_click}
+- name: label_1
+  properties: {text: Balance, bold: true, font: a, font_size: 22}
+  type: Label
+  layout_properties: {grid_position: 'TCFZQX,YSDIEN'}
+- type: Label
+  properties: {text: Balance available, bold: true}
+  name: label_2
+  layout_properties: {grid_position: 'WKVHLQ,GUPXOR'}
+- name: balance_text_box
+  properties: {placeholder: ₹0.oo, foreground: '', background: 'theme:On Tertiary'}
+  type: TextBox
+  layout_properties: {grid_position: 'INGWDQ,SOMQSJ'}
+- name: spacer_1
+  properties: {height: -50.4444580078125}
+  type: Spacer
+  layout_properties: {grid_position: 'MSMUKQ,FGXLDL'}
+- type: ColumnPanel
+  properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: 'theme:On Secondary'}
+  name: outlined_card_1
+  layout_properties: {grid_position: 'YMJQIZ,KXQLST'}
+  components:
+  - name: label_3
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Opening Balance, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'FLZHAQ,KKYCWC', row_background: 'theme:On
+        Tertiary'}
+  - name: text_box_1
+    properties: {background: 'theme:On Tertiary', placeholder: ₹0.00, visible: true,
+      enabled: true}
+    type: TextBox
+    layout_properties: {grid_position: 'FLZHAQ,ENCJRD', row_background: 'theme:On
+        Tertiary'}
+  - name: spacer_2
+    properties: {height: 9.66668701171875}
+    type: Spacer
+    layout_properties: {grid_position: 'IKITGX,KIXBAN'}
+  - name: label_4
+    properties: {text: Loans}
+    type: Label
+    layout_properties: {grid_position: 'MSTRFH,LAGHOY'}
+  - name: text_box_2
+    properties: {background: 'theme:On Tertiary', placeholder: ₹0.00}
+    type: TextBox
+    layout_properties: {grid_position: 'MSTRFH,KTQQDJ'}
+  - type: Spacer
+    properties: {height: 15}
+    name: spacer_3
+    layout_properties: {grid_position: 'XTUSPP,DCDJLT'}
+  - name: label_5
+    properties: {text: Balance available, bold: true}
+    type: Label
+    layout_properties: {grid_position: 'LNMXNY,HREYCT'}
+  - name: text_box_3
+    properties: {background: 'theme:On Tertiary', placeholder: ₹0.00}
+    type: TextBox
+    layout_properties: {grid_position: 'LNMXNY,NFQHZI'}
+- name: drop_down_1
+  properties: {}
+  type: DropDown
+  layout_properties: {grid_position: 'QPMFDF,OKEGIC'}
 is_package: true
