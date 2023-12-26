@@ -64,6 +64,7 @@ unique_ids:
     lendor_registration_form.dashboard.td.ItemTemplate1: '1703564885286922717800272.7809'
     lendor_registration_form.dashboard.wallet_copy: '1703503748228873680203309.9425'
     bank_users.borrower_dashboard.borrower_dashboard_contact: '1701024135120380095014250.6585'
+    bank_users.borrower_dashboard.choose_lender: '1703568798780779662629409.7739'
     admin.dashboard.loan_management.closed_loans.RowTemplate14: '1701079863491503664452804.4547'
     bank_users.main_form.products_main_form: '1700563558734712481921773.0997'
     borrower_registration_form.star_1_borrower_registration_form_begin_3.star_1_borrower_registration_form_begin_3e: '1700037622301754064674185.6132'

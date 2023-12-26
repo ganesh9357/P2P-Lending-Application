@@ -14,7 +14,7 @@ services:
 - source: /runtime/services/anvil/email.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: lendor_registration_form.dashboard}
+startup: {type: form, module: bank_users.main_form}
 package_name: bank_client
 allow_embedding: false
 name: P2P Lending App
@@ -369,6 +369,11 @@ db_schema:
       admin_ui: {width: 200, order: 93}
       type: string
     title: user_profile
+  wallet_notification:
+    client: none
+    server: full
+    columns: []
+    title: wallet_notification
   wallet:
     client: full
     server: full
@@ -379,19 +384,30 @@ db_schema:
     - name: lender_full_name
       admin_ui: {width: 200, order: 1}
       type: string
-    - name: lender_wallet_id
-      admin_ui: {order: 2, width: 200}
-      type: string
-    - name: wallet_amount
+    - name: lender_wallet_amount
       admin_ui: {order: 3, width: 200}
       type: number
-    - name: before_wallet_available_balance
-      admin_ui: {order: 4, width: 242}
+    - name: wallet_id
+      admin_ui: {width: 200, order: -1}
+      type: string
+    - name: lender_email
+      admin_ui: {width: 200, order: 2}
+      type: string
+    - name: lender_loan_amount
+      admin_ui: {width: 200, order: 4}
       type: number
-    - name: after_wallet_available_balance
-      admin_ui: {order: 5, width: 200}
+    - name: 'lender_withdrawn_ amount. '
+      admin_ui: {width: 200, order: 5}
       type: number
     title: wallet
+  wallet_transactions_:
+    client: none
+    server: full
+    columns:
+    - name: transaction_id
+      admin_ui: {width: 200}
+      type: string
+    title: 'wallet_transactions '
   user_issues_bugreports:
     title: user_issues_bugreports
     client: full
@@ -418,6 +434,11 @@ db_schema:
     - name: customer_id
       admin_ui: {order: 5, width: 200}
       type: string
+  users_device:
+    client: none
+    server: full
+    columns: []
+    title: users_device
   foreclosure:
     client: full
     server: full
