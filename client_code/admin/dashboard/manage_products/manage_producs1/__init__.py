@@ -43,8 +43,18 @@ class manage_producs1(manage_producs1Template):
         product_name = self.text_box_2.text
         product_discription = self.text_area_1.text
         product_categories = self.product_category.text
-        processing_fee = int(self.text_box_3.text)
-        extension_fee = int(self.text_box_4.text)
+        # Function to convert text to integer or return None if not a valid integer
+    def convert_to_int(text):
+        try:
+            return int(text)
+        except (ValueError, TypeError) as e:
+            print(f"Error converting {text} to int: {e}")
+            return None
+
+    # Convert processing_fee and extension_fee to integers or None
+    processing_fee = convert_to_int(self.text_box_3.text)
+        extension_fee = convert_to_int(self.text_box_4.text)
+
         membership_type = self.drop_down_2.selected_value
         print(membership_type)
         interest_type = self.radio_button_1.text

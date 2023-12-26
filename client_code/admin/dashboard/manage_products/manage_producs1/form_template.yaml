@@ -84,10 +84,6 @@ components:
           name: label_8_copy
           layout_properties: {x: 0, y: 473, width: 160}
         - type: Label
-          properties: {}
-          name: label_1
-          layout_properties: {x: 177, y: 78, width: 213}
-        - type: Label
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
             visible: true, text: ' Processing Fee', font_size: null, font: '', spacing_above: small,
             icon_align: left, spacing_below: small, italic: false, background: '',
@@ -415,6 +411,10 @@ components:
             bold: false, underline: false, icon: ''}
           name: label_8
           layout_properties: {x: 7, y: 946, width: 122}
+        - name: label_1
+          properties: {}
+          type: Label
+          layout_properties: {x: 177.57815551757812, y: 70.84373474121094, width: 200}
 - type: FlowPanel
   properties: {}
   name: navbar_links
