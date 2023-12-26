@@ -42,14 +42,6 @@ class wallet(walletTemplate):
     """This method is called when the button is clicked"""
     pass
 
-  def withdraw_btn_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    self.label_9.visible = True
-    self.text_box_5.visible = True
-    self.amount_text_box.placeholder = self.withdraw_placeholder
-    self.deposit_money_btn.visible = False
-    self.withdraw_money_btn.visible = True
-
   def deposit_btn_click(self, **event_args):
     """This method is called when the button is clicked"""
     self.label_9.visible = False
@@ -57,4 +49,27 @@ class wallet(walletTemplate):
     self.amount_text_box.placeholder = self.deposit_placeholder
     self.deposit_money_btn.visible = True
     self.withdraw_money_btn.visible = False
+    self.deposit_btn.visible = True
+
+
+  def withdraw_btn_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.label_9.visible = True
+    self.text_box_5.visible = True
+    self.amount_text_box.placeholder = self.withdraw_placeholder
+    self.deposit_money_btn.visible = False
+    self.withdraw_money_btn.visible = True
+    self.withdraw_btn.visible = True
     
+
+  
+    
+
+  
+
+  
+   
+    
+    
+    
+
