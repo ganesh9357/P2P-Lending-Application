@@ -76,55 +76,55 @@ class loan_type(loan_typeTemplate):
         """This method is called when the button is clicked"""
         open_form('bank_users.borrower_dashboard.new_loan_request.check_out_form')
 
-    def label_11_show(self, **event_args):
-      """This method is called when the Label is shown on the screen"""
-      data =app_tables.product_details.search()
-      data1_strings = [data['max_amount'] for data in data]
-      self.label_11.text = data1_strings
-      self.label_11.text = data1_strings if data1_strings else None
+    # def label_11_show(self, **event_args):
+    #   """This method is called when the Label is shown on the screen"""
+    #   data =app_tables.product_details.search()
+    #   data1_strings = [data['max_amount'] for data in data]
+    #   self.label_11.text = data1_strings
+    #   self.label_11.text = data1_strings if data1_strings else None
 
-    def label_5_show(self, **event_args):
-      """This method is called when the Label is shown on the screen"""
-      min_amt =app_tables.product_details.search()
-      min_amount = [min_amt['min_amount'] for min_amt in min_amt]
-      self.label_5.text = min_amount
-      self.label_5.text = min_amount if min_amount else None
+    # def label_5_show(self, **event_args):
+    #   """This method is called when the Label is shown on the screen"""
+    #   min_amt =app_tables.product_details.search()
+    #   min_amount = [min_amt['min_amount'] for min_amt in min_amt]
+    #   self.label_5.text = min_amount
+    #   self.label_5.text = min_amount if min_amount else None
 
-    def label_13_show(self, **event_args):
-      min_ten = app_tables.product_details.search()
-      min_tenure = [min_ten['min_tenure'] for min_ten in min_ten]
-      self.label_13.text = min_tenure
-      self.label_13.text = min_tenure if min_tenure else None
+    # def label_13_show(self, **event_args):
+    #   min_ten = app_tables.product_details.search()
+    #   min_tenure = [min_ten['min_tenure'] for min_ten in min_ten]
+    #   self.label_13.text = min_tenure
+    #   self.label_13.text = min_tenure if min_tenure else None
 
-    def label_15_show(self, **event_args):
-      max_ten = app_tables.product_details.search()
-      max_tenure = [max_ten['max_tenure'] for max_ten in max_ten]
-      self.label_15.text = max_tenure
-      self.label_15.text = max_tenure if max_tenure else None
+    # def label_15_show(self, **event_args):
+    #   max_ten = app_tables.product_details.search()
+    #   max_tenure = [max_ten['max_tenure'] for max_ten in max_ten]
+    #   self.label_15.text = max_tenure
+    #   self.label_15.text = max_tenure if max_tenure else None
 
-    def label_21_show(self, **event_args):
-      process_fee = app_tables.product_details.search()
-      processing_fee = [process_fee['processing_fee'] for process_fee in process_fee]
-      self.label_21.text = processing_fee
-      self.label_21.text = processing_fee if processing_fee else None
+    # def label_21_show(self, **event_args):
+    #   process_fee = app_tables.product_details.search()
+    #   processing_fee = [process_fee['processing_fee'] for process_fee in process_fee]
+    #   self.label_21.text = processing_fee
+    #   self.label_21.text = processing_fee if processing_fee else None
 
-    def label_7_show(self, **event_args):
-      int_rate = app_tables.product_details.search()
-      interest_rate = [int_rate['roi'] for int_rate in int_rate]
-      self.label_7.text = interest_rate
-      self.label_7.text = interest_rate if interest_rate else None
+    # def label_7_show(self, **event_args):
+    #   int_rate = app_tables.product_details.search()
+    #   interest_rate = [int_rate['roi'] for int_rate in int_rate]
+    #   self.label_7.text = interest_rate
+    #   self.label_7.text = interest_rate if interest_rate else None
 
-    def label_9_show(self, **event_args):
-      forclos_eligibility = app_tables.product_details.search()
-      forclosure_eligibility = [forclos_eligibility['foreclose_type'] for forclos_eligibility in forclos_eligibility]
-      self.label_9.text = forclosure_eligibility
-      self.label_9.text = forclosure_eligibility if forclosure_eligibility else None
+    # def label_9_show(self, **event_args):
+    #   forclos_eligibility = app_tables.product_details.search()
+    #   forclosure_eligibility = [forclos_eligibility['foreclose_type'] for forclos_eligibility in forclos_eligibility]
+    #   self.label_9.text = forclosure_eligibility
+    #   self.label_9.text = forclosure_eligibility if forclosure_eligibility else None
 
-    def label_18_show(self, **event_args):
-      member_type = app_tables.product_details.search()
-      membership_type = [member_type['membership_type'] for member_type in member_type]
-      self.label_18.text = membership_type
-      self.label_18.text = membership_type if membership_type else None
+    # def label_18_show(self, **event_args):
+    #   member_type = app_tables.product_details.search()
+    #   membership_type = [member_type['membership_type'] for member_type in member_type]
+    #   self.label_18.text = membership_type
+    #   self.label_18.text = membership_type if membership_type else None
 
     def check_box_2_change(self, **event_args):
       if self.check_box_2:
