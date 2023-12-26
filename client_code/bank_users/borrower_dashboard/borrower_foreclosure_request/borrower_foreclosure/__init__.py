@@ -13,12 +13,12 @@ class borrower_foreclosure(borrower_foreclosureTemplate):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
         self.label_loan_id.text = f"{selected_row['loan_id']}"
-        self.label_name.text = f"{selected_row['full_name']}"
+        self.label_name.text = f"{selected_row['borrower_full_name']}"
         self.label_loan_amount.text = f"{selected_row['loan_amount']}"
         self.label_loan_tenure.text = f"{selected_row['tenure']} Months"
         self.label_interest_rate.text = f"{selected_row['interest_rate']} % pa"
         self.label_credit_limit.text = f"{selected_row['credit_limit']}"
-        self.label_tpm.text = f"{selected_row['payment_done']}"
+        #self.label_tpm.text = f"{selected_row['payment_done']}"
 
         # Check foreclosure status for the selected loan ID
         loan_id = selected_row['loan_id']
