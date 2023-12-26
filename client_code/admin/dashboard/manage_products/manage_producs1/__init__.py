@@ -13,6 +13,8 @@ class manage_producs1(manage_producs1Template):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
 
+        
+
         # Any code you write here will run before the form opens.
         self.id = 'PD' + str(1000)  
         self.label_1.text = self.id
@@ -40,10 +42,9 @@ class manage_producs1(manage_producs1Template):
     def button_1_click(self, **event_args):
         """This method is called when the button is clicked"""
 
-        product_groups = app_tables.product_group.search()
-        print(pr)
+        
 
-
+        product_name = self.name.selected_value
         product_discription = self.text_area_1.text
         product_categories = self.product_category.text
         processing_fee = int(self.text_box_3.text)
