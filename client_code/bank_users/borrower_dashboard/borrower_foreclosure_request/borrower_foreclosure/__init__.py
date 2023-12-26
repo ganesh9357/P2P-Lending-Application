@@ -44,8 +44,11 @@ class borrower_foreclosure(borrower_foreclosureTemplate):
         elif rejected_status:
             # If there is a reject status, show an alert
             alert('Your request has been rejected.')
-            self.button_foreclose.visible = True
+            self.button_foreclose.visible = False
+            self.button_2.visible = False
             self.button_3.visible = False
+            self.button_7.visible = True
+            self.button_8.visible = True
         else:
             # If there is no approved or reject status, check if the loan ID is in foreclosure table
             existing_requests = app_tables.foreclosure.search(loan_id=loan_id)
@@ -103,3 +106,7 @@ class borrower_foreclosure(borrower_foreclosureTemplate):
     def button_5_click(self, **event_args):
         """This method is called when the button is clicked"""
         open_form('bank_users.borrower_dashboard.borrower_foreclosure_request')
+
+    def button_7_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      open_form('bank_users.borrower_dashboard.borrower_foreclosure_request')
