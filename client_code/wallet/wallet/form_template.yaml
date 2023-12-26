@@ -54,7 +54,7 @@ components:
     properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: white,
       visible: true, text: Wallet, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
       spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
-      italic: false, background: '', bold: false, underline: false, icon: 'data:image/png;base64,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'}
+      italic: false, background: '', bold: false, underline: false, icon: 'fa:folder'}
     type: Link
     layout_properties: {}
     event_bindings: {click: wallet_link_click}
@@ -159,9 +159,9 @@ components:
   layout_properties: {grid_position: 'YMJQIZ,FFLGKA', row_background: 'theme:On Tertiary'}
   components:
   - name: deposit_btn
-    properties: {text: DEPOSIT, foreground: black, bold: true}
+    properties: {text: DEPOSIT, foreground: black, bold: true, visible: true}
     type: Button
-    layout_properties: {grid_position: 'MDXWZU,XKSLOU'}
+    layout_properties: {grid_position: 'MDXWZU,XKSLOU', row_background: ''}
   - name: withdraw_btn
     properties: {text: WITHDRAW, bold: true, foreground: black}
     type: Button
