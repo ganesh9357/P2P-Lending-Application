@@ -61,14 +61,6 @@ components:
             bold: false, underline: false, icon: ''}
           name: label_2_copy
           layout_properties: {x: 0, y: 78, width: 160}
-        - type: TextBox
-          properties: {role: outlined, align: left, hide_text: false, tooltip: '',
-            placeholder: 'Enter your Product Name ', border: '', enabled: true, foreground: '',
-            visible: true, text: '', font_size: null, font: '', spacing_above: small,
-            type: text, spacing_below: small, italic: false, background: '', bold: false,
-            underline: false}
-          name: text_box_2
-          layout_properties: {x: 177, y: 129.60000610351562, width: 221}
         - type: Label
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
             visible: true, text: ' Product Name ', font_size: null, font: '', spacing_above: small,
@@ -134,14 +126,6 @@ components:
             background: '', bold: false, underline: false, icon: ''}
           name: label_5
           layout_properties: {x: 0, y: 267.2624969482422, width: 159.994}
-        - type: TextBox
-          properties: {role: outlined, align: left, hide_text: false, tooltip: '',
-            placeholder: Enter product category, border: '', enabled: true, foreground: '',
-            visible: true, text: '', font_size: null, font: '', spacing_above: small,
-            type: text, spacing_below: small, italic: false, background: white, bold: false,
-            underline: false}
-          name: product_category
-          layout_properties: {x: 176.96875, y: 267.25, width: 199.984}
         - type: Label
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
             visible: true, text: Foreclosure Type, font_size: null, font: '', spacing_above: small,
@@ -415,6 +399,51 @@ components:
           properties: {}
           type: Label
           layout_properties: {x: 177.57815551757812, y: 70.84373474121094, width: 200}
+        - type: DropDown
+          properties:
+            role: outlined
+            align: full
+            tooltip: ''
+            placeholder: Enter product category
+            border: ''
+            enabled: true
+            foreground: ''
+            items: []
+            visible: true
+            font_size: null
+            font: ''
+            spacing_above: small
+            spacing_below: small
+            italic: false
+            background: white
+            bold: false
+            underline: false
+            include_placeholder: true
+          name: product_category
+          layout_properties: {x: 177.578125, y: 267.25, width: 220.421875}
+        - type: DropDown
+          properties:
+            role: outlined
+            align: full
+            tooltip: ''
+            placeholder: Enter product name
+            border: ''
+            enabled: true
+            foreground: ''
+            items: []
+            visible: true
+            font_size: null
+            font: ''
+            spacing_above: small
+            spacing_below: small
+            italic: false
+            background: white
+            bold: false
+            underline: false
+            include_placeholder: true
+          name: name
+          layout_properties: {x: 176.96875, y: 124.59375, width: 245}
+          data_bindings: []
 - type: FlowPanel
   properties: {}
   name: navbar_links

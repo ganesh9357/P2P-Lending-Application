@@ -40,7 +40,10 @@ class manage_producs1(manage_producs1Template):
     def button_1_click(self, **event_args):
         """This method is called when the button is clicked"""
 
-        product_name = self.text_box_2.text
+        product_groups = app_tables.product_group.search()
+        print(pr)
+
+
         product_discription = self.text_area_1.text
         product_categories = self.product_category.text
         processing_fee = int(self.text_box_3.text)

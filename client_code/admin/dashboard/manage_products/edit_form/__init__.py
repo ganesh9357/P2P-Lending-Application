@@ -123,7 +123,7 @@ class edit_form(edit_formTemplate):
                 data[a]['roi'] = int(self.roi.text)
                 data[a]['foreclose_type'] = self.foreclose_type.selected_value
                 extension_allowed_mapping = {'Yes': True, 'No': False}
-                data[a]['extension_allowed'] = extension_allowed_mapping[self.extension_allowed.text]
+                data[a]['extension_allowed'] = extension_allowed_mapping.get(self.extension_allowed.text, False)
                 data[a]['emi_payment'] = self.emi_payment.selected_value
                 data[a]['discount_coupons'] = self.radio_button_3.text
 
