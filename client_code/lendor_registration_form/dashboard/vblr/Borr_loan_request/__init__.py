@@ -96,28 +96,6 @@ class Borr_loan_request(Borr_loan_requestTemplate):
             self.rejected_btn.enabled = False
             self.accepted_btn.visible = False
             self.rejected_btn.visible = False
-  
-    # def accepted_btn_click(self, **event_args):
-    #     """This method is called when the button is clicked"""
-    #     self.accepted_btn.visible = True
-    #     self.rejected_btn.visible = False
-
-    #     self.accepted_btn.visible = False
-    #     # Set the text of the Output Label with blue color
-    #     self.output_label1.text = "This Borrower Loan is Accepted"
-    #     self.output_label1.foreground = '#0000FF'  # Blue color
-    #     self.output_label1.visible = True
-      
-    #     # Update the 'loan_updated_status' column in the 'loan_details' table to 'accepted'
-    #     self.selected_row['loan_updated_status'] = 'accepted'
-    #     # Save changes to the table
-    #     self.selected_row.update()
-
-    #     # Update UI based on the new status
-    #     self.update_ui_based_on_status()
-
-    #     Notification("Borrower will get notified").show()
-    #     open_form("lendor_registration_form.dashboard.vblr")
 
     def accepted_btn_click(self, **event_args):
       """This method is called when the button is clicked"""
