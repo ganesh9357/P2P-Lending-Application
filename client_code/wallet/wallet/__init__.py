@@ -14,7 +14,7 @@ class wallet(walletTemplate):
     self.init_components(**properties)
     self.deposit_placeholder = "₹5000"
     self.withdraw_placeholder = "₹0.00"
-    self.amount_text_box.placeholder = self.deposit_placeholder
+    # self.amount_text_box.placeholder = self.deposit_placeholder
 
     # Any code you write here will run before the form opens.
 
@@ -34,10 +34,6 @@ class wallet(walletTemplate):
     """This method is called when the link is clicked"""
     open_form('lendor_registration_form.dashboard.notification')
 
-  def wallet_link_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    open_form('wallet.wallet')
-
   def button_2_click(self, **event_args):
     """This method is called when the button is clicked"""
     pass
@@ -49,7 +45,6 @@ class wallet(walletTemplate):
     self.amount_text_box.placeholder = self.deposit_placeholder
     self.deposit_money_btn.visible = True
     self.withdraw_money_btn.visible = False
-    self.deposit_btn.visible = True
 
 
   def withdraw_btn_click(self, **event_args):
@@ -59,7 +54,8 @@ class wallet(walletTemplate):
     self.amount_text_box.placeholder = self.withdraw_placeholder
     self.deposit_money_btn.visible = False
     self.withdraw_money_btn.visible = True
-    self.withdraw_btn.visible = True
+    self.deposit_btn.visible = True
+    
     
 
   
