@@ -81,7 +81,7 @@ class foreclose(forecloseTemplate):
            
                 app_tables.foreclosure.add_row(
                     loan_id=self.selected_row['loan_id'],
-                    borrower_name=self.selected_row['full_name'],
+                    borrower_name=self.selected_row['borrower_full_name'],
                     loan_amount=self.selected_row['loan_amount'],
                     outstanding_amount=self.ra_label.text,
                     total_due_amount=self.tda_label.text,
