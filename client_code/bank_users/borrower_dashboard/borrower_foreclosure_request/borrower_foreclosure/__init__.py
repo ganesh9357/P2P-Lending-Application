@@ -70,18 +70,24 @@ class borrower_foreclosure(borrower_foreclosureTemplate):
         self.selected_row = selected_row
 
     def button_foreclose_click(self, **event_args):
-        selected_row = self.selected_row
-        loan_id = selected_row['loan_id']
+      selected_row = self.selected_row
+      loan_id = selected_row['loan_id']
 
-            
-        borrower_last_payment_done = selected_row['borrower_last_payment_done']
+      borrower_last_payment_done  = selected_row['borrower_last_payment_done']
+      
 
-        if borrower_last_payment_done > 12:
-                open_form('bank_users.borrower_dashboard.borrower_foreclosure_request.borrower_foreclosure.foreclose', selected_row=selected_row)
-        else:
-                alert('You are not eligible for foreclosure! You have to pay at least 12 months.')
-                open_form('bank_users.borrower_dashboard.borrower_foreclosure_request')
+      # if borrower_last_payment_done :
+      #   open_form('bank_users.borrower_dashboard.borrower_foreclosure_request.borrower_foreclosure.foreclose', selected_row=selected_row)
+      # else:
+      #   alert('You are not eligible for foreclosure! You have to pay at least 12 months.')
+      #   open_form('bank_users.borrower_dashboard.borrower_foreclosure_request')
 
+      if borrower_last_payment_done > 12:
+            open_form('bank_users.borrower_dashboard.borrower_foreclosure_request.borrower_foreclosure.foreclose', selected_row=selected_row)
+      else:
+            alert('You are not eligible for foreclosure! You have to pay at least 12 months.')
+            open_form('bank_users.borrower_dashboard.borrower_foreclosure_request')
+        
     def button_2_click(self, **event_args):
         """This method is called when the button is clicked"""
         open_form('bank_users.borrower_dashboard.borrower_foreclosure_request')
