@@ -19,9 +19,9 @@ class new_loan_request(new_loan_requestTemplate):
         self.name.selected_value = option_strings[0] if option_strings else None 
 
     def name_change(self, **event_args):
-        selected_value = self.name.selected_value
+        self.selected_value = self.name.selected_value
 
-        if selected_value:
+        if self.selected_value:
           self.label_1.visible = True
           self.label_2.visible = True
           self.name.visible = True
@@ -29,7 +29,7 @@ class new_loan_request(new_loan_requestTemplate):
 
             # Fetch product categories based on the selected loan type
           product_categories = app_tables.product_categories.search(
-          name_group=selected_value
+          name_group=self.selected_value
           )
 
           if product_categories:
@@ -43,7 +43,7 @@ class new_loan_request(new_loan_requestTemplate):
 
     def button_1_copy_click(self, **event_args):
       """This method is called when the button is clicked"""
-      open_form('bank_users.borrower_dashboard.new_loan_request.loan_type')
+      open_form('bank_users.borrower_dashboard.new_loan_request.loan_type',self.selected_value,self.drop_down_2.selected_value)
 
     def max_amount_lb_show(self, **event_args):
       data =app_tables.product_details.search()
