@@ -52,6 +52,7 @@ components:
     background: 'theme:On Primary', bold: false, underline: false}
   type: TextBox
   layout_properties: {grid_position: 'JYYFHK,RFNMDX'}
+  event_bindings: {pressed_enter: borrower_company_name_pressed_enter}
 - name: label_5_copy_1
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: Company Address, font_size: null, font: '', spacing_above: small, icon_align: left,

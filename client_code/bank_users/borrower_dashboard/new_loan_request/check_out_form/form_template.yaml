@@ -40,6 +40,7 @@ components:
   properties: {}
   name: label_4
   layout_properties: {grid_position: 'HPQFHY,BRHBQU'}
+  event_bindings: {show: label_4_show}
 - type: Label
   properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
     visible: true, text: Tenure, font_size: null, font: '', spacing_above: small,
