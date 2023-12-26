@@ -20,17 +20,28 @@ import anvil.server
 #   return 42
 
 @anvil.server.callable
-def product_details(product_id, product_name, processing_fee, extension_fee, membership_type, interest_type, max_days, min_days, roi, discount_coupons):
+def product_details(product_id, product_name, product_categories,processing_fee,  extension_fee, membership_type, interest_type, max_amount, min_amount, min_tenure, max_tenure, roi, foreclose_type, extension_allowed, emi_payment, discount_coupons):
   row = app_tables.product_details.add_row(product_id=product_id,
                                            product_name=product_name,
-                                           processing_fee=processing_fee,
+                                           product_categories = product_categories,
+                                           processing_fee=processing_fee,   
                                            extension_fee=extension_fee,
                                            membership_type=membership_type,
                                            interest_type= interest_type,
-                                           max_days = max_days,
-                                           min_days = min_days,
+                                           # late_fee = late_fee,
+                                           max_amount = max_amount,
+                                           min_amount=min_amount,
+                                           # tenure = tenure,
+                                           min_tenure = min_tenure,
+                                           max_tenure = max_tenure,
                                            roi = roi,
-                                           discount_coupons = discount_coupons)
+                                           foreclose_type=foreclose_type,
+                                           extension_allowed=extension_allowed,
+                                           # lapsed_status=lapsed_status,
+                                           emi_payment = emi_payment,
+                                           discount_coupons = discount_coupons
+                                          )
+
 
 
 @anvil.server.callable
