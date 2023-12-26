@@ -191,8 +191,8 @@ components:
     properties: {text: Enter Amount, bold: true, align: left}
     type: Label
     layout_properties: {grid_position: 'SXAGSG,ZNLSNN'}
-  - name: text_box_4
-    properties: {placeholder: ₹ 5000, background: 'theme:On Tertiary'}
+  - name: amount_text_box
+    properties: {placeholder: '', background: 'theme:On Tertiary'}
     type: TextBox
     layout_properties: {grid_position: 'SXAGSG,ICLLMB'}
   - name: spacer_4
@@ -209,8 +209,13 @@ components:
     properties: {height: 33.11102294921875}
     type: Spacer
     layout_properties: {grid_position: 'GLSLZD,EJLLID'}
-  - name: button_1
+  - name: deposit_money_btn
     properties: {text: DEPOSIT MONEY, role: null, icon_align: left, foreground: White}
     type: Button
-    layout_properties: {grid_position: 'YEIQFG,MDHRMZ', full_width_row: false, row_background: '#0876E8'}
+    layout_properties: {grid_position: 'EKHXRK,QRKXCK', full_width_row: false, row_background: '#0876E8'}
+  - name: withdraw_money_btn
+    properties: {text: WITHDRAW MONEY, role: null, icon_align: left, foreground: White,
+      visible: false}
+    type: Button
+    layout_properties: {grid_position: 'DBHFBZ,FDFRMO', row_background: '#0876E8'}
 is_package: true

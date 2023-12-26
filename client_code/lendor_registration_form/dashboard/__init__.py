@@ -139,7 +139,7 @@ class dashboard(dashboardTemplate):
 
   def wallet_link_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('lendor_registration_form.dashboard.wallet')
+    open_form('wallet.wallet')
 
 
 
