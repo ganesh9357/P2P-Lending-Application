@@ -403,7 +403,10 @@ db_schema:
   wallet_transactions_:
     client: none
     server: full
-    columns: []
+    columns:
+    - name: transaction_id
+      admin_ui: {width: 200}
+      type: string
     title: 'wallet_transactions '
   user_issues_bugreports:
     title: user_issues_bugreports
