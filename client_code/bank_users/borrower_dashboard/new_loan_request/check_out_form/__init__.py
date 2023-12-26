@@ -26,7 +26,7 @@ class check_out_form(check_out_formTemplate):
             self.roi = user_request['roi']
             self.roi.text = f"Interest rate : {self.roi} %"
         else:
-            self.int_rate.text = "Interest rate not found."
+            self.roi.text = "Interest rate not found."
             return  # Exit the __init__ method if interest_rate is not available
 
         all_requests = app_tables.loan_details.search()
