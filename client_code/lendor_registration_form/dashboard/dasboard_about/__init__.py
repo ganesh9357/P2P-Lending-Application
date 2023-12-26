@@ -34,6 +34,14 @@ class dasboard_about(dasboard_aboutTemplate):
     """This method is called when the link is clicked"""
     pass
 
+  def notification_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('lendor_registration_form.dashboard.notification')
+
+  def wallet_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('wallet.wallet')
+
   def image_2_mouse_enter(self, x, y, **event_args):
     """This method is called when the mouse cursor enters this component"""
     self.label_9.visible=True
