@@ -14,7 +14,7 @@ services:
 - source: /runtime/services/anvil/email.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: admin.dashboard.manage_products.manage_producs1}
+startup: {type: form, module: bank_users.borrower_dashboard}
 package_name: bank_client
 allow_embedding: false
 name: P2P Lending App
@@ -559,6 +559,9 @@ db_schema:
     - name: borrower_loan_created_timestamp
       admin_ui: {order: 5.375, width: 261}
       type: date
+    - name: borrower_last_payment_done
+      admin_ui: {width: 200, order: 25}
+      type: bool
     title: loan_details
   product_group:
     title: product_group

@@ -18,7 +18,7 @@ class borrower_foreclosure(borrower_foreclosureTemplate):
         self.label_loan_tenure.text = f"{selected_row['tenure']} Months"
         self.label_interest_rate.text = f"{selected_row['interest_rate']} % pa"
         self.label_credit_limit.text = f"{selected_row['credit_limit']}"
-        #self.label_tpm.text = f"{selected_row['payment_done']}"
+        self.label_tpm.text = f"{selected_row['borrower_last_payment_done']}"
 
         # Check foreclosure status for the selected loan ID
         loan_id = selected_row['loan_id']
