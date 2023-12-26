@@ -388,10 +388,10 @@ db_schema:
       admin_ui: {width: 200, order: 1}
       type: string
     - name: lender_wallet_amount
-      admin_ui: {order: 3, width: 200}
+      admin_ui: {order: 4.5, width: 200}
       type: number
     - name: wallet_id
-      admin_ui: {width: 200, order: -1}
+      admin_ui: {order: -1, width: 200}
       type: string
     - name: lender_email
       admin_ui: {width: 200, order: 2}
@@ -400,7 +400,7 @@ db_schema:
       admin_ui: {width: 200, order: 4}
       type: number
     - name: 'lender_withdrawn_ amount. '
-      admin_ui: {width: 200, order: 5}
+      admin_ui: {order: 7, width: 212}
       type: number
     title: wallet
   wallet_transactions_:
