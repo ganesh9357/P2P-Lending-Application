@@ -24,14 +24,13 @@ class manage_producs1(manage_producs1Template):
         for i in self.data:
             a += 1
             self.list_1.append(i['product_id']) 
-        if a == -1:
-            self.id = 'PD' + str(1000)
-            self.label_1.text = self.id
-        else:
+
+        if a != -1:
             last_product_id = self.list_1[-1]
             numeric_part = last_product_id[2:]  # Assuming the prefix is always two characters ('PD')
             self.id = 'PD' + str(int(numeric_part) + 1)
             self.label_1.text = self.id
+
 
     def link_1_copy_click(self, **event_args):
         """This method is called when the link is clicked"""
@@ -43,18 +42,16 @@ class manage_producs1(manage_producs1Template):
         product_name = self.text_box_2.text
         product_discription = self.text_area_1.text
         product_categories = self.product_category.text
-        # Function to convert text to integer or return None if not a valid integer
-    def convert_to_int(text):
-        try:
-            return int(text)
-        except (ValueError, TypeError) as e:
-            print(f"Error converting {text} to int: {e}")
-            return None
+        processing_fee_text = self.text_box_3.text
+        if processing_fee_text.isdigit():
+            processing_fee = int(processing_fee_text)
+        else:
+    # Handle the case where the input is not a valid integer
+            Notification("Processing Fee must be a valid number").show()
+            return  # or take appropriate action
 
-    # Convert processing_fee and extension_fee to integers or None
-    processing_fee = convert_to_int(self.text_box_3.text)
-        extension_fee = convert_to_int(self.text_box_4.text)
 
+        extension_fee = int(self.text_box_4.text)
         membership_type = self.drop_down_2.selected_value
         print(membership_type)
         interest_type = self.radio_button_1.text
