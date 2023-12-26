@@ -1,0 +1,88 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- name: button_1_copy
+  properties: {role: tonal-button, align: right, tooltip: '', border: '', enabled: true,
+    foreground: black, visible: true, text: Home, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
+    bold: true, underline: false, icon: 'fa:home'}
+  type: Button
+  layout_properties:
+    col_widths: {}
+    grid_position: HJAOEA,HDCZRI
+  event_bindings: {click: button_1_copy_click}
+- name: spacer_1
+  properties: {height: 32}
+  type: Spacer
+  layout_properties:
+    col_widths: {}
+    grid_position: PNDNDM,TKYEBB
+- name: label_1_copy_1_copy_1
+  properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: View Profile, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
+  type: Label
+  layout_properties:
+    col_widths: {}
+    grid_position: KDHAAT,CKVRJM
+- name: label_7
+  properties: {text: 'Loan Id:', bold: true}
+  type: Label
+  layout_properties: {grid_position: 'FDIETG,BLPAKG'}
+- name: loan_id_label
+  properties: {}
+  type: Label
+  layout_properties: {grid_position: 'FDIETG,ZKHZFF'}
+- name: label_8
+  properties: {bold: true, text: 'Loan Amount:'}
+  type: Label
+  layout_properties: {grid_position: 'PTPWQV,CUOMKR'}
+- name: loan_amount_label
+  properties: {}
+  type: Label
+  layout_properties: {grid_position: 'PTPWQV,CHJNQI'}
+- name: label_11
+  properties: {bold: true, text: 'Intrest Rate:'}
+  type: Label
+  layout_properties: {grid_position: 'DRPWYS,KHMDWY'}
+- name: intrest_rate_label
+  properties: {}
+  type: Label
+  layout_properties: {grid_position: 'DRPWYS,QYSBQC'}
+- name: label_10
+  properties: {bold: true, text: 'Tenure:'}
+  type: Label
+  layout_properties: {grid_position: 'SGEVJA,NLZWBH'}
+- name: tenure_label
+  properties: {}
+  type: Label
+  layout_properties: {grid_position: 'SGEVJA,UGWBFV'}
+- name: label_12
+  properties: {bold: true, text: 'Date Of Apply:'}
+  type: Label
+  layout_properties: {grid_position: 'SZRCOX,ONHLCB'}
+- name: date_of_apply_label
+  properties: {}
+  type: Label
+  layout_properties: {grid_position: 'SZRCOX,UWUPHU'}
+- name: label_2
+  properties: {bold: true, text: 'Loan Updated Status:'}
+  type: Label
+  layout_properties: {grid_position: 'FGTQBR,TOEHRF'}
+- name: loan_updated_status_label
+  properties: {align: left}
+  type: Label
+  layout_properties: {grid_position: 'FGTQBR,DMKNMB'}
+  data_bindings:
+  - {property: text, code: 'self.item[''loan_updated_status'']', writeback: false}
+- name: button_1
+  properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
+    foreground: black, visible: true, text: Back, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
+    bold: true, underline: false, icon: 'fa:angle-double-left'}
+  type: Button
+  layout_properties: {grid_position: 'EIZOBB,DYGFRC'}
+  event_bindings: {click: button_1_click}
+is_package: true
