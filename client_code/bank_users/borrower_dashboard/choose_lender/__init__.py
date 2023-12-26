@@ -1,4 +1,4 @@
-from ._anvil_designer import chouse_lenderTemplate
+from ._anvil_designer import choose_lenderTemplate
 from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
@@ -9,7 +9,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from .. import borrower_main_form_module as main_form_module
 
-class chouse_lender(chouse_lenderTemplate):
+class choose_lender(choose_lenderTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
