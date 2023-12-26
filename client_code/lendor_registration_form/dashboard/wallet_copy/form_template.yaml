@@ -6,7 +6,7 @@ components:
 - name: flow_panel_1
   properties: {align: justify}
   type: FlowPanel
-  layout_properties: {grid_position: 'WPEYAS,HYNSXQ'}
+  layout_properties: {grid_position: 'WPEYAS,HYNSXQ', full_width_row: true}
   components:
   - name: image_1_copy_copy_1
     properties: {role: null, vertical_align: center, height: 39, tooltip: '', border: '',
@@ -20,7 +20,7 @@ components:
     border: '', foreground: '', visible: true, spacing_above: none, spacing_below: small,
     background: '#0b2547'}
   type: FlowPanel
-  layout_properties: {grid_position: 'QDKZIB,UCTKNQ'}
+  layout_properties: {grid_position: 'QDKZIB,UCTKNQ', full_width_row: true}
   components:
   - name: home_main_form_link_click
     properties: {role: null, url: '', align: center, tooltip: '', border: '', foreground: white,
@@ -58,7 +58,11 @@ components:
 - name: label_1
   properties: {text: Balance, bold: true, font: a, font_size: 24}
   type: Label
-  layout_properties: {grid_position: 'TCFZQX,YSDIEN'}
+  layout_properties: {grid_position: 'TCFZQX,YSDIEN', full_width_row: true}
+- name: spacer_8
+  properties: {height: 26}
+  type: Spacer
+  layout_properties: {grid_position: 'PITGHD,MYXDEW', full_width_row: true}
 - name: spacer_1
   properties: {height: -50.4444580078125}
   type: Spacer
@@ -67,7 +71,7 @@ components:
   properties: {role: outlined-card, background: 'theme:On Tertiary'}
   type: ColumnPanel
   layout_properties: {grid_position: 'YMJQIZ,KXQLST FSUHBG,DCIJJS', row_background: 'theme:On
-      Tertiary'}
+      Tertiary', full_width_row: true}
   components:
   - type: Label
     properties: {text: Balance available, bold: true}
@@ -152,8 +156,7 @@ components:
 - name: outlined_card_3
   properties: {role: outlined-card, background: 'theme:On Tertiary', col_widths: '{"MRBEEJ":20,"KYDIOE":25,"QOYHVV":15}'}
   type: ColumnPanel
-  layout_properties: {grid_position: 'YMJQIZ,FFLGKA IXYJCO,ZKMYUT', row_background: 'theme:On
-      Tertiary'}
+  layout_properties: {grid_position: 'YMJQIZ,FFLGKA', row_background: 'theme:On Tertiary'}
   components:
   - name: label_6
     properties: {text: DEPOSIT, bold: true}
@@ -197,15 +200,4 @@ components:
     type: Button
     layout_properties: {grid_position: 'YEIQFG,MDHRMZ', full_width_row: false, row_background: 'theme:Primary
         Container'}
-- name: flow_panel_2
-  properties: {}
-  type: FlowPanel
-  layout_properties: {grid_position: 'YMJQIZ,FFLGKA DPZKPG,LKWBBP'}
-  components:
-  - name: button_2
-    properties: {text: button_2}
-    type: Button
-  - name: button_3
-    properties: {text: button_3}
-    type: Button
 is_package: true
