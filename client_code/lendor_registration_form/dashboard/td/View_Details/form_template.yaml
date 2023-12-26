@@ -1,0 +1,104 @@
+container: {type: ColumnPanel}
+components:
+- name: column_panel_1
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'AQEYAH,MVZNGB'}
+  components:
+  - name: button_1_copy
+    properties: {role: tonal-button, align: right, tooltip: '', border: '', enabled: true,
+      foreground: black, visible: true, text: Home, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
+      bold: true, underline: false, icon: 'fa:home'}
+    type: Button
+    layout_properties: {grid_position: 'EBWSEV,QXUARK'}
+    event_bindings: {click: button_1_copy_click}
+  - name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'TWOPOE,YYTRXJ'}
+  - name: label_1_copy_1_copy_1
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'View Details
+
+        ', font_size: 20, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+      italic: false, background: '', bold: true, underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'EHJESB,VGZMCP'}
+  - name: label_7
+    properties: {text: 'Loan Id:', bold: true}
+    type: Label
+    layout_properties: {grid_position: 'ZGEQDX,RHXUSI DESOQU,VWARWF'}
+  - name: label_8
+    properties: {bold: true, text: 'Loan Amount:'}
+    type: Label
+    layout_properties: {grid_position: 'ZGEQDX,RHXUSI HIQZTR,ENDJLK'}
+  - name: label_2
+    properties: {bold: true, text: 'Due amount:'}
+    type: Label
+    layout_properties: {grid_position: 'ZGEQDX,RHXUSI MHBHHB,BBDNQL'}
+  - name: label_11
+    properties: {bold: true, text: 'Intrest Rate:'}
+    type: Label
+    layout_properties: {grid_position: 'ZGEQDX,RHXUSI UFFDCS,EAEEHI'}
+  - name: label_10
+    properties: {bold: true, text: 'Tenure:'}
+    type: Label
+    layout_properties: {grid_position: 'ZGEQDX,RHXUSI JPYJCN,GPRMKA'}
+  - name: label_12
+    properties: {bold: true, text: 'Date Of Apply:'}
+    type: Label
+    layout_properties: {grid_position: 'ZGEQDX,RHXUSI FLCGPY,PMNALX'}
+  - name: label_1
+    properties: {bold: true, text: 'Due Date:'}
+    type: Label
+    layout_properties: {grid_position: 'ZGEQDX,RHXUSI SDPEPP,KGXBJM'}
+  - name: label_4
+    properties: {bold: true, text: 'How Many Days Left:'}
+    type: Label
+    layout_properties: {grid_position: 'ZGEQDX,RHXUSI WPLTLR,OZLLJR'}
+  - name: loan_id_label
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'ZGEQDX,TDHBWY SKBUOU,WAWEXL'}
+  - name: loan_amount_label
+    properties: {align: left}
+    type: Label
+    layout_properties: {grid_position: 'ZGEQDX,TDHBWY NFTLCA,ATENSA'}
+    data_bindings:
+    - {property: text, code: 'self.item['''']', writeback: false}
+  - name: due_amount_label
+    properties: {align: left}
+    type: Label
+    layout_properties: {grid_position: 'ZGEQDX,TDHBWY UCNUDU,QYUUMS'}
+    data_bindings:
+    - {property: text, code: 'self.item[''loan_updated_status'']', writeback: false}
+  - name: intrest_rate_label
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'ZGEQDX,TDHBWY JPSREO,YIFJGS'}
+  - name: tenure_label
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'ZGEQDX,TDHBWY PTTVJS,OZKQZT'}
+  - name: date_of_apply_label
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'ZGEQDX,TDHBWY FLUVAC,MFTTRD'}
+  - name: due_date_label
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'ZGEQDX,TDHBWY GRZYGZ,KCNCFQ'}
+  - name: days_left_label
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'ZGEQDX,TDHBWY GVGXOL,ZKVBOD'}
+  - name: button_1
+    properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: black, visible: true, text: Back, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
+      bold: true, underline: false, icon: 'fa:angle-double-left'}
+    type: Button
+    layout_properties: {grid_position: 'GZJUOG,CDVWEL'}
+    event_bindings: {click: button_1_click}
+is_package: true
