@@ -33,3 +33,11 @@ class dasboard_contact(dasboard_contactTemplate):
   def about_main_form_link_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form("lendor_registration_form.dashboard.dasboard_about")
+
+  def notification_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('lendor_registration_form.dashboard.notification')
+
+  def wallet_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('wallet.wallet')

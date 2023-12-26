@@ -27,10 +27,10 @@ class notification(notificationTemplate):
 
   def notification_link_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('lendor_registration_form.dashboard.notification')
+    pass
 
   def wallet_link_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('lendor_registration_form.dashboard.wallet')
+    open_form('wallet.wallet')
 
     # Any code you write here will run before the form opens.

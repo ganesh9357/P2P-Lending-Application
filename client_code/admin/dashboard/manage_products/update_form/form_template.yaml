@@ -74,12 +74,12 @@ components:
         name: label_4_copy
         layout_properties: {x: 0, y: 148.1875, width: 160}
       - type: TextArea
-        properties: {role: outlined, align: left, height: 123.8, tooltip: '', placeholder: Enter your product discription,
+        properties: {role: outlined, align: left, height: 67.8, tooltip: '', placeholder: Enter your product discription,
           border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
           auto_expand: false, font: '', spacing_above: small, spacing_below: small,
           italic: false, background: '', bold: false, underline: false}
         name: text_area_1
-        layout_properties: {x: 177, y: 148.1875, width: 443}
+        layout_properties: {x: 177, y: 148.1875, width: 580}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: ' Processing Fee', font_size: null, font: '', spacing_above: small,
@@ -326,6 +326,93 @@ components:
             background: '', bold: true, underline: false, icon: ''}
           name: link_2
           layout_properties: {grid_position: 'RBEGUU,FUCJSH'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Foreclosure Type, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_3
+        layout_properties: {x: 446, y: 302, width: 115}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Extansion Allowed, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_4
+        layout_properties: {x: 446, y: 361.390625, width: 122}
+      - type: DropDown
+        properties:
+          role: outlined
+          align: full
+          tooltip: ''
+          placeholder: Enter foreclose type
+          border: ''
+          enabled: true
+          foreground: ''
+          items: [Eligible, Not Eligible]
+          visible: true
+          font_size: null
+          font: ''
+          spacing_above: small
+          spacing_below: small
+          italic: false
+          background: white
+          bold: false
+          underline: false
+          include_placeholder: true
+        name: foreclose_type
+        layout_properties: {x: 580, y: 297, width: 177}
+      - type: DropDown
+        properties:
+          role: outlined
+          align: full
+          tooltip: ''
+          placeholder: select one
+          border: ''
+          enabled: true
+          foreground: ''
+          items: ['Yes', 'No']
+          visible: true
+          font_size: null
+          font: ''
+          spacing_above: small
+          spacing_below: small
+          italic: false
+          background: white
+          bold: false
+          underline: false
+          include_placeholder: true
+        name: drop_down_5
+        layout_properties: {x: 578, y: 356.390625, width: 179}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Product Categories, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_5
+        layout_properties: {x: 7, y: 236, width: 160}
+      - type: DropDown
+        properties:
+          role: outlined
+          align: full
+          tooltip: ''
+          placeholder: Enter product category
+          border: ''
+          enabled: true
+          foreground: ''
+          items: []
+          visible: true
+          font_size: null
+          font: ''
+          spacing_above: small
+          spacing_below: small
+          italic: false
+          background: white
+          bold: false
+          underline: false
+          include_placeholder: true
+        name: drop_down_1
+        layout_properties: {x: 177, y: 231, width: 232}
 - type: FlowPanel
   properties: {}
   name: navbar_links
