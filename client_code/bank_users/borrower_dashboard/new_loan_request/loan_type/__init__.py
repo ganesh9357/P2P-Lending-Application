@@ -10,9 +10,10 @@ from anvil.tables import app_tables
 from ... import borrower_main_form_module as main_form_module
 
 class loan_type(loan_typeTemplate):
-    def __init__(self, **properties):
+    def __init__(self,product_group,product_cat, **properties):
       self.user_id = main_form_module.userId
-
+      self.proctct_g = product_group
+      self.prodct_cate = product_cat
         # Set Form properties and Data Bindings.
       self.init_components(**properties)
 
@@ -78,7 +79,7 @@ class loan_type(loan_typeTemplate):
 
     def label_11_show(self, **event_args):
       """This method is called when the Label is shown on the screen"""
-      data =app_tables.product_details.search()
+      data =app_tables.product_details.search(product_name=self.proctct_g,product_categories=self.pr)
       data1_strings = [data['max_amount'] for data in data]
       self.label_11.text = data1_strings
       self.label_11.text = data1_strings if data1_strings else None
