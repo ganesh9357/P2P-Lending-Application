@@ -13,7 +13,13 @@ class manage_producs1(manage_producs1Template):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
 
-        
+        # Fetch data from product_group table and populate the name dropdown
+        product_group_options = app_tables.product_group.search()
+        self.name.items = [option['name'] for option in product_group_options]
+
+        # Fetch data from product_group table and populate the name dropdown
+        product_group_options = app_tables.product_categories.search()
+        self.product_category.items = [option['namw'] for option in product_group_options]
 
         # Any code you write here will run before the form opens.
         self.id = 'PD' + str(1000)  
@@ -46,7 +52,7 @@ class manage_producs1(manage_producs1Template):
 
         product_name = self.name.selected_value
         product_discription = self.text_area_1.text
-        product_categories = self.product_category.text
+        product_categories = self.product_category.selected_value
         processing_fee = int(self.text_box_3.text)
         extension_fee = int(self.text_box_4.text)
         membership_type = self.drop_down_2.selected_value
