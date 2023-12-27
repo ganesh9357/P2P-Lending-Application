@@ -11,7 +11,7 @@ components:
   name: label_2
   layout_properties: {column: BBLWGQ}
   data_bindings:
-  - {property: text, code: 'self.item[''full_name'']'}
+  - {property: text, code: 'self.item[''borrower_full_name'']', writeback: false}
 - type: Label
   properties: {}
   name: label_3

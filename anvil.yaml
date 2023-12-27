@@ -559,6 +559,9 @@ db_schema:
     - name: borrower_loan_created_timestamp
       admin_ui: {order: 5.375, width: 261}
       type: date
+    - name: borrower_last_payment_done
+      admin_ui: {width: 200, order: 25}
+      type: number
     title: loan_details
   product_group:
     title: product_group

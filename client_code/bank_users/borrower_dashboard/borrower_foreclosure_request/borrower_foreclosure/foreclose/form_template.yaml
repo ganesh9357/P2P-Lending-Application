@@ -275,7 +275,7 @@ components:
         layout_properties: {row: NVIHFZ, width_xs: 12, col_xs: 0, width: 553}
       - type: CheckBox
         properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-          foreground: '', allow_indeterminate: false, visible: true, text: I  agree to proceed with the foreclosure process  and,
+          foreground: '', allow_indeterminate: false, visible: true, text: I  agree to proceed with the foreclosure process,
           font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
           background: '', bold: false, checked: false, underline: false}
         name: f_checkbox
