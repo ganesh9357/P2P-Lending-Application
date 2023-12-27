@@ -270,31 +270,28 @@ import anvil.server
 from anvil import tables, app
 
 @anvil.server.callable
-def get_user_details(email_user):
-    user = app_tables.user_profile.get(email_user=email_user)  
+def get_user_details():
+    user = tables.user_profile.search(email_id=app.user['email'])  
     if user:
         user = user[0]
         return {
-            'email_user': user['email_user'],
+            'user_email': user['email_id'],
             'customer_id': user['customer_id'],
             'full_name': user['full_name']
         }
     return None
 
 @anvil.server.callable
-def create_wallet(email_user, customer_id, full_name):
+def create_wallet(user_email, customer_id, full_name):
     wallet_id = generate_wallet_id()
     try:
-        # Save details in the wallet database
         wallet_row = tables.wallet.add_row(
             wallet_id=wallet_id,
-            lender_email=email_user,
+            lender_email=user_email,
             lender_customer_id=customer_id,
             lender_full_name=full_name
         )
-        # Commit changes
         tables.wallet._save_changes()
-
         anvil.server.log("Wallet created successfully.")
     except Exception as e:
         anvil.server.log(f"Error creating wallet: {str(e)}")
@@ -303,9 +300,9 @@ def generate_wallet_id():
     latest_wallet = tables.wallet.search(limit=1, order_by=tables.wallet['wallet_id'], ascending=False)
     if latest_wallet:
         latest_id = latest_wallet[0]['wallet_id']
-        # Extract the numeric part and increment
         numeric_part = int(latest_id[2:]) + 1
-        wallet_id = 'WA' + str(numeric_part).zfill(3)  # Ensure it's in 'WA001' format
+        wallet_id = 'WA' + str(numeric_part).zfill(3)
     else:
         wallet_id = 'WA001'
     return wallet_id
+

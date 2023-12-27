@@ -140,7 +140,7 @@ class dashboard(dashboardTemplate):
     
     if user_details:
         # Extract required details
-        email_user = user_details['email_user']
+        email_user = user_details['user_email']
         customer_id = user_details['customer_id']
         full_name = user_details['full_name']
 
@@ -148,7 +148,7 @@ class dashboard(dashboardTemplate):
         open_form('wallet.wallet')
         
         # Pass user details to server for wallet creation
-        server.call('create_wallet', email_user, customer_id, full_name)
+        server.call('create_wallet', user_email, customer_id, full_name)
 
  
 
