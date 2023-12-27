@@ -15,13 +15,13 @@ class check_out_form(check_out_formTemplate):
         self.prodct_cate = product_cat
     
         self.init_components(**properties)
-        loan_details = anvil_app.tables.loan_details.search(borrower_customer_id=user_id)
-        if loan_details:
-          self.label_2.text = f"['loan_amount']"
-          self.label_6.text = f"['tenure']"
-        else:
-          self.label_2.text = f"None"
-          self.label_6.text = f"None"
+        # loan_details = anvil_app.tables.loan_details.search(borrower_customer_id=user_id)
+        # if loan_details:
+        #   self.label_2.text = f"['loan_amount']"
+        #   self.label_6.text = f"['tenure']"
+        # else:
+        #   self.label_2.text = f"None"
+        #   self.label_6.text = f"None"
 
          
   def submit_click(self, **event_args):
