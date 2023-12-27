@@ -33,10 +33,10 @@ class loan_type(loan_typeTemplate):
     def button_3_click(self, **event_args):
       loan_amount = self.loan_amount_tb.text
       tenure = self.tenure_dd.selected_value
-      user_id = self.user_id
-      anvil.server.call('add_loan_details', loan_amount,tenure,user_id)
+      # user_id = self.user_id
+      # anvil.server.call('add_loan_details', loan_amount,tenure,user_id)
       
-      open_form('bank_users.borrower_dashboard.new_loan_request.check_out_form', self.proctct_g, self.prodct_cate)
+      open_form('bank_users.borrower_dashboard.new_loan_request.check_out_form', self.proctct_g, self.prodct_cate, loan_amo)
 
     def fetch_product_data(self):
         return app_tables.product_details.search(
