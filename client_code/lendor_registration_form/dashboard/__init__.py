@@ -20,9 +20,6 @@ class dashboard(dashboardTemplate):
     # Any code you write here will run before the form opens.
 
 
-
-
-
   def button_3_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form("lendor_registration_form.dashboard.opbal")
@@ -102,9 +99,6 @@ class dashboard(dashboardTemplate):
     """This method is called when the button is clicked"""
     pass
 
-
-    
-
   def button_show(self, **event_args):
     """This method is called when the Button is shown on the screen"""
     pass
@@ -112,10 +106,8 @@ class dashboard(dashboardTemplate):
   def button_hide(self, **event_args):
     """This method is called when the Button is removed from the screen"""
     pass
-    
 
- 
-
+  
   def toggleswitch_1_x_change(self, **event_args):
     
     if self.toggleswitch_1.checked:
@@ -138,25 +130,13 @@ class dashboard(dashboardTemplate):
     """This method is called when the link is clicked"""
     open_form('lendor_registration_form.dashboard.notification')
 
-  # def wallet_link_click(self, **event_args):
-  #   """This method is called when the link is clicked"""
-  #   open_form('wallet.wallet')
+  def wallet_dashboard_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('wallet.wallet')
 
-  def wallet_link_click(self, **event_args):
-    # Fetch user details from user_profile database
-    user_details = sever.get_user_details()  
-    
-    if user_details:
-        # Extract required details
-        user_email = user_details['user_email']
-        customer_id = user_details['customer_id']
-        full_name = user_details['full_name']
-        
-        # Open wallet form
-        open_form('wallet.wallet')
-        
-        # Pass user details to server for wallet creation
-        server.create_wallet('create_wallet', user_email, customer_id, full_name)
+ 
+
+ 
 
 
 

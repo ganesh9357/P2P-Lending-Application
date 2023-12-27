@@ -265,7 +265,7 @@ def get_user_data(user_id):
         return None
 
 
-
+# code for wallet
 import anvil.server
 from anvil import tables, app
 
@@ -282,23 +282,23 @@ def get_user_details():
 
 @anvil.server.callable
 def create_wallet(user_email, customer_id, full_name):
-    # Generate wallet_id (WA001 format)
-    wallet_id = generate_wallet_id()  # You'll need to create a function for generating the wallet ID
-    
-    # Save details in the wallet database
-    wallet_row = tables.wallet.add_row(
-        wallet_id=wallet_id,
-        lender_email=user_email,
-        lender_customer_id=customer_id,
-        lender_full_name=full_name
-    )
-    # Commit changes
-    tables.wallet._save_changes()
+    wallet_id = generate_wallet_id()
+    try:
+        # Save details in the wallet database
+        tables.wallet.add_row(
+            wallet_id=wallet_id,
+            lender_email=user_email,
+            lender_customer_id=customer_id,
+            lender_full_name=full_name
+        )
+        # Commit changes
+        tables.wallet._save_changes()
+
+        anvil.server.log("Wallet created successfully.")
+    except Exception as e:
+        anvil.server.log(f"Error creating wallet: {str(e)}")
 
 def generate_wallet_id():
-    # Logic to generate wallet_id in 'WA001' format
-    # You can implement your own logic here
-    # Example logic:
     latest_wallet = tables.wallet.search(limit=1, order_by=tables.wallet['wallet_id'], ascending=False)
     if latest_wallet:
         latest_id = latest_wallet[0]['wallet_id']
