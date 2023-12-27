@@ -12,8 +12,8 @@ class wallet(walletTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.deposit_placeholder = "₹5000"
-    self.withdraw_placeholder = "₹0.00"
+    self.deposit_placeholder = "5000"
+    self.withdraw_placeholder = "0.00"
     # self.amount_text_box.placeholder = self.deposit_placeholder
 
     # Any code you write here will run before the form opens.
