@@ -24,11 +24,11 @@ class borrower_foreclosure_request(borrower_foreclosure_requestTemplate):
             # Check if the user profile record is found
             if user_profile:
                 # Access the user ID from the userprofile record
-                user_id = user_profile['coustmer_id']
+                user_id = user_profile['customer_id']
 
                 # Filter loan_details table based on the current user's ID
                 try:
-                    customer_loans = app_tables.loan_details.search(coustmer_id=user_id)
+                    customer_loans = app_tables.loan_details.search(borrower_customer_id=user_id)
 
                     # Set the filtered data as the items for the repeating panel
                     self.repeating_panel_1.items = customer_loans
