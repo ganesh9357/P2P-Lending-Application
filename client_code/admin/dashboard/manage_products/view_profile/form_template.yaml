@@ -90,7 +90,7 @@ components:
         layout_properties: {x: 0, y: 307.796875, width: 152}
       - type: Button
         properties: {role: outlined-button, align: center, tooltip: '', border: '',
-          enabled: true, foreground: black, visible: true, text: Update, font_size: null,
+          enabled: true, foreground: black, visible: true, text: Delete, font_size: null,
           font: '', spacing_above: small, icon_align: left, spacing_below: small,
           italic: false, background: '#0876E8', bold: false, underline: false, icon: ''}
         name: button_2

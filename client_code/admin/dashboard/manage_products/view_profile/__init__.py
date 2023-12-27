@@ -83,7 +83,7 @@ class view_profile(view_profileTemplate):
 
   def button_2_click(self, **event_args):
     """This method is called when the button is clicked"""
-    open_form('admin.dashboard.manage_products.update_form')
+    open_form('admin.dashboard.manage_products.delete_form')
         
         
         

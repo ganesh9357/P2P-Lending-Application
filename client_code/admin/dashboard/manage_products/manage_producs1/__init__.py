@@ -19,7 +19,7 @@ class manage_producs1(manage_producs1Template):
 
         # Fetch data from product_group table and populate the name dropdown
         product_group_options = app_tables.product_categories.search()
-        self.product_category.items = [option['namw'] for option in product_group_options]
+        self.product_category.items = [option['name_categories'] for option in product_group_options]
 
         # Any code you write here will run before the form opens.
         self.id = 'PD' + str(1000)  

@@ -59,21 +59,13 @@ components:
             bold: false, underline: false, icon: ''}
           name: label_2_copy
           layout_properties: {x: 0, y: 78, width: 160}
-        - type: TextBox
-          properties: {role: outlined, align: left, hide_text: false, tooltip: '',
-            placeholder: 'Enter your Product Name ', border: '', enabled: true, foreground: '',
-            visible: true, text: '', font_size: null, font: '', spacing_above: small,
-            type: text, spacing_below: small, italic: false, background: '', bold: false,
-            underline: false}
-          name: text_box_2
-          layout_properties: {x: 177, y: 129.60000610351562, width: 221}
         - type: Label
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: ' Product Name ', font_size: null, font: '', spacing_above: small,
+            visible: true, text: ' Product Group', font_size: null, font: '', spacing_above: small,
             icon_align: left, spacing_below: small, italic: false, background: '',
             bold: false, underline: false, icon: ''}
           name: label_3_copy
-          layout_properties: {x: 0, y: 129.60000610351562, width: 160}
+          layout_properties: {x: 0, y: 129.59375, width: 160}
         - type: Label
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
             visible: true, text: ' Interest  Rate(%)', font_size: null, font: '',
@@ -126,7 +118,7 @@ components:
             layout_properties: {grid_position: 'NLYEYP,NGJJWF'}
           - type: RadioButton
             properties: {role: null, selected: false, align: left, tooltip: '', border: '',
-              enabled: true, foreground: '', value: '', visible: true, text: Variable,
+              enabled: true, foreground: '', value: '', visible: true, text: Fixed,
               font_size: null, font: '', spacing_above: small, spacing_below: small,
               italic: false, background: '', bold: false, group_name: radioGroup1,
               underline: false}
@@ -134,7 +126,7 @@ components:
             layout_properties: {grid_position: 'NLYEYP,BFHKSY'}
           - type: RadioButton
             properties: {role: null, selected: false, align: left, tooltip: '', border: '',
-              enabled: true, foreground: '', value: '', visible: true, text: Fixed,
+              enabled: true, foreground: '', value: '', visible: true, text: Variable,
               font_size: null, font: '', spacing_above: small, spacing_below: small,
               italic: false, background: '', bold: false, group_name: radioGroup1,
               underline: false}
@@ -275,14 +267,6 @@ components:
             background: '', bold: false, underline: false, icon: ''}
           name: label_5
           layout_properties: {x: 0, y: 267.2624969482422, width: 159.994}
-        - type: TextBox
-          properties: {role: outlined, align: left, hide_text: false, tooltip: '',
-            placeholder: Enter product category, border: '', enabled: true, foreground: '',
-            visible: true, text: '', font_size: null, font: '', spacing_above: small,
-            type: text, spacing_below: small, italic: false, background: white, bold: false,
-            underline: false}
-          name: product_category
-          layout_properties: {x: 176.96875, y: 267.25, width: 199.984}
         - type: Label
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
             visible: true, text: Foreclosure Type, font_size: null, font: '', spacing_above: small,
@@ -357,7 +341,7 @@ components:
             border: ''
             enabled: true
             foreground: ''
-            items: ['Yes', 'NO']
+            items: ['Yes', 'No']
             visible: true
             font_size: null
             font: ''
@@ -417,7 +401,7 @@ components:
           event_bindings: {clicked: radio_button_3_clicked}
         - type: RadioButton
           properties: {role: null, selected: false, align: left, tooltip: '', border: '',
-            enabled: true, foreground: '', value: '', visible: true, text: 'NO', font_size: null,
+            enabled: true, foreground: '', value: '', visible: true, text: 'No', font_size: null,
             font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
             bold: false, group_name: radioGroup2, underline: false}
           name: radio_button_4
@@ -426,6 +410,50 @@ components:
           properties: {}
           type: Label
           layout_properties: {x: 174.09375, y: 70.84373474121094, width: 200}
+        - type: DropDown
+          properties:
+            role: outlined
+            align: full
+            tooltip: ''
+            placeholder: Enter product group
+            border: ''
+            enabled: true
+            foreground: ''
+            items: []
+            visible: true
+            font_size: null
+            font: ''
+            spacing_above: small
+            spacing_below: small
+            italic: false
+            background: white
+            bold: false
+            underline: false
+            include_placeholder: true
+          name: name
+          layout_properties: {x: 177, y: 135, width: 253}
+        - type: DropDown
+          properties:
+            role: outlined
+            align: full
+            tooltip: ''
+            placeholder: Enter product categories
+            border: ''
+            enabled: true
+            foreground: ''
+            items: []
+            visible: true
+            font_size: null
+            font: ''
+            spacing_above: small
+            spacing_below: small
+            italic: false
+            background: white
+            bold: false
+            underline: false
+            include_placeholder: true
+          name: product_category
+          layout_properties: {x: 177, y: 283.25, width: 253}
 - type: FlowPanel
   properties: {}
   name: navbar_links
