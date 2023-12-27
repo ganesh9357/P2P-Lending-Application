@@ -15,21 +15,17 @@ class borrower_foreclosure_request(borrower_foreclosure_requestTemplate):
 
         # Fetch the current user during form initialization
         user = anvil.users.get_user()
-
         # Check if a user is logged in
         if user:
             # Fetch the userprofile record based on the current user's email
             user_profile = app_tables.user_profile.get(email_user=user['email'])
-
             # Check if the user profile record is found
             if user_profile:
                 # Access the user ID from the userprofile record
                 user_id = user_profile['customer_id']
-
                 # Filter loan_details table based on the current user's ID
                 try:
                     customer_loans = app_tables.loan_details.search(borrower_customer_id=user_id)
-
                     # Set the filtered data as the items for the repeating panel
                     self.repeating_panel_1.items = customer_loans
                 except anvil.tables.TableError as e:
