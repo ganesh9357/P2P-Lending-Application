@@ -270,24 +270,25 @@ import anvil.server
 from anvil import tables, app
 
 @anvil.server.callable
-def get_user_details():
-    user = tables.user_profile.get(email=app.user['email'])  
+def get_user_details(email_user):
+    user = app_tables.user_profile.get(email_user=email_user)  
     if user:
+        user = user[0]
         return {
-            'user_email': user['email'],
+            'email_user': user['email_user'],
             'customer_id': user['customer_id'],
             'full_name': user['full_name']
         }
     return None
 
 @anvil.server.callable
-def create_wallet(user_email, customer_id, full_name):
+def create_wallet(email_user, customer_id, full_name):
     wallet_id = generate_wallet_id()
     try:
         # Save details in the wallet database
-        tables.wallet.add_row(
+        wallet_row = tables.wallet.add_row(
             wallet_id=wallet_id,
-            lender_email=user_email,
+            lender_email=email_user,
             lender_customer_id=customer_id,
             lender_full_name=full_name
         )
