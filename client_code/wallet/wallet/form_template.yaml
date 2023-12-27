@@ -222,7 +222,7 @@ components:
     layout_properties: {grid_position: 'ILDOYP,LHKUOL'}
     components:
     - name: icon1
-      properties: {text: '     ₹', align: center}
+      properties: {text: '     ₹', align: center, visible: false}
       type: Label
       layout_properties: {grid_position: 'ILDOYP,HODCOJ', column: null}
     - name: text_box_5

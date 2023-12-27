@@ -42,6 +42,7 @@ class wallet(walletTemplate):
     """This method is called when the button is clicked"""
     self.label_9.visible = False
     self.text_box_5.visible = False
+    self.icon1.visible = False
     self.amount_text_box.placeholder = self.deposit_placeholder
     self.deposit_money_btn.visible = True
     self.withdraw_money_btn.visible = False
@@ -51,6 +52,7 @@ class wallet(walletTemplate):
     """This method is called when the button is clicked"""
     self.label_9.visible = True
     self.text_box_5.visible = True
+    self.icon1.visible = True
     self.amount_text_box.placeholder = self.withdraw_placeholder
     self.deposit_money_btn.visible = False
     self.withdraw_money_btn.visible = True
