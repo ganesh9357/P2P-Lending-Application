@@ -25,26 +25,27 @@ class check_out_form(check_out_formTemplate):
         # else:
         #   self.label_2.text = f"None"
         #   self.label_6.text = f"None"
-
+        user_request = app_tables.product_details.get(product_categories=self.prodct_cate)
+        if user_request:
+            self.roi = user_request['roi']
         self.label_2.text = self.loan_amount
         self.label_6.text = self.tenure
-        # p = int(self.loan_amount)
-        # roi = self.display_label_text('roi')
-        # r = int(roi) / 12 / 100
-        # t = int(self.tenure)
-        # interest_amount = int((p*r*t)/100)
-        # self.label_8.text = interest_amount
-        # Total Repayment Amount = 
-        
+        p = int(self.loan_amount)
+        t = int(self.tenure)
+        r = (self.roi/100/12)*t
+        interest_amount = (p*r*t)/100
+        self.label_8.text = interest_amount
+        Total_Repayment_Amount = p+interest_amount
+        self.label_12.text = Total_Repayment_Amount
 
          
   def submit_click(self, **event_args):
       alert('your request is submitted')
-      open_form('bank_users.borrower_dashboard')
+      open_form('bank_users.borrower_dashboard.choose_lender')
 
   def button_1_click(self, **event_args):
         """This method is called when the button is clicked"""
-        open_form('bank_users.borrower_dashboard.new_loan_request.k12_loan')
+        open_form('bank_users.borrower_dashboard.new_loan_request')
 
   def button_2_click(self, **event_args):
         """This method is called when the button is clicked"""
