@@ -8,6 +8,7 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.users
 from anvil.tables import app_tables
+from anvil import open_form, server
 #from anvil import get_current_user
 
 class dashboard(dashboardTemplate):
@@ -137,9 +138,25 @@ class dashboard(dashboardTemplate):
     """This method is called when the link is clicked"""
     open_form('lendor_registration_form.dashboard.notification')
 
+  # def wallet_link_click(self, **event_args):
+  #   """This method is called when the link is clicked"""
+  #   open_form('wallet.wallet')
+
   def wallet_link_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    open_form('wallet.wallet')
+    # Fetch user details from user_profile database
+    user_details = sever.get_user_details()  
+    
+    if user_details:
+        # Extract required details
+        user_email = user_details['user_email']
+        customer_id = user_details['customer_id']
+        full_name = user_details['full_name']
+        
+        # Open wallet form
+        open_form('wallet.wallet')
+        
+        # Pass user details to server for wallet creation
+        server.create_wallet('create_wallet', user_email, customer_id, full_name)
 
 
 
