@@ -28,6 +28,14 @@ class check_out_form(check_out_formTemplate):
 
         self.label_2.text = self.loan_amount
         self.label_6.text = self.tenure
+        # p = int(self.loan_amount)
+        # roi = self.display_label_text('roi')
+        # r = int(roi) / 12 / 100
+        # t = int(self.tenure)
+        # interest_amount = int((p*r*t)/100)
+        # self.label_8.text = interest_amount
+        # Total Repayment Amount = 
+        
 
          
   def submit_click(self, **event_args):
@@ -57,6 +65,7 @@ class check_out_form(check_out_formTemplate):
 
   def label_4_show(self, **event_args):
     self.display_label_text(self.label_4, 'roi')
+
 
 # def label_2_show(self, **event_args):
 #     borrower_customer_id = self.borrower_customer_id
