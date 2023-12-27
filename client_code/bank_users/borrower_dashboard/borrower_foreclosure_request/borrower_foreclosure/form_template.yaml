@@ -138,6 +138,15 @@ components:
           underline: false, icon: ''}
         name: label_tpm
         layout_properties: {row: PZBXTY, width_xs: 4, col_xs: 7, width: 145.328}
+    - name: text_box_1
+      properties: {visible: false, foreground: 'theme:On Primary Container'}
+      type: TextBox
+      layout_properties: {grid_position: 'DHOQJF,VVKNKF'}
+      data_bindings: []
+    - name: text_box_2
+      properties: {visible: false, foreground: '#FF0000'}
+      type: TextBox
+      layout_properties: {grid_position: 'RZMLKA,LXDZAC'}
   - type: Button
     properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
       foreground: black, visible: true, text: Back, font_size: null, font: '', spacing_above: small,
@@ -162,46 +171,14 @@ components:
     name: button_4
     layout_properties: {grid_position: 'EPMBBH,NVLHOW IBSPDP,TCLOHN'}
     event_bindings: {click: button_4_click}
-  - name: button_5
-    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-      foreground: black, visible: false, text: Back, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
-      bold: true, underline: false, icon: 'fa:angle-double-left'}
-    type: Button
-    layout_properties: {grid_position: 'EPMBBH,NVLHOW DDARDZ,KMMXWJ'}
-    event_bindings: {click: button_5_click}
-  - name: button_7
-    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-      foreground: black, visible: false, text: Back, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
-      bold: true, underline: false, icon: 'fa:angle-double-left'}
-    type: Button
-    layout_properties: {grid_position: 'EPMBBH,NVLHOW BZWXAF,YQGCBM'}
-    event_bindings: {click: button_7_click}
   - type: Button
     properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
       foreground: black, visible: false, text: Pay Now, font_size: null, font: '',
       spacing_above: small, icon_align: left, spacing_below: small, italic: false,
       background: '#0876E8', bold: true, underline: false, icon: ''}
     name: button_3
-    layout_properties: {grid_position: 'EPMBBH,THMKIF NZKFZI,DENBID'}
+    layout_properties: {grid_position: 'EPMBBH,THMKIF'}
     event_bindings: {click: button_3_click}
-  - name: button_6
-    properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: black, visible: false, text: Under Process, font_size: null, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '#0876E8', bold: true, underline: false, icon: ''}
-    type: Button
-    layout_properties: {grid_position: 'EPMBBH,THMKIF KISCKK,JIZUHF'}
-    event_bindings: {click: button_6_click}
-  - name: button_8
-    properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: black, visible: false, text: Rejected, font_size: null, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '#db2332', bold: true, underline: false, icon: ''}
-    type: Button
-    layout_properties: {grid_position: 'EPMBBH,THMKIF MRJGYT,PXEQCY'}
-    event_bindings: {click: button_8_click}
 - type: FlowPanel
   properties: {}
   name: navbar_links
