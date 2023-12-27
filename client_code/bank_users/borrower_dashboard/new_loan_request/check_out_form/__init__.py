@@ -10,9 +10,12 @@ from anvil.tables import app_tables
 from ... import borrower_main_form_module as main_form_module
 from anvil import app as anvil_app
 class check_out_form(check_out_formTemplate):
-  def __init__(self, product_group, product_cat, **properties):
+  def __init__(self, product_group, product_cat,loan_amount, tenure, **properties):
         self.proctct_g = product_group
         self.prodct_cate = product_cat
+        self.loan_amount = loan_amount
+        self.tenure = tenure
+    
     
         self.init_components(**properties)
         # loan_details = anvil_app.tables.loan_details.search(borrower_customer_id=user_id)
@@ -22,6 +25,9 @@ class check_out_form(check_out_formTemplate):
         # else:
         #   self.label_2.text = f"None"
         #   self.label_6.text = f"None"
+
+        self.label_2.text = self.loan_amount
+        self.label_6.text = self.tenure
 
          
   def submit_click(self, **event_args):
@@ -59,5 +65,11 @@ class check_out_form(check_out_formTemplate):
 #         self.label_2.text = f"Loan Amount: {loan_amount}"
 #     else:
 #         self.label_2.text = "Loan Amount not available"
+
+  # def label_2_show(self, **event_args):
+  #   self.display_label_text(self.label_2,self.loan_amount)
+
+  # def label_6_show(self, **event_args):
+  #   self.display_label_text(self.label_6,self.tenure)
 
 
