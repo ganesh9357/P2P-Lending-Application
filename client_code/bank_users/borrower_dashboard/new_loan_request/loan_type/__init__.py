@@ -10,18 +10,19 @@ from anvil.tables import app_tables
 from ... import borrower_main_form_module as main_form_module
 
 class loan_type(loan_typeTemplate):
-    def __init__(self, product_group, product_cat,user_id, **properties):
-      self.userId = user_id
+    def __init__(self, product_group, product_cat, **properties):
+      
+      # self.userId = user_id
+
+      # user_data=app_tables.loan_details.get(borrower_customer_id=self.userId)
+      # if user_data:
+      #   self.text_box_1.text=user_data['loan_amount']
+      #   self.drop_down_1.text=user_data['tenure']
+      #   user_data.update()
+      self.user_id = main_form_module.userId
+      self.proctct_g = product_group
+      self.prodct_cate = product_cat
       self.init_components(**properties)
-      user_data=app_tables.loan_details.get(borrower_customer_id=self.userId)
-      if user_data:
-        self.text_box_1.text=user_data['loan_amount']
-        self.drop_down_1.text=user_data['tenure']
-        user_data.update()
-        self.user_id = main_form_module.userId
-        self.proctct_g = product_group
-        self.prodct_cate = product_cat
-        self.init_components(**properties)
 
     def button_1_click(self, **event_args):
         open_form('bank_users.borrower_dashboard')
@@ -30,7 +31,12 @@ class loan_type(loan_typeTemplate):
         open_form('bank_users.borrower_dashboard.new_loan_request')
 
     def button_3_click(self, **event_args):
-        open_form('bank_users.borrower_dashboard.new_loan_request.check_out_form', self.proctct_g, self.prodct_cate)
+      loan_amount = self.loan_amount_tb.text
+      tenure = self.tenure_dd.selected_value
+      user_id = self.user_id
+      anvil.server.call('add_loan_details', loan_amount,tenure,user_id)
+      
+      open_form('bank_users.borrower_dashboard.new_loan_request.check_out_form', self.proctct_g, self.prodct_cate)
 
     def fetch_product_data(self):
         return app_tables.product_details.search(
@@ -70,5 +76,5 @@ class loan_type(loan_typeTemplate):
 
     def check_box_2_change(self, **event_args):
         if self.check_box_2:
-            self.drop_down_1.visible = True
+            self.tenure_dd.visible = True
             self.label_3.visible = True

@@ -40,7 +40,7 @@ components:
     border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
     font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
     background: white, bold: false, underline: false}
-  name: text_box_1
+  name: loan_amount_tb
   layout_properties: {grid_position: 'UOBCSP,CRYIRK'}
 - type: Spacer
   properties: {height: 32}
@@ -104,7 +104,7 @@ components:
     bold: false
     underline: false
     include_placeholder: true
-  name: drop_down_1
+  name: tenure_dd
   layout_properties: {grid_position: 'SMNMJJ,PFNXDB'}
 - type: Spacer
   properties: {height: 32}

@@ -29,6 +29,7 @@ components:
   properties: {}
   name: label_2
   layout_properties: {grid_position: 'JQREMD,RNJRJC'}
+  event_bindings: {show: label_2_show}
 - type: Label
   properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
     visible: true, text: Interst Rate, font_size: null, font: '', spacing_above: small,
