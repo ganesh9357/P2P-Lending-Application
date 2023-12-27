@@ -10,7 +10,14 @@ from anvil.tables import app_tables
 from ... import borrower_main_form_module as main_form_module
 
 class loan_type(loan_typeTemplate):
-    def __init__(self, product_group, product_cat, **properties):
+    def __init__(self, product_group, product_cat,user_id, **properties):
+      self.userId = user_id
+      self.init_components(**properties)
+      user_data=app_tables.loan_details.get(borrower_customer_id=self.userId)
+      if user_data:
+        self.text_box_1.text=user_data['loan_amount']
+        self.drop_down_1.text=user_data['tenure']
+        user_data.update()
         self.user_id = main_form_module.userId
         self.proctct_g = product_group
         self.prodct_cate = product_cat

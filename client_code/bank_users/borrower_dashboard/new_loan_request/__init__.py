@@ -43,7 +43,7 @@ class new_loan_request(new_loan_requestTemplate):
 
     def button_1_copy_click(self, **event_args):
       """This method is called when the button is clicked"""
-      open_form('bank_users.borrower_dashboard.new_loan_request.loan_type',self.selected_value,self.drop_down_2.selected_value)
+      open_form('bank_users.borrower_dashboard.new_loan_request.loan_type',self.selected_value,self.drop_down_2.selected_value,main_form_module.userId)
 
     def max_amount_lb_show(self, **event_args):
       data =app_tables.product_details.search()
