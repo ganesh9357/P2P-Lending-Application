@@ -17,7 +17,8 @@ class dashboard(dashboardTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-
+    user_id = 1000  # Replace this with the actual user_id value
+my_dashboard_instance = dashboard(user_id=user_id)
     # Any code you write here will run before the form opens.
 
   
