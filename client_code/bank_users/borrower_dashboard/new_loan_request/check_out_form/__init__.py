@@ -10,9 +10,10 @@ from anvil.tables import app_tables
 from ... import borrower_main_form_module as main_form_module
 from anvil import app as anvil_app
 class check_out_form(check_out_formTemplate):
-  def __init__(self, product_group, product_cat,loan_amount, tenure, **properties):
+  def __init__(self, product_group, product_cat,loan_amount, tenure,user_id, **properties):
         self.proctct_g = product_group
         self.prodct_cate = product_cat
+        self.userId = user_id
         self.loan_amount = loan_amount
         self.tenure = tenure
     
@@ -28,11 +29,14 @@ class check_out_form(check_out_formTemplate):
         user_request = app_tables.product_details.get(product_categories=self.prodct_cate)
         if user_request:
             self.roi = user_request['roi']
+        roi = self.roi
         self.label_2.text = self.loan_amount
         self.label_6.text = self.tenure
         p = int(self.loan_amount)
         t = int(self.tenure)
-        r = (self.roi/10/12)*t
+        r = (roi/10/12)*t
+        loan_amount = p
+        tenure = t
         interest_amount = (p*r*t)/100
         self.label_8.text = interest_amount
         Total_Repayment_Amount = p+interest_amount
@@ -40,6 +44,8 @@ class check_out_form(check_out_formTemplate):
 
          
   def submit_click(self, **event_args):
+      user_id = self.userId
+      anvil.server.call('add_loan_details', loan_amount,tenure,user_id)
       alert('your request is submitted')
       open_form('bank_users.borrower_dashboard.choose_lender')
 

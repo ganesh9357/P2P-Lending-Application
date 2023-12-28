@@ -215,4 +215,5 @@ def add_loan_details(loan_amount,tenure,user_id):
     loan_amount=loan_amount,
     tenure=tenure,
     borrower_customer_id=user_id,
+    interest_rate = roi
   )
