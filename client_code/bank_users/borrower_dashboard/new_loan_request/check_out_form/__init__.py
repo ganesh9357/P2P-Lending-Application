@@ -10,11 +10,14 @@ from anvil.tables import app_tables
 from ... import borrower_main_form_module as main_form_module
 from anvil import app as anvil_app
 class check_out_form(check_out_formTemplate):
-  def __init__(self, product_group, product_cat,loan_amount, tenure, **properties):
+  def __init__(self, product_group, product_cat,loan_amount, tenure,user_id, **properties):
         self.proctct_g = product_group
         self.prodct_cate = product_cat
+        self.userId = user_id
         self.loan_amount = loan_amount
         self.tenure = tenure
+        self.Total_Repayment_Amount = 0 
+        
     
     
         self.init_components(**properties)
@@ -28,18 +31,32 @@ class check_out_form(check_out_formTemplate):
         user_request = app_tables.product_details.get(product_categories=self.prodct_cate)
         if user_request:
             self.roi = user_request['roi']
-        self.label_2.text = self.loan_amount
+            self.processing_fee = user_request['processing_fee']
+        self.label_2.text = f"₹ {self.loan_amount}"
         self.label_6.text = self.tenure
-        p = int(self.loan_amount)
-        t = int(self.tenure)
-        r = (self.roi/100/12)*t
-        interest_amount = (p*r*t)/100
-        self.label_8.text = interest_amount
-        Total_Repayment_Amount = p+interest_amount
-        self.label_12.text = Total_Repayment_Amount
+        self.label_4.text = f"{self.roi}%"
+        p = float(self.loan_amount)
+        t = float(self.tenure)
+        r = float(self.roi/100)
+        interest_amount =  p*r
+        # interest_amount = float((((p/r)*t)/100)/12)
+        self.label_8.text = f"₹ {int(interest_amount)}"
+        self.label_10.text = f" {self.processing_fee}%"
+        processing_fee_amount = float((self.processing_fee/100)*p)
+        self.label_16.text = f"₹ {int(processing_fee_amount)}"
+        self.Total_Repayment_Amount = float(p+interest_amount+processing_fee_amount)
+        Monthly_EMI = float(self.Total_Repayment_Amount/t)
+        self.label_14.text = f"₹ {int(Monthly_EMI)}"
+        self.label_12.text = f"₹ {int(self.Total_Repayment_Amount)}"
 
-         
+  
   def submit_click(self, **event_args):
+      user_id = self.userId
+      loan_amount = self.label_2.text
+      tenure = self.label_6.text
+      interest_rate = self.roi
+      total_repayment_amount = self.Total_Repayment_Amount
+      anvil.server.call('add_loan_details', loan_amount, tenure, user_id, interest_rate, total_repayment_amount)
       alert('your request is submitted')
       open_form('bank_users.borrower_dashboard.choose_lender')
 
@@ -64,8 +81,8 @@ class check_out_form(check_out_formTemplate):
             label_text = [str(data[column_name]) for data in product_data]
             label.text = label_text[0] if label_text else None
 
-  def label_4_show(self, **event_args):
-    self.display_label_text(self.label_4, 'roi')
+  # def label_4_show(self, **event_args):
+  #   self.display_label_text(self.label_4, 'roi')
 
 
 # def label_2_show(self, **event_args):
