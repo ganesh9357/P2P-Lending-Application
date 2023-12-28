@@ -16,6 +16,8 @@ class check_out_form(check_out_formTemplate):
         self.userId = user_id
         self.loan_amount = loan_amount
         self.tenure = tenure
+        self.Total_Repayment_Amount = 0 
+        
     
     
         self.init_components(**properties)
@@ -41,10 +43,10 @@ class check_out_form(check_out_formTemplate):
         self.label_10.text = f" {self.processing_fee}%"
         processing_fee_amount = (self.processing_fee/100)*p
         self.label_16.text = f"₹ {int(processing_fee_amount)}"
-        Total_Repayment_Amount = (p+interest_amount+processing_fee_amount)
-        Monthly_EMI = Total_Repayment_Amount/t
+        self.Total_Repayment_Amount = (p+interest_amount+processing_fee_amount)
+        Monthly_EMI = self.Total_Repayment_Amount/t
         self.label_14.text = f"₹ {int(Monthly_EMI)}"
-        self.label_12.text = f"₹ {int(Total_Repayment_Amount)}"
+        self.label_12.text = f"₹ {int(self.Total_Repayment_Amount)}"
 
   
   def submit_click(self, **event_args):
@@ -52,7 +54,8 @@ class check_out_form(check_out_formTemplate):
       loan_amount = self.label_2.text
       tenure = self.label_6.text
       interest_rate = self.roi
-      anvil.server.call('add_loan_details', loan_amount, tenure, user_id, interest_rate)
+      total_repayment_amount = self.Total_Repayment_Amount
+      anvil.server.call('add_loan_details', loan_amount, tenure, user_id, interest_rate, total_repayment_amount)
       alert('your request is submitted')
       open_form('bank_users.borrower_dashboard.choose_lender')
 
