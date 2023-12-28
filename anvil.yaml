@@ -14,7 +14,7 @@ services:
 - source: /runtime/services/anvil/email.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: bank_users.main_form}
+startup: {type: form, module: admin.dashboard.manage_products}
 package_name: bank_client
 allow_embedding: false
 name: P2P Lending App
@@ -29,13 +29,13 @@ db_schema:
     server: full
     columns:
     - name: product_name
-      admin_ui: {order: 7, width: 200}
+      admin_ui: {order: -0.5, width: 200}
       type: string
     - name: product_categories
       admin_ui: {width: 200}
       type: string
     - name: processing_fee
-      admin_ui: {order: 1, width: 200}
+      admin_ui: {order: 0.75, width: 200}
       type: number
     - name: extension_fee
       admin_ui: {width: 200}
@@ -50,7 +50,7 @@ db_schema:
       admin_ui: {width: 200}
       type: number
     - name: discount_coupons
-      admin_ui: {width: 200}
+      admin_ui: {order: 9.5, width: 200}
       type: string
     - name: product_id
       admin_ui: {order: -1, width: 200}
@@ -59,13 +59,13 @@ db_schema:
       admin_ui: {width: 200, order: 4.5}
       type: number
     - name: late_fee
-      admin_ui: {width: 200, order: 2.5}
+      admin_ui: {order: 17.5, width: 200}
       type: number
     - name: max_amount
-      admin_ui: {width: 200, order: 4.75}
+      admin_ui: {order: 9.875, width: 200}
       type: number
     - name: min_amount
-      admin_ui: {width: 200, order: 4.625}
+      admin_ui: {order: 9.75, width: 200}
       type: number
     - name: foreclose_type
       admin_ui: {width: 200, order: 12}
