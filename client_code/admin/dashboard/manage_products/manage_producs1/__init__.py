@@ -20,6 +20,8 @@ class manage_producs1(manage_producs1Template):
         option_strings = [option['name'] for option in options]
         self.name.items = option_strings
         self.name.selected_value = option_strings[0] if option_strings else None 
+         
+        
 
         # # Fetch data from product_group table and populate the name dropdown
         # product_group_options = app_tables.product_categories.search()
@@ -46,24 +48,25 @@ class manage_producs1(manage_producs1Template):
             self.label_1.text = self.id
           
     def name_change(self, **event_args):
-            self.label_3_copy.visible = True
-            self.label_5.visible = True
-            self.name.visible = True
-            self.product_category.visible = True
-            self.selected_value = self.name.selected_value
-            print(self.selected_value)
+      self.label_3_copy.visible = True
+      self.label_5.visible = True
+      self.name.visible = True
+      self.product_category.visible = True
+      self.selected_value = self.name.selected_value
+        
 
-            if self.selected_value:
+      if self.selected_value:
             # Fetch product categories based on the selected loan type
-              product_categories = app_tables.product_categories.search(
-              name_group=self.selected_value
-              )
+        product_categories = app_tables.product_categories.search(
+        name_group=self.selected_value
+          )
 
-              if product_categories:
+        if product_categories:
             # Display product categories in drop_down_2
-                self.product_category.items = [category['name_categories'] for category in product_categories]
-                self.product_category.selected_value = product_categories[0]['name_categories'] if product_categories else None
-
+          self.product_category.items = [category['name_categories'] for category in product_categories]
+          self.product_category.selected_value = product_categories[0]['name_categories'] if product_categories else None
+   
+            
 
     def link_1_copy_click(self, **event_args):
         """This method is called when the link is clicked"""
@@ -80,10 +83,10 @@ class manage_producs1(manage_producs1Template):
         membership_type = self.drop_down_2.selected_value
         print(membership_type)
         # interest_type = self.radio_button_1.text
-        if interest_type:
-            self.radio_button_1.selected
+        if self.radio_button_1.selected:
+            interest_type = self.radio_button_1.text
         else:
-            self.radio_button_2.selected
+            interest_type = self.radio_button_2.text
         min_amount = int(self.min_amount.text)
         max_amount = int(self.max_amount.text)
         min_tenure = int(self.min_tenure.text)
