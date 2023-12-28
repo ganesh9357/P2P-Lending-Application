@@ -1,5 +1,3 @@
-# 
-
 from ._anvil_designer import edit_formTemplate
 from anvil import *
 import anvil.server
@@ -29,6 +27,7 @@ class edit_form(edit_formTemplate):
         self.id_list = []
         self.name_list = []
         self.product_categorys = []
+        self.discri_list = []
         self.profee_list = []
         self.extfee_list = []
         self.foreclosure_type_list = []
@@ -48,6 +47,7 @@ class edit_form(edit_formTemplate):
             a += 1
             self.id_list.append(i['product_id'])
             self.name_list.append(i['product_name'])
+            self.discri_list.append(i['product_discription'])
             self.product_categorys.append(i['product_categories'])
             self.profee_list.append(i['processing_fee'])
             self.extfee_list.append(i['extension_fee'])
@@ -71,6 +71,9 @@ class edit_form(edit_formTemplate):
 
             if self.name_list:
                 self.name.selected_value = self.name_list[-1]
+
+            if self.discri_list:
+                self.discri_list.text = str(self.name_list[-1]
 
             if self.product_categorys:
                 self.product_category.selected_value = self.product_categorys[-1]
@@ -132,12 +135,12 @@ class edit_form(edit_formTemplate):
         open_form('admin.dashboard.manage_products.view_product')
 
         if (
-            self.name.selected_value == ""
-            or self.product_category.selected_value == ""
+            self.name.selected_value is None
+            or self.product_category.selected_value is None
             or self.drop_down_2.selected_value == ""
             or self.text_box_3.text == ""
             or self.text_box_4.text == ""
-            or self.intr_type == ""
+            or self.intr_type is None
             or self.max_amount.text == ""
             or self.min_amount.text == ""
             or self.min_tenure.text == ""
@@ -157,6 +160,7 @@ class edit_form(edit_formTemplate):
                 alert("No Data Available Here")
             else:
                 data[a]['product_name'] = self.name.selected_value
+                data[a]['product_discription'] = self.text_area_1.text
                 data[a]['product_categories'] = self.product_category.selected_value
                 data[a]['processing_fee'] = int(self.text_box_3.text)
                 data[a]['extension_fee'] = int(self.text_box_4.text)

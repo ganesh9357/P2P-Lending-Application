@@ -59,13 +59,11 @@ class manage_producs1(manage_producs1Template):
         print(membership_type)
         interest_type = self.radio_button_1.text
         if interest_type:
-            print(self.radio_button_1.text)
+            self.radio_button_1.selected
         else:
-            print(self.radio_button_2.text)
+            self.radio_button_2.selected
         min_amount = int(self.min_amount.text)
-        print(min_amount)
         max_amount = int(self.max_amount.text)
-        print(max_amount)
         min_tenure = int(self.min_tenure.text)
         max_tenure = int(self.max_tenure.text)
         roi = int(self.text_box_5.text)
@@ -77,18 +75,24 @@ class manage_producs1(manage_producs1Template):
 }
         extension_allowed = extension_allowed_mapping.get(self.extension_allowed.selected_value, False)
         emi_payment = self.drop_down_1.selected_value
-        print(emi_payment)
-        discount_coupons = self.radio_button_3.text
-        if discount_coupons:
-          print(self.radio_button_3.text)
+        if self.radio_button_3.selected:
+            # Code to execute when radio_button_3 is selected
+            discount_coupons = self.radio_button_3.text
+        elif self.radio_button_4.selected:
+            # Code to execute when radio_button_4 is selected
+            discount_coupons = self.radio_button_4.text
         else:
-          print(self.radio_button_4.text)
+            # Code to execute when neither radio_button_3 nor radio_button_4 is selected
+            discount_coupons = None  # or any default value
 
-        if product_name == "" or product_categories== "" or membership_type == "" or processing_fee == "" or extension_fee == "" or interest_type == "" or max_amount == "" or min_amount == "" or min_tenure == "" or max_tenure == "" or roi == "" or emi_payment == "" or discount_coupons == "":
+        if product_name == "" or product_discription=="" or product_categories== "" or membership_type == "" or processing_fee == "" or extension_fee == "" or interest_type == "" or max_amount == "" or min_amount == "" or min_tenure == "" or max_tenure == "" or roi == "" or emi_payment == "" or discount_coupons == "":
             Notification("Fill All Required Details").show()
         else:
-            anvil.server.call('product_details', self.id, product_name, product_categories, processing_fee, extension_fee, membership_type, interest_type, max_amount, min_amount, min_tenure, max_tenure, roi, foreclose_type, extension_allowed, emi_payment, discount_coupons)
+            anvil.server.call('product_details', self.id, product_name, product_discription, product_categories, processing_fee, extension_fee, membership_type, interest_type, max_amount, min_amount, min_tenure, max_tenure, roi, foreclose_type, extension_allowed, emi_payment, discount_coupons)
             product_id = self.label_1.text
             # open_form('admin.dashboard.manage_products.add_group',product_id )
+
+            Notification("Products added successfully").show()
+            open_form('admin.dashboard.manage_products')
 
   
