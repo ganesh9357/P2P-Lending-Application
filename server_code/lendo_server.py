@@ -270,12 +270,12 @@ import anvil.server
 from anvil import tables, app
 
 @anvil.server.callable
-def get_user_details():
-    user = tables.user_profile.search(email_id=app.user['email'])  
+def get_user_details(email_user):
+    # user = tables.user_profile.search(email_user=app.user['email_user'])  
+    user = app_tables.user_profile.get(email_user = email_user)
     if user:
-        user = user[0]
         return {
-            'user_email': user['email_id'],
+            'user_email': user['email_user'],
             'customer_id': user['customer_id'],
             'full_name': user['full_name']
         }
