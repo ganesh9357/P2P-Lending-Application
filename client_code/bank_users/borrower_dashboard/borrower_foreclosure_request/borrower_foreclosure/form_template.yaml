@@ -168,8 +168,12 @@ components:
       icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
       bold: true, underline: false, icon: 'fa:angle-double-left'}
     name: button_4
-    layout_properties: {grid_position: 'EPMBBH,NVLHOW IBSPDP,TCLOHN'}
+    layout_properties: {grid_position: 'EPMBBH,NVLHOW'}
     event_bindings: {click: button_4_click}
+  - name: button_5
+    properties: {text: button_5}
+    type: Button
+    layout_properties: {grid_position: 'EPMBBH,JWBWHB'}
   - type: Button
     properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
       foreground: black, visible: false, text: Pay Now, font_size: null, font: '',

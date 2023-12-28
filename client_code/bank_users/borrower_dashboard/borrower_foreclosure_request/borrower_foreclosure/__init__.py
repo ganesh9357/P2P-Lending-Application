@@ -49,7 +49,7 @@ class borrower_foreclosure(borrower_foreclosureTemplate):
             self.button_foreclose.visible = False
             self.button_2.visible = True
             self.button_3.visible = False
-            self.text_box_2.visible = True
+            self.label_5.visible = True
         else:
             # If there is no approved or reject status, check if the loan ID is in foreclosure table
             existing_requests = app_tables.foreclosure.search(loan_id=loan_id)
@@ -66,7 +66,7 @@ class borrower_foreclosure(borrower_foreclosureTemplate):
                 self.button_2.visible = True 
                 self.button_4.visible = False
                 self.button_3.visible = False
-                self.text_box_1.visible = True
+                self.label_3.visible = True
 
         # Save selected_row as an instance variable for later use
         self.selected_row = selected_row
