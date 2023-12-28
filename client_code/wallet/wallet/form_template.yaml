@@ -269,6 +269,7 @@ components:
     properties: {text: DEPOSIT MONEY, role: null, icon_align: left, foreground: White}
     type: Button
     layout_properties: {grid_position: 'EKHXRK,QRKXCK', full_width_row: false, row_background: '#0876E8'}
+    event_bindings: {click: deposit_money_btn_click}
   - name: withdraw_money_btn
     properties: {text: WITHDRAW MONEY, role: null, icon_align: left, foreground: White,
       visible: false}

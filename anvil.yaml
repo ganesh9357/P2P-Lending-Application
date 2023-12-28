@@ -373,7 +373,7 @@ db_schema:
       type: string
     title: user_profile
   wallet_notification:
-    client: none
+    client: full
     server: full
     columns: []
     title: wallet_notification
@@ -404,7 +404,7 @@ db_schema:
       type: number
     title: wallet
   wallet_transactions_:
-    client: none
+    client: full
     server: full
     columns:
     - name: transaction_id
