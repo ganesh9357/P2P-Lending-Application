@@ -75,19 +75,22 @@ class wallet(walletTemplate):
     self.deposit_btn.visible = True
 
   def deposit_money_btn_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    
-    amount = self.amount_text_box.text
-    if amount:
-       amount = int(amount)  # Assuming the amount is an integer
+    user = anvil.users.get_user()
+    if user:
+        try:
+            success = anvil.server.call('deposit_money_to_wallet', self.amount_text_box.text)
+            if success:
+                alert("Money deposited successfully!")
+            else:
+                alert("Failed to deposit money. Please try again.")
+        except ValueError:
+            alert("Please enter a valid integer amount.")
+    else:
+        alert("Please log in to deposit money.")
 
-       # Call the server function to deposit money into the wallet
-       success = anvil.server.call('deposit_money_to_wallet', amount)
-            
-       if success:
-         alert("Money deposited successfully!")
-       else:
-         alert("Failed to deposit money. Please try again.")
+  def wallet_dashboard_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    pass
 
  
            
