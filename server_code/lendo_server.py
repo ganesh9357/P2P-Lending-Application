@@ -319,8 +319,9 @@ import anvil.server
 def deposit_money_to_wallet(amount):
     # Accessing the current user's wallet record (assuming it's associated with the user)
     user = anvil.users.get_user()
+
     if user:
-        wallet = app_tables.wallet.get(customer_id = user_id)
+        wallet = app_tables.wallet.get()
 
         # Update the 'lender_wallet_amount' in the user's wallet
         if wallet:

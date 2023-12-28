@@ -11,6 +11,7 @@ from anvil import open_form, server
 
 class wallet(walletTemplate):
   def __init__(self, **properties):
+    
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.deposit_placeholder = "5000"
@@ -75,6 +76,7 @@ class wallet(walletTemplate):
 
   def deposit_money_btn_click(self, **event_args):
     """This method is called when the button is clicked"""
+    
     amount = self.amount_text_box.text
     if amount:
        amount = int(amount)  # Assuming the amount is an integer
@@ -83,12 +85,12 @@ class wallet(walletTemplate):
        success = anvil.server.call('deposit_money_to_wallet', amount)
             
        if success:
-         self.alert("Money deposited successfully!")
+         alert("Money deposited successfully!")
        else:
-         self.alert("Failed to deposit money. Please try again.")
+         alert("Failed to deposit money. Please try again.")
 
-   
-  
+ 
+           
     
     
 
