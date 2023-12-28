@@ -422,6 +422,7 @@ components:
           name: name
           layout_properties: {x: 176.96875, y: 124.59375, width: 245}
           data_bindings: []
+          event_bindings: {change: name_change}
         - type: DropDown
           properties:
             role: outlined

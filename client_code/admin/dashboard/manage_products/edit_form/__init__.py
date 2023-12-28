@@ -126,9 +126,11 @@ class edit_form(edit_formTemplate):
 
             if self.disc_coupans_list:
                 if self.disc_coupans_list[-1] == "Yes":
-                    self.radio_button_3.text = self.disc_coupans_list[-1]
+                    self.radio_button_3.text = "Yes"
+                    self.radio_button_4.text = "No"
                 else:
-                    self.radio_button_4.text = self.disc_coupans_list[-1]
+                    self.radio_button_3.text = "No"
+                    self.radio_button_4.text = "Yes"
 
     def button_1_click(self, **event_args):
         """This method is called when the button is clicked"""
@@ -175,6 +177,9 @@ class edit_form(edit_formTemplate):
                 data[a]['extension_allowed'] = extension_allowed_mapping.get(self.extension_allowed.text, False)
                 data[a]['emi_payment'] = self.emi_payment.selected_value
                 data[a]['discount_coupons'] = self.radio_button_3.text
+
+                Notification("Product details updated successfully").show()
+
 
     def link_1_copy_click(self, **event_args):
         """This method is called when the link is clicked"""

@@ -13,20 +13,11 @@ class manage_producs1(manage_producs1Template):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
 
-        # Fetch data from product_group table and populate the name dropdown
-        # product_group_options = app_tables.product_group.search()
-        # self.name.items = [option['name'] for option in product_group_options]
         options = app_tables.product_group.search()
         option_strings = [option['name'] for option in options]
         self.name.items = option_strings
-        self.name.selected_value = option_strings[0] if option_strings else None 
-         
-        
-
-        # # Fetch data from product_group table and populate the name dropdown
-        # product_group_options = app_tables.product_categories.search()
-        # self.product_category.items = [option['name_categories'] for option in product_group_options]
-    
+        self.name.selected_value = option_strings[0] if option_strings else None  
+          
         # Any code you write here will run before the form opens.
         self.id = 'PD' + str(1000)  
         self.label_1.text = self.id
@@ -53,18 +44,21 @@ class manage_producs1(manage_producs1Template):
       self.name.visible = True
       self.product_category.visible = True
       self.selected_value = self.name.selected_value
+      print(f"Selected Value: {self.selected_value}")
         
-
       if self.selected_value:
             # Fetch product categories based on the selected loan type
         product_categories = app_tables.product_categories.search(
-        name_group=self.selected_value
-          )
+        name_group = self.selected_value
+        )
+        print(f"Product Categories: {product_categories}")
 
         if product_categories:
             # Display product categories in drop_down_2
-          self.product_category.items = [category['name_categories'] for category in product_categories]
-          self.product_category.selected_value = product_categories[0]['name_categories'] if product_categories else None
+          category_names = [category['name_categories'] for category in product_categories]
+          print(f"Category Names: {category_names}")
+          self.product_category.items = category_names
+          self.product_category.selected_value = category_names[0] if category_names else None
    
             
 
@@ -81,8 +75,6 @@ class manage_producs1(manage_producs1Template):
         processing_fee = int(self.text_box_3.text)
         extension_fee = int(self.text_box_4.text)
         membership_type = self.drop_down_2.selected_value
-        print(membership_type)
-        # interest_type = self.radio_button_1.text
         if self.radio_button_1.selected:
             interest_type = self.radio_button_1.text
         else:
@@ -92,12 +84,8 @@ class manage_producs1(manage_producs1Template):
         min_tenure = int(self.min_tenure.text)
         max_tenure = int(self.max_tenure.text)
         roi = int(self.text_box_5.text)
-        print(roi)
         foreclose_type = self.foreclose_type.selected_value
-        extension_allowed_mapping = {
-    'Yes': True,
-    'No': False,
-}
+        extension_allowed_mapping = {'Yes': True, 'No': False}
         extension_allowed = extension_allowed_mapping.get(self.extension_allowed.selected_value, False)
         emi_payment = self.drop_down_1.selected_value
         if self.radio_button_3.selected:

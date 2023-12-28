@@ -690,7 +690,7 @@ db_schema:
       admin_ui: {width: 200}
       type: string
     - name: name_group
-      admin_ui: {width: 200}
+      admin_ui: {order: 1, width: 200}
       type: string
     title: product_categories
 uplink_visible: true
