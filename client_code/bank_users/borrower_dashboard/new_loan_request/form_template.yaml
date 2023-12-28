@@ -98,7 +98,7 @@ components:
     background: white
     bold: false
     underline: false
-    include_placeholder: true
+    include_placeholder: false
   name: drop_down_2
   layout_properties: {grid_position: 'LNCQEK,AQSEPS'}
 - type: Button
