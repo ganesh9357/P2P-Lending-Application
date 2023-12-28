@@ -11,8 +11,7 @@ from anvil import open_form, server
 
 
 class wallet(walletTemplate):
-  def __init__(self, **properties):
-    # self.user_id = main_form_module.userId
+  def __init__(self, user_id, **properties):
     user_id = self.user_id
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
