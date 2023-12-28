@@ -9,14 +9,25 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from anvil import open_form, server
 
+
 class wallet(walletTemplate):
   def __init__(self, **properties):
-    
+    # self.user_id = main_form_module.userId
+    user_id = self.user_id
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.deposit_placeholder = "5000"
     self.withdraw_placeholder = "0.00"
-    
+
+    lender_wallet_amount = None
+
+    user_data = app_tables.wallet.search(lender_customer_id=user_id)
+
+    if user_data and len(user_data) > 0:
+      lender_wallet_amount = user_data[0]['lender_wallet_amount']
+
+    if lender_wallet_amount:
+      self.amount_text_box.text = lender_wallet_amount
 
     # Any code you write here will run before the form opens.
 
@@ -35,20 +46,6 @@ class wallet(walletTemplate):
   def notification_link_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('lendor_registration_form.dashboard.notification')
-
-  # def wallet_dashboard_link_click(self, **event_args):
-  #   # Fetch user details from user_profile database
-  #   user_details = server.call('get_user_details')  
-    
-  #   if user_details:
-  #       # Extract required details
-  #       email_user = user_details['user_email']
-  #       customer_id = user_details['customer_id']
-  #       full_name = user_details['full_name']
-
-        
-  #       # Pass user details to server for wallet creation
-  #       server.call('create_wallet', user_email, customer_id, full_name)
 
   def button_2_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -74,23 +71,27 @@ class wallet(walletTemplate):
     self.withdraw_money_btn.visible = True
     self.deposit_btn.visible = True
 
-  def deposit_money_btn_click(self, **event_args):
-    user = anvil.users.get_user()
-    if user:
-        try:
-            success = anvil.server.call('deposit_money_to_wallet', self.amount_text_box.text)
-            if success:
-                alert("Money deposited successfully!")
-            else:
-                alert("Failed to deposit money. Please try again.")
-        except ValueError:
-            alert("Please enter a valid integer amount.")
-    else:
-        alert("Please log in to deposit money.")
-
   def wallet_dashboard_link_click(self, **event_args):
     """This method is called when the link is clicked"""
     pass
+
+  def deposit_money_btn_click(self,**event_args):
+    """This method is called when the button is clicked"""
+    user_data = app_tables.wallet.search(lender_customer_id=user_id)
+    user_id = self.user_id
+    
+    lender_wallet_amount = self.amount_text_box.text
+   
+    if lender_wallet_amount:
+      user_data = app_tables.wallet.search(lender_customer_id=user_id)
+
+    if user_data and len(user_data) > 0:
+      user_row = user_data[0]
+      user_row['lender_wallet_amount'] = int(lender_wallet_amount)
+    
+    else:
+      # If the row doesn't exist, add a new row
+      app_tables.wallet.add_row(lender_customer_id=user_id, lender_wallet_amount=lender_wallet_amount)
 
  
            

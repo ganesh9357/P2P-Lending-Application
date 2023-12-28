@@ -314,30 +314,30 @@ from anvil import tables, app
 #   )
 
 # code for wallet deposit money
-import anvil.server
+# import anvil.server
 
-@anvil.server.callable
-def deposit_money_to_wallet(amount):
-    user = anvil.users.get_user()
+# @anvil.server.callable
+# def deposit_money_to_wallet(amount):
+#     user = anvil.users.get_user()
     
-    if user:
-        user_profile = app_tables.user_profile.get(email_user=user['email'])
+#     if user:
+#         user_profile = app_tables.user_profile.get(email_user=user['email'])
         
-        if user_profile:
-            lender_customer_id = user_profile['customer_id']
-            wallet = app_tables.wallet.get(lender_customer_id=lender_customer_id)
+#         if user_profile:
+#             lender_customer_id = user_profile['customer_id']
+#             wallet = app_tables.wallet.get(lender_customer_id=lender_customer_id)
             
-            if wallet:
-                try:
-                    wallet['lender_wallet_amount'] += int(amount)
-                    wallet.save()
-                    return True
-                except ValueError:
-                    return False
-            else:
-                return False
-        else:
-            return False
-    else:
-        return False
+#             if wallet:
+#                 try:
+#                     wallet['lender_wallet_amount'] += int(amount)
+#                     wallet.save()
+#                     return True
+#                 except ValueError:
+#                     return False
+#             else:
+#                 return False
+#         else:
+#             return False
+#     else:
+#         return False
 

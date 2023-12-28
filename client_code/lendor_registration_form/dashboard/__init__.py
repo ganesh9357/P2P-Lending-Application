@@ -11,10 +11,14 @@ from anvil.tables import app_tables
 from anvil import open_form, server
 #from anvil import get_current_user
 
+
 class dashboard(dashboardTemplate):
   def __init__(self, **properties):
+    
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+
+    
     
 
     # Any code you write here will run before the form opens.
@@ -133,7 +137,9 @@ class dashboard(dashboardTemplate):
 
   def wallet_dashboard_link_click(self, **event_args):
     """This method is called when the link is clicked"""
+    
     open_form('wallet.wallet')
+    
     # Fetching data from user_profile table
     user_profiles = app_tables.user_profile.search()  # Fetch all records from user_profile table
 
