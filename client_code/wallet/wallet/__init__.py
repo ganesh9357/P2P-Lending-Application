@@ -8,19 +8,25 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from anvil import open_form, server
-
+# from ....bank_users.main_form import main_form_module
+from ...lender
+from .. import lendor_main_form_module as main_form_module
 
 class wallet(walletTemplate):
   def __init__(self, user_id, **properties):
-    user_id = self.user_id
+    
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.deposit_placeholder = "5000"
     self.withdraw_placeholder = "0.00"
-
+  
+    user_id = self.user_id
+    # self.email=borrower_main_form_module.email
+    # user_profile=app_tables.user_profile.get(email_user=self.email)
+    self.user_id = main_form_module.userId
     lender_wallet_amount = None
 
-    user_data = app_tables.wallet.search(lender_customer_id=user_id)
+    user_data = app_tables.wallet.search(lender_customer_id=self.user_id)
 
     if user_data and len(user_data) > 0:
       lender_wallet_amount = user_data[0]['lender_wallet_amount']

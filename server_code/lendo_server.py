@@ -341,3 +341,6 @@ from anvil import tables, app
 #     else:
 #         return False
 
+@anvil.server.callable
+def add_wallet_link(lender_wallet_amount,user_id):
+  row = app_tables.wallet.add_row(lender_wallet_amount=lender_wallet_amount, lender_customer_id = user_id)
