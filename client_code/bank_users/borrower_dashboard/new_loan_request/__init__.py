@@ -50,5 +50,7 @@ class new_loan_request(new_loan_requestTemplate):
       data1_strings = [data['max_amount'] for data in data]
       self.max_amount_lb.text = data1_strings
       self.max_amount_lb.text = data1_strings[0] if data1_strings else None
+
+    
       
     

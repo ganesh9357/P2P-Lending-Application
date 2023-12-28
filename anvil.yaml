@@ -29,7 +29,7 @@ db_schema:
     server: full
     columns:
     - name: product_name
-      admin_ui: {order: 0, width: 200}
+      admin_ui: {order: 7, width: 200}
       type: string
     - name: product_categories
       admin_ui: {width: 200}
@@ -84,6 +84,9 @@ db_schema:
       type: string
     - name: emi_payment
       admin_ui: {width: 200, order: 18}
+      type: string
+    - name: product_discription
+      admin_ui: {width: 200, order: 0.5}
       type: string
   user_profile:
     client: full
@@ -687,7 +690,7 @@ db_schema:
       admin_ui: {width: 200}
       type: string
     - name: name_group
-      admin_ui: {width: 200}
+      admin_ui: {order: 1, width: 200}
       type: string
     title: product_categories
 uplink_visible: true
