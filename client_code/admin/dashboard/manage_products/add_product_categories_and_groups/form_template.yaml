@@ -1,9 +1,9 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {col_widths: '{}', visible: true}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"FDDXVJ":20,"DVFOGR":40}'}
+  properties: {col_widths: '{"FDDXVJ":15,"DVFOGR":45,"GVPHFB":10,"VRVUMX":32}'}
   name: column_panel_2
   layout_properties: {grid_position: 'UQCZNB,KHJKIT'}
   components:
@@ -26,9 +26,9 @@ components:
     name: spacer_1
     layout_properties: {grid_position: 'KKFONF,HHEVLC'}
   - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+    properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
       visible: true, text: Group, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
     name: label_1
     layout_properties: {grid_position: 'SPGCWB,GVPHFB'}
@@ -36,24 +36,16 @@ components:
     properties: {}
     name: drop_down_1
     layout_properties: {grid_position: 'SPGCWB,VRVUMX'}
-    event_bindings: {change: drop_down_1_change}
-  - type: Button
-    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-      foreground: black, visible: true, text: ADD, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
-      bold: false, underline: false, icon: ''}
-    name: button_1
-    layout_properties: {grid_position: 'SPGCWB,AMQIHT'}
-    event_bindings: {click: button_1_click}
+    event_bindings: {change: name_change}
   - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Categories, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+      visible: false, text: Categories, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
     name: label_2
     layout_properties: {grid_position: 'GMJCJS,FDDXVJ'}
   - type: DropDown
-    properties: {}
+    properties: {visible: false}
     name: drop_down_2
     layout_properties: {grid_position: 'GMJCJS,DVFOGR'}
     event_bindings: {change: drop_down_2_change}

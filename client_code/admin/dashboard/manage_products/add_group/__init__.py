@@ -30,4 +30,5 @@ class add_group(add_groupTemplate):
             self.text_box_1.text = ''
 
             # Optionally, provide feedback to the user
-            alert(f'Group "{group_name}" added successfully!')
+            alert(f' "{group_name}" added successfully!')
+            open_form('admin.dashboard.manage_products.add_product_categories_and_groups')
