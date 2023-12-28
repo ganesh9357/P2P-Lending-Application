@@ -139,11 +139,12 @@ components:
         name: label_tpm
         layout_properties: {row: PZBXTY, width_xs: 4, col_xs: 7, width: 145.328}
     - name: label_3
-      properties: {visible: false}
+      properties: {visible: false, align: center, font_size: 20}
       type: Label
       layout_properties: {grid_position: 'ZVAAJT,HVXCAN'}
     - name: label_5
-      properties: {visible: false, background: '', foreground: 'theme:Error'}
+      properties: {visible: false, background: '', foreground: 'theme:Error', align: center,
+        font_size: 20}
       type: Label
       layout_properties: {grid_position: 'FPTXHU,OGBCKX'}
   - type: Button
