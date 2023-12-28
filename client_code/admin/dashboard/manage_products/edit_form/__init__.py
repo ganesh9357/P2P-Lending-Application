@@ -378,8 +378,7 @@ class edit_form(edit_formTemplate):
                 alert("No Data Available Here")
             else:
                 if self.intr_type[-1] == "Fixed":
-                    self.name.enabled = False
-                    self.product_category.enabled = False
+                    
                     self.min_amount.enabled = False
                     self.max_amount.enabled = False
                     self.min_tenure.enabled = False
