@@ -84,7 +84,7 @@ components:
         properties: {role: outlined-button, align: center, tooltip: '', border: '',
           enabled: true, foreground: black, visible: true, text: Delete, font_size: null,
           font: '', spacing_above: small, icon_align: left, spacing_below: small,
-          italic: false, background: '#0876E8', bold: false, underline: false, icon: ''}
+          italic: false, background: '#0876E8', bold: false, underline: false, icon: 'fa:eraser'}
         name: button_2
         layout_properties: {x: 352, y: 989.578125, width: 336}
         event_bindings: {click: button_2_click}
@@ -92,7 +92,7 @@ components:
         properties: {role: outlined-button, align: center, tooltip: '', border: '',
           enabled: true, foreground: black, visible: true, text: Edit, font_size: null,
           font: '', spacing_above: small, icon_align: left, spacing_below: small,
-          italic: false, background: '#0876E8', bold: false, underline: false, icon: ''}
+          italic: false, background: '#0876E8', bold: false, underline: false, icon: 'fa:edit'}
         name: button_1
         layout_properties: {x: 116, y: 989.5899999999999, width: 320}
         event_bindings: {click: button_1_click}

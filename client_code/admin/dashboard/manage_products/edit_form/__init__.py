@@ -73,7 +73,7 @@ class edit_form(edit_formTemplate):
                 self.name.selected_value = self.name_list[-1]
 
             if self.discri_list:
-                self.discri_list.text = str(self.name_list[-1]
+                self.discri_list = str(self.name_list[-1])
 
             if self.product_categorys:
                 self.product_category.selected_value = self.product_categorys[-1]

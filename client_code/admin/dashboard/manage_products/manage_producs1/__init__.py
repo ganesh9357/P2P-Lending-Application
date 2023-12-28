@@ -14,13 +14,17 @@ class manage_producs1(manage_producs1Template):
         self.init_components(**properties)
 
         # Fetch data from product_group table and populate the name dropdown
-        product_group_options = app_tables.product_group.search()
-        self.name.items = [option['name'] for option in product_group_options]
+        # product_group_options = app_tables.product_group.search()
+        # self.name.items = [option['name'] for option in product_group_options]
+        options = app_tables.product_group.search()
+        option_strings = [option['name'] for option in options]
+        self.name.items = option_strings
+        self.name.selected_value = option_strings[0] if option_strings else None 
 
-        # Fetch data from product_group table and populate the name dropdown
-        product_group_options = app_tables.product_categories.search()
-        self.product_category.items = [option['name_categories'] for option in product_group_options]
-
+        # # Fetch data from product_group table and populate the name dropdown
+        # product_group_options = app_tables.product_categories.search()
+        # self.product_category.items = [option['name_categories'] for option in product_group_options]
+    
         # Any code you write here will run before the form opens.
         self.id = 'PD' + str(1000)  
         self.label_1.text = self.id
@@ -40,15 +44,29 @@ class manage_producs1(manage_producs1Template):
             numeric_part = last_product_id[2:]  # Assuming the prefix is always two characters ('PD')
             self.id = 'PD' + str(int(numeric_part) + 1)
             self.label_1.text = self.id
+          
+    def name_change(self, **event_args):
+            self.selected_value = self.name.selected_value
+            print(self.selected_value)
+
+            if self.selected_value:
+            # Fetch product categories based on the selected loan type
+              product_categories = app_tables.product_categories.search(
+              name_group=self.selected_value
+              )
+
+              if product_categories:
+            # Display product categories in drop_down_2
+                self.product_category.items = [category['name_categories'] for category in product_categories]
+                self.product_category.selected_value = product_categories[0]['name_categories'] if product_categories else None
+
 
     def link_1_copy_click(self, **event_args):
         """This method is called when the link is clicked"""
         open_form('admin.dashboard.manage_products')
 
     def button_1_click(self, **event_args):
-        """This method is called when the button is clicked"""
-
-        
+        """This method is called when the button is clicked"""      
 
         product_name = self.name.selected_value
         product_discription = self.text_area_1.text
@@ -57,7 +75,7 @@ class manage_producs1(manage_producs1Template):
         extension_fee = int(self.text_box_4.text)
         membership_type = self.drop_down_2.selected_value
         print(membership_type)
-        interest_type = self.radio_button_1.text
+        # interest_type = self.radio_button_1.text
         if interest_type:
             self.radio_button_1.selected
         else:
@@ -85,7 +103,7 @@ class manage_producs1(manage_producs1Template):
             # Code to execute when neither radio_button_3 nor radio_button_4 is selected
             discount_coupons = None  # or any default value
 
-        if product_name == "" or product_discription=="" or product_categories== "" or membership_type == "" or processing_fee == "" or extension_fee == "" or interest_type == "" or max_amount == "" or min_amount == "" or min_tenure == "" or max_tenure == "" or roi == "" or emi_payment == "" or discount_coupons == "":
+        if product_name == ""  or product_categories== "" or membership_type == "" or processing_fee == "" or extension_fee == "" or interest_type == "" or max_amount == "" or min_amount == "" or min_tenure == "" or max_tenure == "" or roi == "" or emi_payment == "" or discount_coupons == "":
             Notification("Fill All Required Details").show()
         else:
             anvil.server.call('product_details', self.id, product_name, product_discription, product_categories, processing_fee, extension_fee, membership_type, interest_type, max_amount, min_amount, min_tenure, max_tenure, roi, foreclose_type, extension_allowed, emi_payment, discount_coupons)
