@@ -35,16 +35,16 @@ class check_out_form(check_out_formTemplate):
         self.label_2.text = f"₹ {self.loan_amount}"
         self.label_6.text = self.tenure
         self.label_4.text = f"{self.roi}%"
-        p = int(self.loan_amount)
-        t = int(self.tenure)
-        r = (self.roi/100)
-        interest_amount = (((p/r)*t)/100)/12
+        p = float(self.loan_amount)
+        t = float(self.tenure)
+        r = float(self.roi/100)
+        interest_amount = float((((p/r)*t)/100)/12)
         self.label_8.text = f"₹ {int(interest_amount)}"
         self.label_10.text = f" {self.processing_fee}%"
-        processing_fee_amount = (self.processing_fee/100)*p
+        processing_fee_amount = float((self.processing_fee/100)*p)
         self.label_16.text = f"₹ {int(processing_fee_amount)}"
-        self.Total_Repayment_Amount = (p+interest_amount+processing_fee_amount)
-        Monthly_EMI = self.Total_Repayment_Amount/t
+        self.Total_Repayment_Amount = float(p+interest_amount+processing_fee_amount)
+        Monthly_EMI = float(self.Total_Repayment_Amount/t)
         self.label_14.text = f"₹ {int(Monthly_EMI)}"
         self.label_12.text = f"₹ {int(self.Total_Repayment_Amount)}"
 
