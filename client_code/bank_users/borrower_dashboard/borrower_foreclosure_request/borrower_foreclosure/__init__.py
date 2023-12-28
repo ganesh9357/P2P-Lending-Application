@@ -47,9 +47,10 @@ class borrower_foreclosure(borrower_foreclosureTemplate):
             # If there is a reject status, show an alert
             alert('Your request has been rejected.')
             self.button_foreclose.visible = False
-            self.button_2.visible = True
+            self.button_2.visible = False
             self.button_3.visible = False
             self.label_5.visible = True
+            self.button_5.visible = True
         else:
             # If there is no approved or reject status, check if the loan ID is in foreclosure table
             existing_requests = app_tables.foreclosure.search(loan_id=loan_id)
@@ -63,10 +64,11 @@ class borrower_foreclosure(borrower_foreclosureTemplate):
             else:
                 # If the loan ID is in the foreclosure table, make other buttons visible
                 self.button_foreclose.visible = False
-                self.button_2.visible = True 
+                self.button_2.visible = False 
                 self.button_4.visible = False
                 self.button_3.visible = False
                 self.label_3.visible = True
+                self.button_5.visible = True
 
         # Save selected_row as an instance variable for later use
         self.selected_row = selected_row
@@ -94,4 +96,8 @@ class borrower_foreclosure(borrower_foreclosureTemplate):
     def button_4_click(self, **event_args):
         """This method is called when the button is clicked"""
         open_form('bank_users.borrower_dashboard.borrower_foreclosure_request')
+
+    def button_5_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      open_form('bank_users.borrower_dashboard.borrower_foreclosure_request')
 

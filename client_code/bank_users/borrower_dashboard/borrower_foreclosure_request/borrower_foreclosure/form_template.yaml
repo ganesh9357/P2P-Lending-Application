@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"NVLHOW":30,"THMKIF":30}'}
+  properties: {col_widths: '{"NVLHOW":30,"THMKIF":30}', visible: true}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -143,7 +143,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'ZVAAJT,HVXCAN'}
     - name: label_5
-      properties: {visible: false}
+      properties: {visible: false, background: '', foreground: 'theme:Error'}
       type: Label
       layout_properties: {grid_position: 'FPTXHU,OGBCKX'}
   - type: Button
@@ -175,6 +175,7 @@ components:
       visible: false}
     type: Button
     layout_properties: {grid_position: 'EPMBBH,IOQAHG'}
+    event_bindings: {click: button_5_click}
   - type: Button
     properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
       foreground: black, visible: false, text: Pay Now, font_size: null, font: '',
