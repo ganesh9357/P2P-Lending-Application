@@ -1,4 +1,4 @@
-from ._anvil_designer import update_formTemplate
+from ._anvil_designer import delete_formTemplate
 from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
@@ -8,7 +8,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
-class update_form(update_formTemplate):
+class delete_form(delete_formTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
@@ -45,3 +45,7 @@ class update_form(update_formTemplate):
   def link_1_copy_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('admin.dashboard.manage_products.view_product')
+
+  def radio_button_2_clicked(self, **event_args):
+    """This method is called when this radio button is selected"""
+    pass
