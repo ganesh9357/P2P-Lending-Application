@@ -36,3 +36,7 @@ class add_product_categories_and_groups(add_product_categories_and_groupsTemplat
     
     # Call the server function with the updated values
     anvil.server.call('manage_products', groups, category_str)
+
+  def drop_down_2_change(self, **event_args):
+    """This method is called when an item is selected"""
+    pass

@@ -59,3 +59,11 @@ def user_issues_bugreports(user_issues, specific_issue, user_discription, image,
                                                  feedback_form=feedback_form,
                                                  email_user=email_user,
                                                  customer_id=coustmer_id)
+
+
+
+
+@anvil.server.callable
+def add_product_group_to_table(group_name):
+    # Add the group_name to the "product_group" data table
+    app_tables.product_group.add_row(name=group_name)
