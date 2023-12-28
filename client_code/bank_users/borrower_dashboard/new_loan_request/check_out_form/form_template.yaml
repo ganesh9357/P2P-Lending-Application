@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"HIODYR":20,"KBUBRX":20,"YHPRGY":40,"AQNCJV":20,"UTRREU":40,"HKMLAI":20,"PLWRHK":40,"TYGVDD":40,"BNUUFY":20,"BRHBQU":40,"LFYHPC":20,"PWFWPZ":40,"OBHIKJ":15,"YIXAPW":15,"WMXTAT":30,"IFKSMA":20,"DIYFRA":20,"DPHXFR":20,"XWXHRS":20,"WNAMKH":20}'}
+  properties: {col_widths: '{"HIODYR":20,"KBUBRX":20,"YHPRGY":40,"AQNCJV":20,"UTRREU":40,"HKMLAI":20,"PLWRHK":40,"TYGVDD":40,"BNUUFY":20,"BRHBQU":40,"LFYHPC":25,"PWFWPZ":35,"OBHIKJ":15,"YIXAPW":15,"WMXTAT":30,"IFKSMA":20,"DIYFRA":20,"DPHXFR":20,"XWXHRS":20,"WNAMKH":20,"RDOGSK":15,"QXPHUY":15,"NGWXJU":30,"UJTEPU":15,"FRJYLJ":15,"SHVVHI":30}'}
 components:
 - name: image_1
   properties: {source: _/theme/kotak.png, height: '45', horizontal_align: left}
@@ -52,6 +52,21 @@ components:
   event_bindings: {show: label_4_show}
 - type: Spacer
   properties: {height: 32}
+  name: spacer_9
+  layout_properties: {grid_position: 'LODGED,RDOGSK'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Processing fee, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_9
+  layout_properties: {grid_position: 'LODGED,QXPHUY'}
+- type: Label
+  properties: {}
+  name: label_10
+  layout_properties: {grid_position: 'LODGED,NGWXJU'}
+- type: Spacer
+  properties: {height: 32}
   name: spacer_5
   layout_properties: {grid_position: 'UEGCXA,DPHXFR'}
 - type: Label
@@ -81,6 +96,21 @@ components:
   properties: {}
   name: label_8
   layout_properties: {grid_position: 'OAUZEO,UTRREU'}
+- type: Spacer
+  properties: {height: 32}
+  name: spacer_10
+  layout_properties: {grid_position: 'ORUNTI,UJTEPU'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Processing fee Amount, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: ''}
+  name: label_15
+  layout_properties: {grid_position: 'ORUNTI,FRJYLJ'}
+- type: Label
+  properties: {}
+  name: label_16
+  layout_properties: {grid_position: 'ORUNTI,SHVVHI'}
 - type: Spacer
   properties: {height: 32}
   name: spacer_8
