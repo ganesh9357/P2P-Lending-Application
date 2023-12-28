@@ -130,25 +130,25 @@ class dashboard(dashboardTemplate):
     """This method is called when the link is clicked"""
     open_form('lendor_registration_form.dashboard.notification')
 
-  # def wallet_dashboard_link_click(self, **event_args):
-  #   """This method is called when the link is clicked"""
-  #   open_form('wallet.wallet')
-
   def wallet_dashboard_link_click(self, **event_args):
-    # Fetch user details from user_profile database
-    user_details = server.call('get_user_details')  
-    
-    if user_details:
-        # Extract required details
-        email_user = user_details['user_email']
-        customer_id = user_details['customer_id']
-        full_name = user_details['full_name']
+    """This method is called when the link is clicked"""
+    open_form('wallet.wallet')
 
-        # Open wallet form
-        open_form('wallet.wallet')
+  # def wallet_dashboard_link_click(self, **event_args):
+  #   # Fetch user details from user_profile database
+  #   user_details = server.call('get_user_details')  
+    
+  #   if user_details:
+  #       # Extract required details
+  #       email_user = user_details['user_email']
+  #       customer_id = user_details['customer_id']
+  #       full_name = user_details['full_name']
+
+  #       # Open wallet form
+  #       open_form('wallet.wallet')
         
-        # Pass user details to server for wallet creation
-        server.call('create_wallet', user_email, customer_id, full_name)
+  #       # Pass user details to server for wallet creation
+  #       server.call('create_wallet', user_email, customer_id, full_name)
 
  
 

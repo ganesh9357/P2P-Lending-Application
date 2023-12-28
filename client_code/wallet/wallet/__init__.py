@@ -15,6 +15,7 @@ class wallet(walletTemplate):
     self.init_components(**properties)
     self.deposit_placeholder = "5000"
     self.withdraw_placeholder = "0.00"
+    
 
     # Any code you write here will run before the form opens.
 
@@ -34,18 +35,19 @@ class wallet(walletTemplate):
     """This method is called when the link is clicked"""
     open_form('lendor_registration_form.dashboard.notification')
 
-  # def wallet_dashboard_link_click(self, **event_args):
-  #   # Fetch user details from user_profile database
-  #   user_details = server.call('get_user_details')  
+  def wallet_dashboard_link_click(self, **event_args):
+    # Fetch user details from user_profile database
+    user_details = server.call('get_user_details')  
     
-  #   if user_details:
-  #       # Extract required details
-  #       user_email = user_details['user_email']
-  #       customer_id = user_details['customer_id']
-  #       full_name = user_details['full_name']
+    if user_details:
+        # Extract required details
+        email_user = user_details['user_email']
+        customer_id = user_details['customer_id']
+        full_name = user_details['full_name']
+
         
-  #       # Pass user details to server for wallet creation
-  #       server.call('create_wallet', user_email, customer_id, full_name)
+        # Pass user details to server for wallet creation
+        server.call('create_wallet', user_email, customer_id, full_name)
 
   def button_2_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -71,9 +73,7 @@ class wallet(walletTemplate):
     self.withdraw_money_btn.visible = True
     self.deposit_btn.visible = True
 
-  def wallet_dashboard_link_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    pass
+ 
 
    
   
