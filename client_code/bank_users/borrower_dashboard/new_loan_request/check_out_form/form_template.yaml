@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"HIODYR":15,"KBUBRX":15,"YHPRGY":45,"AQNCJV":15,"UTRREU":45,"HKMLAI":15,"PLWRHK":45,"JEMCVB":15,"GYQOIW":45,"TYGVDD":45,"BNUUFY":15,"BRHBQU":45,"LFYHPC":20,"PWFWPZ":40,"WJPFKE":20}'}
+  properties: {col_widths: '{"HIODYR":20,"KBUBRX":20,"YHPRGY":40,"AQNCJV":20,"UTRREU":40,"HKMLAI":20,"PLWRHK":40,"TYGVDD":40,"BNUUFY":20,"BRHBQU":40,"LFYHPC":20,"PWFWPZ":40,"OBHIKJ":15,"YIXAPW":15,"WMXTAT":30,"IFKSMA":20,"DIYFRA":20,"DPHXFR":20,"XWXHRS":20,"WNAMKH":20}'}
 components:
 - name: image_1
   properties: {source: _/theme/kotak.png, height: '45', horizontal_align: left}
@@ -83,36 +83,38 @@ components:
   layout_properties: {grid_position: 'OAUZEO,UTRREU'}
 - type: Spacer
   properties: {height: 32}
-  name: spacer_7
-  layout_properties: {grid_position: 'PFYRNI,IFKSMA'}
-- type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: Total Repayment Amount, font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-    underline: false, icon: ''}
-  name: label_11
-  layout_properties: {grid_position: 'PFYRNI,HKMLAI'}
-- type: Label
-  properties: {}
-  name: label_12
-  layout_properties: {grid_position: 'PFYRNI,PLWRHK'}
-- type: Spacer
-  properties: {height: 32}
   name: spacer_8
-  layout_properties: {grid_position: 'TMXASB,WJPFKE'}
+  layout_properties: {grid_position: 'FZQSCF,OBHIKJ'}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: Monthly EMI, font_size: null, font: '', spacing_above: small, icon_align: left,
     spacing_below: small, italic: false, background: '', bold: false, underline: false,
     icon: ''}
   name: label_13
-  layout_properties: {grid_position: 'TMXASB,JEMCVB'}
+  layout_properties: {grid_position: 'FZQSCF,YIXAPW'}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
     italic: false, background: '', bold: false, underline: false, icon: ''}
   name: label_14
-  layout_properties: {grid_position: 'TMXASB,GYQOIW'}
+  layout_properties: {grid_position: 'FZQSCF,WMXTAT'}
+- type: Spacer
+  properties: {height: 32}
+  name: spacer_7
+  layout_properties: {grid_position: 'PFYRNI,IFKSMA'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Total Repayment Amount, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
+  name: label_11
+  layout_properties: {grid_position: 'PFYRNI,HKMLAI'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+    italic: false, background: '', bold: true, underline: false, icon: ''}
+  name: label_12
+  layout_properties: {grid_position: 'PFYRNI,PLWRHK'}
 - type: Spacer
   properties: {height: 32}
   name: spacer_2
