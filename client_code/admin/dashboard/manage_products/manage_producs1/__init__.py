@@ -46,6 +46,10 @@ class manage_producs1(manage_producs1Template):
             self.label_1.text = self.id
           
     def name_change(self, **event_args):
+            self.label_3_copy.visible = True
+            self.label_5.visible = True
+            self.name.visible = True
+            self.product_category.visible = True
             self.selected_value = self.name.selected_value
             print(self.selected_value)
 
