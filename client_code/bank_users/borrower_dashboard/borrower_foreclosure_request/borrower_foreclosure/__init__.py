@@ -19,8 +19,8 @@ class borrower_foreclosure(borrower_foreclosureTemplate):
         self.label_interest_rate.text = f"{selected_row['interest_rate']} % pa"
         self.label_credit_limit.text = f"{selected_row['credit_limit']}"
         self.label_tpm.text = f"{selected_row['borrower_last_payment_done']}"
-        self.text_box_1.text = "Foreclosure Request Under Process......"  
-        self.text_box_2.text = "Foreclosure Request Rejected"
+        self.label_3.text = "Foreclosure Request Under Process......"  
+        self.label_5.text = "Foreclosure Request Rejected"
 
         # Check foreclosure status for the selected loan ID
         loan_id = selected_row['loan_id']
