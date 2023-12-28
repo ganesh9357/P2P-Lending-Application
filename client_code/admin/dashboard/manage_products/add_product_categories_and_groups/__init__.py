@@ -37,4 +37,8 @@ class add_product_categories_and_groups(add_product_categories_and_groupsTemplat
             # Display product categories in drop_down_2
             self.drop_down_2.items = [category['name_categories'] for category in product_categories]
             self.drop_down_2.selected_value = product_categories[0]['name_categories'] if product_categories else None
+
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('admin.dashboard.manage_products')
  
