@@ -18,19 +18,6 @@ class add_product_categories_and_groups(add_product_categories_and_groupsTemplat
     self.drop_down_1.items = option_strings
     self.drop_down_1.selected_value = option_strings[0] if option_strings else None   
 
-  # def name_change(self, **event_args):
-
-  #       # Check the selected value of drop_down_1
-  #       selected_group = self.drop_down_1.selected_value
-
-  #       # Make additional features visible if a group is selected
-  #       if selected_group:
-  #           self.label_2.visible = True
-  #           self.drop_down_2.visible = True
-  #       else:
-  #           # Hide additional features if no group is selected
-  #           self.label_2.visible = False
-  #           self.drop_down_2.visible = False
 
   def name_change(self, **event_args):
         self.selected_value = self.drop_down_1.selected_value
