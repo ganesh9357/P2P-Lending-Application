@@ -33,11 +33,13 @@ class check_out_form(check_out_formTemplate):
         self.label_6.text = self.tenure
         p = int(self.loan_amount)
         t = int(self.tenure)
-        r = (self.roi/10/12)*t
-        interest_amount = (p*r*t)/100
-        self.label_8.text = interest_amount
-        Total_Repayment_Amount = p+interest_amount
+        r = (self.roi/100)
+        interest_amount = (p/r)/100
+        self.label_8.text = int(interest_amount)
+        Total_Repayment_Amount = int(p+interest_amount)
         self.label_12.text = Total_Repayment_Amount
+        Monthly_EMI = Total_Repayment_Amount/t
+        self.label_14.text = int(Monthly_EMI)
 
          
   def submit_click(self, **event_args):
