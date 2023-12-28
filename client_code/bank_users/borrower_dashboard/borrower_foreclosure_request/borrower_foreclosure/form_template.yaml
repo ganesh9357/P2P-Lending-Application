@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {col_widths: '{"NVLHOW":30,"THMKIF":30}', visible: true}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -138,6 +138,15 @@ components:
           underline: false, icon: ''}
         name: label_tpm
         layout_properties: {row: PZBXTY, width_xs: 4, col_xs: 7, width: 145.328}
+    - name: label_3
+      properties: {visible: false, align: center, font_size: 20}
+      type: Label
+      layout_properties: {grid_position: 'ZVAAJT,HVXCAN'}
+    - name: label_5
+      properties: {visible: false, background: '', foreground: 'theme:Error', align: center,
+        font_size: 20}
+      type: Label
+      layout_properties: {grid_position: 'FPTXHU,OGBCKX'}
   - type: Button
     properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
       foreground: black, visible: true, text: Back, font_size: null, font: '', spacing_above: small,
@@ -160,48 +169,22 @@ components:
       icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
       bold: true, underline: false, icon: 'fa:angle-double-left'}
     name: button_4
-    layout_properties: {grid_position: 'EPMBBH,NVLHOW IBSPDP,TCLOHN'}
+    layout_properties: {grid_position: 'EPMBBH,NVLHOW'}
     event_bindings: {click: button_4_click}
   - name: button_5
-    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-      foreground: black, visible: false, text: Back, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
-      bold: true, underline: false, icon: 'fa:angle-double-left'}
+    properties: {text: Back, foreground: black, background: '#0876E8', icon: 'fa:angle-double-left',
+      visible: false}
     type: Button
-    layout_properties: {grid_position: 'EPMBBH,NVLHOW DDARDZ,KMMXWJ'}
+    layout_properties: {grid_position: 'EPMBBH,IOQAHG'}
     event_bindings: {click: button_5_click}
-  - name: button_7
-    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-      foreground: black, visible: false, text: Back, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
-      bold: true, underline: false, icon: 'fa:angle-double-left'}
-    type: Button
-    layout_properties: {grid_position: 'EPMBBH,NVLHOW BZWXAF,YQGCBM'}
-    event_bindings: {click: button_7_click}
   - type: Button
     properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
       foreground: black, visible: false, text: Pay Now, font_size: null, font: '',
       spacing_above: small, icon_align: left, spacing_below: small, italic: false,
       background: '#0876E8', bold: true, underline: false, icon: ''}
     name: button_3
-    layout_properties: {grid_position: 'EPMBBH,THMKIF NZKFZI,DENBID'}
+    layout_properties: {grid_position: 'EPMBBH,THMKIF'}
     event_bindings: {click: button_3_click}
-  - name: button_6
-    properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: black, visible: false, text: Under Process, font_size: null, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '#0876E8', bold: true, underline: false, icon: ''}
-    type: Button
-    layout_properties: {grid_position: 'EPMBBH,THMKIF KISCKK,JIZUHF'}
-    event_bindings: {click: button_6_click}
-  - name: button_8
-    properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: black, visible: false, text: Rejected, font_size: null, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '#db2332', bold: true, underline: false, icon: ''}
-    type: Button
-    layout_properties: {grid_position: 'EPMBBH,THMKIF MRJGYT,PXEQCY'}
-    event_bindings: {click: button_8_click}
 - type: FlowPanel
   properties: {}
   name: navbar_links
