@@ -98,13 +98,20 @@ class edit_form(edit_formTemplate):
                 if selected_interest_type == "Fixed":
                     self.radio_button_1.selected = True
                     self.radio_button_2.selected = False
+                    self.min_amount.enabled = False
+                    self.max_amount.enabled = False
+                    self.min_tenure.enabled = False
+                    self.max_tenure.enabled = False
+                    self.roi.enabled = False
+                    self.foreclose_type.enabled = False
+                    self.extension_allowed.enabled = False
+                    self.emi_payment.enabled = False
                 else:
                     self.radio_button_1.selected = False
                     self.radio_button_2.selected = True
             else:
                 self.radio_button_1.selected = False
                 self.radio_button_2.selected = False
-
 
             if self.roi_list:
                 self.roi.text = str(self.roi_list[-1])
@@ -161,25 +168,38 @@ class edit_form(edit_formTemplate):
             if a == -1:
                 alert("No Data Available Here")
             else:
-                data[a]['product_name'] = self.name.selected_value
-                data[a]['product_discription'] = self.text_area_1.text
-                data[a]['product_categories'] = self.product_category.selected_value
-                data[a]['processing_fee'] = int(self.text_box_3.text)
-                data[a]['extension_fee'] = int(self.text_box_4.text)
-                data[a]['membership_type'] = self.drop_down_2.selected_value
-                data[a]['min_amount'] = int(self.min_amount.text)
-                data[a]['max_amount'] = int(self.max_amount.text)
-                data[a]['min_tenure'] = int(self.min_tenure.text)
-                data[a]['max_tenure'] = int(self.max_tenure.text)
-                data[a]['roi'] = int(self.roi.text)
-                data[a]['foreclose_type'] = self.foreclose_type.selected_value
-                extension_allowed_mapping = {'Yes': True, 'No': False}
-                data[a]['extension_allowed'] = extension_allowed_mapping.get(self.extension_allowed.text, False)
-                data[a]['emi_payment'] = self.emi_payment.selected_value
-                data[a]['discount_coupons'] = self.radio_button_3.text
+                if self.intr_type[-1] == "Fixed":
+                    self.min_amount.enabled = False
+                    self.max_amount.enabled = False
+                    self.min_tenure.enabled = False
+                    self.max_tenure.enabled = False
+                    self.roi.enabled = False
+                    self.foreclose_type.enabled = False
+                    self.extension_allowed.enabled = False
+                    self.emi_payment.enabled = False
+                    self.text_box_3.enabled = False
+                    self.text_box_4.enabled = False
+                    self.radio_button_3.enabled = False
+                else:
+                    data[a]['product_name'] = self.name.selected_value
+                    data[a]['product_discription'] = self.text_area_1.text
+                    data[a]['product_categories'] = self.product_category.selected_value
+                    data[a]['processing_fee'] = int(self.text_box_3.text)
+                    data[a]['extension_fee'] = int(self.text_box_4.text)
+                    data[a]['membership_type'] = self.drop_down_2.selected_value
+                    data[a]['interest_type'] = self.radio_button_1.text
+                    data[a]['min_amount'] = int(self.min_amount.text)
+                    data[a]['max_amount'] = int(self.max_amount.text)
+                    data[a]['min_tenure'] = int(self.min_tenure.text)
+                    data[a]['max_tenure'] = int(self.max_tenure.text)
+                    data[a]['roi'] = int(self.roi.text)
+                    data[a]['foreclose_type'] = self.foreclose_type.selected_value
+                    extension_allowed_mapping = {'Yes': True, 'No': False}
+                    data[a]['extension_allowed'] = extension_allowed_mapping.get(self.extension_allowed.text, False)
+                    data[a]['emi_payment'] = self.emi_payment.selected_value
+                    data[a]['discount_coupons'] = self.radio_button_3.text
 
-                Notification("Product details updated successfully").show()
-
+                    Notification("Product details updated successfully").show()
 
     def link_1_copy_click(self, **event_args):
         """This method is called when the link is clicked"""
