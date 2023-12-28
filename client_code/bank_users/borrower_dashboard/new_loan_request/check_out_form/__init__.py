@@ -29,14 +29,11 @@ class check_out_form(check_out_formTemplate):
         user_request = app_tables.product_details.get(product_categories=self.prodct_cate)
         if user_request:
             self.roi = user_request['roi']
-        roi = self.roi
         self.label_2.text = self.loan_amount
         self.label_6.text = self.tenure
         p = int(self.loan_amount)
         t = int(self.tenure)
-        r = (roi/10/12)*t
-        loan_amount = p
-        tenure = t
+        r = (self.roi/10/12)*t
         interest_amount = (p*r*t)/100
         self.label_8.text = interest_amount
         Total_Repayment_Amount = p+interest_amount
@@ -45,7 +42,10 @@ class check_out_form(check_out_formTemplate):
          
   def submit_click(self, **event_args):
       user_id = self.userId
-      anvil.server.call('add_loan_details', loan_amount,tenure,user_id)
+      loan_amount = self.label_2.text
+      tenure = self.label_6.text
+      interest_rate = self.roi
+      anvil.server.call('add_loan_details', loan_amount, tenure, user_id, interest_rate)
       alert('your request is submitted')
       open_form('bank_users.borrower_dashboard.choose_lender')
 

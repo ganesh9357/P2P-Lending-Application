@@ -210,10 +210,11 @@ def update_loan_details(loan_id, emi, total_repayment_amount, interest_rate):
         raise ValueError(f"Row not found for loan_id {loan_id}")
 
 @anvil.server.callable
-def add_loan_details(loan_amount,tenure,user_id):
+def add_loan_details(loan_amount,tenure,user_id,interest_rate):
   app_tables.loan_details.add_row(
     loan_amount=loan_amount,
     tenure=tenure,
     borrower_customer_id=user_id,
-    interest_rate = roi
+    interest_rate = interest_rate
   )
+  
