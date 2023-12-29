@@ -46,6 +46,7 @@ class add_product_categories_and_groups(add_product_categories_and_groupsTemplat
             # Clear the input fields after saving
             self.drop_down_1.selected_value = None
             self.text_box_1.text = ""
+            open_form('admin.dashboard.manage_products')
         else:
             # Show an error message if one or both values are not selected or entered
             alert("Please enter/select all details before saving.")
