@@ -135,7 +135,10 @@ class wallet(walletTemplate):
 
   def deposit_money_btn_click(self, **event_args):
     """This method is called when the button is clicked"""
-    customer_id = main_form_module.userId  # Assuming this retrieves the current user's ID
+    user_profiles = app_tables.user_profile.search()
+
+    for profile in user_profiles:
+      customer_id = profile['customer_id']
 
     e_wallet = self.amount_text_box.text
     if e_wallet:
