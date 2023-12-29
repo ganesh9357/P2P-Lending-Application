@@ -18,7 +18,6 @@ class add_product_categories_and_groups(add_product_categories_and_groupsTemplat
     self.drop_down_1.items = option_strings
     self.drop_down_1.selected_value = option_strings[0] if option_strings else None   
 
-
   # def name_change(self, **event_args):
   #       self.selected_value = self.drop_down_1.selected_value
 
@@ -52,7 +51,10 @@ class add_product_categories_and_groups(add_product_categories_and_groupsTemplat
             # Clear the input fields after saving
             self.drop_down_1.selected_value = None
             self.text_box_1.text = ""
-            open_form('admin.dashboard.manage_products')
         else:
             # Show an error message if one or both values are not selected or entered
             alert("Please enter/select all details before saving.")
+
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('admin.dashboard.manage_products')
