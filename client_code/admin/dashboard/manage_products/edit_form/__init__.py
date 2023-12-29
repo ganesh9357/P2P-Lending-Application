@@ -85,10 +85,10 @@ class edit_form(edit_formTemplate):
                 self.text_box_4.text = str(self.extfee_list[-1])
 
             if self.foreclosure_type_list:
-                self.foreclose_type.text = self.foreclosure_type_list[-1]
+                self.foreclose_type.selected_value = self.foreclosure_type_list[-1]
 
             if self.extension_allowed_list:
-                self.extension_allowed.text = str(self.extension_allowed_list[-1])  # or .selected_value?
+                self.extension_allowed.selected_value = str(self.extension_allowed_list[-1])  # or .selected_value?
 
             if self.type_list:
                 self.drop_down_2.selected_value = self.type_list[-1]
@@ -115,19 +115,41 @@ class edit_form(edit_formTemplate):
                     self.name.enabled = False
                     self.product_category.enabled = False
                     self.text_box_3.enabled = False
-                    self.text_box_4.enabled  = False
+                    self.text_box_4.enabled = False
+                    self.check_box_1.enabled = False
+                    self.check_box_2.enabled = False
                     self.radio_button_3.selected = False
                     self.radio_button_4.selected = False
                 else:
                     self.radio_button_1.selected = False
                     self.radio_button_2.selected = True
-                    self.radio_button_3.enabled = True
-                    self.radio_button_4.enabled = True
+                    self.radio_button_3.enabled = False
+                    self.radio_button_4.enabled = False
+                    self.text_area_1.enabled = False
+                    self.min_amount.enabled = False
+                    self.roi.enabled = True
+                    self.drop_down_2.enabled = False
+                    self.max_amount.enabled = False
+                    self.min_tenure.enabled = False
+                    self.max_tenure.enabled = False
+                    self.foreclose_type.enabled = False
+                    self.extension_allowed.enabled = False
+                    self.emi_payment.enabled = False
+                    self.name.enabled = False
+                    self.product_category.enabled = False
+                    self.text_box_3.enabled = False
+                    self.text_box_4.enabled = False
+                    self.check_box_1.enabled = False
+                    self.check_box_2.enabled = False
+                    self.radio_button_3.selected = False
+                    self.radio_button_4.selected = False
             else:
+                # Assuming "Variable" when intr_type is not available
                 self.radio_button_1.selected = False
                 self.radio_button_2.selected = False
-                self.radio_button_3.enabled = True
-                self.radio_button_4.enabled = True
+                self.radio_button_3.enabled = False
+                self.radio_button_4.enabled = False
+
 
             if self.roi_list:
                 self.roi.text = str(self.roi_list[-1])
@@ -145,7 +167,7 @@ class edit_form(edit_formTemplate):
                 self.max_tenure.text = str(self.max_tenure_list[-1])
 
             if self.emi_payment_list:
-                self.emi_payment.text = str(self.emi_payment_list[-1])
+                self.emi_payment.selected_value = str(self.emi_payment_list[-1])
 
             if self.disc_coupans_list:
                 if self.disc_coupans_list[-1] == "Yes":
