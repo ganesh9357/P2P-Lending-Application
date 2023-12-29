@@ -48,6 +48,7 @@ class check_out_form(check_out_formTemplate):
         Monthly_EMI = float(self.Total_Repayment_Amount/t)
         self.label_14.text = f"₹ {int(Monthly_EMI)}"
         self.label_12.text = f"₹ {int(self.Total_Repayment_Amount)}"
+        self.rich_text_1.content = f"Here is a summary of the details of the {self.prodct_cate}. "
 
   
   def submit_click(self, **event_args):

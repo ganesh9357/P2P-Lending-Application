@@ -1,150 +1,210 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"HIODYR":20,"KBUBRX":20,"YHPRGY":40,"AQNCJV":20,"UTRREU":40,"HKMLAI":20,"PLWRHK":40,"TYGVDD":40,"BNUUFY":20,"BRHBQU":40,"LFYHPC":25,"PWFWPZ":35,"OBHIKJ":15,"YIXAPW":15,"WMXTAT":30,"IFKSMA":20,"DIYFRA":20,"DPHXFR":20,"XWXHRS":20,"WNAMKH":20,"RDOGSK":15,"QXPHUY":15,"NGWXJU":30,"UJTEPU":15,"FRJYLJ":15,"SHVVHI":30}'}
+  properties: {col_widths: '{"LFYHPC":25,"PWFWPZ":35,"IFKSMA":20,"PUEIHX":30,"TKTEPX":32,"FUBTQX":3,"HYYIUG":55,"GZZLVP":20,"CNVDUD":20,"DJKTSZ":19,"QGUIQA":3,"QJGDGE":45,"KCJZME":15}'}
 components:
 - name: image_1
   properties: {source: _/theme/kotak.png, height: '45', horizontal_align: left}
   type: Image
   layout_properties: {grid_position: 'KAZWEW,QJGDGE'}
 - name: button_1
-  properties: {role: tonal-button, align: right, tooltip: '', border: '', enabled: true,
+  properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
     foreground: black, visible: true, text: Home, font_size: null, font: '', spacing_above: small,
     icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
     bold: true, underline: false, icon: 'fa:home'}
   type: Button
   layout_properties: {grid_position: 'KAZWEW,KCJZME'}
   event_bindings: {click: button_1_click}
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: column_panel_6
+  layout_properties: {grid_position: 'NUKAOL,HYYIUG'}
+  components:
+  - type: Label
+    properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Loan Details, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: none, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_17
+    layout_properties: {grid_position: 'RSTKZX,CGOUKF'}
+  - type: RichText
+    properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
+      foreground: '', visible: true, font_size: null, content: '', font: '', spacing_above: none,
+      spacing_below: small, data: null, background: '', format: markdown}
+    name: rich_text_1
+    layout_properties: {grid_position: 'AXXPAB,ZGZNBY'}
+    event_bindings: {show: rich_text_1_show}
+- type: ColumnPanel
+  properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: 'theme:Secondary Container'}
+  name: column_panel_1
+  layout_properties: {grid_position: 'LJMAOI,PUEIHX'}
+  components:
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: 30, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: true, underline: false,
+      icon: ''}
+    name: label_2
+    layout_properties: {grid_position: 'QCJVRK,TYEXPC', row_background: ''}
+    event_bindings: {show: label_2_show}
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: Loan Amount, font_size: null, font: '', spacing_above: small,
+      icon_align: right, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_1
+    layout_properties: {grid_position: 'WWXSXM,PDOVKV', row_background: ''}
+- type: ColumnPanel
+  properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: 'theme:Secondary Container'}
+  name: column_panel_2
+  layout_properties: {grid_position: 'LJMAOI,TKTEPX'}
+  components:
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: 30, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: true, underline: false,
+      icon: ''}
+    name: label_12
+    layout_properties: {grid_position: 'FIIDAJ,QCYGZB'}
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: Total Repayment Amount, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_11
+    layout_properties: {grid_position: 'YAGKCD,KDXKQZ'}
 - type: Spacer
-  properties: {height: 19}
+  properties: {height: 32}
+  name: spacer_13
+  layout_properties: {grid_position: 'LJMAOI,FUBTQX'}
+- type: Spacer
+  properties: {height: 12}
   name: spacer_1
-  layout_properties: {grid_position: 'PFRMMQ,DGXLBR'}
+  layout_properties: {grid_position: 'MNJXZI,ZXDCDY'}
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: column_panel_3
+  layout_properties: {grid_position: 'QCNUUF,GZZLVP'}
+  components:
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Interst Rate, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: none, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_3
+    layout_properties: {grid_position: 'JZMBDB,POHDNK'}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: 14, font: '', spacing_above: none, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: label_4
+    layout_properties: {grid_position: 'CYILTX,BSHFZP'}
+    event_bindings: {show: label_4_show}
+  - type: Spacer
+    properties: {visible: true, spacing_above: small, spacing_below: small, height: '25',
+      tooltip: ''}
+    name: spacer_5
+    layout_properties: {grid_position: 'XIGEBM,BMHAAB'}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Total Interest Amount, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: none, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_7
+    layout_properties: {grid_position: 'BKFEUR,XOLSKP'}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: 14, font: '', spacing_above: none, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: label_8
+    layout_properties: {grid_position: 'DPWCLE,RHLCEW'}
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: column_panel_4
+  layout_properties: {grid_position: 'QCNUUF,CNVDUD QVGQYT,PYHJHK'}
+  components:
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Tenure, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: none, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_5
+    layout_properties: {grid_position: 'FLTVKL,UQOMDA'}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: 14, font: '', spacing_above: none, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: label_6
+    layout_properties: {grid_position: 'PCKBVK,PEEOJD'}
+    event_bindings: {show: label_6_show}
 - type: Spacer
-  properties: {height: 32}
-  name: spacer_3
-  layout_properties: {grid_position: 'JQREMD,WNAMKH'}
-- type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: Loan Amount, font_size: null, font: '', spacing_above: small, icon_align: right,
-    spacing_below: small, italic: false, background: '', bold: false, underline: false,
-    icon: ''}
-  name: label_1
-  layout_properties: {grid_position: 'JQREMD,HIODYR'}
-- type: Label
-  properties: {}
-  name: label_2
-  layout_properties: {grid_position: 'JQREMD,TYGVDD'}
-  event_bindings: {show: label_2_show}
-- type: Spacer
-  properties: {height: 32}
+  properties: {height: 25}
   name: spacer_4
-  layout_properties: {grid_position: 'HPQFHY,XWXHRS'}
-- type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: Interst Rate, font_size: null, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: false, background: '', bold: false, underline: false,
-    icon: ''}
-  name: label_3
-  layout_properties: {grid_position: 'HPQFHY,BNUUFY'}
-- type: Label
-  properties: {}
-  name: label_4
-  layout_properties: {grid_position: 'HPQFHY,BRHBQU'}
-  event_bindings: {show: label_4_show}
-- type: Spacer
-  properties: {height: 32}
-  name: spacer_9
-  layout_properties: {grid_position: 'LODGED,RDOGSK'}
-- type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: Processing fee, font_size: null, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: false, background: '', bold: false, underline: false,
-    icon: ''}
-  name: label_9
-  layout_properties: {grid_position: 'LODGED,QXPHUY'}
-- type: Label
-  properties: {}
-  name: label_10
-  layout_properties: {grid_position: 'LODGED,NGWXJU'}
-- type: Spacer
-  properties: {height: 32}
-  name: spacer_5
-  layout_properties: {grid_position: 'UEGCXA,DPHXFR'}
-- type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: Tenure, font_size: null, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: false, background: '', bold: false, underline: false,
-    icon: ''}
-  name: label_5
-  layout_properties: {grid_position: 'UEGCXA,KBUBRX'}
-- type: Label
-  properties: {}
-  name: label_6
-  layout_properties: {grid_position: 'UEGCXA,YHPRGY'}
-  event_bindings: {show: label_6_show}
-- type: Spacer
-  properties: {height: 32}
-  name: spacer_6
-  layout_properties: {grid_position: 'OAUZEO,DIYFRA'}
-- type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: Interest Amount, font_size: null, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: false, background: '', bold: false, underline: false,
-    icon: ''}
-  name: label_7
-  layout_properties: {grid_position: 'OAUZEO,AQNCJV'}
-- type: Label
-  properties: {}
-  name: label_8
-  layout_properties: {grid_position: 'OAUZEO,UTRREU'}
-- type: Spacer
-  properties: {height: 32}
-  name: spacer_10
-  layout_properties: {grid_position: 'ORUNTI,UJTEPU'}
+  layout_properties: {grid_position: 'QCNUUF,CNVDUD RJNLKA,HZJJWF'}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: Processing fee Amount, font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    icon_align: left, spacing_below: none, italic: false, background: '', bold: true,
     underline: false, icon: ''}
   name: label_15
-  layout_properties: {grid_position: 'ORUNTI,FRJYLJ'}
+  layout_properties: {grid_position: 'QCNUUF,CNVDUD LRXIOG,TIACKX'}
 - type: Label
-  properties: {}
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: '', font_size: 14, font: '', spacing_above: none, icon_align: left, spacing_below: small,
+    italic: false, background: '', bold: false, underline: false, icon: ''}
   name: label_16
-  layout_properties: {grid_position: 'ORUNTI,SHVVHI'}
+  layout_properties: {grid_position: 'QCNUUF,CNVDUD CZCCUL,NYJNSP'}
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: column_panel_5
+  layout_properties: {grid_position: 'QCNUUF,DJKTSZ EXZDHL,XKTXQP'}
+  components:
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Processing fee, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: none, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_9
+    layout_properties: {grid_position: 'BWYXMD,KIJXOH'}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: 14, font: '', spacing_above: small, icon_align: left,
+      spacing_below: none, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: label_10
+    layout_properties: {grid_position: 'RNEKHO,RZTWMT'}
 - type: Spacer
-  properties: {height: 32}
-  name: spacer_8
-  layout_properties: {grid_position: 'FZQSCF,OBHIKJ'}
+  properties: {visible: true, spacing_above: small, spacing_below: small, height: '25',
+    tooltip: ''}
+  name: spacer_3
+  layout_properties: {grid_position: 'QCNUUF,DJKTSZ CKPTYN,NCAQHP'}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: Monthly EMI, font_size: null, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    spacing_below: none, italic: false, background: '', bold: true, underline: false,
     icon: ''}
   name: label_13
-  layout_properties: {grid_position: 'FZQSCF,YIXAPW'}
+  layout_properties: {grid_position: 'QCNUUF,DJKTSZ YLWWGC,HOHNBJ'}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+    text: '', font_size: 14, font: '', spacing_above: none, icon_align: left, spacing_below: small,
     italic: false, background: '', bold: false, underline: false, icon: ''}
   name: label_14
-  layout_properties: {grid_position: 'FZQSCF,WMXTAT'}
+  layout_properties: {grid_position: 'QCNUUF,DJKTSZ VNEZWM,UKOYAN'}
+- type: Spacer
+  properties: {height: 32}
+  name: spacer_15
+  layout_properties: {grid_position: 'QCNUUF,QGUIQA'}
 - type: Spacer
   properties: {height: 32}
   name: spacer_7
   layout_properties: {grid_position: 'PFYRNI,IFKSMA'}
-- type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: Total Repayment Amount, font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-    underline: false, icon: ''}
-  name: label_11
-  layout_properties: {grid_position: 'PFYRNI,HKMLAI'}
-- type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-    italic: false, background: '', bold: true, underline: false, icon: ''}
-  name: label_12
-  layout_properties: {grid_position: 'PFYRNI,PLWRHK'}
 - type: Spacer
   properties: {height: 32}
   name: spacer_2
@@ -155,16 +215,15 @@ components:
     spacing_below: small, italic: false, background: '#0876E8', bold: false, underline: false,
     icon: 'fa:angle-double-left'}
   type: Button
-  layout_properties: {grid_position: 'OUVTKF,LFYHPC'}
+  layout_properties: {grid_position: 'OUVTKF,LFYHPC', full_width_row: false}
   event_bindings: {click: button_2_click}
 - name: submit
   properties: {role: null, align: left, tooltip: '', border: '', enabled: true, foreground: black,
     visible: true, text: 'Choose Lender
 
-      ', font_size: null, font: '', spacing_above: small, icon_align: right_edge,
-    spacing_below: small, italic: false, background: '#0876E8', bold: false, underline: false,
-    icon: ''}
+      ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+    italic: false, background: '#0876E8', bold: false, underline: false, icon: 'fa:angle-double-right'}
   type: Button
-  layout_properties: {grid_position: 'OUVTKF,PWFWPZ'}
+  layout_properties: {grid_position: 'OUVTKF,PWFWPZ', full_width_row: false}
   event_bindings: {click: submit_click}
 is_package: true

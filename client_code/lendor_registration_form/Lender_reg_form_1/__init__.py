@@ -54,3 +54,7 @@ class Lender_reg_form_1(Lender_reg_form_1Template):
                 Notification("You are not eligible. Age must be 18 or above").show()
                 return
 
+    def button_3_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      pass
+
