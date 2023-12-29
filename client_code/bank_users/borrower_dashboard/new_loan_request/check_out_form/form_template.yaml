@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"HIODYR":20,"KBUBRX":20,"YHPRGY":40,"HKMLAI":20,"PLWRHK":40,"TYGVDD":40,"BNUUFY":20,"BRHBQU":40,"LFYHPC":25,"PWFWPZ":35,"OBHIKJ":15,"YIXAPW":15,"WMXTAT":30,"IFKSMA":20,"DIYFRA":15,"DPHXFR":20,"XWXHRS":20,"RDOGSK":15,"QXPHUY":15,"NGWXJU":30,"UJTEPU":15,"FRJYLJ":15,"JTBSOL":15,"FHUYOY":30,"WSALRR":30}'}
+  properties: {col_widths: '{"HIODYR":20,"KBUBRX":20,"YHPRGY":40,"HKMLAI":20,"PLWRHK":40,"TYGVDD":40,"BNUUFY":20,"BRHBQU":40,"LFYHPC":25,"PWFWPZ":35,"OBHIKJ":15,"YIXAPW":15,"WMXTAT":30,"IFKSMA":20,"DIYFRA":15,"DPHXFR":20,"XWXHRS":20,"RDOGSK":15,"QXPHUY":15,"NGWXJU":30,"UJTEPU":15,"FRJYLJ":15,"JTBSOL":15,"FHUYOY":30,"WSALRR":30,"VSEAYK":5,"LMCQTZ":55}'}
 components:
 - name: image_1
   properties: {source: _/theme/kotak.png, height: '45', horizontal_align: left}
@@ -14,6 +14,17 @@ components:
   type: Button
   layout_properties: {grid_position: 'KAZWEW,KCJZME'}
   event_bindings: {click: button_1_click}
+- type: Spacer
+  properties: {height: 32}
+  name: spacer_11
+  layout_properties: {grid_position: 'NUKAOL,VSEAYK'}
+- type: TextBox
+  properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+    border: '', enabled: true, foreground: '', visible: true, text: Loan Details,
+    font_size: 25, font: '', spacing_above: medium, type: text, spacing_below: none,
+    italic: false, background: white, bold: true, underline: false}
+  name: text_box_1
+  layout_properties: {grid_position: 'NUKAOL,LMCQTZ'}
 - type: Spacer
   properties: {height: 19}
   name: spacer_1
