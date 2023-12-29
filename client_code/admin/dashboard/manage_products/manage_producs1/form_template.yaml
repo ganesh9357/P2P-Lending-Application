@@ -99,7 +99,7 @@ components:
           layout_properties: {x: 176.984375, y: 187.171875, width: 529}
         - type: Label
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: ' Product Categories', font_size: null, font: '',
+            visible: false, text: ' Product Categories', font_size: null, font: '',
             spacing_above: small, icon_align: left, spacing_below: small, italic: false,
             background: '', bold: false, underline: false, icon: ''}
           name: label_5
@@ -114,7 +114,7 @@ components:
             enabled: true
             foreground: ''
             items: []
-            visible: true
+            visible: false
             font_size: null
             font: ''
             spacing_above: small
