@@ -27,11 +27,6 @@ class add_product_categories_and_groups(add_product_categories_and_groupsTemplat
   #         self.drop_down_1.visible = True
   #         self.text_box_1.visible = True
 
-  #           # Fetch product categories based on the selected loan type
-  #         product_categories = app_tables.product_categories.search(
-  #         name_group=self.selected_value
-  #         )
-
 
   def button_2_click(self, **event_args):
         """This method is called when the button is clicked"""
