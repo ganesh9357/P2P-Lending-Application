@@ -46,22 +46,22 @@ class wallet(walletTemplate):
     notification = anvil.Notification("Fetched Data successfully!", style="success")
     notification.show()
     
-    user_profiles = app_tables.user_profile.search()
+    # user_profiles = app_tables.user_profile.search()
 
-    for profile in user_profiles:
-      customer_id = profile['customer_id']
+    # for profile in user_profiles:
+    #   customer_id = profile['customer_id']
       
-    app_tables.user_profile.search(customer_id = user_id)
+    # app_tables.user_profile.search(customer_id = user_id)
     
-    e_wallet = None
+    # e_wallet = None
 
-    user_data = app_tables.wallet.search(customer_id=customer_id)
+    # user_data = app_tables.wallet.search(customer_id=customer_id)
 
-    if user_data and len(user_data) > 0:
-      e_wallet = user_data[0]['e_wallet']
+    # if user_data and len(user_data) > 0:
+    #   e_wallet = user_data[0]['e_wallet']
 
-    if e_wallet:
-      self.amount_text_box.text = e_wallet
+    # if e_wallet:
+    #   self.amount_text_box.text = e_wallet
 
     # Any code you write here will run before the form opens.
 
@@ -133,24 +133,21 @@ class wallet(walletTemplate):
   #     # If the row doesn't exist, add a new row
   #     app_tables.wallet.add_row(customer_id=customer_id, e_wallet=e_wallet)
 
-  def deposit_money_btn_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    user_profiles = app_tables.user_profile.search()
+  # def deposit_money_btn_click(self, **event_args):
+  #   """This method is called when the button is clicked"""
+  #   customer_id = main_form_module.userId  # Assuming this retrieves the current user's ID
 
-    for profile in user_profiles:
-      customer_id = profile['customer_id']
+  #   e_wallet = self.amount_text_box.text
+  #   if e_wallet:
+  #       user_data = app_tables.wallet.search(customer_id=customer_id)
 
-    e_wallet = self.amount_text_box.text
-    if e_wallet:
-        user_data = app_tables.wallet.search(customer_id=customer_id)
-
-        if user_data and len(user_data) > 0:
-            # If the row exists, update the e_wallet value
-            user_row = user_data[0]
-            user_row['e_wallet'] = int(e_wallet)
-        else:
-            # If the row doesn't exist, add a new row
-            app_tables.wallet.add_row(customer_id=customer_id, e_wallet=int(e_wallet))
-    # Display a success message
-    notification = anvil.Notification("Money Deposited successfully!", style="success")
-    notification.show()
+  #       if user_data and len(user_data) > 0:
+  #           # If the row exists, update the e_wallet value
+  #           user_row = user_data[0]
+  #           user_row['e_wallet'] = int(e_wallet)
+  #       else:
+  #           # If the row doesn't exist, add a new row
+  #           app_tables.wallet.add_row(customer_id=customer_id, e_wallet=int(e_wallet))
+  #   # Display a success message
+  #   notification = anvil.Notification("Money Deposited successfully!", style="success")
+  #   notification.show()
