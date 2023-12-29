@@ -9,24 +9,31 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from anvil import open_form, server
 # from ....bank_users.main_form import main_form_module
-from ...lender
-from .. import lendor_main_form_module as main_form_module
+from ...lendor_registration_form.dashboard import lendor_main_form_module as main_form_module
+# from .. import lendor_main_form_module as main_form_module
 
 class wallet(walletTemplate):
-  def __init__(self, user_id, **properties):
+  def __init__(self, **properties):
     
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.deposit_placeholder = "5000"
     self.withdraw_placeholder = "0.00"
   
-    user_id = self.user_id
+    
     # self.email=borrower_main_form_module.email
     # user_profile=app_tables.user_profile.get(email_user=self.email)
     self.user_id = main_form_module.userId
+
+    user_profiles = app_tables.user_profile.search()
+
+    for profile in user_profiles:
+      customer_id = profile['customer_id']
+      
+    # app_tables.user_profile.search(customer_id = user_id)
     lender_wallet_amount = None
 
-    user_data = app_tables.wallet.search(lender_customer_id=self.user_id)
+    user_data = app_tables.wallet.search(lender_customer_id=customer_id)
 
     if user_data and len(user_data) > 0:
       lender_wallet_amount = user_data[0]['lender_wallet_amount']
@@ -82,13 +89,18 @@ class wallet(walletTemplate):
 
   def deposit_money_btn_click(self,**event_args):
     """This method is called when the button is clicked"""
-    user_data = app_tables.wallet.search(lender_customer_id=user_id)
-    user_id = self.user_id
+    user_profiles = app_tables.user_profile.search()
+
+    for profile in user_profiles:
+      customer_id = profile['customer_id']
+      
+    user_data = app_tables.wallet.search(lender_customer_id=customer_id)
+    # user_id = self.user_id
     
     lender_wallet_amount = self.amount_text_box.text
    
     if lender_wallet_amount:
-      user_data = app_tables.wallet.search(lender_customer_id=user_id)
+      user_data = app_tables.wallet.search(lender_customer_id=customer_id)
 
     if user_data and len(user_data) > 0:
       user_row = user_data[0]
@@ -96,7 +108,7 @@ class wallet(walletTemplate):
     
     else:
       # If the row doesn't exist, add a new row
-      app_tables.wallet.add_row(lender_customer_id=user_id, lender_wallet_amount=lender_wallet_amount)
+      app_tables.wallet.add_row(lender_customer_id=customer_id, lender_wallet_amount=lender_wallet_amount)
 
  
            
