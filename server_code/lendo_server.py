@@ -265,7 +265,6 @@ def get_user_data(user_id):
         return None
 
 
-# Import the Anvil server module
+# code for wallet
 import anvil.server
-
-# Define a function to fetch data
+from anvil import tables, app

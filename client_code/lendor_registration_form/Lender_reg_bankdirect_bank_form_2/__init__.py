@@ -38,6 +38,7 @@ class Lender_reg_bankdirect_bank_form_2(Lender_reg_bankdirect_bank_form_2Templat
     # Any code you write here will run before the form opens.
 
   def button_2_click(self, **event_args):
+    user_id = self.userId
     ifsc = self.text_box_1.text
     salary_type = self.drop_down_1.selected_value
     branch_name = self.text_box_2.text

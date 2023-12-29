@@ -74,6 +74,7 @@ components:
     background: white, bold: false, underline: false}
   name: text_box_1
   layout_properties: {grid_position: 'GJGPBZ,RPHNXL'}
+  event_bindings: {pressed_enter: text_box_1_pressed_enter}
 - name: label_1
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: Lending Period, font_size: null, font: '', spacing_above: small, icon_align: left,
