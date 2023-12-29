@@ -219,12 +219,13 @@ class edit_form(edit_formTemplate):
                 data[a]['max_tenure'] = int(self.max_tenure.text)
                 data[a]['roi'] = int(self.roi.text)
                 data[a]['foreclose_type'] = self.foreclose_type.selected_value
-                extension_allowed_mapping = {'Yes': True, 'No': False}
-                print("self.extension_allowed.text:", self.extension_allowed.text)
-                print("extension_allowed_mapping:", extension_allowed_mapping)
-                data[a]['extension_allowed'] = extension_allowed_mapping.get(self.extension_allowed.text.strip().lower(), False)
-                print("self.extension_allowed.text:", self.extension_allowed.text)
-                print("extension_allowed_mapping:", extension_allowed_mapping)
+                # extension_allowed_mapping = {'Yes': True, 'No': False}
+                # print("self.extension_allowed.text:", self.extension_allowed.selected_value)
+                # print("extension_allowed_mapping:", extension_allowed_mapping)
+                # data[a]['extension_allowed'] = extension_allowed_mapping.get(self.extension_allowed.selected_value, False)
+                # print("self.extension_allowed.text:", self.extension_allowed.text)
+                # print("extension_allowed_mapping:", extension_allowed_mapping)
+                data[a]['extension_allowed'] = self.extension_allowed
                 data[a]['emi_payment'] = self.emi_payment.selected_value
                 data[a]['discount_coupons'] = "Yes" if self.radio_button_3.selected else "No"
 

@@ -70,9 +70,6 @@ db_schema:
     - name: foreclose_type
       admin_ui: {width: 200, order: 12}
       type: string
-    - name: extension_allowed
-      admin_ui: {width: 200, order: 13}
-      type: bool
     - name: max_tenure
       admin_ui: {width: 200, order: 9.5}
       type: number
@@ -87,6 +84,9 @@ db_schema:
       type: string
     - name: product_discription
       admin_ui: {width: 200, order: 0.5}
+      type: string
+    - name: extension_allowed
+      admin_ui: {width: 200, order: 16}
       type: string
   user_profile:
     client: full
