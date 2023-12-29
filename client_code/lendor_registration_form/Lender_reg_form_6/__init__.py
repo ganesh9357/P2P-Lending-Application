@@ -79,3 +79,5 @@ class Lender_reg_form_6(Lender_reg_form_6Template):
             return 'Gold'
         else:
             return 'Platinum'
+
+    
