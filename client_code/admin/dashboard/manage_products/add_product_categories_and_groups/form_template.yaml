@@ -3,7 +3,7 @@ container:
   properties: {col_widths: '{}', visible: true}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"FDDXVJ":20,"DVFOGR":40,"GVPHFB":15,"VRVUMX":31,"UVIGVC":25,"PRHLPE":35}'}
+  properties: {col_widths: '{"FDDXVJ":15,"GVPHFB":15,"VRVUMX":31,"UVIGVC":25,"PRHLPE":35,"HACQJG":29}'}
   name: column_panel_2
   layout_properties: {grid_position: 'UQCZNB,KHJKIT'}
   components:
@@ -34,7 +34,25 @@ components:
     name: label_1
     layout_properties: {grid_position: 'SPGCWB,GVPHFB'}
   - type: DropDown
-    properties: {}
+    properties:
+      role: outlined
+      align: full
+      tooltip: ''
+      placeholder: ''
+      border: ''
+      enabled: true
+      foreground: ''
+      items: []
+      visible: true
+      font_size: null
+      font: ''
+      spacing_above: small
+      spacing_below: small
+      italic: false
+      background: ''
+      bold: false
+      underline: false
+      include_placeholder: false
     name: drop_down_1
     layout_properties: {grid_position: 'SPGCWB,VRVUMX'}
     event_bindings: {change: name_change}
@@ -45,11 +63,13 @@ components:
       underline: false, icon: ''}
     name: label_2
     layout_properties: {grid_position: 'GMJCJS,FDDXVJ'}
-  - type: DropDown
-    properties: {visible: false}
-    name: drop_down_2
-    layout_properties: {grid_position: 'GMJCJS,DVFOGR'}
-    event_bindings: {change: drop_down_2_change}
+  - type: TextBox
+    properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+      border: '', enabled: true, foreground: '', visible: false, text: '', font_size: null,
+      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false}
+    name: text_box_1
+    layout_properties: {grid_position: 'GMJCJS,HACQJG'}
 - type: Button
   properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
     foreground: black, visible: true, text: SAVE, font_size: null, font: '', spacing_above: small,
