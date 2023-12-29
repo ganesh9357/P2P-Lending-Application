@@ -121,7 +121,7 @@ components:
           font: '', spacing_above: small, icon_align: left, spacing_below: small,
           italic: false, background: '#0876E8', bold: false, underline: false, icon: 'fa:save'}
         name: button_1
-        layout_properties: {x: 36, y: 968.5900000000001, width: 684}
+        layout_properties: {x: 36, y: 968.5847473144531, width: 684}
         event_bindings: {click: button_1_click}
       - type: CheckBox
         properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
