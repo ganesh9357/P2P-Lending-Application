@@ -270,6 +270,20 @@ import anvil.server
 from anvil import tables, app
 
 # @anvil.server.callable
+# def add_user_details(customer_id, full_name, email_user, account_name,account_namber, bank_name, account_bank_branch, ifsc_code, user_id):
+#   row = app_tables.user_profile.search(customer_id = user_id)
+#   if row:
+#     row[0]['customer_id'] = customer_id
+#     row[0]['user_name'] = full_name
+#     row[0]['user_email'] = email_user
+#     row[0]['account_name'] = account_name
+#     row[0]['account_number'] = account_number
+#     row[0]['bank_name'] = bank_name
+#     row[0]['branch_name'] = account_bank_branch
+#     row[0]['ifsc_code'] = ifsc_code
+    
+
+# @anvil.server.callable
 # def get_user_details(email_user):
 #     # user = tables.user_profile.search(email_user=app.user['email_user'])  
 #     user = app_tables.user_profile.get(email_user = email_user)
@@ -313,34 +327,7 @@ from anvil import tables, app
 #     lender_customer_id = user_id
 #   )
 
-# code for wallet deposit money
-# import anvil.server
 
 # @anvil.server.callable
-# def deposit_money_to_wallet(amount):
-#     user = anvil.users.get_user()
-    
-#     if user:
-#         user_profile = app_tables.user_profile.get(email_user=user['email'])
-        
-#         if user_profile:
-#             lender_customer_id = user_profile['customer_id']
-#             wallet = app_tables.wallet.get(lender_customer_id=lender_customer_id)
-            
-#             if wallet:
-#                 try:
-#                     wallet['lender_wallet_amount'] += int(amount)
-#                     wallet.save()
-#                     return True
-#                 except ValueError:
-#                     return False
-#             else:
-#                 return False
-#         else:
-#             return False
-#     else:
-#         return False
-
-@anvil.server.callable
-def add_wallet_link(lender_wallet_amount,user_id):
-  row = app_tables.wallet.add_row(lender_wallet_amount=lender_wallet_amount, lender_customer_id = user_id)
+# def add_wallet_link(lender_wallet_amount,user_id):
+#   row = app_tables.wallet.add_row(lender_wallet_amount=lender_wallet_amount, lender_customer_id = user_id)

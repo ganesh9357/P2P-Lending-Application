@@ -384,27 +384,39 @@ db_schema:
     client: full
     server: full
     columns:
-    - name: lender_customer_id
-      admin_ui: {width: 200, order: 0}
+    - name: customer_id
+      admin_ui: {order: 1, width: 200}
       type: number
-    - name: lender_full_name
-      admin_ui: {width: 200, order: 1}
+    - name: user_name
+      admin_ui: {order: 2, width: 200}
       type: string
-    - name: lender_wallet_amount
-      admin_ui: {order: 4.5, width: 200}
-      type: number
     - name: wallet_id
       admin_ui: {order: -1, width: 200}
       type: string
-    - name: lender_email
-      admin_ui: {width: 200, order: 2}
+    - name: user_email
+      admin_ui: {order: 3, width: 200}
       type: string
-    - name: lender_loan_amount
-      admin_ui: {width: 200, order: 4}
+    - name: e_wallet
+      admin_ui: {order: 6, width: 212}
       type: number
-    - name: 'lender_withdrawn_ amount. '
-      admin_ui: {order: 7, width: 212}
-      type: number
+    - name: account_name
+      admin_ui: {order: 3.125, width: 200}
+      type: string
+    - name: bank_name
+      admin_ui: {order: 3.25, width: 200}
+      type: string
+    - name: branch_name
+      admin_ui: {width: 200, order: 4.8125}
+      type: string
+    - name: ifsc_code
+      admin_ui: {width: 200, order: 5.40625}
+      type: string
+    - name: transaction_type
+      admin_ui: {width: 200, order: 5.703125}
+      type: string
+    - name: account_number
+      admin_ui: {width: 200, order: 3.1875}
+      type: string
     title: wallet
   wallet_transactions_:
     client: full

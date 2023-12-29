@@ -24,22 +24,46 @@ class wallet(walletTemplate):
     # self.email=borrower_main_form_module.email
     # user_profile=app_tables.user_profile.get(email_user=self.email)
     self.user_id = main_form_module.userId
+    user_id = self.user_id
+    
+    ### Fetch user details from user_profile database
+    user_profiles = app_tables.user_profile.search()  
 
-    user_profiles = app_tables.user_profile.search()
-
+    # Mapping and inserting data into the wallet table
     for profile in user_profiles:
-      customer_id = profile['customer_id']
+        wallet_row = app_tables.wallet.add_row(
+            customer_id=profile['customer_id'],
+            user_name = profile['full_name'],
+            user_email=profile['email_user'],
+            account_name = profile['account_name'],
+            account_number = profile['account_namber'],
+            bank_name = profile['bank_name'],
+            branch_name = profile['account_bank_branch'],
+            ifsc_code = profile['ifsc_code'] 
+        )
+
+    # Display a success message
+    notification = anvil.Notification("Fetched Data successfully!", style="success")
+    notification.show()
+
+
+
+    
+    # user_profiles = app_tables.user_profile.search()
+
+    # for profile in user_profiles:
+    #   customer_id = profile['customer_id']
       
-    # app_tables.user_profile.search(customer_id = user_id)
-    lender_wallet_amount = None
+    # # app_tables.user_profile.search(customer_id = user_id)
+    # lender_wallet_amount = None
 
-    user_data = app_tables.wallet.search(lender_customer_id=customer_id)
+    # user_data = app_tables.wallet.search(lender_customer_id=customer_id)
 
-    if user_data and len(user_data) > 0:
-      lender_wallet_amount = user_data[0]['lender_wallet_amount']
+    # if user_data and len(user_data) > 0:
+    #   lender_wallet_amount = user_data[0]['lender_wallet_amount']
 
-    if lender_wallet_amount:
-      self.amount_text_box.text = lender_wallet_amount
+    # if lender_wallet_amount:
+    #   self.amount_text_box.text = lender_wallet_amount
 
     # Any code you write here will run before the form opens.
 

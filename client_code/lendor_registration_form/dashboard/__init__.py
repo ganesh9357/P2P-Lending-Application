@@ -137,20 +137,20 @@ class dashboard(dashboardTemplate):
   
     open_form('wallet.wallet')
     
-    # Fetching data from user_profile table
-    user_profiles = app_tables.user_profile.search()  # Fetch all records from user_profile table
+    # # Fetching data from user_profile table
+    # user_profiles = app_tables.user_profile.search()  # Fetch all records from user_profile table
 
-    # Mapping and inserting data into the wallet table
-    for profile in user_profiles:
-        wallet_row = app_tables.wallet.add_row(
-            lender_email=profile['email_user'],
-            lender_customer_id=profile['customer_id'],
-            lender_full_name=profile['full_name']
-        )
+    # # Mapping and inserting data into the wallet table
+    # for profile in user_profiles:
+    #     wallet_row = app_tables.wallet.add_row(
+    #         lender_email=profile['email_user'],
+    #         lender_customer_id=profile['customer_id'],
+    #         lender_full_name=profile['full_name']
+    #     )
 
-    # Display a success message
-    notification = anvil.Notification("Data copied to wallet successfully!", style="success")
-    notification.show()
+    # # Display a success message
+    # notification = anvil.Notification("Data copied to wallet successfully!", style="success")
+    # notification.show()
 
 
   # def generate_new_wallet_id(self):
