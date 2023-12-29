@@ -193,7 +193,7 @@ class edit_form(edit_formTemplate):
             or self.min_tenure.text == ""
             or self.max_tenure.text == ""
             or self.roi.text == ""
-            or self.emi_payment.text == ""
+            or self.emi_payment.selected_value == ""
             or self.radio_button_3.text == ""
         ):
             Notification("Fill All Required Details").show()
@@ -225,7 +225,7 @@ class edit_form(edit_formTemplate):
                 # data[a]['extension_allowed'] = extension_allowed_mapping.get(self.extension_allowed.selected_value, False)
                 # print("self.extension_allowed.text:", self.extension_allowed.text)
                 # print("extension_allowed_mapping:", extension_allowed_mapping)
-                data[a]['extension_allowed'] = self.extension_allowed
+                data[a]['extension_allowed'] = self.extension_allowed.selected_value
                 data[a]['emi_payment'] = self.emi_payment.selected_value
                 data[a]['discount_coupons'] = "Yes" if self.radio_button_3.selected else "No"
 
