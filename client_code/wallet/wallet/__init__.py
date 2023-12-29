@@ -36,8 +36,8 @@ class wallet(walletTemplate):
             user_name = profile['full_name'],
             user_email=profile['email_user'],
             account_name = profile['account_name'],
-            account_number = profile['account_namber'],
-            bank_name = profile['bank_name'],
+            account_number=profile['account_number'],
+            bank_name = profile['select_bank']['selected_value'],
             branch_name = profile['account_bank_branch'],
             ifsc_code = profile['ifsc_code'] 
         )
