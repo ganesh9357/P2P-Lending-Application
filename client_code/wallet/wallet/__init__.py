@@ -11,6 +11,7 @@ from anvil import open_form, server
 from ...lendor_registration_form.dashboard import lendor_main_form_module as main_form_module
 
 
+
 class wallet(walletTemplate):
   def __init__(self, **properties):
     
@@ -19,9 +20,14 @@ class wallet(walletTemplate):
     self.deposit_placeholder = "5000"
     self.withdraw_placeholder = "0.00"
     
-  
-    self.user_id = main_form_module.userId
-    user_id = self.user_id
+    self.email=main_form_module.email
+    wallet=app_tables.wallet.get(user_email=self.email)
+    if wallet:
+      self.amount_text_box.text=wallet['e_wallet']
+      
+
+    # self.user_id = main_form_module.userId
+    # user_id = self.user_id
     
     ### Fetch user details from user_profile database
     user_profiles = app_tables.user_profile.search()  
@@ -91,19 +97,24 @@ class wallet(walletTemplate):
   
   def deposit_money_btn_click(self, **event_args):
     """This method is called when the button is clicked"""
-    # Get the amount entered in the text box
-    amount = self.amount_text_box.text
+    wallet=app_tables.wallet.get(user_email=self.email)
+    if wallet:
+      self.amount_text_box.text=wallet['full_name']
+      wallet.update()
+      alert('saved sucessfully')
+    # # Get the amount entered in the text box
+    # amount = self.amount_text_box.text
     
-    # Retrieve the user's wallet row
-    user_profile = app_tables.user_profile.get(user_id=self.user_id)
-    wallet_row = app_tables.wallet.get(customer_id=user_profile['customer_id'])
+    # # Retrieve the user's wallet row
+    # user_profile = app_tables.user_profile.get()
+    # wallet_row = app_tables.wallet.get(customer_id=user_profile['customer_id'])
     
-    # Update the e_wallet column in the wallet table
-    wallet_row['e_wallet'] += float(amount)  # Assuming 'e_wallet' stores a numeric value
+    # # Update the e_wallet column in the wallet table
+    # wallet_row['e_wallet'] += float(amount)  # Assuming 'e_wallet' stores a numeric value
     
-    # Save changes to the table
-    wallet_row.save()
+    # # Save changes to the table
+    # wallet_row.save()
     
-    # Optionally, show a success message or perform other actions
-    alert("Deposit successful!")  # Example of showing an alert 
+    # # Optionally, show a success message or perform other actions
+    # alert("Deposit successful!")  
 
