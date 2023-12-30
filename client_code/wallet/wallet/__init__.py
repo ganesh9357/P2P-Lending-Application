@@ -88,8 +88,22 @@ class wallet(walletTemplate):
     """This method is called when the link is clicked"""
     pass
 
+  
   def deposit_money_btn_click(self, **event_args):
     """This method is called when the button is clicked"""
-    pass
+    # Get the amount entered in the text box
+    amount = self.amount_text_box.text
     
+    # Retrieve the user's wallet row
+    user_profile = app_tables.user_profile.get(user_id=self.user_id)
+    wallet_row = app_tables.wallet.get(customer_id=user_profile['customer_id'])
+    
+    # Update the e_wallet column in the wallet table
+    wallet_row['e_wallet'] += float(amount)  # Assuming 'e_wallet' stores a numeric value
+    
+    # Save changes to the table
+    wallet_row.save()
+    
+    # Optionally, show a success message or perform other actions
+    alert("Deposit successful!")  # Example of showing an alert 
 
