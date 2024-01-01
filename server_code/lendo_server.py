@@ -311,12 +311,12 @@ def update_wallet_with_profile(customer_id):
     profile = app_tables.user_profile.get(customer_id=customer_id)
     
     if profile is not None:
-        new_wallet_id = generate_wallet_id(customer_id)  # Call the generate_wallet_id function directly
+        new_wallet_id = generate_wallet_id(customer_id)  
         # Save the new wallet ID to the wallet table along with profile data
         app_tables.wallet.add_row(
             customer_id=customer_id,
             wallet_id=new_wallet_id,
-            user_name=profile['full_name'],
+            user_name=profile['full_name'],  
             user_email=profile['email_user'],
             account_name=profile['account_name'],
             account_number=profile['account_number'],
