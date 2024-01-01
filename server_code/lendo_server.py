@@ -266,14 +266,62 @@ def get_user_data(user_id):
 
 
 # code for wallet
-import anvil.server
-from anvil import tables, app
+
+import anvil.tables as tables
+from anvil.tables import app_tables
+
+# @anvil.server.callable
 # def generate_wallet_id(customer_id):
-#     # Assuming you want the wallet_id in the format "WA001"
-#     # Fetch the count of existing wallets for this customer_id
-#     existing_wallets = app_tables.wallet.search(customer_id=customer_id)
-#     count = len(existing_wallets) + 1
+#     # Retrieve the last wallet ID for the given customer ID
+#     customer_wallets = app_tables.wallet.search(
+#         tables.order_by('wallet_id', ascending=False),
+#         customer_id=customer_id
+#     )
+
+#     last_number = 0
+#     if customer_wallets is not None and len(customer_wallets) > 0:
+#         last_wallet_id = customer_wallets[0]['wallet_id']
+#         last_number = int(last_wallet_id[2:]) if last_wallet_id else 0  # Extract the numeric part of the last wallet ID
+
+#     new_number = last_number + 1
+#     new_wallet_id = f'WA{new_number:03}'  # Format the new wallet ID
+
+#     return new_wallet_id
+
+@anvil.server.callable
+def generate_wallet_id(customer_id):
+    # Retrieve the last wallet ID for the given customer ID
+    customer_wallets = app_tables.wallet.search(
+        tables.order_by('wallet_id', ascending=False),
+        customer_id=customer_id
+    )
+
+    last_number = 0
+    if customer_wallets is not None and len(customer_wallets) > 0:
+        last_wallet_id = customer_wallets[0]['wallet_id']
+        last_number = int(last_wallet_id[2:]) if last_wallet_id else 0  # Extract the numeric part of the last wallet ID
+
+    new_number = last_number + 1
+    new_wallet_id = f'WA{new_number:03}'  # Format the new wallet ID
+
+    return new_wallet_id
+
+@anvil.server.callable
+def update_wallet_with_profile(customer_id):
+    profile = app_tables.user_profile.get(customer_id=customer_id)
     
-#     # Format the wallet_id as "WA" + 3-digit padded count
-#     wallet_id = f"WA{count:03d}"
-#     return wallet_id
+    if profile is not None:
+        new_wallet_id = generate_wallet_id(customer_id)  # Call the generate_wallet_id function directly
+        # Save the new wallet ID to the wallet table along with profile data
+        app_tables.wallet.add_row(
+            customer_id=customer_id,
+            wallet_id=new_wallet_id,
+            user_name=profile['full_name'],
+            user_email=profile['email_user'],
+            account_name=profile['account_name'],
+            account_number=profile['account_number'],
+            bank_name=profile['select_bank'],
+            branch_name=profile['account_bank_branch'],
+            ifsc_code=profile['ifsc_code']
+        )
+        
