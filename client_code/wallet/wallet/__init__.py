@@ -136,7 +136,8 @@ class wallet(walletTemplate):
     else:
         alert("Deposit failed!")
 
-def withdraw_money_btn_click(self, **event_args):
+  def withdraw_money_btn_click(self, **event_args):
+    """This method is called when the button is clicked"""
     amount_entered = self.amount_text_box.text
     
     # Ensure the amount entered is numeric (you may add additional validation if required)
@@ -153,4 +154,6 @@ def withdraw_money_btn_click(self, **event_args):
         alert("Withdrawal successful!")
     else:
         alert("Withdrawal failed!")
+
+   
  
