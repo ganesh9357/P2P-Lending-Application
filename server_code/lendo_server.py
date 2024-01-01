@@ -268,3 +268,12 @@ def get_user_data(user_id):
 # code for wallet
 import anvil.server
 from anvil import tables, app
+# def generate_wallet_id(customer_id):
+#     # Assuming you want the wallet_id in the format "WA001"
+#     # Fetch the count of existing wallets for this customer_id
+#     existing_wallets = app_tables.wallet.search(customer_id=customer_id)
+#     count = len(existing_wallets) + 1
+    
+#     # Format the wallet_id as "WA" + 3-digit padded count
+#     wallet_id = f"WA{count:03d}"
+#     return wallet_id

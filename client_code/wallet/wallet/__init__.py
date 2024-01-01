@@ -20,10 +20,10 @@ class wallet(walletTemplate):
     self.deposit_placeholder = "5000"
     self.withdraw_placeholder = "0.00"
     
-    self.email=main_form_module.email
-    wallet=app_tables.wallet.get(user_email=self.email)
-    if wallet:
-      self.amount_text_box.text=wallet['e_wallet']
+    # self.email=main_form_module.email
+    # wallet=app_tables.wallet.get(user_email=self.email)
+    # if wallet:
+    #   self.amount_text_box.text=wallet['e_wallet']
       
 
     # self.user_id = main_form_module.userId
@@ -95,13 +95,13 @@ class wallet(walletTemplate):
     pass
 
   
-  def deposit_money_btn_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    wallet=app_tables.wallet.get(user_email=self.email)
-    if wallet:
-      self.amount_text_box.text=wallet['full_name']
-      wallet.update()
-      alert('saved sucessfully')
+  # def deposit_money_btn_click(self, **event_args):
+  #   """This method is called when the button is clicked"""
+  #   wallet=app_tables.wallet.get(user_email=self.email)
+  #   if wallet:
+  #     self.amount_text_box.text=wallet['full_name']
+  #     wallet.update()
+  #     alert('saved sucessfully')
     # # Get the amount entered in the text box
     # amount = self.amount_text_box.text
     

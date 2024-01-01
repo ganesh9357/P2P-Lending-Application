@@ -132,26 +132,32 @@ class dashboard(dashboardTemplate):
     """This method is called when the link is clicked"""
     open_form('lendor_registration_form.dashboard.notification')
 
-  def wallet_dashboard_link_click(self, **event_args):
-    """This method is called when the link is clicked""" 
-  
-    open_form('wallet.wallet')
+  def generate_wallet_id(self, customer_id):
+    # Retrieve the last wallet ID for the given customer ID
+    last_wallet = app_tables.wallet.search(customer_id=customer_id, order_by=anvil.tables.Sort('wallet_id', ascending=False), limit=1)
     
-    # # Fetching data from user_profile table
-    # user_profiles = app_tables.user_profile.search()  # Fetch all records from user_profile table
+    if len(last_wallet) > 0:
+        last_wallet_id = last_wallet[0]['wallet_id']
+        last_number = int(last_wallet_id[2:])  # Extract the numeric part of the last wallet ID
+        new_number = last_number + 1
+        new_wallet_id = f'WA{new_number:03}'  # Format the new wallet ID
+    else:
+        new_wallet_id = 'WA001'  # If no existing wallet ID, start with WA001
+    
+    return new_wallet_id
 
-    # # Mapping and inserting data into the wallet table
-    # for profile in user_profiles:
-    #     wallet_row = app_tables.wallet.add_row(
-    #         lender_email=profile['email_user'],
-    #         lender_customer_id=profile['customer_id'],
-    #         lender_full_name=profile['full_name']
-    #     )
+  def wallet_dashboard_link_click(self, **event_args):
+    customer_id = app_tables.user_profile.search()  # Replace this with how you fetch the customer ID, perhaps from the user_profile table
+    new_wallet_id = generate_wallet_id(customer_id)
+    
+    # Save the new wallet ID to the wallet table
+    app_tables.wallet.add_row(customer_id=customer_id, wallet_id=new_wallet_id)
+    # You might want to refresh the table or do something else after adding the row
+    
+    # Optionally, you can open the wallet form or perform additional actions
+    open_form('wallet.wallet')
 
-    # # Display a success message
-    # notification = anvil.Notification("Data copied to wallet successfully!", style="success")
-    # notification.show()
-
+  
 
   # def generate_new_wallet_id(self):
   #   # Fetch the existing wallet IDs from the 'wallet' table
