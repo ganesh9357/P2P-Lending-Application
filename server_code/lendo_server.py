@@ -258,8 +258,7 @@ def get_user_data(user_id):
             'salary_type': user['salary_type'],
             'branch_name': user['branch_name'],
             'net_bank': user['net_bank']
-          
-            
+   
         }
     else:
         return None
