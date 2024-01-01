@@ -19,36 +19,9 @@ class wallet(walletTemplate):
     self.init_components(**properties)
     self.deposit_placeholder = "5000"
     self.withdraw_placeholder = "0.00"
-    
-    # self.email=main_form_module.email
-    # wallet=app_tables.wallet.get(user_email=self.email)
-    # if wallet:
-    #   self.amount_text_box.text=wallet['e_wallet']
-      
 
     # self.user_id = main_form_module.userId
     # user_id = self.user_id
-    
-    # ### Fetch user details from user_profile database
-    # user_profiles = app_tables.user_profile.search()  
-
-    # # Mapping and inserting data into the wallet table
-    # for profile in user_profiles:
-    #   print(f"Adding row for customer ID: {profile['customer_id']}")
-    # # Add similar print statements for other column values
-
-    # wallet_row = app_tables.wallet.add_row(
-    #     customer_id=profile['customer_id'],
-    #     user_name=profile['full_name'],
-    #     user_email=profile['email_user'],
-    #     account_name=profile['account_name'],
-    #     account_number=profile['account_number'],
-    #     bank_name=profile['select_bank'],
-    #     branch_name=profile['account_bank_branch'],
-    #     ifsc_code=profile['ifsc_code']
-    # )
-    # print("Row added successfully")
-
 
   def home_main_form_link_click(self, **event_args):
     """This method is called when the link is clicked"""
