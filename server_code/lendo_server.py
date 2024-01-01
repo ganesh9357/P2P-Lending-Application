@@ -308,20 +308,33 @@ def generate_wallet_id(customer_id):
 
 @anvil.server.callable
 def update_wallet_with_profile(customer_id):
-    profile = app_tables.user_profile.get(customer_id=customer_id)
-    
-    if profile is not None:
-        new_wallet_id = generate_wallet_id(customer_id)  
-        # Save the new wallet ID to the wallet table along with profile data
-        app_tables.wallet.add_row(
-            customer_id=customer_id,
-            wallet_id=new_wallet_id,
-            user_name=profile['full_name'],
-            user_email=profile['email_user'],
-            account_name=profile['account_name'],
-            account_number=profile['account_number'],
-            bank_name=profile['bank_name'],  
-            branch_name=profile['branch_name'],  
-            ifsc_code=profile['ifsc_code']
-        )
+    try:
+        profile = app_tables.user_profile.get(customer_id=customer_id)
         
+        if profile is not None:
+            new_wallet_id = generate_wallet_id(customer_id)
+            app_tables.wallet.add_row(
+                customer_id=customer_id,
+                wallet_id=new_wallet_id,
+                user_name=profile['full_name'],
+                user_email=profile['email_user'],
+                account_name=profile['account_name'],
+                account_number=profile['account_number'],
+                bank_name=profile['select_bank'], 
+                branch_name=profile['account_bank_branch'],  
+                ifsc_code=profile['ifsc_code']
+            )
+        else:
+            print(f"No profile data found for customer_id: {customer_id}")
+    except Exception as e:
+        print(f"Error fetching or inserting data: {str(e)}")
+# @anvil.server.callable
+# def update_wallet_e_wallet(customer_id, new_amount):
+#     wallet_rows = app_tables.wallet.search(customer_id=customer_id)
+    
+#     if len(wallet_rows) > 0:
+#         wallet_row = wallet_rows[0]  # Update the first row found
+#         wallet_row['e_wallet'] = new_amount
+#         wallet_row.update()  # Use the update() method to modify row data
+#     else:
+#         print(f"No rows found for customer_id: {customer_id}")

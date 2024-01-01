@@ -20,7 +20,6 @@ class dashboard(dashboardTemplate):
     
     # Any code you write here will run before the form opens.
 
-  
 
   def button_3_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -135,20 +134,9 @@ class dashboard(dashboardTemplate):
   def wallet_dashboard_link_click(self, **event_args):
     customer_id = 1000  
     server.call('update_wallet_with_profile', customer_id)
-    # # Notify after successful data fetch and update
-    # notification = anvil.Notification("Fetched Data successfully!", style="success")
-    # notification.show()
+    # Notify after successful data fetch and update
+    notification = anvil.Notification("Fetched Data successfully!", style="success")
+    notification.show()
     # Optionally, perform additional actions after updating the wallet with profile
     open_form('wallet.wallet')
-    
-  # def wallet_dashboard_link_click(self, **event_args):
-  #   customer_id = 1000  
-  #   new_wallet_id = server.call('generate_wallet_id', customer_id)
-    
-  #   # Save the new wallet ID to the wallet table
-  #   app_tables.wallet.add_row(customer_id=customer_id, wallet_id=new_wallet_id)
-  #   # You might want to refresh the table or do something else after adding the row
-    
-  #   # Optionally, you can open the wallet form or perform additional actions
-  #   open_form('wallet.wallet')
   
