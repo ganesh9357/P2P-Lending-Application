@@ -118,19 +118,41 @@ class wallet(walletTemplate):
     # # Optionally, show a success message or perform other actions
     # alert("Deposit successful!")  
 
-  # def deposit_money_btn_click(self, **event_args):
-  #   amount_entered = self.amount_text_box.text
+  def deposit_money_btn_click(self, **event_args):
+    amount_entered = self.amount_text_box.text
     
-  #   # Ensure the amount entered is numeric (you may add additional validation if required)
-  #   try:
-  #       new_amount = float(amount_entered)
-  #   except ValueError:
-  #       # Handle the case where the entered amount is not a valid number
-  #       return  # You can show an error message or handle it as needed
+    # Ensure the amount entered is numeric (you may add additional validation if required)
+    try:
+        new_amount = float(amount_entered)
+    except ValueError:
+        # Handle the case where the entered amount is not a valid number
+        return  # You can show an error message or handle it as needed
 
-  #   customer_id = 1000 
+    customer_id = 1000 
     
-  #   # Call the server function to update the e_wallet column
-  #   anvil.server.call('update_wallet_e_wallet', customer_id, new_amount)
+    # Call the server function to update the e_wallet column
+    anvil.server.call('update_wallet_e_wallet', customer_id, new_amount)
+
+    alert("Deposit successful!")
+
+  def withdraw_money_btn_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    amount_entered = self.amount_text_box.text
+    
+    # Ensure the amount entered is numeric (you may add additional validation if required)
+    try:
+        new_amount = float(amount_entered)
+    except ValueError:
+        # Handle the case where the entered amount is not a valid number
+        return  # You can show an error message or handle it as needed
+
+    customer_id = 1000 
+    
+    # Call the server function to update the e_wallet column
+    anvil.server.call('update_wallet_e_wallet', customer_id, new_amount)
+
+    alert("Withdraw successful!")
+
+ 
     
 
