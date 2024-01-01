@@ -309,28 +309,6 @@ def update_wallet_with_profile(customer_id):
     except Exception as e:
         print(f"Error fetching or inserting data: {str(e)}")
 
-@anvil.server.callable
-def update_wallet_with_profile(customer_id):
-    try:
-        profile = app_tables.user_profile.get(customer_id=customer_id)
-        
-        if profile is not None:
-            new_wallet_id = generate_wallet_id(customer_id)
-            app_tables.wallet.add_row(
-                customer_id=customer_id,
-                wallet_id=new_wallet_id,
-                user_name=profile['full_name'],
-                user_email=profile['email_user'],
-                account_name=profile['account_name'],
-                account_number=profile['account_number'],
-                bank_name=profile['select_bank'], 
-                branch_name=profile['account_bank_branch'],  
-                ifsc_code=profile['ifsc_code']
-            )
-        else:
-            print(f"No profile data found for customer_id: {customer_id}")
-    except Exception as e:
-        print(f"Error fetching or inserting data: {str(e)}")
 
 @anvil.server.callable
 def deposit_money(customer_id, deposit_amount):
@@ -338,6 +316,12 @@ def deposit_money(customer_id, deposit_amount):
     
     if len(wallet_rows) > 0:
         wallet_row = wallet_rows[0]  # Update the first row found
+        
+        # Ensure e_wallet is initialized to 0 if it's None
+        if wallet_row['e_wallet'] is None:
+            wallet_row['e_wallet'] = 0
+        
+        # Now add the deposit amount
         wallet_row['e_wallet'] += deposit_amount  # Increase e_wallet balance
         wallet_row['transaction_type'] = 'Deposit'  # Set transaction_type to Deposit
         wallet_row.update()  # Update the row
