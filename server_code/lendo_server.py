@@ -281,7 +281,7 @@ def generate_wallet_id(customer_id):
     last_number = 0
     if len(customer_wallets) > 0:
         last_wallet_id = customer_wallets[0]['wallet_id']
-        last_number = int(last_wallet_id[2:]) if last_wallet_id else 0  # Extract the numeric part of the last wallet ID
+        last_number = int(last_wallet_id[2:]) if last_wallet_id else 0 
 
     new_number = last_number + 1
     new_wallet_id = f'WA{new_number:03}'  # Format the new wallet ID
