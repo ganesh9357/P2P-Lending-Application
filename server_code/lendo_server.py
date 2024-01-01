@@ -258,7 +258,8 @@ def get_user_data(user_id):
             'salary_type': user['salary_type'],
             'branch_name': user['branch_name'],
             'net_bank': user['net_bank']
-   
+          
+            
         }
     else:
         return None
@@ -280,13 +281,12 @@ def generate_wallet_id(customer_id):
     last_number = 0
     if len(customer_wallets) > 0:
         last_wallet_id = customer_wallets[0]['wallet_id']
-        last_number = int(last_wallet_id[2:]) if last_wallet_id else 0  
+        last_number = int(last_wallet_id[2:]) if last_wallet_id else 0  # Extract the numeric part of the last wallet ID
 
     new_number = last_number + 1
     new_wallet_id = f'WA{new_number:03}'  # Format the new wallet ID
 
     return new_wallet_id
-
 
 @anvil.server.callable
 def update_wallet_with_profile(customer_id):
@@ -294,44 +294,55 @@ def update_wallet_with_profile(customer_id):
         profile = app_tables.user_profile.get(customer_id=customer_id)
         
         if profile is not None:
-            # Check if a row already exists for this user_email in the wallet table
-            existing_row = app_tables.wallet.get(user_email=user_email)
-            
-            if existing_row is None:
-                # If no row exists, generate a new wallet ID for this user_email
-                new_wallet_id = generate_wallet_id(user_email)
-                app_tables.wallet.add_row(
-                    customer_id=customer_id,  
-                    wallet_id=new_wallet_id,
-                    user_name=profile['full_name'],
-                    user_email=profile['email_user'],
-                    account_name=profile['account_name'],
-                    account_number=profile['account_number'],
-                    bank_name=profile['select_bank'], 
-                    branch_name=profile['account_bank_branch'],  
-                    ifsc_code=profile['ifsc_code']
-                )
-            else:
-              print(f"No profile data found for customer_id: {customer_id}")
+            new_wallet_id = generate_wallet_id(customer_id)  # Generate a unique wallet ID for the customer_id
+            app_tables.wallet.add_row(
+                customer_id=customer_id,
+                wallet_id=new_wallet_id,
+                user_name=profile['full_name'],
+                user_email=profile['email_user'],
+                account_name=profile['account_name'],
+                account_number=profile['account_number'],
+                bank_name=profile['select_bank'], 
+                branch_name=profile['account_bank_branch'],  
+                ifsc_code=profile['ifsc_code']
+            )
+        else:
+            print(f"No profile data found for customer_id: {customer_id}")
     except Exception as e:
-      print(f"Error fetching or inserting data: {str(e)}")
+        print(f"Error fetching or inserting data: {str(e)}")
 
+@anvil.server.callable
+def update_wallet_with_profile(customer_id):
+    try:
+        profile = app_tables.user_profile.get(customer_id=customer_id)
+        
+        if profile is not None:
+            new_wallet_id = generate_wallet_id(customer_id)
+            app_tables.wallet.add_row(
+                customer_id=customer_id,
+                wallet_id=new_wallet_id,
+                user_name=profile['full_name'],
+                user_email=profile['email_user'],
+                account_name=profile['account_name'],
+                account_number=profile['account_number'],
+                bank_name=profile['select_bank'], 
+                branch_name=profile['account_bank_branch'],  
+                ifsc_code=profile['ifsc_code']
+            )
+        else:
+            print(f"No profile data found for customer_id: {customer_id}")
+    except Exception as e:
+        print(f"Error fetching or inserting data: {str(e)}")
 
 @anvil.server.callable
 def deposit_money(customer_id, deposit_amount):
     wallet_rows = app_tables.wallet.search(customer_id=customer_id)
     
     if len(wallet_rows) > 0:
-        wallet_row = wallet_rows[0] 
-        
-        # Ensure e_wallet is initialized to 0 if it's None
-        if wallet_row['e_wallet'] is None:
-            wallet_row['e_wallet'] = 0
-        
-        # Now add the deposit amount
-        wallet_row['e_wallet'] += deposit_amount 
-        wallet_row['transaction_type'] = 'Deposit'  
-        wallet_row.update()  
+        wallet_row = wallet_rows[0]  # Update the first row found
+        wallet_row['e_wallet'] += deposit_amount  # Increase e_wallet balance
+        wallet_row['transaction_type'] = 'Deposit'  # Set transaction_type to Deposit
+        wallet_row.update()  # Update the row
         return True  # Deposit successful
     else:
         print(f"No rows found for customer_id: {customer_id}")
@@ -342,13 +353,13 @@ def withdraw_money(customer_id, withdraw_amount):
     wallet_rows = app_tables.wallet.search(customer_id=customer_id)
     
     if len(wallet_rows) > 0:
-        wallet_row = wallet_rows[0]  
+        wallet_row = wallet_rows[0]  # Update the first row found
         
         # Check if there's enough balance for withdrawal
         if wallet_row['e_wallet'] >= withdraw_amount:
-            wallet_row['e_wallet'] -= withdraw_amount  
-            wallet_row['transaction_type'] = 'Withdraw'  
-            wallet_row.update()  
+            wallet_row['e_wallet'] -= withdraw_amount  # Decrease e_wallet balance
+            wallet_row['transaction_type'] = 'Withdraw'  # Set transaction_type to Withdraw
+            wallet_row.update()  # Update the row
             return True  # Withdrawal successful
         else:
             print("Insufficient balance for withdrawal")

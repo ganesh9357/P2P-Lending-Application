@@ -139,14 +139,4 @@ class dashboard(dashboardTemplate):
     notification.show()
     # Optionally, perform additional actions after updating the wallet with profile
     open_form('wallet.wallet')
-
-  # def wallet_dashboard_link_click(self, **event_args):
-  #   customer_id = 1000  
-  #   user_email = "example@email.com"  # Replace with the actual user's email
-    
-  #   server.call('update_wallet_with_profile', customer_id, user_email)
-  #   # Notify after successful data fetch and update
-  #   notification = anvil.Notification("Fetched Data successfully!", style="success")
-  #   notification.show()
-  #   # Optionally, perform additional actions after updating the wallet with profile
-  #   open_form('wallet.wallet')
+  
