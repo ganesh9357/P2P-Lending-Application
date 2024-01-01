@@ -328,18 +328,6 @@ def update_wallet_with_profile(customer_id):
             print(f"No profile data found for customer_id: {customer_id}")
     except Exception as e:
         print(f"Error fetching or inserting data: {str(e)}")
-      
-# @anvil.server.callable
-# def update_wallet_e_wallet(customer_id, new_amount):
-#     wallet_rows = app_tables.wallet.search(customer_id=customer_id)
-    
-#     if len(wallet_rows) > 0:
-#         wallet_row = wallet_rows[0]  # Update the first row found
-#         wallet_row['e_wallet'] = new_amount
-#         wallet_row.update()  # Use the update() method to modify row data
-#     else:
-#         print(f"No rows found for customer_id: {customer_id}")
-
 
 @anvil.server.callable
 def deposit_money(customer_id, deposit_amount):
