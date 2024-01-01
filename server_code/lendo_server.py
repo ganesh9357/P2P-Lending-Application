@@ -316,12 +316,12 @@ def update_wallet_with_profile(customer_id):
         app_tables.wallet.add_row(
             customer_id=customer_id,
             wallet_id=new_wallet_id,
-            user_name=profile['full_name'],  
+            user_name=profile['full_name'],
             user_email=profile['email_user'],
             account_name=profile['account_name'],
             account_number=profile['account_number'],
-            bank_name=profile['select_bank'],
-            branch_name=profile['account_bank_branch'],
+            bank_name=profile['bank_name'],  
+            branch_name=profile['branch_name'],  
             ifsc_code=profile['ifsc_code']
         )
         
