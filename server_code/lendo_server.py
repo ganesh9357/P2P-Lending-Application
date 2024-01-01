@@ -270,15 +270,16 @@ import anvil.tables as tables
 from anvil.tables import app_tables
 
 @anvil.server.callable
-def generate_wallet_id():
-    # Retrieve the last wallet ID across all customers
-    all_wallets = app_tables.wallet.search(
-        tables.order_by('wallet_id', ascending=False)
+def generate_wallet_id(customer_id):
+    # Retrieve the last wallet ID for the given customer ID
+    customer_wallets = app_tables.wallet.search(
+        customer_id=customer_id,
+        order_by=tables.order_by('wallet_id', ascending=False)
     )
 
     last_number = 0
-    if len(all_wallets) > 0:
-        last_wallet_id = all_wallets[0]['wallet_id']
+    if len(customer_wallets) > 0:
+        last_wallet_id = customer_wallets[0]['wallet_id']
         last_number = int(last_wallet_id[2:]) if last_wallet_id else 0  # Extract the numeric part of the last wallet ID
 
     new_number = last_number + 1
@@ -292,7 +293,7 @@ def update_wallet_with_profile(customer_id):
         profile = app_tables.user_profile.get(customer_id=customer_id)
         
         if profile is not None:
-            new_wallet_id = generate_wallet_id()  # Generate a unique wallet ID for all customers
+            new_wallet_id = generate_wallet_id(customer_id)  # Generate a unique wallet ID for the customer_id
             app_tables.wallet.add_row(
                 customer_id=customer_id,
                 wallet_id=new_wallet_id,
@@ -308,6 +309,46 @@ def update_wallet_with_profile(customer_id):
             print(f"No profile data found for customer_id: {customer_id}")
     except Exception as e:
         print(f"Error fetching or inserting data: {str(e)}")
+
+# @anvil.server.callable
+# def generate_wallet_id():
+#     # Retrieve the last wallet ID across all customers
+#     all_wallets = app_tables.wallet.search(
+#         tables.order_by('wallet_id', ascending=False)
+#     )
+
+#     last_number = 0
+#     if len(all_wallets) > 0:
+#         last_wallet_id = all_wallets[0]['wallet_id']
+#         last_number = int(last_wallet_id[2:]) if last_wallet_id else 0  # Extract the numeric part of the last wallet ID
+
+#     new_number = last_number + 1
+#     new_wallet_id = f'WA{new_number:03}'  # Format the new wallet ID
+
+#     return new_wallet_id
+
+# @anvil.server.callable
+# def update_wallet_with_profile(customer_id):
+#     try:
+#         profile = app_tables.user_profile.get(customer_id=customer_id)
+        
+#         if profile is not None:
+#             new_wallet_id = generate_wallet_id()  # Generate a unique wallet ID for all customers
+#             app_tables.wallet.add_row(
+#                 customer_id=customer_id,
+#                 wallet_id=new_wallet_id,
+#                 user_name=profile['full_name'],
+#                 user_email=profile['email_user'],
+#                 account_name=profile['account_name'],
+#                 account_number=profile['account_number'],
+#                 bank_name=profile['select_bank'], 
+#                 branch_name=profile['account_bank_branch'],  
+#                 ifsc_code=profile['ifsc_code']
+#             )
+#         else:
+#             print(f"No profile data found for customer_id: {customer_id}")
+#     except Exception as e:
+#         print(f"Error fetching or inserting data: {str(e)}")
 
 
 @anvil.server.callable
