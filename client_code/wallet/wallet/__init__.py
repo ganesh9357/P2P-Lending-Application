@@ -123,36 +123,34 @@ class wallet(walletTemplate):
     
     # Ensure the amount entered is numeric (you may add additional validation if required)
     try:
-        new_amount = float(amount_entered)
+        deposit_amount = float(amount_entered)
     except ValueError:
         # Handle the case where the entered amount is not a valid number
         return  # You can show an error message or handle it as needed
 
     customer_id = 1000 
     
-    # Call the server function to update the e_wallet column
-    anvil.server.call('update_wallet_e_wallet', customer_id, new_amount)
+    # Call the server function to deposit money
+    if anvil.server.call('deposit_money', customer_id, deposit_amount):
+        alert("Deposit successful!")
+    else:
+        alert("Deposit failed!")
 
-    alert("Deposit successful!")
-
-  def withdraw_money_btn_click(self, **event_args):
-    """This method is called when the button is clicked"""
+def withdraw_money_btn_click(self, **event_args):
     amount_entered = self.amount_text_box.text
     
     # Ensure the amount entered is numeric (you may add additional validation if required)
     try:
-        new_amount = float(amount_entered)
+        withdraw_amount = float(amount_entered)
     except ValueError:
         # Handle the case where the entered amount is not a valid number
         return  # You can show an error message or handle it as needed
 
     customer_id = 1000 
     
-    # Call the server function to update the e_wallet column
-    anvil.server.call('update_wallet_e_wallet', customer_id, new_amount)
-
-    alert("Withdraw successful!")
-
+    # Call the server function to withdraw money
+    if anvil.server.call('withdraw_money', customer_id, withdraw_amount):
+        alert("Withdrawal successful!")
+    else:
+        alert("Withdrawal failed!")
  
-    
-

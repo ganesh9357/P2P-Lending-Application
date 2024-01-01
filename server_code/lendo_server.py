@@ -329,13 +329,48 @@ def update_wallet_with_profile(customer_id):
     except Exception as e:
         print(f"Error fetching or inserting data: {str(e)}")
       
+# @anvil.server.callable
+# def update_wallet_e_wallet(customer_id, new_amount):
+#     wallet_rows = app_tables.wallet.search(customer_id=customer_id)
+    
+#     if len(wallet_rows) > 0:
+#         wallet_row = wallet_rows[0]  # Update the first row found
+#         wallet_row['e_wallet'] = new_amount
+#         wallet_row.update()  # Use the update() method to modify row data
+#     else:
+#         print(f"No rows found for customer_id: {customer_id}")
+
+
 @anvil.server.callable
-def update_wallet_e_wallet(customer_id, new_amount):
+def deposit_money(customer_id, deposit_amount):
     wallet_rows = app_tables.wallet.search(customer_id=customer_id)
     
     if len(wallet_rows) > 0:
         wallet_row = wallet_rows[0]  # Update the first row found
-        wallet_row['e_wallet'] = new_amount
-        wallet_row.update()  # Use the update() method to modify row data
+        wallet_row['e_wallet'] += deposit_amount  # Increase e_wallet balance
+        wallet_row['transaction_type'] = 'Deposit'  # Set transaction_type to Deposit
+        wallet_row.update()  # Update the row
+        return True  # Deposit successful
     else:
         print(f"No rows found for customer_id: {customer_id}")
+        return False  # Deposit unsuccessful
+
+@anvil.server.callable
+def withdraw_money(customer_id, withdraw_amount):
+    wallet_rows = app_tables.wallet.search(customer_id=customer_id)
+    
+    if len(wallet_rows) > 0:
+        wallet_row = wallet_rows[0]  # Update the first row found
+        
+        # Check if there's enough balance for withdrawal
+        if wallet_row['e_wallet'] >= withdraw_amount:
+            wallet_row['e_wallet'] -= withdraw_amount  # Decrease e_wallet balance
+            wallet_row['transaction_type'] = 'Withdraw'  # Set transaction_type to Withdraw
+            wallet_row.update()  # Update the row
+            return True  # Withdrawal successful
+        else:
+            print("Insufficient balance for withdrawal")
+            return False  # Insufficient balance for withdrawal
+    else:
+        print(f"No rows found for customer_id: {customer_id}")
+        return False  # Withdrawal unsuccessful
