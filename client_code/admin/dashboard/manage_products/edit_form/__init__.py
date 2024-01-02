@@ -46,7 +46,7 @@ class edit_form(edit_formTemplate):
         for i in self.data:
             a += 1
             self.id_list.append(i['product_id'])
-            self.name_list.append(i['product_name'])
+            self.name_list.append(i['product_group'])
             self.discri_list.append(i['product_discription'])
             self.product_categorys.append(i['product_categories'])
             self.profee_list.append(i['processing_fee'])
@@ -206,7 +206,7 @@ class edit_form(edit_formTemplate):
             if a == -1:
                 alert("No Data Available Here")            
             else:
-                data[a]['product_name'] = self.name.selected_value
+                data[a]['product_group'] = self.name.selected_value
                 data[a]['product_discription'] = self.text_area_1.text
                 data[a]['product_categories'] = self.product_category.selected_value
                 data[a]['processing_fee'] = int(self.text_box_3.text)
@@ -228,4 +228,8 @@ class edit_form(edit_formTemplate):
     def link_1_copy_click(self, **event_args):
         """This method is called when the link is clicked"""
         open_form('admin.dashboard.manage_products.view_product')
+
+    def radio_button_2_clicked(self, **event_args):
+      """This method is called when this radio button is selected"""
+      pass
 

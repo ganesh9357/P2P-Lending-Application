@@ -22,26 +22,22 @@ class view_product(view_productTemplate):
     self.list_3 = []
     self.list_4 = []
     self.list_5 = []
-    self.list_6 = []
 
     for i in self.data:
       a+=1
       self.list_1.append(i['product_id'])
-      self.list_2.append(i['product_name'])
+      self.list_2.append(i['product_group'])
       self.list_3.append(i['product_categories'])
       self.list_4.append(i['processing_fee'])
       self.list_5.append(i['extension_fee'])
-      
 
-    print(a)
 
     self.result = []
     if a == -1:
       alert("No Data Available Here!")
     else:
       for i in range(a+1):
-        print(self.list_2[i])
-        self.result.append({'product_id' : self.list_1[i], 'product_name' : self.list_2[i], 'product_categories' : self.list_3[i], 'processing_fee' : self.list_4[i], 'extension_fee' : self.list_5[i]})
+        self.result.append({'product_id' : self.list_1[i], 'product_group' : self.list_2[i], 'product_categories' : self.list_3[i], 'processing_fee' : self.list_4[i], 'extension_fee' : self.list_5[i]})
 
       self.repeating_panel_1.items = self.result
 

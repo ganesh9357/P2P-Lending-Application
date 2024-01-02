@@ -39,7 +39,7 @@ class view_profile(view_profileTemplate):
     for i in self.data:
       a+=1
       self.id_list.append(i['product_id'])
-      self.name_list.append(i['product_name'])
+      self.name_list.append(i['product_group'])
       self.categories_list.append(i['product_categories'])
       self.profee_list.append(i['processing_fee'])
       self.extfee_list.append(i['extension_fee'])
