@@ -267,9 +267,6 @@ def get_user_data(user_id):
 
 # code for wallet
 
-import anvil.tables as tables
-from anvil.tables import app_tables
-
 @anvil.server.callable
 def generate_wallet_id(customer_id):
     # Retrieve the last wallet ID for the given customer ID
@@ -299,10 +296,10 @@ def update_wallet_with_profile(customer_id):
                 customer_id=customer_id,
                 wallet_id=new_wallet_id,
                 user_name=profile['full_name'],
-                user_email=profile['email_user'],
+                user_email=profile['email_user'], 
                 account_name=profile['account_name'],
                 account_number=profile['account_number'],
-                bank_name=profile['select_bank'], 
+                bank_name=profile['select_bank'],  
                 branch_name=profile['account_bank_branch'],  
                 ifsc_code=profile['ifsc_code']
             )
