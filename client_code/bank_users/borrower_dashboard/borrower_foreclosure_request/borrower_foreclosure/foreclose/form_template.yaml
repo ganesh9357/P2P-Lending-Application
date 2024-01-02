@@ -217,11 +217,11 @@ components:
             layout_properties: {row: QBZOQM, width_xs: 3, col_xs: 6}
           - type: Label
             properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-              visible: true, text: 'Penalty Amount :', font_size: null, font: '',
+              visible: true, text: 'Foreclosure Amount :', font_size: null, font: '',
               spacing_above: small, icon_align: left, spacing_below: small, italic: false,
               background: '', bold: false, underline: false, icon: ''}
             name: label_16
-            layout_properties: {row: OJMWOS, width_xs: 3, col_xs: 1, width: 131.5}
+            layout_properties: {row: OJMWOS, width_xs: 3, col_xs: 1, width: 149.143}
           - type: Label
             properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
               visible: true, text: '', font_size: null, font: '', spacing_above: small,
@@ -231,11 +231,11 @@ components:
             layout_properties: {row: OJMWOS, width_xs: 2, col_xs: 6, width: 103.75}
           - type: Label
             properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-              visible: true, text: (3% penalty), font_size: null, font: '', spacing_above: small,
-              icon_align: left, spacing_below: small, italic: false, background: '',
-              bold: false, underline: false, icon: ''}
+              visible: true, text: (3% foreclosure rate), font_size: null, font: '',
+              spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+              background: '', bold: false, underline: false, icon: ''}
             name: label_22
-            layout_properties: {row: OJMWOS, width_xs: 3, col_xs: 8, width: 67.1562}
+            layout_properties: {row: OJMWOS, width_xs: 3, col_xs: 8, width: 149.143}
           - type: Label
             properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
               visible: true, text: 'Total Due Amount :
