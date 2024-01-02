@@ -1,6 +1,7 @@
 import anvil
 from ._anvil_designer import Borr_loan_requestTemplate
 from anvil import *
+import anvil.server
 import anvil.tables as tables
 from anvil.tables import app_tables
 from anvil import open_form
