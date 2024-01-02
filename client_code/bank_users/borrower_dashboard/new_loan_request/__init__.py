@@ -43,6 +43,13 @@ class new_loan_request(new_loan_requestTemplate):
 
     def button_1_copy_click(self, **event_args):
       """This method is called when the button is clicked"""
+      # if not self.name:
+      #   # Show error message below the name field
+      #   self.name.selected_value = "Please fill this field"
+      #   self.name.foreground = '#FF0000'
+      # else:
+      #   # Reset error message if name is filled
+      #   self.name.selected_value = ""
       
       open_form('bank_users.borrower_dashboard.new_loan_request.loan_type',self.selected_value,self.drop_down_2.selected_value)
 
