@@ -16,6 +16,7 @@ class check_out_form(check_out_formTemplate):
         self.userId = user_id
         self.loan_amount = loan_amount
         self.tenure = tenure
+        # self.loan_id = loan_id
         self.Total_Repayment_Amount = 0 
         
     
@@ -75,11 +76,9 @@ class check_out_form(check_out_formTemplate):
     else:
         # Handle the case when there is no data
         last_loan_id = 'LA1000'
-    
-    # Create new loan entry
-    app_tables.loan_details.add_row(loan_id=last_loan_id)
 
     loan_id=last_loan_id
+    # anvil.server.call('add_loan_details',loan_id)
     borrower_customer_id=user_id
     loan_amount=loan_amount
     tenure=tenure
