@@ -78,6 +78,7 @@ class check_out_form(check_out_formTemplate):
         last_loan_id = 'LA1000'
 
     loan_id=last_loan_id
+    app_tables.loan_details.add_row(loan_id = loan_id)
     # anvil.server.call('add_loan_details',loan_id)
     borrower_customer_id=user_id
     loan_amount=loan_amount
