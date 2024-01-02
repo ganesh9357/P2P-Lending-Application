@@ -32,6 +32,7 @@ class check_out_form(check_out_formTemplate):
         if user_request:
             self.roi = user_request['roi']
             self.processing_fee = user_request['processing_fee']
+            self.membership_type = user_request['membership_type']
         self.label_2.text = f"₹ {self.loan_amount}"
         self.label_6.text = self.tenure
         self.label_4.text = f"{self.roi}%"
@@ -58,7 +59,8 @@ class check_out_form(check_out_formTemplate):
       interest_rate = self.roi
       total_repayment_amount = self.Total_Repayment_Amount
       monthly_emi = self.label_14.text
-      open_form('bank_users.borrower_dashboard.choose_lender',)
+      membership_type = self.membership_type
+      open_form('bank_users.borrower_dashboard.choose_lender',self.userId,self.label_2.text,self.label_6.text,self.roi,self.Total_Repayment_Amount,self.label_14.text,self.membership_type)
 
   def button_1_click(self, **event_args):
         """This method is called when the button is clicked"""
