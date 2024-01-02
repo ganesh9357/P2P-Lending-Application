@@ -394,10 +394,25 @@ db_schema:
       admin_ui: {order: -1, width: 200}
       type: string
     - name: user_email
-      admin_ui: {order: 3, width: 200}
+      admin_ui: {order: 0.5, width: 200}
       type: string
     - name: user_type
       admin_ui: {width: 200, order: 11}
+      type: string
+    - name: opening_balance
+      admin_ui: {width: 200, order: 13}
+      type: number
+    - name: loan_amount
+      admin_ui: {width: 200, order: 12}
+      type: number
+    - name: wallet_amount
+      admin_ui: {width: 200, order: 14}
+      type: number
+    - name: account_id
+      admin_ui: {order: 11.5, width: 200}
+      type: string
+    - name: upi_id
+      admin_ui: {width: 200, order: 16}
       type: string
     title: wallet
   wallet_transactions_:
@@ -424,6 +439,15 @@ db_schema:
       type: datetime
     - name: description
       admin_ui: {width: 200, order: 6}
+      type: string
+    - name: user_email
+      admin_ui: {width: 200, order: 0.5}
+      type: string
+    - name: status
+      admin_ui: {width: 200, order: 5.5}
+      type: string
+    - name: gate_way_type
+      admin_ui: {width: 200, order: 7}
       type: string
     title: 'wallet_transactions '
   user_issues_bugreports:
@@ -650,12 +674,12 @@ db_schema:
     - name: admin_approved_date_time
       admin_ui: {order: 6, width: 234}
       type: date
-    - name: available_balance
-      admin_ui: {order: 0.75, width: 200}
-      type: number
     - name: lender_accepted_timestamp
       admin_ui: {width: 200, order: 12}
       type: date
+    - name: wallet_id
+      admin_ui: {width: 200, order: 12}
+      type: string
   wallet_bank_account_table:
     client: none
     server: full
@@ -680,6 +704,9 @@ db_schema:
       type: string
     - name: account_type
       admin_ui: {width: 200, order: 6}
+      type: string
+    - name: user_email
+      admin_ui: {width: 200, order: 0.5}
       type: string
     title: wallet_bank_account_table
   borrower:
@@ -720,6 +747,9 @@ db_schema:
     - name: borrower_amount
       admin_ui: {order: 6, width: 200}
       type: number
+    - name: wallet_id
+      admin_ui: {width: 200, order: 11}
+      type: string
   product_categories:
     client: full
     server: full
