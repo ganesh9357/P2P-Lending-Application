@@ -20,6 +20,7 @@ class view_profile(view_profileTemplate):
     
     self.id_list = []
     self.name_list = []
+    self.product_name_lst = []
     self.categories_list = []
     self.profee_list = []
     self.extfee_list = []
@@ -39,7 +40,8 @@ class view_profile(view_profileTemplate):
     for i in self.data:
       a+=1
       self.id_list.append(i['product_id'])
-      self.name_list.append(i['product_name'])
+      self.product_name_lst.append(i['product_name'])
+      self.name_list.append(i['product_group'])
       self.categories_list.append(i['product_categories'])
       self.profee_list.append(i['processing_fee'])
       self.extfee_list.append(i['extension_fee'])
@@ -62,6 +64,7 @@ class view_profile(view_profileTemplate):
         b = self.id_list.index(value_to_display)
         self.label_1.text = value_to_display
         self.label_2.text = self.name_list[b]
+        self.label_24.text = self.product_name_lst[b]
         self.label_4.text = self.categories_list[b]
         self.label_5.text = self.profee_list[b]
         self.label_6.text = self.extfee_list[b]
