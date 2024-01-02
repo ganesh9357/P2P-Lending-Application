@@ -8,6 +8,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from ... import borrower_main_form_module as main_form_module
+import re
 
 class loan_type(loan_typeTemplate):
     def __init__(self, product_group, product_cat, **properties):
@@ -35,8 +36,12 @@ class loan_type(loan_typeTemplate):
       tenure = self.tenure_dd.selected_value
       # user_id = self.user_id
       # anvil.server.call('add_loan_details', loan_amount,tenure,user_id)
-      
-      open_form('bank_users.borrower_dashboard.new_loan_request.check_out_form', self.proctct_g, self.prodct_cate, self.loan_amount_tb.text, self.tenure_dd.selected_value,self.user_id)
+      if not re.match(r'^\d{10}$', loan_amount):
+          self.loan_amount_tb.text = 'Enter valid amount should be 0-9'
+      elif not self.tenure_dd:
+        Notification("Please fill in all required fields").show()
+      else:
+        open_form('bank_users.borrower_dashboard.new_loan_request.check_out_form', self.proctct_g, self.prodct_cate, self.loan_amount_tb.text, self.tenure_dd.selected_value,self.user_id)
 
     def fetch_product_data(self):
         return app_tables.product_details.search(
