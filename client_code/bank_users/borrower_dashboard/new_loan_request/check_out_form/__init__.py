@@ -50,15 +50,13 @@ class check_out_form(check_out_formTemplate):
         self.label_12.text = f"₹ {int(self.Total_Repayment_Amount)}"
         self.rich_text_1.content = f"Here is a summary of the details of the {self.prodct_cate}. "
 
-  
+  # choose lender
   def submit_click(self, **event_args):
       user_id = self.userId
       loan_amount = self.label_2.text
       tenure = self.label_6.text
       interest_rate = self.roi
       total_repayment_amount = self.Total_Repayment_Amount
-      anvil.server.call('add_loan_details', loan_amount, tenure, user_id, interest_rate, total_repayment_amount)
-      alert('your request is submitted')
       open_form('bank_users.borrower_dashboard.choose_lender')
 
   def button_1_click(self, **event_args):
