@@ -25,9 +25,9 @@ from anvil import tables
 
 @anvil.server.callable
 def create_wallet_entry(email, customer_id, full_name, user_type):
-    existing_wallet = app_tables.wallet.get(user_email=email)
+    existing_wallets = app_tables.wallet.search(user_email=email)
     
-    if existing_wallet is None:
+    if len(existing_wallets) == 0:
         wallet_id = generate_wallet_id(email)
         account_id = generate_account_id(email)
         
@@ -41,7 +41,7 @@ def create_wallet_entry(email, customer_id, full_name, user_type):
         )
         return f"Wallet entry created successfully for {email}"
     else:
-        return f"Wallet entry already exists for {email}"
+        return f"Wallet entry already exists for {email}. Multiple entries found."
 
 @anvil.server.callable
 def fetch_user_profiles():
@@ -49,14 +49,18 @@ def fetch_user_profiles():
     return user_profiles
 
 def generate_wallet_id(email):
-    # Generate a unique wallet_id based on email or any other logic
-    # Example: This is a simple method; you might want to use a more complex logic
-    return f"WA_{email[:4]}"
+    existing_wallets = app_tables.wallet.search(user_email=email)
+    count = len(existing_wallets) + 1
+    formatted_count = str(count).zfill(4)  # Zero-padding
+    
+    return f"WA{formatted_count}"
 
 def generate_account_id(email):
-    # Generate a unique account_id based on email or any other logic
-    # Example: This is a simple method; you might want to use a more complex logic
-    return f"A_{email[-4:]}"
+    existing_wallets = app_tables.wallet.search(user_email=email)
+    count = len(existing_wallets) + 1
+    formatted_count = str(count).zfill(4)  # Zero-padding
+    
+    return f"A{formatted_count}"
 
 
 
