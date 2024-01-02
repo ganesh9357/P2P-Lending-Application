@@ -85,12 +85,7 @@ class manage_producs1(manage_producs1Template):
         max_tenure = int(self.max_tenure.text)
         roi = int(self.text_box_5.text)
         foreclose_type = self.foreclose_type.selected_value
-        foreclosure_fee = int(self.foreclosure_fee.text)
-        foreclosure_eligible = (foreclose_type == 'Eligible')
-        if foreclosure_eligible:
-            processing_fee += (processing_fee * 0.03)      
-        # extension_allowed_mapping = {'Yes': True, 'No': False}
-        # extension_allowed = extension_allowed_mapping.get(self.extension_allowed.selected_value, False)
+        foreclosure_fee = int(self.foreclosure_fee.text)      
         extension_allowed = self.extension_allowed.selected_value
         emi_payment = self.drop_down_1.selected_value
         if self.radio_button_3.selected:
