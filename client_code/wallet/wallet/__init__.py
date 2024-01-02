@@ -26,28 +26,28 @@ class wallet(walletTemplate):
     #   self.amount_text_box.text=wallet['e_wallet']
       
 
-    # self.user_id = main_form_module.userId
-    # user_id = self.user_id
+    self.user_id = main_form_module.userId
+    user_id = self.user_id
     
-    # ### Fetch user details from user_profile database
-    # user_profiles = app_tables.user_profile.search()  
+    ### Fetch user details from user_profile database
+    user_profiles = app_tables.user_profile.search()  
 
-    # # Mapping and inserting data into the wallet table
-    # for profile in user_profiles:
-    #   print(f"Adding row for customer ID: {profile['customer_id']}")
-    # # Add similar print statements for other column values
+    # Mapping and inserting data into the wallet table
+    for profile in user_profiles:
+      print(f"Adding row for customer ID: {profile['customer_id']}")
+    # Add similar print statements for other column values
 
-    # wallet_row = app_tables.wallet.add_row(
-    #     customer_id=profile['customer_id'],
-    #     user_name=profile['full_name'],
-    #     user_email=profile['email_user'],
-    #     account_name=profile['account_name'],
-    #     account_number=profile['account_number'],
-    #     bank_name=profile['select_bank'],
-    #     branch_name=profile['account_bank_branch'],
-    #     ifsc_code=profile['ifsc_code']
-    # )
-    # print("Row added successfully")
+    wallet_row = app_tables.wallet.add_row(
+        customer_id=profile['customer_id'],
+        user_name=profile['full_name'],
+        user_email=profile['email_user'],
+        account_name=profile['account_name'],
+        account_number=profile['account_number'],
+        bank_name=profile['select_bank'],
+        branch_name=profile['account_bank_branch'],
+        ifsc_code=profile['ifsc_code']
+    )
+    print("Row added successfully")
 
 
   def home_main_form_link_click(self, **event_args):
@@ -94,42 +94,42 @@ class wallet(walletTemplate):
     """This method is called when the link is clicked"""
     pass
 
-  # def deposit_money_btn_click(self, **event_args):
-  #   amount_entered = self.amount_text_box.text
+  def deposit_money_btn_click(self, **event_args):
+    amount_entered = self.amount_text_box.text
     
-  #   # Ensure the amount entered is numeric (you may add additional validation if required)
-  #   try:
-  #       deposit_amount = float(amount_entered)
-  #   except ValueError:
-  #       # Handle the case where the entered amount is not a valid number
-  #       return  # You can show an error message or handle it as needed
+    # Ensure the amount entered is numeric (you may add additional validation if required)
+    try:
+        deposit_amount = float(amount_entered)
+    except ValueError:
+        # Handle the case where the entered amount is not a valid number
+        return  # You can show an error message or handle it as needed
 
-  #   customer_id = 1000 
+    customer_id = 1000 
     
-  #   # Call the server function to deposit money
-  #   if anvil.server.call('deposit_money', customer_id, deposit_amount):
-  #       alert("Deposit successful!")
-  #   else:
-  #       alert("Deposit failed!")
+    # Call the server function to deposit money
+    if anvil.server.call('deposit_money', customer_id, deposit_amount):
+        alert("Deposit successful!")
+    else:
+        alert("Deposit failed!")
 
-  # def withdraw_money_btn_click(self, **event_args):
-  #   """This method is called when the button is clicked"""
-  #   amount_entered = self.amount_text_box.text
+  def withdraw_money_btn_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    amount_entered = self.amount_text_box.text
     
-  #   # Ensure the amount entered is numeric (you may add additional validation if required)
-  #   try:
-  #       withdraw_amount = float(amount_entered)
-  #   except ValueError:
-  #       # Handle the case where the entered amount is not a valid number
-  #       return  # You can show an error message or handle it as needed
+    # Ensure the amount entered is numeric (you may add additional validation if required)
+    try:
+        withdraw_amount = float(amount_entered)
+    except ValueError:
+        # Handle the case where the entered amount is not a valid number
+        return  # You can show an error message or handle it as needed
 
-  #   customer_id = 1000 
+    customer_id = 1000 
     
-  #   # Call the server function to withdraw money
-  #   if anvil.server.call('withdraw_money', customer_id, withdraw_amount):
-  #       alert("Withdrawal successful!")
-  #   else:
-  #       alert("Withdrawal failed!")
+    # Call the server function to withdraw money
+    if anvil.server.call('withdraw_money', customer_id, withdraw_amount):
+        alert("Withdrawal successful!")
+    else:
+        alert("Withdrawal failed!")
 
    
  

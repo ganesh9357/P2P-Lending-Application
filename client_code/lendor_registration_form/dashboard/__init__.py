@@ -131,29 +131,33 @@ class dashboard(dashboardTemplate):
     """This method is called when the link is clicked"""
     open_form('lendor_registration_form.dashboard.notification')
 
-  # def wallet_dashboard_link_click(self, **event_args):
-  #   customer_id = 1000  
-  #   server.call('update_wallet_with_profile', customer_id)
-  #   # Notify after successful data fetch and update
-  #   notification = anvil.Notification("Fetched Data successfully!", style="success")
-  #   notification.show()
-  #   # Optionally, perform additional actions after updating the wallet with profile
-  #   open_form('wallet.wallet')
-  
   def wallet_dashboard_link_click(self, **event_args):
-    # Assuming there's a method to get the customer_id from the user profile
-    # Replace get_customer_id_from_profile() with your actual method
-    profile = app_tables.user_profile.get(customer_id=1000)  # You can use any identifier here
+    """This method is called when the link is clicked"""
+    open_form('wallet.wallet')
 
-    if profile is not None:
-        customer_id = profile['customer_id']  # Retrieve the customer_id from the profile
-        server.call('update_wallet_with_profile', customer_id)
-        # Notify after successful data fetch and update
-        notification = anvil.Notification("Fetched Data successfully!", style="success")
-        notification.show()
-        # Optionally, perform additional actions after updating the wallet with profile
-        open_form('wallet.wallet')
-    else:
-        # Handle case where customer profile couldn't be retrieved
-        notification = anvil.Notification("Failed to fetch customer profile", style="error")
-        notification.show()
+  def wallet_dashboard_link_click(self, **event_args):
+    customer_id = 1000  
+    server.call('update_wallet_with_profile', customer_id)
+    # Notify after successful data fetch and update
+    notification = anvil.Notification("Fetched Data successfully!", style="success")
+    notification.show()
+    # Optionally, perform additional actions after updating the wallet with profile
+    open_form('wallet.wallet')
+  
+  # def wallet_dashboard_link_click(self, **event_args):
+  #   # Assuming there's a method to get the customer_id from the user profile
+  #   # Replace get_customer_id_from_profile() with your actual method
+  #   profile = app_tables.user_profile.get(customer_id=1000)  # You can use any identifier here
+
+  #   if profile is not None:
+  #       customer_id = profile['customer_id']  # Retrieve the customer_id from the profile
+  #       server.call('update_wallet_with_profile', customer_id)
+  #       # Notify after successful data fetch and update
+  #       notification = anvil.Notification("Fetched Data successfully!", style="success")
+  #       notification.show()
+  #       # Optionally, perform additional actions after updating the wallet with profile
+  #       open_form('wallet.wallet')
+  #   else:
+  #       # Handle case where customer profile couldn't be retrieved
+  #       notification = anvil.Notification("Failed to fetch customer profile", style="error")
+  #       notification.show()
