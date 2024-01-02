@@ -289,6 +289,8 @@ def generate_wallet_id(customer_id):
 def update_wallet_with_profile(customer_id):
     try:
         profile = app_tables.user_profile.get(customer_id=customer_id)
+        non_existing_column = profile['non_existing_column'] 
+        # profile = app_tables.user_profile.get(customer_id=customer_id)
         
         if profile is not None:
             new_wallet_id = generate_wallet_id(customer_id)

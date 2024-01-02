@@ -131,26 +131,26 @@ class dashboard(dashboardTemplate):
     """This method is called when the link is clicked"""
     open_form('lendor_registration_form.dashboard.notification')
 
-  def wallet_dashboard_link_click(self, **event_args):
-    customer_id = 1000  
-    server.call('update_wallet_with_profile', customer_id)
-    # Notify after successful data fetch and update
-    notification = anvil.Notification("Fetched Data successfully!", style="success")
-    notification.show()
-    # Optionally, perform additional actions after updating the wallet with profile
-    open_form('wallet.wallet')
-  
   # def wallet_dashboard_link_click(self, **event_args):
-  #       user_email = anvil.users.get_user()["email"]
-  #       if user_email:
-  #           profile = app_tables.user_profile.search(email_user=user_email)
-  #           if profile is not None and len(profile) > 0:
-  #               customer_id = profile[0]['customer_id']
-  #               server.call('update_wallet_with_profile', customer_id)
-  #               notification = anvil.Notification("Fetched Data successfully!", style="success")
-  #               notification.show()
-  #               open_form('wallet.wallet')
-  #           else:
-  #               print("No user profile found")
-  #       else:
-  #           print("User email is None")
+  #   customer_id = 1000  
+  #   server.call('update_wallet_with_profile', customer_id)
+  #   # Notify after successful data fetch and update
+  #   notification = anvil.Notification("Fetched Data successfully!", style="success")
+  #   notification.show()
+  #   # Optionally, perform additional actions after updating the wallet with profile
+  #   open_form('wallet.wallet')
+  
+  def wallet_dashboard_link_click(self, **event_args):
+    user_email = anvil.users.get_user(email
+    if user_email:
+        profile = app_tables.user_profile.search(email_user=user_email)
+        if profile is not None and len(profile) > 0:
+            customer_id = profile[0]['customer_id']
+            server.call('update_wallet_with_profile', customer_id)
+            notification = anvil.Notification("Fetched Data successfully!", style="success")
+            notification.show()
+            open_form('wallet.wallet')
+        else:
+            print("No user profile found for this email")
+    else:
+        print("User email is None")
