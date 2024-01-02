@@ -55,20 +55,6 @@ components:
         layout_properties: {x: 0, y: 78, width: 160}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: ' Product Name ', font_size: null, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-          underline: false, icon: ''}
-        name: label_3_copy
-        layout_properties: {x: 0, y: 129.60000610351562, width: 160}
-      - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: ' Product Discription', font_size: null, font: '',
-          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-          background: '', bold: false, underline: false, icon: ''}
-        name: label_4_copy
-        layout_properties: {x: 0, y: 181.20001220703125, width: 160}
-      - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: ' Product Categories', font_size: null, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
           underline: false, icon: ''}
@@ -241,16 +227,8 @@ components:
         layout_properties: {x: 0, y: 399.796875, width: 160}
       - type: Label
         properties: {}
-        name: label_2
-        layout_properties: {x: 194, y: 135.1875, width: 232}
-      - type: Label
-        properties: {}
         name: label_1
         layout_properties: {x: 194, y: 78, width: 225}
-      - type: Label
-        properties: {}
-        name: label_3
-        layout_properties: {x: 194, y: 181.1875, width: 232}
       - type: Label
         properties: {}
         name: label_4
@@ -271,6 +249,39 @@ components:
         properties: {}
         name: label_22
         layout_properties: {x: 194, y: 445.796875, width: 160}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: ' Product Discription', font_size: null, font: '',
+          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false, icon: ''}
+        name: label_4_copy
+        layout_properties: {x: 0, y: 211.1875, width: 160}
+      - type: Label
+        properties: {}
+        name: label_3
+        layout_properties: {x: 194, y: 205.796875, width: 232}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: ' Product Group', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_3_copy
+        layout_properties: {x: 0, y: 165.1875, width: 160}
+      - type: Label
+        properties: {}
+        name: label_2
+        layout_properties: {x: 194, y: 165.1875, width: 232}
+      - type: Label
+        properties: {}
+        name: label_24
+        layout_properties: {x: 194, y: 124, width: 160}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: ' Product Name', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_23
+        layout_properties: {x: 0, y: 119.1875, width: 160}
 - type: FlowPanel
   properties: {}
   name: navbar_links
