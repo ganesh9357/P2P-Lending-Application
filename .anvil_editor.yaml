@@ -164,6 +164,7 @@ unique_ids:
     admin.dashboard.loan_management.under_process.RowTemplate9: '1700822648257445883881327.55786'
     borrower_registration_form.star_1_borrower_registration_form_begin_3.star_1_borrower_registration_form_begin_3f: '170003767984838881190201.539795'
     lendor_registration_form.dashboard.lender_view_loans: '1703134788125365037020749.3121'
+    admin.dashboard.manage_products.view_products_and_categories: '1704167249914614596278152.911'
     admin.dashboard.lenders.RowTemplate4: '1700737487916312936831844.4892'
     admin.dashboard.admin_teams.view_profile: '1699528208717177568108194.0108'
     admin.dashboard.manage_products.add_product_categories_and_groups: '1701090290692291670903022.0623'
