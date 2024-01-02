@@ -268,23 +268,24 @@ def get_user_data(user_id):
 # code for wallet
 
 @anvil.server.callable
-def generate_wallet_id(customer_id):
-    # Retrieve the last wallet ID for the given customer ID
-    customer_wallets = app_tables.wallet.search(
-        customer_id=customer_id,
-        order_by=tables.order_by('wallet_id', ascending=False)
-    )
-
-    last_number = 0
-    if len(customer_wallets) > 0:
-        last_wallet_id = customer_wallets[0]['wallet_id']
-        last_number = int(last_wallet_id[2:]) if last_wallet_id.startswith('WA') else 0 
-
-    new_number = last_number + 1
-    new_wallet_id = f'WA{new_number:03}'  # Format the new wallet ID
-
-    return new_wallet_id
-
+def generate_wallet_id(email):
+    user = app_tables.user_profile.get(email_user=email)
+    if user:
+        # Generate wallet_id in the format WA0001
+        wallets_for_user = app_tables.wallet.search(email_user=email)
+        wallet_count = len(wallets_for_user) + 1
+        wallet_id = f"WA{wallet_count:04d}"
+        
+        # Store wallet_id in the wallet table
+        app_tables.wallet.add_row(
+            email_user=email,
+            wallet_id=wallet_id
+        )
+        
+        return wallet_id
+    else:
+        return None
+    
 # @anvil.server.callable
 # def update_wallet_with_profile(customer_id):
 #     try:

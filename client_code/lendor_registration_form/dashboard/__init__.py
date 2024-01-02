@@ -9,15 +9,19 @@ from anvil.google.drive import app_files
 import anvil.users
 from anvil.tables import app_tables
 from anvil import open_form, server
+from anvil import server
 #from anvil import get_current_user
-# from bank_users.dashboard import main_form_module
+# from ....bank_users.main_form import main_form_module
+from ...bank_users.main_form import main_form_module
+
 
 
 class dashboard(dashboardTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    
+   
+    self.email = main_form_module.email
     # Any code you write here will run before the form opens.
 
 
@@ -135,29 +139,25 @@ class dashboard(dashboardTemplate):
     """This method is called when the link is clicked"""
     open_form('wallet.wallet')
 
-  def wallet_dashboard_link_click(self, **event_args):
-    customer_id = 1000  
-    server.call('update_wallet_with_profile', customer_id)
-    # Notify after successful data fetch and update
-    notification = anvil.Notification("Fetched Data successfully!", style="success")
-    notification.show()
-    # Optionally, perform additional actions after updating the wallet with profile
-    open_form('wallet.wallet')
-  
   # def wallet_dashboard_link_click(self, **event_args):
-  #   # Assuming there's a method to get the customer_id from the user profile
-  #   # Replace get_customer_id_from_profile() with your actual method
-  #   profile = app_tables.user_profile.get(customer_id=1000)  # You can use any identifier here
+  #   customer_id = 1000  
+  #   server.call('update_wallet_with_profile', customer_id)
+  #   # Notify after successful data fetch and update
+  #   notification = anvil.Notification("Fetched Data successfully!", style="success")
+  #   notification.show()
+  #   # Optionally, perform additional actions after updating the wallet with profile
+  #   open_form('wallet.wallet')
+  
+  
 
-  #   if profile is not None:
-  #       customer_id = profile['customer_id']  # Retrieve the customer_id from the profile
-  #       server.call('update_wallet_with_profile', customer_id)
-  #       # Notify after successful data fetch and update
-  #       notification = anvil.Notification("Fetched Data successfully!", style="success")
-  #       notification.show()
-  #       # Optionally, perform additional actions after updating the wallet with profile
-  #       open_form('wallet.wallet')
-  #   else:
-  #       # Handle case where customer profile couldn't be retrieved
-  #       notification = anvil.Notification("Failed to fetch customer profile", style="error")
-  #       notification.show()
+  def button_wallet_dashboard_link_click(self, **event_args):
+    # Call server function to generate wallet_id and store in the wallet table
+    wallet_id = server.call('generate_wallet_id', self.email)
+    if wallet_id:
+        # Handle successful generation and display wallet_id
+        open_form('wallet_dashboard_form', wallet_id=wallet_id)
+    else:
+        # Handle case where user doesn't exist
+        print("User does not exist.")
+
+
