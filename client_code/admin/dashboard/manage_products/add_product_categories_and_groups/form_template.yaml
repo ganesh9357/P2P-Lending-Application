@@ -42,7 +42,7 @@ components:
       role: outlined
       align: full
       tooltip: ''
-      placeholder: ''
+      placeholder: select group
       border: ''
       enabled: true
       foreground: ''
@@ -56,24 +56,25 @@ components:
       background: ''
       bold: false
       underline: false
-      include_placeholder: false
+      include_placeholder: true
     name: drop_down_1
     layout_properties: {grid_position: 'SPGCWB,VRVUMX'}
     event_bindings: {change: name_change}
   - type: Label
     properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
-      visible: true, text: Categories, font_size: 16, font: '', spacing_above: small,
+      visible: false, text: Categories, font_size: 16, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
     name: label_2
     layout_properties: {grid_position: 'GMJCJS,FDDXVJ'}
   - type: TextBox
     properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      border: '', enabled: true, foreground: '', visible: false, text: '', font_size: null,
       font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
       background: '', bold: false, underline: false}
     name: text_box_1
     layout_properties: {grid_position: 'GMJCJS,HACQJG'}
+    event_bindings: {pressed_enter: text_box_1_pressed_enter}
 - type: Button
   properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
     foreground: black, visible: true, text: SAVE, font_size: null, font: '', spacing_above: small,
