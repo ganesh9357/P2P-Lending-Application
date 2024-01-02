@@ -129,6 +129,7 @@ unique_ids:
     admin.dashboard.manage_cms: '1699528617179453409715572.5991'
     lendor_registration_form.Lender_reg_Institutional_form_3: '1699430137541808903451295.2183'
     lendor_registration_form.Lender_reg_form_6: '1699427555218683419054191.9775'
+    admin.dashboard.manage_products.view_products_and_categories.RowTemplate28: '1704172157354836718833767.5173'
     lendor_registration_form.dashboard.dasboard_contact: '1700826923997328713650135.2759'
     borrower_registration_form.star_1_borrower_registration_form_begin_3.star_1_borrower_registration_form_begin_3a: '1699369123665164443906866.3994'
     bank_users.main_form: '1700479916868316718897361.56647'
@@ -149,6 +150,7 @@ unique_ids:
     bank_users.borrower_dashboard.application_tracker: '1698927021026141533584098.39868'
     admin.dashboard.manage_products.view_product.RowTemplate5: '1700713251863745364072386.9193'
     bank_users.borrower_dashboard: '1700743782571887751708379.0123'
+    admin.dashboard.manage_products.view_products_and_categories.EditDetailsForm: '1704188499874537556678907.86676'
     lendor_registration_form.dashboard.lender_view_loans.view_details_1: '1703138294370237056127607.49118'
     ? borrower_registration_form.star_1_borrower_registration_form_begin_3.star_1_borrower_registration_form_begin_3b_business_3.star_1_borrower_registration_form_begin_3b_business_1
     : '1700570064478378100736204.996'
@@ -164,6 +166,7 @@ unique_ids:
     admin.dashboard.loan_management.under_process.RowTemplate9: '1700822648257445883881327.55786'
     borrower_registration_form.star_1_borrower_registration_form_begin_3.star_1_borrower_registration_form_begin_3f: '170003767984838881190201.539795'
     lendor_registration_form.dashboard.lender_view_loans: '1703134788125365037020749.3121'
+    admin.dashboard.manage_products.view_products_and_categories: '1704167249914614596278152.911'
     admin.dashboard.lenders.RowTemplate4: '1700737487916312936831844.4892'
     admin.dashboard.admin_teams.view_profile: '1699528208717177568108194.0108'
     admin.dashboard.manage_products.add_product_categories_and_groups: '1701090290692291670903022.0623'
