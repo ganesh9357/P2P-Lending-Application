@@ -237,3 +237,4 @@ def generate_loan_id():
         new_loan_id = 'LA0001'
 
     return new_loan_id
+    app_tables.loan_details.add_row(loan_id = loan_id)
