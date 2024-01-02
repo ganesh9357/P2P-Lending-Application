@@ -141,16 +141,19 @@ class dashboard(dashboardTemplate):
   #   open_form('wallet.wallet')
   
   def wallet_dashboard_link_click(self, **event_args):
-    user_email = anvil.users.get_user(email
-    if user_email:
-        profile = app_tables.user_profile.search(email_user=user_email)
-        if profile is not None and len(profile) > 0:
-            customer_id = profile[0]['customer_id']
-            server.call('update_wallet_with_profile', customer_id)
-            notification = anvil.Notification("Fetched Data successfully!", style="success")
-            notification.show()
-            open_form('wallet.wallet')
-        else:
-            print("No user profile found for this email")
+    # Assuming there's a method to get the customer_id from the user profile
+    # Replace get_customer_id_from_profile() with your actual method
+    profile = app_tables.user_profile.get(customer_id=1000)  # You can use any identifier here
+
+    if profile is not None:
+        customer_id = profile['customer_id']  # Retrieve the customer_id from the profile
+        server.call('update_wallet_with_profile', customer_id)
+        # Notify after successful data fetch and update
+        notification = anvil.Notification("Fetched Data successfully!", style="success")
+        notification.show()
+        # Optionally, perform additional actions after updating the wallet with profile
+        open_form('wallet.wallet')
     else:
-        print("User email is None")
+        # Handle case where customer profile couldn't be retrieved
+        notification = anvil.Notification("Failed to fetch customer profile", style="error")
+        notification.show()
