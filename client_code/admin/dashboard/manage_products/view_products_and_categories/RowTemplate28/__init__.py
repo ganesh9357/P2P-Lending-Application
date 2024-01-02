@@ -17,4 +17,5 @@ class RowTemplate28(RowTemplate28Template):
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
-    pass
+    
+    open_form('admin.dashboard.manage_products.view_products_and_categories.EditDetailsForm')
