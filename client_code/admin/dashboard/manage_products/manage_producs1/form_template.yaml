@@ -204,7 +204,7 @@ components:
             border: ''
             enabled: true
             foreground: ''
-            items: [Monthly, One Time]
+            items: [Monthly, One Time, Three Month, Six Month]
             visible: true
             font_size: null
             font: ''
@@ -375,13 +375,6 @@ components:
             underline: false}
           name: text_box_3
           layout_properties: {x: 177, y: 374.796875, width: 232}
-        - type: TextArea
-          properties: {role: outlined, align: left, height: 60.8, tooltip: '', placeholder: Enter your product description,
-            border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-            auto_expand: true, font: '', spacing_above: small, spacing_below: small,
-            italic: false, background: white, bold: false, underline: false}
-          name: text_area_1
-          layout_properties: {x: 177, y: 293.359375, width: 495}
         - type: Label
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
             visible: true, text: ' Product Description', font_size: null, font: '',
@@ -403,38 +396,13 @@ components:
             bold: false, underline: false, icon: ''}
           name: label_3_copy
           layout_properties: {x: 2.03125, y: 178.6875, width: 160}
-        - type: TextBox
-          properties: {role: outlined, align: left, hide_text: false, tooltip: '',
-            placeholder: Enter product name, border: '', enabled: true, foreground: '',
-            visible: true, text: '', font_size: null, font: '', spacing_above: small,
-            type: text, spacing_below: small, italic: false, background: white, bold: false,
-            underline: false}
-          name: product_name
-          layout_properties: {x: 177, y: 107.875, width: 200.141}
-        - type: DropDown
-          properties:
-            role: outlined
-            align: full
-            tooltip: ''
-            placeholder: Enter product group
-            border: ''
-            enabled: true
-            foreground: ''
-            items: []
-            visible: true
-            font_size: null
-            font: ''
-            spacing_above: small
-            spacing_below: small
-            italic: false
-            background: white
-            bold: false
-            underline: false
-            include_placeholder: true
-          name: name
-          layout_properties: {x: 177.59325, y: 178.6875, width: 245}
-          data_bindings: []
-          event_bindings: {change: name_change}
+        - type: Label
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            visible: true, text: Product Name, font_size: null, font: '', spacing_above: small,
+            icon_align: left, spacing_below: small, italic: false, background: '',
+            bold: false, underline: false, icon: ''}
+          name: label_2
+          layout_properties: {x: 5.046875, y: 113.875, width: 160}
         - type: DropDown
           properties:
             role: outlined
@@ -456,14 +424,46 @@ components:
             underline: false
             include_placeholder: true
           name: product_category
-          layout_properties: {x: 179.71875, y: 235.390625, width: 222.422}
-        - type: Label
-          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: Product Name, font_size: null, font: '', spacing_above: small,
-            icon_align: left, spacing_below: small, italic: false, background: '',
-            bold: false, underline: false, icon: ''}
-          name: label_2
-          layout_properties: {x: 5.046875, y: 113.875, width: 160}
+          layout_properties: {x: 176, y: 240.390625, width: 222.422}
+        - type: DropDown
+          properties:
+            role: outlined
+            align: full
+            tooltip: ''
+            placeholder: Enter product group
+            border: ''
+            enabled: true
+            foreground: ''
+            items: []
+            visible: true
+            font_size: null
+            font: ''
+            spacing_above: small
+            spacing_below: small
+            italic: false
+            background: white
+            bold: false
+            underline: false
+            include_placeholder: true
+          name: name
+          layout_properties: {x: 175.046875, y: 178.6875, width: 245}
+          data_bindings: []
+          event_bindings: {change: name_change}
+        - type: TextBox
+          properties: {role: outlined, align: left, hide_text: false, tooltip: '',
+            placeholder: Enter product name, border: '', enabled: true, foreground: '',
+            visible: true, text: '', font_size: null, font: '', spacing_above: small,
+            type: text, spacing_below: small, italic: false, background: white, bold: false,
+            underline: false}
+          name: product_name
+          layout_properties: {x: 175.046875, y: 109.046875, width: 200.141}
+        - type: TextArea
+          properties: {role: outlined, align: left, height: 60.8, tooltip: '', placeholder: Enter your product description,
+            border: '', enabled: true, foreground: '', visible: true, text: Enter product description,
+            font_size: null, auto_expand: true, font: '', spacing_above: small, spacing_below: small,
+            italic: false, background: white, bold: false, underline: false}
+          name: text_area_1
+          layout_properties: {x: 177, y: 293.359375, width: 495}
 - type: FlowPanel
   properties: {}
   name: navbar_links

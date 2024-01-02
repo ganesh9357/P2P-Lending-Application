@@ -25,6 +25,7 @@ class edit_form(edit_formTemplate):
         self.product_category.items = [option['name_categories'] for option in product_group_options]
 
         self.id_list = []
+        self.product_name_lst = []
         self.name_list = []
         self.product_categorys = []
         self.discri_list = []
@@ -46,6 +47,7 @@ class edit_form(edit_formTemplate):
         for i in self.data:
             a += 1
             self.id_list.append(i['product_id'])
+            self.product_name_lst.append(i['product_name'])
             self.name_list.append(i['product_group'])
             self.discri_list.append(i['product_discription'])
             self.product_categorys.append(i['product_categories'])
@@ -69,11 +71,14 @@ class edit_form(edit_formTemplate):
             if self.id_list:
                 self.label_1.text = str(self.id_list[-1])
 
+            if self.product_name_lst:
+                self.product_name.text = self.product_name_lst[-1]
+
             if self.name_list:
                 self.name.selected_value = self.name_list[-1]
 
             if self.discri_list:
-                self.discri_list = str(self.name_list[-1])
+                self.discri_list = str(self.discri_list[-1])
 
             if self.product_categorys:
                 self.product_category.selected_value = self.product_categorys[-1]
@@ -103,6 +108,7 @@ class edit_form(edit_formTemplate):
                     self.radio_button_3.selected = True  
                     self.radio_button_4.selected = False 
                     self.text_area_1.enabled = False
+                    self.product_name.enabled = False
                     self.min_amount.enabled = False
                     self.drop_down_2.enabled = False
                     self.max_amount.enabled = False
@@ -136,6 +142,7 @@ class edit_form(edit_formTemplate):
                     self.extension_allowed.enabled = False
                     self.emi_payment.enabled = False
                     self.name.enabled = False
+                    self.product_name.enabled = False
                     self.product_category.enabled = False
                     self.text_box_3.enabled = False
                     self.text_box_4.enabled = False
@@ -207,6 +214,7 @@ class edit_form(edit_formTemplate):
                 alert("No Data Available Here")            
             else:
                 data[a]['product_group'] = self.name.selected_value
+                data[a]['product_name'] = self.product_name.text
                 data[a]['product_discription'] = self.text_area_1.text
                 data[a]['product_categories'] = self.product_category.selected_value
                 data[a]['processing_fee'] = int(self.text_box_3.text)
@@ -229,7 +237,5 @@ class edit_form(edit_formTemplate):
         """This method is called when the link is clicked"""
         open_form('admin.dashboard.manage_products.view_product')
 
-    def radio_button_2_clicked(self, **event_args):
-      """This method is called when this radio button is selected"""
-      pass
+    
 

@@ -20,8 +20,9 @@ import anvil.server
 #   return 42
 
 @anvil.server.callable
-def product_details(product_id, product_group,product_discription, product_categories,processing_fee,  extension_fee, membership_type, interest_type, max_amount, min_amount, min_tenure, max_tenure, roi, foreclose_type, extension_allowed, emi_payment, discount_coupons):
+def product_details(product_id, product_name, product_group,product_discription, product_categories,processing_fee,  extension_fee, membership_type, interest_type, max_amount, min_amount, min_tenure, max_tenure, roi, foreclose_type, extension_allowed, emi_payment, discount_coupons):
   row = app_tables.product_details.add_row(product_id=product_id,
+                                           product_name = product_name,
                                            product_group=product_group,
                                            product_discription = product_discription,
                                            product_categories = product_categories,
