@@ -57,7 +57,8 @@ class check_out_form(check_out_formTemplate):
       tenure = self.label_6.text
       interest_rate = self.roi
       total_repayment_amount = self.Total_Repayment_Amount
-      open_form('bank_users.borrower_dashboard.choose_lender')
+      monthly_emi = self.label_14.text
+      open_form('bank_users.borrower_dashboard.choose_lender',)
 
   def button_1_click(self, **event_args):
         """This method is called when the button is clicked"""
