@@ -12,17 +12,10 @@ class view_products_and_categories(view_products_and_categoriesTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.refresh_data_button_click()
+    self.repeating_panel_1.items = app_tables.product_categories.search()
 
-    # Any code you write here will run before the form opens.
-  def refresh_data_button_click(self, **event_args):
-        # Fetch data directly from the database
-        categories = app_tables.product_categories.search()
-        
-        # Clear existing items in the repeating panel
-        self.repeating_panel_1.items = []
-        
-        # Populate the repeating panel with fetched data
-        for category in categories:
-            self.repeating_panel_1.add_component(ui.Label(text=category['name_group']), 
-                                                ui.Label(text=category['name_categories']))
+  def link_1_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('admin.dashboard')
+
+  
