@@ -1,0 +1,15 @@
+container: {type: DataRowPanel}
+components:
+- type: Label
+  properties: {}
+  name: label_1
+  layout_properties: {column: DAXAQF}
+  data_bindings:
+  - {property: text, code: 'self.item[''name_group'']'}
+- type: Label
+  properties: {}
+  name: label_2
+  layout_properties: {column: NYOBWY}
+  data_bindings:
+  - {property: text, code: 'self.item[''name_categories'']'}
+is_package: true
