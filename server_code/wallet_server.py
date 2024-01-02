@@ -66,8 +66,12 @@ def generate_account_id(email):
 
 @anvil.server.callable
 def deposit_money(email, deposit_amount):
+    if not isinstance(email, str):
+        # Convert the email to a string if it's not already
+        email = str(email)
+    
     # Fetch customer_id using email from user_profile table
-    user_profile = app_tables.user_profile.get(user_email=email)
+    user_profile = app_tables.user_profile.get(email_user=email)
     if user_profile is not None:
         customer_id = user_profile['customer_id']
     else:
