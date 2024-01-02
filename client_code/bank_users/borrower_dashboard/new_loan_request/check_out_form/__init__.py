@@ -16,6 +16,7 @@ class check_out_form(check_out_formTemplate):
         self.userId = user_id
         self.loan_amount = loan_amount
         self.tenure = tenure
+        # self.loan_id = loan_id
         self.Total_Repayment_Amount = 0 
         
     
@@ -32,6 +33,7 @@ class check_out_form(check_out_formTemplate):
         if user_request:
             self.roi = user_request['roi']
             self.processing_fee = user_request['processing_fee']
+            self.membership_type = user_request['membership_type']
         self.label_2.text = f"₹ {self.loan_amount}"
         self.label_6.text = self.tenure
         self.label_4.text = f"{self.roi}%"
@@ -51,17 +53,75 @@ class check_out_form(check_out_formTemplate):
         self.rich_text_1.content = f"Here is a summary of the details of the {self.prodct_cate}. "
 
   # choose lender
-  def submit_click(self, **event_args):
-      user_id = self.userId
-      loan_amount = self.label_2.text
-      tenure = self.label_6.text
-      interest_rate = self.roi
-      total_repayment_amount = self.Total_Repayment_Amount
-      open_form('bank_users.borrower_dashboard.choose_lender')
 
   def button_1_click(self, **event_args):
-        """This method is called when the button is clicked"""
-        open_form('bank_users.borrower_dashboard.new_loan_request')
+    """This method is called when the button is clicked"""
+    open_form('bank_users.borrower_dashboard.new_loan_request')
+
+
+  def submit_click(self, **event_args):
+    user_id = self.userId
+    loan_amount = self.label_2.text
+    tenure = self.label_6.text
+    interest_rate = self.roi
+    total_repayment_amount = self.Total_Repayment_Amount
+    monthly_emi = self.label_14.text
+    membership_type = self.membership_type
+    processing_fee = self.processing_fee
+    processing_fee_amount = self.label_16.text
+    
+    # data = app_tables.loan_details.search()
+    # if data:
+    #   last_loan_id = data[0]['loan_id']
+    # else:
+    #   last_loan_id = 'LA1000'
+    new_loan_id = anvil.server.call('generate_loan_id')
+    loan_id=new_loan_id
+    # app_tables.loan_details.add_row(loan_id = loan_id)
+    # anvil.server.call('add_loan_details',loan_id)
+    borrower_customer_id=user_id
+    loan_amount=loan_amount
+    tenure=tenure
+    interest_rate=interest_rate
+    total_repayment_amount=total_repayment_amount
+    monthly_emi=monthly_emi
+    membership_type=membership_type
+    processing_fee=processing_fee
+    processing_fee_amount=processing_fee_amount
+    
+    open_form('bank_users.borrower_dashboard.choose_lender', loan_id, user_id, loan_amount, tenure, interest_rate, total_repayment_amount, monthly_emi, membership_type,processing_fee,processing_fee_amount)
+
+  # def submit_click(self, **event_args):
+  #     user_id = self.userId
+  #     loan_amount = self.label_2.text
+  #     tenure = self.label_6.text
+  #     interest_rate = self.roi
+  #     total_repayment_amount = self.Total_Repayment_Amount
+  #     monthly_emi = self.label_14.text
+  #     membership_type = self.membership_type
+  #     processing_fee = self.processing_fee
+  #     processing_fee_amount = self.label_16.text
+  #     self.id = 'LA' + str(1000)  
+  #     self.loan_id = self.id
+  #     self.data = tables.app_tables.loan_details.search()
+
+  #     a = -1
+  #     self.list_1 = []
+
+  #     for i in self.data:
+  #           a += 1
+  #           self.list_1.append(i['loan_id']) 
+  #     if a == -1:
+  #           self.id = 'LA' + str(1000)
+  #           self.loan_id = self.id
+  #     else:
+  #           last_loan_id = self.list_1[-1]
+  #           numeric_part = last_loan_id[2:]
+  #           self.id = 'LA' + str(int(numeric_part) + 1)
+  #           self.loan_id = self.id
+  #     loan_id = self.loan_id
+  #     open_form('bank_users.borrower_dashboard.choose_lender',self.userId,self.label_2.text,self.label_6.text,self.roi,self.Total_Repayment_Amount,self.label_14.text,self.membership_type,self.processing_fee,self.label_16.text)
+
 
   def button_2_click(self, **event_args):
         """This method is called when the button is clicked"""
