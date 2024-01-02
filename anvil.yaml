@@ -396,27 +396,6 @@ db_schema:
     - name: user_email
       admin_ui: {order: 3, width: 200}
       type: string
-    - name: e_wallet
-      admin_ui: {order: 6, width: 212}
-      type: number
-    - name: account_name
-      admin_ui: {order: 3.125, width: 200}
-      type: string
-    - name: bank_name
-      admin_ui: {order: 3.25, width: 200}
-      type: string
-    - name: branch_name
-      admin_ui: {width: 200, order: 4.8125}
-      type: string
-    - name: ifsc_code
-      admin_ui: {width: 200, order: 5.40625}
-      type: string
-    - name: transaction_type
-      admin_ui: {width: 200, order: 5.703125}
-      type: string
-    - name: account_number
-      admin_ui: {width: 200, order: 3.1875}
-      type: string
     - name: user_type
       admin_ui: {width: 200, order: 11}
       type: string
@@ -427,6 +406,24 @@ db_schema:
     columns:
     - name: transaction_id
       admin_ui: {width: 200}
+      type: string
+    - name: customer_id
+      admin_ui: {width: 200, order: 1}
+      type: number
+    - name: wallet_id
+      admin_ui: {width: 200, order: 2}
+      type: string
+    - name: transaction_type
+      admin_ui: {width: 200, order: 3}
+      type: string
+    - name: amount
+      admin_ui: {width: 200, order: 4}
+      type: number
+    - name: transaction_time_stamp
+      admin_ui: {width: 200, order: 5}
+      type: datetime
+    - name: description
+      admin_ui: {width: 200, order: 6}
       type: string
     title: 'wallet_transactions '
   user_issues_bugreports:
@@ -659,6 +656,32 @@ db_schema:
     - name: lender_accepted_timestamp
       admin_ui: {width: 200, order: 12}
       type: date
+  wallet_bank_account_table:
+    client: none
+    server: full
+    columns:
+    - name: account_id
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: wallet_id
+      admin_ui: {width: 200, order: 1}
+      type: string
+    - name: bank_name
+      admin_ui: {width: 200, order: 2}
+      type: string
+    - name: account_number
+      admin_ui: {width: 200, order: 3}
+      type: number
+    - name: branch_name
+      admin_ui: {width: 200, order: 4}
+      type: string
+    - name: ifsc_code
+      admin_ui: {width: 200, order: 5}
+      type: string
+    - name: account_type
+      admin_ui: {width: 200, order: 6}
+      type: string
+    title: wallet_bank_account_table
   borrower:
     title: borrower
     client: full
