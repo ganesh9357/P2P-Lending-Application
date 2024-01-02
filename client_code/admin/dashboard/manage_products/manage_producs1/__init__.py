@@ -85,9 +85,10 @@ class manage_producs1(manage_producs1Template):
         max_tenure = int(self.max_tenure.text)
         roi = int(self.text_box_5.text)
         foreclose_type = self.foreclose_type.selected_value
+        foreclosure_fee = int(self.foreclosure_fee.text)
         foreclosure_eligible = (foreclose_type == 'Eligible')
         if foreclosure_eligible:
-            extension_fee += (extension_fee * 0.03)      
+            processing_fee += (processing_fee * 0.03)      
         # extension_allowed_mapping = {'Yes': True, 'No': False}
         # extension_allowed = extension_allowed_mapping.get(self.extension_allowed.selected_value, False)
         extension_allowed = self.extension_allowed.selected_value
@@ -105,7 +106,7 @@ class manage_producs1(manage_producs1Template):
         if product_group == ""  or product_name == "" or product_categories== "" or membership_type == "" or processing_fee == "" or extension_fee == "" or interest_type == "" or max_amount == "" or min_amount == "" or min_tenure == "" or max_tenure == "" or roi == "" or emi_payment == "" or discount_coupons == "":
             Notification("Fill All Required Details").show()
         else:
-            anvil.server.call('product_details', self.id, product_group, product_name, product_discription, product_categories, processing_fee, extension_fee, membership_type, interest_type, max_amount, min_amount, min_tenure, max_tenure, roi, foreclose_type, extension_allowed, emi_payment, discount_coupons)
+            anvil.server.call('product_details', self.id, product_group, product_name, product_discription, product_categories, processing_fee, extension_fee, membership_type, interest_type, max_amount, min_amount, min_tenure, max_tenure, roi, foreclose_type, foreclosure_fee, extension_allowed, emi_payment, discount_coupons)
             product_id = self.label_1.text
             # open_form('admin.dashboard.manage_products.add_group',product_id )
 

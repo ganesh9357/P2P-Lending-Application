@@ -5,7 +5,7 @@ components:
   name: label_2
   layout_properties: {column: ZEMFJV}
   data_bindings:
-  - {property: text, code: 'self.item[''product_name'']'}
+  - {property: text, code: 'self.item[''product_group'']'}
 - type: Label
   properties: {}
   name: label_3
@@ -31,10 +31,4 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''product_id'']'}
   event_bindings: {click: link_1_click}
-- type: Label
-  properties: {}
-  name: label_1
-  layout_properties: {column: VAWGFF}
-  data_bindings:
-  - {property: text, code: 'self.item[''product_group'']'}
 is_package: true
