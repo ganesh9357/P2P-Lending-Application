@@ -15,7 +15,17 @@ class RowTemplate28(RowTemplate28Template):
 
     # Any code you write here will run before the form opens.
 
-  def link_1_click(self, **event_args):
-    """This method is called when the link is clicked"""
+  # def link_1_click(self, **event_args):
+  #   """This method is called when the link is clicked"""
     
-    open_form('admin.dashboard.manage_products.view_products_and_categories.EditDetailsForm')
+  #   open_form('admin.dashboard.manage_products.view_products_and_categories.EditDetailsForm')
+
+  def link_1_click(self, **event_args):
+        """This method is called when the link is clicked"""
+        # Assuming you have access to the necessary data in this class
+        selected_group = self.item['name_group']
+        selected_category = self.item['name_categories']
+
+        # Create a new instance of the EditDetailsForm and show it
+        edit_form = EditDetailsForm(selected_group, selected_category)
+        edit_form.show()
