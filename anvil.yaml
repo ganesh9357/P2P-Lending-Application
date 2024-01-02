@@ -415,41 +415,6 @@ db_schema:
       admin_ui: {width: 200, order: 16}
       type: string
     title: wallet
-  wallet_transactions_:
-    client: full
-    server: full
-    columns:
-    - name: transaction_id
-      admin_ui: {width: 200}
-      type: string
-    - name: customer_id
-      admin_ui: {width: 200, order: 1}
-      type: number
-    - name: wallet_id
-      admin_ui: {width: 200, order: 2}
-      type: string
-    - name: transaction_type
-      admin_ui: {width: 200, order: 3}
-      type: string
-    - name: amount
-      admin_ui: {width: 200, order: 4}
-      type: number
-    - name: transaction_time_stamp
-      admin_ui: {width: 200, order: 5}
-      type: datetime
-    - name: description
-      admin_ui: {width: 200, order: 6}
-      type: string
-    - name: user_email
-      admin_ui: {width: 200, order: 0.5}
-      type: string
-    - name: status
-      admin_ui: {width: 200, order: 5.5}
-      type: string
-    - name: gate_way_type
-      admin_ui: {width: 200, order: 7}
-      type: string
-    title: 'wallet_transactions '
   user_issues_bugreports:
     title: user_issues_bugreports
     client: full
@@ -639,6 +604,41 @@ db_schema:
       admin_ui: {order: 1.5, width: 200}
       type: string
     title: Users
+  wallet_transactions:
+    client: full
+    server: full
+    columns:
+    - name: transaction_id
+      admin_ui: {width: 200}
+      type: string
+    - name: customer_id
+      admin_ui: {width: 200, order: 1}
+      type: number
+    - name: wallet_id
+      admin_ui: {width: 200, order: 2}
+      type: string
+    - name: transaction_type
+      admin_ui: {width: 200, order: 3}
+      type: string
+    - name: amount
+      admin_ui: {width: 200, order: 4}
+      type: number
+    - name: transaction_time_stamp
+      admin_ui: {width: 200, order: 5}
+      type: datetime
+    - name: description
+      admin_ui: {width: 200, order: 6}
+      type: string
+    - name: user_email
+      admin_ui: {width: 200, order: 0.5}
+      type: string
+    - name: status
+      admin_ui: {width: 200, order: 5.5}
+      type: string
+    - name: gate_way_type
+      admin_ui: {width: 200, order: 7}
+      type: string
+    title: wallet_transactions
   lender:
     title: lender
     client: full
