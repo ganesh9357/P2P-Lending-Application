@@ -417,6 +417,9 @@ db_schema:
     - name: account_number
       admin_ui: {width: 200, order: 3.1875}
       type: string
+    - name: user_type
+      admin_ui: {width: 200, order: 11}
+      type: string
     title: wallet
   wallet_transactions_:
     client: full

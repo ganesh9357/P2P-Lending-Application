@@ -303,6 +303,7 @@ def update_wallet_with_profile(customer_id):
                 branch_name=profile['account_bank_branch'],  
                 ifsc_code=profile['ifsc_code']
             )
+            print("Data added to wallet table successfully.")
         else:
             print(f"No profile data found for customer_id: {customer_id}")
     except Exception as e:
