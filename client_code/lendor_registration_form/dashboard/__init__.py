@@ -22,6 +22,7 @@ class dashboard(dashboardTemplate):
     self.init_components(**properties)
    
     self.email = main_form_module.email
+    print(self.email)
     # Any code you write here will run before the form opens.
 
 

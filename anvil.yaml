@@ -14,7 +14,7 @@ services:
 - source: /runtime/services/anvil/email.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: lendor_registration_form.dashboard}
+startup: {type: form, module: bank_users.main_form}
 package_name: bank_client
 allow_embedding: false
 name: P2P Lending App
@@ -402,8 +402,8 @@ db_schema:
     - name: opening_balance
       admin_ui: {width: 200, order: 13}
       type: number
-    - name: loan_amount
-      admin_ui: {width: 200, order: 12}
+    - name: loan_earning
+      admin_ui: {order: 12, width: 200}
       type: number
     - name: wallet_amount
       admin_ui: {width: 200, order: 14}

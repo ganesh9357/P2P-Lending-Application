@@ -265,26 +265,26 @@ def get_user_data(user_id):
         return None
 
 
-# code for wallet
+# # code for wallet
 
-@anvil.server.callable
-def generate_wallet_id(email):
-    user = app_tables.user_profile.get(email_user=email)
-    if user:
-        # Generate wallet_id in the format WA0001
-        wallets_for_user = app_tables.wallet.search(email_user=email)
-        wallet_count = len(wallets_for_user) + 1
-        wallet_id = f"WA{wallet_count:04d}"
+# @anvil.server.callable
+# def generate_wallet_id(email):
+#     user = app_tables.user_profile.get(user_email=email)
+#     if user:
+#         # Generate wallet_id in the format WA0001
+#         wallets_for_user = app_tables.wallet.search(user_email=email)
+#         wallet_count = len(wallets_for_user) + 1
+#         wallet_id = f"WA{wallet_count:04d}"
         
-        # Store wallet_id in the wallet table
-        app_tables.wallet.add_row(
-            email_user=email,
-            wallet_id=wallet_id
-        )
+#         # Store wallet_id in the wallet table
+#         app_tables.wallet.add_row(
+#             user_email=email,
+#             wallet_id=wallet_id
+#         )
         
-        return wallet_id
-    else:
-        return None
+#         return wallet_id
+#     else:
+#         return None
     
 # @anvil.server.callable
 # def update_wallet_with_profile(customer_id):
@@ -317,40 +317,40 @@ def generate_wallet_id(email):
 
 
 
-@anvil.server.callable
-def deposit_money(customer_id, deposit_amount):
-    transactions_rows = app_tables.wallet_transactions.search(customer_id=customer_id)
+# @anvil.server.callable
+# def deposit_money(customer_id, deposit_amount):
+#     transactions_rows = app_tables.wallet_transactions.search(customer_id=customer_id)
     
-    if len(transactions_rows) > 0:
-        transactions_row = transactions_rows[0]  # Update the first row found
+#     if len(transactions_rows) > 0:
+#         transactions_row = transactions_rows[0]  # Update the first row found
         
-        if transactions_row['amount'] is None:
-            transactions_row['amount'] = 0  
+#         if transactions_row['amount'] is None:
+#             transactions_row['amount'] = 0  
         
-        transactions_row['amount'] += deposit_amount  # Increase e_wallet balance
-        transactions_row['transaction_type'] = 'Deposit'  # Set transaction_type to Deposit
-        transactions_row.update()  # Update the row
-        return True  # Deposit successful
-    else:
-        print(f"No rows found for customer_id: {customer_id}")
-        return False  # Deposit unsuccessful
+#         transactions_row['amount'] += deposit_amount  # Increase e_wallet balance
+#         transactions_row['transaction_type'] = 'Deposit'  # Set transaction_type to Deposit
+#         transactions_row.update()  # Update the row
+#         return True  # Deposit successful
+#     else:
+#         print(f"No rows found for customer_id: {customer_id}")
+#         return False  # Deposit unsuccessful
 
-@anvil.server.callable
-def withdraw_money(customer_id, withdraw_amount):
-    transactions_rows = app_tables.wallet_transactions.search(customer_id=customer_id)
+# @anvil.server.callable
+# def withdraw_money(customer_id, withdraw_amount):
+#     transactions_rows = app_tables.wallet_transactions.search(customer_id=customer_id)
     
-    if len(transactions_rows) > 0:
-        transactions_row = transactions_rows[0]  # Update the first row found
+#     if len(transactions_rows) > 0:
+#         transactions_row = transactions_rows[0]  # Update the first row found
         
-        # Check if there's enough balance for withdrawal
-        if transactions_row['amount'] >= withdraw_amount:
-            transactions_row['amount'] -= withdraw_amount  # Decrease e_wallet balance
-            transactions_row['transaction_type'] = 'Withdraw'  # Set transaction_type to Withdraw
-            transactions_row.update()  # Update the row
-            return True  # Withdrawal successful
-        else:
-            print("Insufficient balance for withdrawal")
-            return False  # Insufficient balance for withdrawal
-    else:
-        print(f"No rows found for customer_id: {customer_id}")
-        return False  # Withdrawal unsuccessful
+#         # Check if there's enough balance for withdrawal
+#         if transactions_row['amount'] >= withdraw_amount:
+#             transactions_row['amount'] -= withdraw_amount  # Decrease e_wallet balance
+#             transactions_row['transaction_type'] = 'Withdraw'  # Set transaction_type to Withdraw
+#             transactions_row.update()  # Update the row
+#             return True  # Withdrawal successful
+#         else:
+#             print("Insufficient balance for withdrawal")
+#             return False  # Insufficient balance for withdrawal
+#     else:
+#         print(f"No rows found for customer_id: {customer_id}")
+#         return False  # Withdrawal unsuccessful
