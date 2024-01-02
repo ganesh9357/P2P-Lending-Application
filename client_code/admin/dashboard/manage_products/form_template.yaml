@@ -68,7 +68,7 @@ components:
       event_bindings: {click: link_3_click}
     - type: Link
       properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '#0876E8',
-        visible: true, text: ADD CATEGORIES & PRODUCT GROUPS, font_size: null, wrap_on: mobile,
+        visible: true, text: ADD PRODUCT  & CATEGORIES, font_size: null, wrap_on: mobile,
         font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
         spacing_below: small, italic: false, background: '', bold: false, underline: false,
         icon: ''}

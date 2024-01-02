@@ -25,6 +25,7 @@ class edit_form(edit_formTemplate):
         self.product_category.items = [option['name_categories'] for option in product_group_options]
 
         self.id_list = []
+        self.product_name_lst = []
         self.name_list = []
         self.product_categorys = []
         self.discri_list = []
@@ -46,7 +47,8 @@ class edit_form(edit_formTemplate):
         for i in self.data:
             a += 1
             self.id_list.append(i['product_id'])
-            self.name_list.append(i['product_name'])
+            self.product_name_lst.append(i['product_name'])
+            self.name_list.append(i['product_group'])
             self.discri_list.append(i['product_discription'])
             self.product_categorys.append(i['product_categories'])
             self.profee_list.append(i['processing_fee'])
@@ -69,11 +71,14 @@ class edit_form(edit_formTemplate):
             if self.id_list:
                 self.label_1.text = str(self.id_list[-1])
 
+            if self.product_name_lst:
+                self.product_name.text = self.product_name_lst[-1]
+
             if self.name_list:
                 self.name.selected_value = self.name_list[-1]
 
             if self.discri_list:
-                self.discri_list = str(self.name_list[-1])
+                self.discri_list = str(self.discri_list[-1])
 
             if self.product_categorys:
                 self.product_category.selected_value = self.product_categorys[-1]
@@ -85,10 +90,10 @@ class edit_form(edit_formTemplate):
                 self.text_box_4.text = str(self.extfee_list[-1])
 
             if self.foreclosure_type_list:
-                self.foreclose_type.text = self.foreclosure_type_list[-1]
+                self.foreclose_type.selected_value = self.foreclosure_type_list[-1]
 
             if self.extension_allowed_list:
-                self.extension_allowed.text = str(self.extension_allowed_list[-1])  # or .selected_value?
+                self.extension_allowed.selected_value = str(self.extension_allowed_list[-1])  # or .selected_value?
 
             if self.type_list:
                 self.drop_down_2.selected_value = self.type_list[-1]
@@ -98,7 +103,14 @@ class edit_form(edit_formTemplate):
                 if selected_interest_type == "Fixed":
                     self.radio_button_1.selected = True
                     self.radio_button_2.selected = False
+                    self.radio_button_3.enabled = False
+                    self.radio_button_4.enabled = False
+                    self.radio_button_3.selected = True  
+                    self.radio_button_4.selected = False 
+                    self.text_area_1.enabled = False
+                    self.product_name.enabled = False
                     self.min_amount.enabled = False
+                    self.drop_down_2.enabled = False
                     self.max_amount.enabled = False
                     self.min_tenure.enabled = False
                     self.max_tenure.enabled = False
@@ -106,12 +118,45 @@ class edit_form(edit_formTemplate):
                     self.foreclose_type.enabled = False
                     self.extension_allowed.enabled = False
                     self.emi_payment.enabled = False
+                    self.name.enabled = False
+                    self.product_category.enabled = False
+                    self.text_box_3.enabled = False
+                    self.text_box_4.enabled = False
+                    self.check_box_1.enabled = False
+                    self.check_box_2.enabled = False
+                    self.radio_button_3.selected = False
+                    self.radio_button_4.selected = False
                 else:
                     self.radio_button_1.selected = False
                     self.radio_button_2.selected = True
+                    self.radio_button_3.enabled = False
+                    self.radio_button_4.enabled = False
+                    self.text_area_1.enabled = False
+                    self.min_amount.enabled = False
+                    self.roi.enabled = True
+                    self.drop_down_2.enabled = False
+                    self.max_amount.enabled = False
+                    self.min_tenure.enabled = False
+                    self.max_tenure.enabled = False
+                    self.foreclose_type.enabled = False
+                    self.extension_allowed.enabled = False
+                    self.emi_payment.enabled = False
+                    self.name.enabled = False
+                    self.product_name.enabled = False
+                    self.product_category.enabled = False
+                    self.text_box_3.enabled = False
+                    self.text_box_4.enabled = False
+                    self.check_box_1.enabled = False
+                    self.check_box_2.enabled = False
+                    self.radio_button_3.selected = False
+                    self.radio_button_4.selected = False
             else:
+                # Assuming "Variable" when intr_type is not available
                 self.radio_button_1.selected = False
                 self.radio_button_2.selected = False
+                self.radio_button_3.enabled = False
+                self.radio_button_4.enabled = False
+
 
             if self.roi_list:
                 self.roi.text = str(self.roi_list[-1])
@@ -129,7 +174,7 @@ class edit_form(edit_formTemplate):
                 self.max_tenure.text = str(self.max_tenure_list[-1])
 
             if self.emi_payment_list:
-                self.emi_payment.text = str(self.emi_payment_list[-1])
+                self.emi_payment.selected_value = str(self.emi_payment_list[-1])
 
             if self.disc_coupans_list:
                 if self.disc_coupans_list[-1] == "Yes":
@@ -155,7 +200,7 @@ class edit_form(edit_formTemplate):
             or self.min_tenure.text == ""
             or self.max_tenure.text == ""
             or self.roi.text == ""
-            or self.emi_payment.text == ""
+            or self.emi_payment.selected_value == ""
             or self.radio_button_3.text == ""
         ):
             Notification("Fill All Required Details").show()
@@ -166,41 +211,31 @@ class edit_form(edit_formTemplate):
                 a += 1
 
             if a == -1:
-                alert("No Data Available Here")
+                alert("No Data Available Here")            
             else:
-                if self.intr_type[-1] == "Fixed":
-                    self.min_amount.enabled = False
-                    self.max_amount.enabled = False
-                    self.min_tenure.enabled = False
-                    self.max_tenure.enabled = False
-                    self.roi.enabled = False
-                    self.foreclose_type.enabled = False
-                    self.extension_allowed.enabled = False
-                    self.emi_payment.enabled = False
-                    self.text_box_3.enabled = False
-                    self.text_box_4.enabled = False
-                    self.radio_button_3.enabled = False
-                else:
-                    data[a]['product_name'] = self.name.selected_value
-                    data[a]['product_discription'] = self.text_area_1.text
-                    data[a]['product_categories'] = self.product_category.selected_value
-                    data[a]['processing_fee'] = int(self.text_box_3.text)
-                    data[a]['extension_fee'] = int(self.text_box_4.text)
-                    data[a]['membership_type'] = self.drop_down_2.selected_value
-                    data[a]['interest_type'] = self.radio_button_1.text
-                    data[a]['min_amount'] = int(self.min_amount.text)
-                    data[a]['max_amount'] = int(self.max_amount.text)
-                    data[a]['min_tenure'] = int(self.min_tenure.text)
-                    data[a]['max_tenure'] = int(self.max_tenure.text)
-                    data[a]['roi'] = int(self.roi.text)
-                    data[a]['foreclose_type'] = self.foreclose_type.selected_value
-                    extension_allowed_mapping = {'Yes': True, 'No': False}
-                    data[a]['extension_allowed'] = extension_allowed_mapping.get(self.extension_allowed.text, False)
-                    data[a]['emi_payment'] = self.emi_payment.selected_value
-                    data[a]['discount_coupons'] = self.radio_button_3.text
+                data[a]['product_group'] = self.name.selected_value
+                data[a]['product_name'] = self.product_name.text
+                data[a]['product_discription'] = self.text_area_1.text
+                data[a]['product_categories'] = self.product_category.selected_value
+                data[a]['processing_fee'] = int(self.text_box_3.text)
+                data[a]['extension_fee'] = int(self.text_box_4.text)
+                data[a]['membership_type'] = self.drop_down_2.selected_value
+                data[a]['interest_type'] = self.radio_button_1.text if self.radio_button_1.selected else self.radio_button_2.text
+                data[a]['min_amount'] = int(self.min_amount.text)
+                data[a]['max_amount'] = int(self.max_amount.text)
+                data[a]['min_tenure'] = int(self.min_tenure.text)
+                data[a]['max_tenure'] = int(self.max_tenure.text)
+                data[a]['roi'] = int(self.roi.text)
+                data[a]['foreclose_type'] = self.foreclose_type.selected_value
+                data[a]['extension_allowed'] = self.extension_allowed.selected_value
+                data[a]['emi_payment'] = self.emi_payment.selected_value
+                data[a]['discount_coupons'] = "Yes" if self.radio_button_3.selected else "No"
 
-                    Notification("Product details updated successfully").show()
+                Notification("Product details updated successfully").show()
 
     def link_1_copy_click(self, **event_args):
         """This method is called when the link is clicked"""
         open_form('admin.dashboard.manage_products.view_product')
+
+    
+
