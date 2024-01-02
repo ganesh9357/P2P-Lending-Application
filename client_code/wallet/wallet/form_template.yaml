@@ -275,4 +275,5 @@ components:
       visible: false}
     type: Button
     layout_properties: {grid_position: 'DBHFBZ,FDFRMO', row_background: '#0876E8'}
+    event_bindings: {click: withdraw_money_btn_click}
 is_package: true

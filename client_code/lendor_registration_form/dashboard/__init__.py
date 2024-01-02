@@ -9,18 +9,22 @@ from anvil.google.drive import app_files
 import anvil.users
 from anvil.tables import app_tables
 from anvil import open_form, server
+from anvil import server
 #from anvil import get_current_user
-# from bank_users.dashboard import main_form_module
+# from ....bank_users.main_form import main_form_module
+from ...bank_users.main_form import main_form_module
+
 
 
 class dashboard(dashboardTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    
+   
+    self.email = main_form_module.email
+    print(self.email)
     # Any code you write here will run before the form opens.
 
-  
 
   def button_3_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -132,122 +136,45 @@ class dashboard(dashboardTemplate):
     """This method is called when the link is clicked"""
     open_form('lendor_registration_form.dashboard.notification')
 
+  # def wallet_dashboard_link_click(self, **event_args):
+  #   """This method is called when the link is clicked"""
+  #   open_form('wallet.wallet')
+
   def wallet_dashboard_link_click(self, **event_args):
-    """This method is called when the link is clicked""" 
-  
+    user_profiles = server.call('fetch_user_profiles')
+    
+    for profile in user_profiles:
+        result = server.call(
+            'create_wallet_entry',
+            profile['email_user'],
+            profile['customer_id'],
+            profile['full_name'],
+            profile['usertype']
+        )
+        
+        print(result)
+    
     open_form('wallet.wallet')
-    
-    # # Fetching data from user_profile table
-    # user_profiles = app_tables.user_profile.search()  # Fetch all records from user_profile table
-
-    # # Mapping and inserting data into the wallet table
-    # for profile in user_profiles:
-    #     wallet_row = app_tables.wallet.add_row(
-    #         lender_email=profile['email_user'],
-    #         lender_customer_id=profile['customer_id'],
-    #         lender_full_name=profile['full_name']
-    #     )
-
-    # # Display a success message
-    # notification = anvil.Notification("Data copied to wallet successfully!", style="success")
-    # notification.show()
-
-
-  # def generate_new_wallet_id(self):
-  #   # Fetch the existing wallet IDs from the 'wallet' table
-  #   existing_wallets = app_tables.wallet.search()
-    
-  #   if len(existing_wallets) == 0:
-  #       # If no wallets exist, start with 'WA001'
-  #       return 'WA001'
-  #   else:
-  #       # Get the last wallet ID, extract the numeric part, and increment it
-  #       last_wallet_id = existing_wallets[-1]['wallet_id']
-  #       numeric_part = int(last_wallet_id[2:]) + 1
-  #       new_wallet_id = f'WA{numeric_part:03d}'  # Format the numeric part to have leading zeros if necessary
-  #       return new_wallet_id
   
   # def wallet_dashboard_link_click(self, **event_args):
-  #       new_wallet_id = self.generate_new_wallet_id()
-
-  #       user_id = self.user_id
-
-  #        # Store the new wallet ID in the 'wallet' table
-  #       app_tables.wallet.add_row(wallet_id=new_wallet_id, lender_customer_id=user_id)
-  #       anvil.server.call('add_wallet', user_id, new_wallet_id)
-        
-        
-    
-  #       # anvil.server.call('add_wallet',wallet_id)
-  #       self.data = tables.app_tables.wallet.search()
-    
-  #       self.id = 'WA' + str(1000)  
-       
-  #       a = -1
-  #       self.list_1 = []
-
-  #       for i in self.data:
-  #           a += 1
-  #           self.list_1.append(i['wallet_id']) 
-  #       if a == -1:
-  #           self.id = 'WA' + str(1000)
-  #           user_id = self.user_id
-  #           wallet_id = self.id
-  #           anvil.server.call('add_wallet',wallet_id)
-  #           # self.wallet_dashboard_link.text = self.id
-  #       else:
-  #           last_wallet_id = self.list_1[-1]
-  #           numeric_part = last_wallet_id[2:] 
-  #           self.id = 'WA' + str(int(numeric_part) + 1)
-  #           user_id = self.user_id
-  #           wallet_id = self.id
-  #           anvil.server.call('add_wallet',wallet_id)
-  #           # self.wallet_dashboard_link.text = self.id
-      
-
-    
-  #   Fetch user details from user_profile database
-  #   user_details = server.call('get_user_details', email_user)
-
-    
-  #   if user_details:
-  #       # Extract required details
-  #       email_user = user_details['user_email']
-  #       customer_id = user_details['customer_id']
-  #       full_name = user_details['full_name']
-
-  #       # Open wallet form
-  #       open_form('wallet.wallet')
-
-  #       # Pass user details to server for wallet creation
-  #       server.call('create_wallet', user_email, customer_id, full_name)
-
-  # def wallet_dashboard_link_click(self, **event_args):
-  #   # Fetch user details from user_profile database
-  #   user_details = server.call('get_user_details')  
-    
-  #   if user_details:
-  #       # Extract required details
-  #       email_user = user_details['user_email']
-  #       customer_id = user_details['customer_id']
-  #       full_name = user_details['full_name']
-
-  #       # Open wallet form
-  #       open_form('wallet.wallet')
-        
-  #       # Pass user details to server for wallet creation
-  #       server.call('create_wallet', user_email, customer_id, full_name)
-
- 
-
-
-
-
-
-
-    
-
+  #   customer_id = 1000  
+  #   server.call('update_wallet_with_profile', customer_id)
+  #   # Notify after successful data fetch and update
+  #   notification = anvil.Notification("Fetched Data successfully!", style="success")
+  #   notification.show()
+  #   # Optionally, perform additional actions after updating the wallet with profile
+  #   open_form('wallet.wallet')
+  
   
 
+  def button_wallet_dashboard_link_click(self, **event_args):
+    # Call server function to generate wallet_id and store in the wallet table
+    wallet_id = server.call('generate_wallet_id', self.email)
+    if wallet_id:
+        # Handle successful generation and display wallet_id
+        open_form('wallet_dashboard_form', wallet_id=wallet_id)
+    else:
+        # Handle case where user doesn't exist
+        print("User does not exist.")
 
-  
+

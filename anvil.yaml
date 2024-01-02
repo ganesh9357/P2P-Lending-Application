@@ -394,28 +394,25 @@ db_schema:
       admin_ui: {order: -1, width: 200}
       type: string
     - name: user_email
-      admin_ui: {order: 3, width: 200}
+      admin_ui: {order: 0.5, width: 200}
       type: string
-    - name: e_wallet
-      admin_ui: {order: 6, width: 212}
+    - name: user_type
+      admin_ui: {width: 200, order: 11}
+      type: string
+    - name: opening_balance
+      admin_ui: {width: 200, order: 13}
       type: number
-    - name: account_name
-      admin_ui: {order: 3.125, width: 200}
+    - name: loan_earning
+      admin_ui: {order: 12, width: 200}
+      type: number
+    - name: wallet_amount
+      admin_ui: {width: 200, order: 14}
+      type: number
+    - name: account_id
+      admin_ui: {order: 11.5, width: 200}
       type: string
-    - name: bank_name
-      admin_ui: {order: 3.25, width: 200}
-      type: string
-    - name: branch_name
-      admin_ui: {width: 200, order: 4.8125}
-      type: string
-    - name: ifsc_code
-      admin_ui: {width: 200, order: 5.40625}
-      type: string
-    - name: transaction_type
-      admin_ui: {width: 200, order: 5.703125}
-      type: string
-    - name: account_number
-      admin_ui: {width: 200, order: 3.1875}
+    - name: upi_id
+      admin_ui: {width: 200, order: 16}
       type: string
     title: wallet
   wallet_transactions_:
@@ -424,6 +421,33 @@ db_schema:
     columns:
     - name: transaction_id
       admin_ui: {width: 200}
+      type: string
+    - name: customer_id
+      admin_ui: {width: 200, order: 1}
+      type: number
+    - name: wallet_id
+      admin_ui: {width: 200, order: 2}
+      type: string
+    - name: transaction_type
+      admin_ui: {width: 200, order: 3}
+      type: string
+    - name: amount
+      admin_ui: {width: 200, order: 4}
+      type: number
+    - name: transaction_time_stamp
+      admin_ui: {width: 200, order: 5}
+      type: datetime
+    - name: description
+      admin_ui: {width: 200, order: 6}
+      type: string
+    - name: user_email
+      admin_ui: {width: 200, order: 0.5}
+      type: string
+    - name: status
+      admin_ui: {width: 200, order: 5.5}
+      type: string
+    - name: gate_way_type
+      admin_ui: {width: 200, order: 7}
       type: string
     title: 'wallet_transactions '
   user_issues_bugreports:
@@ -650,12 +674,41 @@ db_schema:
     - name: admin_approved_date_time
       admin_ui: {order: 6, width: 234}
       type: date
-    - name: available_balance
-      admin_ui: {order: 0.75, width: 200}
-      type: number
     - name: lender_accepted_timestamp
       admin_ui: {width: 200, order: 12}
       type: date
+    - name: wallet_id
+      admin_ui: {width: 200, order: 12}
+      type: string
+  wallet_bank_account_table:
+    client: none
+    server: full
+    columns:
+    - name: account_id
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: wallet_id
+      admin_ui: {width: 200, order: 1}
+      type: string
+    - name: bank_name
+      admin_ui: {width: 200, order: 2}
+      type: string
+    - name: account_number
+      admin_ui: {width: 200, order: 3}
+      type: number
+    - name: branch_name
+      admin_ui: {width: 200, order: 4}
+      type: string
+    - name: ifsc_code
+      admin_ui: {width: 200, order: 5}
+      type: string
+    - name: account_type
+      admin_ui: {width: 200, order: 6}
+      type: string
+    - name: user_email
+      admin_ui: {width: 200, order: 0.5}
+      type: string
+    title: wallet_bank_account_table
   borrower:
     title: borrower
     client: full
@@ -694,6 +747,9 @@ db_schema:
     - name: borrower_amount
       admin_ui: {order: 6, width: 200}
       type: number
+    - name: wallet_id
+      admin_ui: {width: 200, order: 11}
+      type: string
   product_categories:
     client: full
     server: full

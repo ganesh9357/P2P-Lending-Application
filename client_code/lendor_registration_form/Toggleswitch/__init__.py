@@ -1,5 +1,6 @@
 from ._anvil_designer import ToggleswitchTemplate
 from anvil import *
+import anvil.server
 
 class Toggleswitch(ToggleswitchTemplate):
     def __init__(self, **properties):
