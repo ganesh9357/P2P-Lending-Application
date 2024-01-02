@@ -85,6 +85,10 @@ class add_product_categories_and_groups(add_product_categories_and_groupsTemplat
           # Show an error message if one or both values are not selected or entered
           alert("Please enter/select all details before saving.")
 
+  def button_3_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('admin.dashboard.manage_products.add_group')
+
 
   
   
