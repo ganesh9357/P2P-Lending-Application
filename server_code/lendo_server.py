@@ -351,6 +351,10 @@ def deposit_money(customer_id, deposit_amount):
     
     if len(wallet_rows) > 0:
         wallet_row = wallet_rows[0]  # Update the first row found
+        
+        if wallet_row['e_wallet'] is None:
+            wallet_row['e_wallet'] = 0  # Initialize e_wallet with 0 if it's None
+        
         wallet_row['e_wallet'] += deposit_amount  # Increase e_wallet balance
         wallet_row['transaction_type'] = 'Deposit'  # Set transaction_type to Deposit
         wallet_row.update()  # Update the row
