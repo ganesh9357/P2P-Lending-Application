@@ -219,4 +219,21 @@ def add_loan_details(loan_amount,tenure,user_id,interest_rate,total_repayment_am
     total_repayment_amount = total_repayment_amount,
     loan_id = loan_id
   )
-  
+
+
+@anvil.server.callable
+def generate_loan_id():
+    # Get all existing loan IDs
+    existing_ids = app_tables.loan_details.search()['loan_id']
+
+    if existing_ids:
+        # Extract the numeric part, convert to integers, and find the maximum
+        max_numeric_part = max(int(loan_id[2:]) for loan_id in existing_ids)
+        
+        # Generate the new loan ID with the next numeric part
+        new_loan_id = f'LA{max_numeric_part + 1:04d}'
+    else:
+        # If no existing IDs, start with 'LA0001'
+        new_loan_id = 'LA0001'
+
+    return new_loan_id

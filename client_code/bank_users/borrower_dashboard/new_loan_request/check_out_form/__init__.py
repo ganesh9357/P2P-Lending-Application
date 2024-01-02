@@ -70,15 +70,14 @@ class check_out_form(check_out_formTemplate):
     processing_fee = self.processing_fee
     processing_fee_amount = self.label_16.text
     
-    data = app_tables.loan_details.search()
-    if data:
-        last_loan_id = data[0]['loan_id']
-    else:
-        # Handle the case when there is no data
-        last_loan_id = 'LA1000'
-
-    loan_id=last_loan_id
-    app_tables.loan_details.add_row(loan_id = loan_id)
+    # data = app_tables.loan_details.search()
+    # if data:
+    #   last_loan_id = data[0]['loan_id']
+    # else:
+    #   last_loan_id = 'LA1000'
+    new_loan_id = anvil.server.call('generate_loan_id')
+    loan_id=new_loan_id
+    # app_tables.loan_details.add_row(loan_id = loan_id)
     # anvil.server.call('add_loan_details',loan_id)
     borrower_customer_id=user_id
     loan_amount=loan_amount
