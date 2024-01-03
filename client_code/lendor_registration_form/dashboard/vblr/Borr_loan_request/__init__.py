@@ -105,7 +105,7 @@ class Borr_loan_request(Borr_loan_requestTemplate):
     
       lender = app_tables.lender.get(customer_id=int(self.selected_row['lender_customer_id']))
     
-      if int(lender['available_balance']) >= int(loan_amount_applied):
+      if int(lender['investment']) >= int(loan_amount_applied):
           # Sufficient balance available, proceed with accepting the loan
           self.accepted_btn.visible = False
           self.output_label1.text = "This Borrower Loan is Accepted"
@@ -118,14 +118,14 @@ class Borr_loan_request(Borr_loan_requestTemplate):
           open_form("lendor_registration_form.dashboard.vblr")
       else:
           # Insufficient balance, prompt the user to top-up the amount
-          alert("You don't have enough balance. Please top-up the amount.", buttons=[("OK")])
+          alert("You don't have enough balance. Please add the amount in wallet.", buttons=[("OK")])
           self.open_opbal_form()
                                                                                      
     def open_opbal_form(self):
       try:
-          open_form("lendor_registration_form.dashboard.opbal")
+          open_form("wallet.wallet")
       except Exception as e:
-          print(f"Error opening opbal form: {e}")
+          print(f"Error opening wallet form: {e}")
         
 
 
