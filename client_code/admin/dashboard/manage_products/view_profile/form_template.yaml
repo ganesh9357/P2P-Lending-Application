@@ -42,10 +42,10 @@ components:
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: ' Products Details', font_size: 16, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-          underline: false, icon: ''}
+          icon_align: left, spacing_below: small, italic: false, background: 'theme:Secondary
+            Container', bold: true, underline: false, icon: ''}
         name: label_1_copy
-        layout_properties: {x: 0, y: 10, width: 285}
+        layout_properties: {x: 0, y: 10, width: 145}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: ' Product ID', font_size: null, font: '', spacing_above: small,
