@@ -7,6 +7,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from anvile import For
 
 class EditDetailsForm(EditDetailsFormTemplate):
     def __init__(self, selected_group, selected_category, **properties):
@@ -14,8 +15,8 @@ class EditDetailsForm(EditDetailsFormTemplate):
         self.init_components(**properties)
 
         # Set the initial values for the input components
-        self.text_box_group.text = selected_group
-        self.text_box_category.text = selected_category
+        self.text_box_1.text = selected_group
+        self.text_box_2.text = selected_category
 
     def button_1_click(self, **event_args):
         """Save changes button click event"""
