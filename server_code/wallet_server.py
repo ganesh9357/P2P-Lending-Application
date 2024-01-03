@@ -20,13 +20,12 @@ import anvil.server
 #   return 42
 #
 
-import anvil.server
-from anvil import tables
-
 from collections import defaultdict
 
 # A dictionary to store counts for each email
 email_counts = defaultdict(int)
+
+# Your existing code remains unchanged here...
 
 @anvil.server.callable
 def create_wallet_entry(email, customer_id, full_name, user_type):
@@ -45,7 +44,6 @@ def create_wallet_entry(email, customer_id, full_name, user_type):
             user_type=user_type
         )
         return f"Wallet entry created successfully for {email}"
-        print("Row added successfully")
     else:
         return f"Wallet entry already exists for {email}. Multiple entries found."
 
@@ -55,13 +53,19 @@ def fetch_user_profiles():
     return user_profiles
 
 def generate_wallet_id(email):
-    email_counts[email] += 1
-    count = email_counts[email]
-    formatted_count = str(count).zfill(4)  # Zero-padding
+    existing_wallets = app_tables.wallet.search(user_email=email)
+    if len(existing_wallets) == 0:
+        return 'WA00001'  # If no wallets exist for the email, start with WA00001
     
-    return f"WA{formatted_count}"
-
+    # Find the last wallet_id for the email
+    last_wallet_id = max(existing_wallets, key=lambda x: int(x['wallet_id'][2:]))['wallet_id']
+    numeric_part = int(last_wallet_id[2:]) + 1
+    new_wallet_id = f'WA{numeric_part:05d}'  # Format to ensure 5 digits
+    
+    return new_wallet_id
+    
 def generate_account_id(email):
+    email_counts[email] += 1
     count = email_counts[email]
     formatted_count = str(count).zfill(4)  # Zero-padding
     
