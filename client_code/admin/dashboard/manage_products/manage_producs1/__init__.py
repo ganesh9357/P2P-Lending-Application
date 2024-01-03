@@ -72,8 +72,8 @@ class manage_producs1(manage_producs1Template):
         product_group = self.name.selected_value
         product_discription = self.text_area_1.text
         product_categories = self.product_category.selected_value
-        processing_fee = int(self.text_box_3.text)
-        extension_fee = int(self.text_box_4.text)
+        processing_fee = float(self.text_box_3.text)
+        extension_fee = float(self.text_box_4.text)
         membership_type = self.drop_down_2.selected_value
         if self.radio_button_1.selected:
             interest_type = self.radio_button_1.text

@@ -28,9 +28,6 @@ db_schema:
     client: full
     server: full
     columns:
-    - name: product_group
-      admin_ui: {order: 6, width: 200}
-      type: string
     - name: product_categories
       admin_ui: {width: 200}
       type: string
@@ -91,8 +88,11 @@ db_schema:
     - name: foreclosure_fee
       admin_ui: {width: 200, order: 15.5}
       type: number
+    - name: product_group
+      admin_ui: {order: -3, width: 200}
+      type: string
     - name: product_name
-      admin_ui: {order: 6.5, width: 200}
+      admin_ui: {width: 200, order: -2}
       type: string
   user_profile:
     client: full
