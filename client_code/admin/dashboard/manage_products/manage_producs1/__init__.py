@@ -39,33 +39,48 @@ class manage_producs1(manage_producs1Template):
             self.label_1.text = self.id
           
     def name_change(self, **event_args):
-      self.label_3_copy.visible = True
-      self.label_5.visible = True
-      self.name.visible = True
-      self.product_category.visible = True
-      self.selected_value = self.name.selected_value
-      print(f"Selected Value: {self.selected_value}")
+        self.label_3_copy.visible = True
+        self.label_5.visible = True
+        self.name.visible = True
+        self.product_category.visible = True
+        self.selected_value = self.name.selected_value
+        print(f"Selected Value: {self.selected_value}")
         
-      if self.selected_value:
+        if self.selected_value:
             # Fetch product categories based on the selected loan type
-        product_categories = app_tables.product_categories.search(
-        name_group = self.selected_value
-        )
-        print(f"Product Categories: {product_categories}")
+            product_categories = app_tables.product_categories.search(
+                name_group=self.selected_value
+            )
+            print(f"Product Categories: {product_categories}")
 
-        if product_categories:
-            # Display product categories in drop_down_2
-          category_names = [category['name_categories'] for category in product_categories]
-          print(f"Category Names: {category_names}")
-          self.product_category.items = category_names
-          self.product_category.selected_value = category_names[0] if category_names else None
+            if product_categories:
+                # Display product categories in drop_down_2
+                category_names = [category['name_categories'] for category in product_categories]
+                print(f"Category Names: {category_names}")
+                self.product_category.items = category_names
+                self.product_category.selected_value = category_names[0] if category_names else None
    
-            
+     
+    def foreclose_type_change(self, **event_args):
+        """This method is called when an item is selected"""
+        selected_value = self.foreclose_type.selected_value
+        if selected_value == "Eligible":
+            self.label_9.visible = True
+            self.foreclosure_fee.visible = True
+        else:
+            self.label_9.visible = False
+            self.foreclosure_fee.visible = False
 
-    def link_1_copy_click(self, **event_args):
-        """This method is called when the link is clicked"""
-        open_form('admin.dashboard.manage_products')
-
+    def extension_allowed_change(self, **event_args):
+        """This method is called when an item is selected"""
+        selected_value = self.extension_allowed.selected_value
+        if selected_value == "Yes":
+            self.label_7_copy.visible = True
+            self.text_box_4.visible = True
+        else:
+            self.label_7_copy.visible = False
+            self.text_box_4.visible = False
+  
     def button_1_click(self, **event_args):
         """This method is called when the button is clicked"""      
         product_name = self.product_name.text
@@ -73,26 +88,44 @@ class manage_producs1(manage_producs1Template):
         product_discription = self.text_area_1.text
         product_categories = self.product_category.selected_value
         processing_fee = int(self.text_box_3.text)
-        extension_fee = int(self.text_box_4.text)
+        
+        # Declare foreclosure_fee before the if statement
+        
+        
         membership_type = self.drop_down_2.selected_value
         if self.radio_button_1.selected:
             interest_type = self.radio_button_1.text
         else:
             interest_type = self.radio_button_2.text
+        
         min_amount = int(self.min_amount.text)
         max_amount = int(self.max_amount.text)
         min_tenure = int(self.min_tenure.text)
         max_tenure = int(self.max_tenure.text)
         roi = int(self.text_box_5.text)
-        foreclose_type = self.foreclose_type.selected_value
-        foreclosure_fee = int(self.foreclosure_fee.text)
-        foreclosure_eligible = (foreclose_type == 'Eligible')
-        if foreclosure_eligible:
-            processing_fee += (processing_fee * 0.03)      
-        # extension_allowed_mapping = {'Yes': True, 'No': False}
-        # extension_allowed = extension_allowed_mapping.get(self.extension_allowed.selected_value, False)
+        foreclose_type = str(self.foreclose_type.selected_value)
+        foreclosure_fee = 0
+        if foreclose_type == "Eligible":
+            self.label_9.hidden = False
+            self.foreclosure_fee.hidden = False
+            # Assign a value to foreclosure_fee based on your logic
+            foreclosure_fee = int(self.foreclosure_fee.text)
+        else:
+            self.label_9.hidden = True
+            self.foreclosure_fee.hidden = True
+        
         extension_allowed = self.extension_allowed.selected_value
+        extension_fee = 0
+        if extension_allowed == "Yes":
+            self.label_7_copy.visible = True
+            self.text_box_4.visible = True
+            extension_fee = int(self.text_box_4.text)
+        else:
+            self.label_7_copy.visible = False
+            self.text_box_4.visible = False
+        
         emi_payment = self.drop_down_1.selected_value
+        
         if self.radio_button_3.selected:
             # Code to execute when radio_button_3 is selected
             discount_coupons = self.radio_button_3.text
@@ -102,15 +135,13 @@ class manage_producs1(manage_producs1Template):
         else:
             # Code to execute when neither radio_button_3 nor radio_button_4 is selected
             discount_coupons = None  # or any default value
-
-        if product_group == ""  or product_name == "" or product_categories== "" or membership_type == "" or processing_fee == "" or extension_fee == "" or interest_type == "" or max_amount == "" or min_amount == "" or min_tenure == "" or max_tenure == "" or roi == "" or emi_payment == "" or discount_coupons == "":
+        
+        if product_group == "" or product_name == "" or product_categories == "" or membership_type == "" or processing_fee == "" or extension_fee == "" or interest_type == "" or max_amount == "" or min_amount == "" or min_tenure == "" or max_tenure == "" or roi == "" or emi_payment == "" or discount_coupons == "":
             Notification("Fill All Required Details").show()
         else:
-            anvil.server.call('product_details', self.id, product_group, product_name, product_discription, product_categories, processing_fee, extension_fee, membership_type, interest_type, max_amount, min_amount, min_tenure, max_tenure, roi, foreclose_type, foreclosure_fee, extension_allowed, emi_payment, discount_coupons)
+            anvil.server.call('product_details', self.id, product_name, product_group, product_discription, product_categories, processing_fee, extension_fee, membership_type, interest_type, max_amount, min_amount, min_tenure, max_tenure, roi, foreclose_type, foreclosure_fee, extension_allowed, emi_payment, discount_coupons)
             product_id = self.label_1.text
             # open_form('admin.dashboard.manage_products.add_group',product_id )
-
+        
             Notification("Products added successfully").show()
             open_form('admin.dashboard.manage_products')
-
-  

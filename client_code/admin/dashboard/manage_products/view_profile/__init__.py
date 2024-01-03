@@ -25,6 +25,7 @@ class view_profile(view_profileTemplate):
     self.profee_list = []
     self.extfee_list = []
     self.foreclose_list = []
+    self.fore_fee = []
     self.extension_list = []
     self.type_list = []
     self.int_type = []
@@ -46,6 +47,7 @@ class view_profile(view_profileTemplate):
       self.profee_list.append(i['processing_fee'])
       self.extfee_list.append(i['extension_fee'])
       self.foreclose_list.append(i['foreclose_type'])
+      self.fore_fee.append(i['foreclosure_fee'])
       self.extension_list.append(i['extension_allowed'])
       self.type_list.append(i['membership_type'])
       self.int_type.append(i['interest_type'])
@@ -69,6 +71,7 @@ class view_profile(view_profileTemplate):
         self.label_5.text = self.profee_list[b]
         self.label_6.text = self.extfee_list[b]
         self.label_20.text = self.foreclose_list[b]
+        self.label_26.text = self.fore_fee[b]
         self.label_22.text = self.extension_list[b]
         self.label_7.text = self.type_list[b]
         self.label_11.text = self.int_type[b]
