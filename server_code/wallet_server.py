@@ -20,17 +20,17 @@ import anvil.server
 #   return 42
 #
 
-import anvil.server
-from anvil import tables
 
 @anvil.server.callable
 def create_wallet_entry(email, customer_id, full_name, user_type):
+    # Generate unique wallet_id and account_id
+    wallet_id = generate_wallet_id()
+    account_id = generate_account_id()
+    
     existing_wallets = app_tables.wallet.search(user_email=email)
+    print(existing_wallets)
     
     if len(existing_wallets) == 0:
-        wallet_id = generate_wallet_id(email)
-        account_id = generate_account_id(email)
-        
         app_tables.wallet.add_row(
             user_email=email,
             wallet_id=wallet_id,
@@ -48,21 +48,30 @@ def fetch_user_profiles():
     user_profiles = app_tables.user_profile.search()
     return user_profiles
 
-def generate_wallet_id(email):
-    existing_wallets = app_tables.wallet.search(user_email=email)
-    count = len(existing_wallets) + 1
-    formatted_count = str(count).zfill(4)  # Zero-padding
-    
-    return f"WA{formatted_count}"
+def generate_wallet_id():
+    existing_wallets = app_tables.wallet.search(tables.order_by("wallet_id", ascending=False))
 
-def generate_account_id(email):
-    existing_wallets = app_tables.wallet.search(user_email=email)
-    count = len(existing_wallets) + 1
-    formatted_count = str(count).zfill(4)  # Zero-padding
-    
-    return f"A{formatted_count}"
+    if existing_wallets and len(existing_wallets) > 0:
+        new_wallet_id = existing_wallets[0]['wallet_id']
+        counter = int(new_wallet_id[2:]) + 1
+    else:
+        counter = 1  # Start the counter from 1 if no existing wallets
+
+    return f"WA{counter:04d}"  # Ensure counter is formatted to 4 digits
+
+def generate_account_id():
+    existing_accounts = app_tables.wallet.search(tables.order_by("account_id", ascending=False))
+
+    if existing_accounts and len(existing_accounts) > 0:
+        new_account_id = existing_accounts[0]['account_id']
+        counter = int(new_account_id[1:]) + 1
+    else:
+        counter = 1  
+
+    return f"A{counter:04d}" 
 
 
+#############################################################
 
 @anvil.server.callable
 def deposit_money(email, deposit_amount):
@@ -127,3 +136,15 @@ def withdraw_money(email, withdraw_amount):
     else:
         print(f"No rows found for email: {email} and customer_id: {customer_id}")
         return False  # Withdrawal unsuccessful
+
+# def generate_wallet_id():
+#     # existing_wallets = app_tables.wallet.search(user_email=email)
+#     # if len(existing_wallets) == 0:
+#     #     return 'WA00001'  # If no wallets exist for the email, start with WA00001
+    
+#     # # Find the last wallet_id for the email
+#     # last_wallet_id = max(existing_wallets, key=lambda x: int(x['wallet_id'][2:]))['wallet_id']
+#     # numeric_part = int(last_wallet_id[2:]) + 1
+#     # new_wallet_id = f'WA{numeric_part:05d}'  # Format to ensure 5 digits
+    
+#     # return new_wallet_id

@@ -156,25 +156,15 @@ class dashboard(dashboardTemplate):
     
     open_form('wallet.wallet')
   
-  # def wallet_dashboard_link_click(self, **event_args):
-  #   customer_id = 1000  
-  #   server.call('update_wallet_with_profile', customer_id)
-  #   # Notify after successful data fetch and update
-  #   notification = anvil.Notification("Fetched Data successfully!", style="success")
-  #   notification.show()
-  #   # Optionally, perform additional actions after updating the wallet with profile
-  #   open_form('wallet.wallet')
-  
-  
 
-  def button_wallet_dashboard_link_click(self, **event_args):
-    # Call server function to generate wallet_id and store in the wallet table
-    wallet_id = server.call('generate_wallet_id', self.email)
-    if wallet_id:
-        # Handle successful generation and display wallet_id
-        open_form('wallet_dashboard_form', wallet_id=wallet_id)
-    else:
-        # Handle case where user doesn't exist
-        print("User does not exist.")
+  # def button_wallet_dashboard_link_click(self, **event_args):
+  #   # Call server function to generate wallet_id and store in the wallet table
+  #   wallet_id = server.call('generate_wallet_id', self.email)
+  #   if wallet_id:
+  #       # Handle successful generation and display wallet_id
+  #       open_form('wallet_dashboard_form', wallet_id=wallet_id)
+  #   else:
+  #       # Handle case where user doesn't exist
+  #       print("User does not exist.")
 
 
