@@ -25,9 +25,9 @@ from anvil import tables
 
 @anvil.server.callable
 def create_wallet_entry(email, customer_id, full_name, user_type):
-    existing_wallet = app_tables.wallet.get(user_email=email)
+    existing_wallets = app_tables.wallet.search(user_email=email)
     
-    if existing_wallet is None:
+    if len(existing_wallets) == 0:
         wallet_id = generate_wallet_id(email)
         account_id = generate_account_id(email)
         
@@ -41,7 +41,7 @@ def create_wallet_entry(email, customer_id, full_name, user_type):
         )
         return f"Wallet entry created successfully for {email}"
     else:
-        return f"Wallet entry already exists for {email}"
+        return f"Wallet entry already exists for {email}. Multiple entries found."
 
 @anvil.server.callable
 def fetch_user_profiles():
@@ -49,51 +49,81 @@ def fetch_user_profiles():
     return user_profiles
 
 def generate_wallet_id(email):
-    # Generate a unique wallet_id based on email or any other logic
-    # Example: This is a simple method; you might want to use a more complex logic
-    return f"WA_{email[:4]}"
+    existing_wallets = app_tables.wallet.search(user_email=email)
+    count = len(existing_wallets) + 1
+    formatted_count = str(count).zfill(4)  # Zero-padding
+    
+    return f"WA{formatted_count}"
 
 def generate_account_id(email):
-    # Generate a unique account_id based on email or any other logic
-    # Example: This is a simple method; you might want to use a more complex logic
-    return f"A_{email[-4:]}"
+    existing_wallets = app_tables.wallet.search(user_email=email)
+    count = len(existing_wallets) + 1
+    formatted_count = str(count).zfill(4)  # Zero-padding
+    
+    return f"A{formatted_count}"
 
 
 
 @anvil.server.callable
-def deposit_money(customer_id, deposit_amount):
-    transactions_rows = app_tables.wallet_transactions.search(customer_id=customer_id)
+def deposit_money(email, deposit_amount):
+    if not isinstance(email, str):
+        # Convert the email to a string if it's not already
+        email = str(email)
     
-    if len(transactions_rows) > 0:
-        transactions_row = transactions_rows[0] 
-        
-        if transactions_row['amount'] is None:
-            transactions_row['amount'] = 0  
-        
-        transactions_row['amount'] += deposit_amount  # Increase e_wallet balance
-        transactions_row['transaction_type'] = 'Deposit'  # Set transaction_type to Deposit
-        transactions_row.update()  # Update the row
-        return True  # Deposit successful
+    # Fetch customer_id using email from user_profile table
+    user_profile = app_tables.user_profile.get(email_user=email)
+    if user_profile is not None:
+        customer_id = user_profile['customer_id']
     else:
-        print(f"No rows found for customer_id: {customer_id}")
-        return False  # Deposit unsuccessful
+        print(f"No user profile found for email: {email}")
+        return False  # Unable to find user profile
+    
+    transaction_id = str(uuid.uuid4())  # Generate unique transaction_id
+    
+    app_tables.wallet_transactions.add_row(
+        user_email=email,
+        customer_id=customer_id,
+        transaction_id=transaction_id,
+        amount=deposit_amount,
+        transaction_type='Success'  # Assuming successful deposit
+    )
+    return True  # Deposit successful
 
 @anvil.server.callable
-def withdraw_money(customer_id, withdraw_amount):
-    transactions_rows = app_tables.wallet_transactions.search(customer_id=customer_id)
+def withdraw_money(email, withdraw_amount):
+    # Fetch customer_id using email from user_profile table
+    user_profile = app_tables.user_profile.get(user_email=email)
+    if user_profile is not None:
+        customer_id = user_profile['customer_id']
+    else:
+        print(f"No user profile found for email: {email}")
+        return False  # Unable to find user profile
+    
+    transaction_id = str(uuid.uuid4())  # Generate unique transaction_id
+    
+    transactions_rows = app_tables.wallet_transactions.search(
+        user_email=email, customer_id=customer_id
+    )
     
     if len(transactions_rows) > 0:
-        transactions_row = transactions_rows[0]  # Update the first row found
+        transactions_row = transactions_rows[0]
         
-        # Check if there's enough balance for withdrawal
         if transactions_row['amount'] >= withdraw_amount:
-            transactions_row['amount'] -= withdraw_amount  # Decrease e_wallet balance
-            transactions_row['transaction_type'] = 'Withdraw'  # Set transaction_type to Withdraw
-            transactions_row.update()  # Update the row
+            transactions_row['amount'] -= withdraw_amount
+            transactions_row['transaction_id'] = transaction_id
+            transactions_row['transaction_type'] = 'Success'
+            transactions_row.update()
             return True  # Withdrawal successful
         else:
             print("Insufficient balance for withdrawal")
+            app_tables.wallet_transactions.add_row(
+                user_email=email,
+                customer_id=customer_id,
+                transaction_id=transaction_id,
+                amount=withdraw_amount,
+                transaction_type='Fail'  # Insufficient balance
+            )
             return False  # Insufficient balance for withdrawal
     else:
-        print(f"No rows found for customer_id: {customer_id}")
+        print(f"No rows found for email: {email} and customer_id: {customer_id}")
         return False  # Withdrawal unsuccessful
