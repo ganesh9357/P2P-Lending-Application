@@ -20,19 +20,53 @@ import anvil.server
 #   return 42
 #
 
-from collections import defaultdict
+# from collections import defaultdict
 
-# A dictionary to store counts for each email
-email_counts = defaultdict(int)
+# # A dictionary to store counts for each email
+# email_counts = defaultdict(int)
 
 # Your existing code remains unchanged here...
-
 @anvil.server.callable
 def create_wallet_entry(email, customer_id, full_name, user_type):
+    # Generate a unique loan ID and get the updated counter
+     wallet_id = generate_wallet_id
+     account_id = generate_account_id
+
+    # Search for the user profile
+     user_profiles = app_tables.user_profile.search(customer_id=user_id)
+    
+     if user_profiles and len(user_profiles) > 0:
+        # If there is a user profile, get the first one
+        user_profile = user_profiles[0]
+
+        # Extract the full name from the user profile
+        full_name = user_profile['full_name']
+        email_id = user_profile['email_user']
+        # Add the loan details to the data table
+        app_tables.loan_details.add_row(
+            loan_id=loan_id,
+            loan_amount=loan_amount,
+            credit_limit=credit_limit,
+            tenure=tenure,
+            coustmer_id=user_id,
+            full_name=full_name,
+            email_id=email_id,                 
+            timestamp=datetime.now().date()
+        )
+
+        # Return the generated loan ID to the client
+        return loan_id
+    else:
+        # Handle the case where no user profile is found
+        return "User profile not found"
+@anvil.server.callable
+def create_wallet_entry(email, customer_id, full_name, user_type):
+    wallet_id = generate_wallet_id
     existing_wallets = app_tables.wallet.search(user_email=email)
     
+    
     if len(existing_wallets) == 0:
-        wallet_id = generate_wallet_id(email)
+        wallet_id = generate_wallet_id
         account_id = generate_account_id(email)
         
         app_tables.wallet.add_row(
@@ -52,19 +86,24 @@ def fetch_user_profiles():
     user_profiles = app_tables.user_profile.search()
     return user_profiles
 
-def generate_wallet_id(email):
-    existing_wallets = app_tables.wallet.search(user_email=email)
-    if len(existing_wallets) == 0:
-        return 'WA00001'  # If no wallets exist for the email, start with WA00001
-    
-    # Find the last wallet_id for the email
-    last_wallet_id = max(existing_wallets, key=lambda x: int(x['wallet_id'][2:]))['wallet_id']
-    numeric_part = int(last_wallet_id[2:]) + 1
-    new_wallet_id = f'WA{numeric_part:05d}'  # Format to ensure 5 digits
-    
+def generate_wallet_id():
+  
+    existing_wallets = app_tables.wallet.search()['wallet_id']
+
+    if existing_wallets:
+        # Extract the numeric part, convert to integers, and find the maximum
+        numeric_part = max(int(wallet_id[2:]) for wallet_id in existing_wallets)
+        
+        # Generate the new loan ID with the next numeric part
+        new_wallet_id = f'WA{numeric_part + 1:04d}'
+    else:
+        # If no existing IDs, start with 'WA0001'
+        new_wallet_id = 'WA0001'
+
     return new_wallet_id
-    
-def generate_account_id(email):
+    app_tables.wallet.add_row(wallet_id = wallet_id)
+
+def generate_account_id():
     email_counts[email] += 1
     count = email_counts[email]
     formatted_count = str(count).zfill(4)  # Zero-padding
@@ -136,3 +175,15 @@ def withdraw_money(email, withdraw_amount):
     else:
         print(f"No rows found for email: {email} and customer_id: {customer_id}")
         return False  # Withdrawal unsuccessful
+
+# def generate_wallet_id():
+#     # existing_wallets = app_tables.wallet.search(user_email=email)
+#     # if len(existing_wallets) == 0:
+#     #     return 'WA00001'  # If no wallets exist for the email, start with WA00001
+    
+#     # # Find the last wallet_id for the email
+#     # last_wallet_id = max(existing_wallets, key=lambda x: int(x['wallet_id'][2:]))['wallet_id']
+#     # numeric_part = int(last_wallet_id[2:]) + 1
+#     # new_wallet_id = f'WA{numeric_part:05d}'  # Format to ensure 5 digits
+    
+#     # return new_wallet_id
