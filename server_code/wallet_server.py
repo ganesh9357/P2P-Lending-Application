@@ -20,45 +20,6 @@ import anvil.server
 #   return 42
 #
 
-# from collections import defaultdict
-
-# # A dictionary to store counts for each email
-# email_counts = defaultdict(int)
-
-# @anvil.server.callable
-# def create_wallet_entry(email, customer_id, full_name, user_type,user_id):
-#     # Generate a unique loan ID and get the updated counter
-#      wallet_id = generate_wallet_id
-#      account_id = generate_account_id
-
-#     # Search for the user profile
-#      user_profiles = app_tables.user_profile.search(customer_id=user_id)
-    
-#      if user_profiles and len(user_profiles) > 0:
-#         # If there is a user profile, get the first one
-#         user_profile = user_profiles[0]
-
-#         # Extract the full name from the user profile
-#         user_name = user_profile['full_name']
-#         user_email = user_profile['email_user']
-#         user_type = user_profile['user_type']
-#         # Add the wallet details to the data table
-#         app_tables.wallet.add_row(
-#             wallet_id=wallet_id,
-#             account_id=account_id,
-#             customer_id=customer_id,
-#         )
-#         # Return the generated wallet ID to the client
-#         return wallet_id and account_id
-       
-#      else:
-#         # Handle the case where no user profile is found
-#         return "User profile not found"
-
-# @anvil.server.callable
-# def create_wallet_entry(email, customer_id, full_name, user_type):
-#     existing_wallets = app_tables.wallet.search(user_email=email)
-#     print(existing_wallets)
 
 @anvil.server.callable
 def create_wallet_entry(email, customer_id, full_name, user_type):
@@ -105,19 +66,12 @@ def generate_account_id():
         new_account_id = existing_accounts[0]['account_id']
         counter = int(new_account_id[1:]) + 1
     else:
-        counter = 1  # Start the counter from 1 if no existing accounts
+        counter = 1  
 
     return f"A{counter:04d}" 
 
 
-# def generate_account_id():
-#     email_counts[email] += 1
-#     count = email_counts[email]
-#     formatted_count = str(count).zfill(4)  # Zero-padding
-    
-#     return f"A{formatted_count}"
-
-
+#############################################################
 
 @anvil.server.callable
 def deposit_money(email, deposit_amount):
