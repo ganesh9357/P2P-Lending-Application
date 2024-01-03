@@ -266,7 +266,7 @@ def add_loan_details(loan_amount,tenure,user_id,interest_rate,total_repayment_am
           loan_id = loan_id,
           borrower_full_name = borrower_full_name,
           borrower_email_id = borrower_email_id,
-          
+          loan_updated_status = "under"
          )
 
         # Return the generated loan ID to the client
