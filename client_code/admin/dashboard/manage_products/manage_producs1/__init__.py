@@ -86,12 +86,18 @@ class manage_producs1(manage_producs1Template):
         roi = int(self.text_box_5.text)
         foreclose_type = self.foreclose_type.selected_value
         if foreclose_type == "Eligible":
+            self.label_9.enabled = True
+            self.foreclosure_fee.enabled = True
             self.label_9.visible = True
-            self.foreclosure_fee.visible = True          
-            foreclosure_fee = int(self.foreclosure_fee.text)
+            self.foreclosure_fee.visible = True
+            foreclosure_fee = float(self.foreclosure_fee.text)
         else:
+            self.label_9.enabled = False
+            self.foreclosure_fee.enabled = False
             self.label_9.visible = False
-            self.foreclosure_fee.visible = False 
+            self.foreclosure_fee.visible = False
+            foreclosure_fee = None
+          
         extension_allowed = self.extension_allowed.selected_value
         emi_payment = self.drop_down_1.selected_value
         if self.radio_button_3.selected:
