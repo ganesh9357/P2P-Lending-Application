@@ -32,6 +32,7 @@ class edit_form(edit_formTemplate):
         self.profee_list = []
         self.extfee_list = []
         self.foreclosure_type_list = []
+        self.fore_fee = []
         self.extension_allowed_list = []
         self.type_list = []
         self.intr_type = []
@@ -54,6 +55,7 @@ class edit_form(edit_formTemplate):
             self.profee_list.append(i['processing_fee'])
             self.extfee_list.append(i['extension_fee'])
             self.foreclosure_type_list.append(i['foreclose_type'])
+            self.fore_fee.append(i['foreclosure_fee'])
             self.extension_allowed_list.append(i['extension_allowed'])
             self.type_list.append(i['membership_type'])
             self.intr_type.append(i['interest_type'])
@@ -92,6 +94,9 @@ class edit_form(edit_formTemplate):
             if self.foreclosure_type_list:
                 self.foreclose_type.selected_value = self.foreclosure_type_list[-1]
 
+            if self.fore_fee:
+                self.foreclosure_fee.text = str(self.fore_fee[-1])
+
             if self.extension_allowed_list:
                 self.extension_allowed.selected_value = str(self.extension_allowed_list[-1])  # or .selected_value?
 
@@ -115,6 +120,7 @@ class edit_form(edit_formTemplate):
                     self.min_tenure.enabled = False
                     self.max_tenure.enabled = False
                     self.roi.enabled = False
+                    self.foreclosure_fee.enabled = False
                     self.foreclose_type.enabled = False
                     self.extension_allowed.enabled = False
                     self.emi_payment.enabled = False
@@ -145,6 +151,7 @@ class edit_form(edit_formTemplate):
                     self.product_name.enabled = False
                     self.product_category.enabled = False
                     self.text_box_3.enabled = False
+                    self.foreclosure_fee.enabled = False
                     self.text_box_4.enabled = False
                     self.check_box_1.enabled = False
                     self.check_box_2.enabled = False
@@ -227,6 +234,7 @@ class edit_form(edit_formTemplate):
                 data[a]['max_tenure'] = int(self.max_tenure.text)
                 data[a]['roi'] = int(self.roi.text)
                 data[a]['foreclose_type'] = self.foreclose_type.selected_value
+                data[a]['foreclosure_fee'] = int(self.foreclosure_fee.text)
                 data[a]['extension_allowed'] = self.extension_allowed.selected_value
                 data[a]['emi_payment'] = self.emi_payment.selected_value
                 data[a]['discount_coupons'] = "Yes" if self.radio_button_3.selected else "No"
