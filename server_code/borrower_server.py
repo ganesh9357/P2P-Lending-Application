@@ -135,64 +135,6 @@ def add_borrower_step9(ifsc,salary_type,select_bank, user_id):
     row[0]['last_confirm'] = True
     row[0]['form_count']=9
 
-# the borrower registration form end hear do not change any code ---#
-
-
-
-
-
-
-@anvil.server.callable
-def add_loan_details(loan_amount, credit_limit, tenure, user_id):
-    # Generate a unique loan ID and get the updated counter
-    loan_id = generate_loan_id()
-
-    # Search for the user profile
-    user_profiles = app_tables.user_profile.search(customer_id=user_id)
-    
-    if user_profiles and len(user_profiles) > 0:
-        # If there is a user profile, get the first one
-        user_profile = user_profiles[0]
-
-        # Extract the full name from the user profile
-        full_name = user_profile['full_name']
-        email_id = user_profile['email_user']
-        # Add the loan details to the data table
-        app_tables.loan_details.add_row(
-            loan_id=loan_id,
-            loan_amount=loan_amount,
-            credit_limit=credit_limit,
-            tenure=tenure,
-            coustmer_id=user_id,
-            full_name=full_name,
-            email_id=email_id,                 
-            timestamp=datetime.now().date()
-        )
-
-        # Return the generated loan ID to the client
-        return loan_id
-    else:
-        # Handle the case where no user profile is found
-        return "User profile not found"
-
-def generate_loan_id():
-    # Query the latest loan ID from the data table
-    latest_loan = app_tables.loan_details.search(tables.order_by("loan_id", ascending=False))
-
-    if latest_loan and len(latest_loan) > 0:
-        # If there are existing loans, increment the last loan ID
-        last_loan_id = latest_loan[0]['loan_id']
-        counter = int(last_loan_id[2:]) + 1
-    else:
-        # If there are no existing loans, start the counter at 100001
-        counter = 100001
-
-    # Return the new loan ID
-    return f"LA{counter}"
-
-
-
-
 
 
 
@@ -266,7 +208,7 @@ def add_loan_details(loan_amount,tenure,user_id,interest_rate,total_repayment_am
           loan_id = loan_id,
           borrower_full_name = borrower_full_name,
           borrower_email_id = borrower_email_id,
-          loan_updated_status = "under"
+          loan_updated_status = "under process"
          )
 
         # Return the generated loan ID to the client
