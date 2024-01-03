@@ -25,98 +25,89 @@ import anvil.server
 # # A dictionary to store counts for each email
 # email_counts = defaultdict(int)
 
-# Your existing code remains unchanged here...
-@anvil.server.callable
-def create_wallet_entry(email, customer_id, full_name, user_type,user_id):
-    # Generate a unique loan ID and get the updated counter
-     wallet_id = generate_wallet_id
-     account_id = generate_account_id
-
-    # Search for the user profile
-     user_profiles = app_tables.user_profile.search(customer_id=user_id)
-    
-     if user_profiles and len(user_profiles) > 0:
-        # If there is a user profile, get the first one
-        user_profile = user_profiles[0]
-
-        # Extract the full name from the user profile
-        user_name = user_profile['full_name']
-        user_email = user_profile['email_user']
-        user_type = user_profile['user_type']
-        # Add the wallet details to the data table
-        app_tables.wallet.add_row(
-            wallet_id=wallet_id,
-            account_id=account_id,
-            customer_id=customer_id,
-        )
-        # Return the generated wallet ID to the client
-        return wallet_id and account_id
-       
-     else:
-        # Handle the case where no user profile is found
-        return "User profile not found"
-       
 # @anvil.server.callable
-# def create_wallet_entry(email, customer_id, full_name, user_type):
-#     wallet_id = generate_wallet_id
-#     existing_wallets = app_tables.wallet.search(user_email=email)
+# def create_wallet_entry(email, customer_id, full_name, user_type,user_id):
+#     # Generate a unique loan ID and get the updated counter
+#      wallet_id = generate_wallet_id
+#      account_id = generate_account_id
+
+#     # Search for the user profile
+#      user_profiles = app_tables.user_profile.search(customer_id=user_id)
     
-    
-#     if len(existing_wallets) == 0:
-#         wallet_id = generate_wallet_id
-#         account_id = generate_account_id(email)
-        
+#      if user_profiles and len(user_profiles) > 0:
+#         # If there is a user profile, get the first one
+#         user_profile = user_profiles[0]
+
+#         # Extract the full name from the user profile
+#         user_name = user_profile['full_name']
+#         user_email = user_profile['email_user']
+#         user_type = user_profile['user_type']
+#         # Add the wallet details to the data table
 #         app_tables.wallet.add_row(
-#             user_email=email,
 #             wallet_id=wallet_id,
 #             account_id=account_id,
 #             customer_id=customer_id,
-#             user_name=full_name,
-#             user_type=user_type
 #         )
-#         return f"Wallet entry created successfully for {email}"
-#     else:
-#         return f"Wallet entry already exists for {email}. Multiple entries found."
+#         # Return the generated wallet ID to the client
+#         return wallet_id and account_id
+       
+#      else:
+#         # Handle the case where no user profile is found
+#         return "User profile not found"
 
 # @anvil.server.callable
-# def fetch_user_profiles():
-#     user_profiles = app_tables.user_profile.search()
-#     return user_profiles
+# def create_wallet_entry(email, customer_id, full_name, user_type):
+#     existing_wallets = app_tables.wallet.search(user_email=email)
+#     print(existing_wallets)
+
+@anvil.server.callable
+def create_wallet_entry(email, customer_id, full_name, user_type):
+    # Generate unique wallet_id and account_id
+    wallet_id = generate_wallet_id()
+    account_id = generate_account_id()
+    
+    existing_wallets = app_tables.wallet.search(user_email=email)
+    print(existing_wallets)
+    
+    if len(existing_wallets) == 0:
+        app_tables.wallet.add_row(
+            user_email=email,
+            wallet_id=wallet_id,
+            account_id=account_id,
+            customer_id=customer_id,
+            user_name=full_name,
+            user_type=user_type
+        )
+        return f"Wallet entry created successfully for {email}"
+    else:
+        return f"Wallet entry already exists for {email}. Multiple entries found."
+
+@anvil.server.callable
+def fetch_user_profiles():
+    user_profiles = app_tables.user_profile.search()
+    return user_profiles
 
 def generate_wallet_id():
-  
-    existing_wallets = app_tables.wallet.search()['wallet_id']
+    existing_wallets = app_tables.wallet.search(tables.order_by("wallet_id", ascending=False))
 
-    if existing_wallets:
-        # Extract the numeric part, convert to integers, and find the maximum
-        numeric_part = max(int(wallet_id[2:]) for wallet_id in existing_wallets)
-        
-        # Generate the new loan ID with the next numeric part
-        new_wallet_id = f'WA{numeric_part + 1:04d}'
+    if existing_wallets and len(existing_wallets) > 0:
+        new_wallet_id = existing_wallets[0]['wallet_id']
+        counter = int(new_wallet_id[2:]) + 1
     else:
-        # If no existing IDs, start with 'WA0001'
-        new_wallet_id = 'WA0001'
+        counter = 1  # Start the counter from 1 if no existing wallets
 
-    return new_wallet_id
-    app_tables.wallet.add_row(wallet_id = wallet_id)
-
+    return f"WA{counter:04d}"  # Ensure counter is formatted to 4 digits
 
 def generate_account_id():
-  
-    existing_account = app_tables.wallet.search()['account_id']
+    existing_accounts = app_tables.wallet.search(tables.order_by("account_id", ascending=False))
 
-    if existing_account:
-        # Extract the numeric part, convert to integers, and find the maximum
-        numeric_part = max(int(account_id[2:]) for account_id in existing_account)
-        
-        # Generate the new loan ID with the next numeric part
-        new_account_id = f'A{numeric_part + 1:04d}'
+    if existing_accounts and len(existing_accounts) > 0:
+        new_account_id = existing_accounts[0]['account_id']
+        counter = int(new_account_id[1:]) + 1
     else:
-        # If no existing IDs, start with 'A0001'
-        new_account_id = 'A0001'
+        counter = 1  # Start the counter from 1 if no existing accounts
 
-    return new_account_id
-    app_tables.wallet.add_row(account_id = account_id)
+    return f"A{counter:04d}" 
 
 
 # def generate_account_id():
