@@ -69,22 +69,43 @@ class check_out_form(check_out_formTemplate):
     membership_type = self.membership_type
     processing_fee = self.processing_fee
     processing_fee_amount = self.label_16.text
-    
 
-    new_loan_id = anvil.server.call('generate_loan_id')
-    loan_id=new_loan_id
+    anvil.server.call('add_loan_details',loan_amount,tenure,user_id,interest_rate,total_repayment_amount)
 
-    borrower_customer_id=user_id
-    loan_amount=loan_amount
-    tenure=tenure
-    interest_rate=interest_rate
-    total_repayment_amount=total_repayment_amount
-    monthly_emi=monthly_emi
-    membership_type=membership_type
-    processing_fee=processing_fee
-    processing_fee_amount=processing_fee_amount
-    
-    open_form('bank_users.borrower_dashboard.choose_lender', loan_id, user_id, loan_amount, tenure, interest_rate, total_repayment_amount, monthly_emi, membership_type,processing_fee,processing_fee_amount)
+    # self.id = 'LA' + str(1000)  
+    # self.label_18.text = self.id
+    # self.data = tables.app_tables.loan_details.search()
+
+    # a = -1
+    # self.list_1 = []
+
+    # for i in self.data:
+    #         a += 1
+    #         self.list_1.append(i['loan_id']) 
+    # if a == -1:
+    #         self.id = 'LA' + str(1000)
+    #         self.label_18.text = self.id
+    # else:
+    #         last_loan_id = self.list_1[-1]
+    #         numeric_part = last_loan_id[2:]
+    #         self.id = 'LA' + str(int(numeric_part) + 1)
+    #         self.label_18.text = self.id
+
+
+    # loan_id=self.id
+    # app_tables.loan_details.add_row(loan_id = loan_id)
+
+    # borrower_customer_id=user_id
+    # loan_amount=loan_amount
+    # tenure=tenure
+    # interest_rate=interest_rate
+    # total_repayment_amount=total_repayment_amount
+    # monthly_emi=monthly_emi
+    # membership_type=membership_type
+    # processing_fee=processing_fee
+    # processing_fee_amount=processing_fee_amount
+    alert("Request Submited")
+    open_form('bank_users.borrower_dashboard')
 
   # def submit_click(self, **event_args):
   #     user_id = self.userId
