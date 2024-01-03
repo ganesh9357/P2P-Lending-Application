@@ -14,7 +14,7 @@ services:
 - source: /runtime/services/anvil/email.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: admin.dashboard.manage_products}
+startup: {type: form, module: bank_users.main_form}
 package_name: bank_client
 allow_embedding: false
 name: P2P Lending App
@@ -28,7 +28,7 @@ db_schema:
     client: full
     server: full
     columns:
-    - name: product_group
+    - name: product_name
       admin_ui: {order: 6, width: 200}
       type: string
     - name: product_categories
@@ -91,8 +91,8 @@ db_schema:
     - name: foreclosure_fee
       admin_ui: {width: 200, order: 15.5}
       type: number
-    - name: product_name
-      admin_ui: {width: 200, order: 6.5}
+    - name: product_group
+      admin_ui: {order: 6.5, width: 200}
       type: string
   user_profile:
     client: full
