@@ -38,7 +38,7 @@ class check_out_form(check_out_formTemplate):
         self.label_6.text = self.tenure
         self.label_4.text = f"{self.roi}%"
         p = float(self.loan_amount)
-        t = float(self.tenure)
+        t = self.tenure
         r = float(self.roi/100)
         interest_amount =  p*r
         # interest_amount = float((((p/r)*t)/100)/12)
@@ -61,14 +61,14 @@ class check_out_form(check_out_formTemplate):
 
   def submit_click(self, **event_args):
     user_id = self.userId
-    loan_amount = self.label_2.text
-    tenure = self.label_6.text
+    loan_amount = p
+    tenure = t
     interest_rate = self.roi
     total_repayment_amount = self.Total_Repayment_Amount
-    monthly_emi = self.label_14.text
+    monthly_emi = Monthly_EMI
     membership_type = self.membership_type
     processing_fee = self.processing_fee
-    processing_fee_amount = self.label_16.text
+    processing_fee_amount = processing_fee_amount
 
     anvil.server.call('add_loan_details',loan_amount,tenure,user_id,interest_rate,total_repayment_amount)
 
