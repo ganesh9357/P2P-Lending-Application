@@ -16,6 +16,7 @@ class view_products_and_categories(view_products_and_categoriesTemplate):
     self.init_components(**properties)
     self.repeating_panel_1.items = app_tables.product_categories.search()
 
+
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('admin.dashboard.manage_products')
