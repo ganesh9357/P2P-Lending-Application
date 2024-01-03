@@ -158,16 +158,17 @@ components:
             include_placeholder: true
           name: foreclose_type
           layout_properties: {x: 177.578125, y: 881.390625, width: 233.60975}
+          event_bindings: {change: foreclose_type_change}
         - type: Label
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: '  Foreclosure Fee(%)', font_size: null, font: '',
+            visible: false, text: '  Foreclosure Fee(%)', font_size: null, font: '',
             spacing_above: small, icon_align: left, spacing_below: small, italic: false,
             background: '', bold: false, underline: false, icon: ''}
           name: label_9
           layout_properties: {x: 0.046875, y: 945.390625, width: 160}
         - type: Label
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: '  Extension Fee(%)', font_size: null, font: '',
+            visible: false, text: '  Extension Fee(%)', font_size: null, font: '',
             spacing_above: small, icon_align: left, spacing_below: small, italic: false,
             background: '', bold: false, underline: false, icon: ''}
           name: label_7_copy
@@ -175,11 +176,12 @@ components:
         - type: TextBox
           properties: {role: outlined, align: left, hide_text: false, tooltip: '',
             placeholder: Foreclosure fee, border: '', enabled: true, foreground: '',
-            visible: true, text: '', font_size: null, font: '', spacing_above: small,
+            visible: false, text: '', font_size: null, font: '', spacing_above: small,
             type: text, spacing_below: small, italic: false, background: '', bold: false,
             underline: false}
           name: foreclosure_fee
           layout_properties: {x: 180.828125, y: 939.390625, width: 230.35900000000007}
+          event_bindings: {pressed_enter: foreclosure_fee_pressed_enter, change: foreclosure_fee_change}
         - type: Label
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
             visible: true, text: ' Interest  Rate(%)', font_size: null, font: '',
@@ -355,7 +357,7 @@ components:
         - type: TextBox
           properties: {role: outlined, align: left, hide_text: false, tooltip: '',
             placeholder: Enter Extension fee, border: '', enabled: true, foreground: '',
-            visible: true, text: '', font_size: null, font: '', spacing_above: small,
+            visible: false, text: '', font_size: null, font: '', spacing_above: small,
             type: text, spacing_below: small, italic: false, background: '', bold: false,
             underline: false}
           name: text_box_4
@@ -472,6 +474,7 @@ components:
             include_placeholder: true
           name: extension_allowed
           layout_properties: {x: 180.84387499999997, y: 1056.390625, width: 230.344}
+          event_bindings: {change: extension_allowed_change}
         - type: TextBox
           properties: {role: outlined, align: left, hide_text: false, tooltip: '',
             placeholder: Enter Processing fee, border: '', enabled: true, foreground: '',
