@@ -90,7 +90,7 @@ class manage_producs1(manage_producs1Template):
             self.foreclosure_fee.visible = True          
             foreclosure_fee = int(self.foreclosure_fee.text)
         else:
-            self.label_9.visible = True
+            self.label_9.visible = Fa
             self.foreclosure_fee.visible = True 
         extension_allowed = self.extension_allowed.selected_value
         emi_payment = self.drop_down_1.selected_value
