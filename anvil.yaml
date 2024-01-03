@@ -28,8 +28,8 @@ db_schema:
     client: full
     server: full
     columns:
-    - name: product_name
-      admin_ui: {order: -0.5, width: 200}
+    - name: product_group
+      admin_ui: {order: 6, width: 200}
       type: string
     - name: product_categories
       admin_ui: {width: 200}
@@ -56,7 +56,7 @@ db_schema:
       admin_ui: {order: -1, width: 200}
       type: string
     - name: tenure
-      admin_ui: {width: 200, order: 4.5}
+      admin_ui: {order: 9, width: 188}
       type: number
     - name: late_fee
       admin_ui: {order: 17.5, width: 200}
@@ -87,6 +87,12 @@ db_schema:
       type: string
     - name: extension_allowed
       admin_ui: {width: 200, order: 16}
+      type: string
+    - name: foreclosure_fee
+      admin_ui: {width: 200, order: 15.5}
+      type: number
+    - name: product_name
+      admin_ui: {width: 200, order: 6.5}
       type: string
   user_profile:
     client: full
