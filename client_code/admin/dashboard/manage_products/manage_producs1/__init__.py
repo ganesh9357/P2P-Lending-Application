@@ -88,10 +88,6 @@ class manage_producs1(manage_producs1Template):
         product_discription = self.text_area_1.text
         product_categories = self.product_category.selected_value
         processing_fee = int(self.text_box_3.text)
-        
-        # Declare foreclosure_fee before the if statement
-        
-        
         membership_type = self.drop_down_2.selected_value
         if self.radio_button_1.selected:
             interest_type = self.radio_button_1.text
@@ -125,7 +121,12 @@ class manage_producs1(manage_producs1Template):
             self.text_box_4.visible = False
         
         emi_payment = self.drop_down_1.selected_value
-        
+        first_emi_payment = self.first_emi_payment.text
+        if not first_emi_payment.isdigit() or int(first_emi_payment) < 1:
+            Notification("Please enter a valid value for First EMI Payment (>= 1)").show()
+            return
+        first_emi_payment = int(first_emi_payment)
+ 
         if self.radio_button_3.selected:
             # Code to execute when radio_button_3 is selected
             discount_coupons = self.radio_button_3.text
@@ -139,9 +140,13 @@ class manage_producs1(manage_producs1Template):
         if product_group == "" or product_name == "" or product_categories == "" or membership_type == "" or processing_fee == "" or extension_fee == "" or interest_type == "" or max_amount == "" or min_amount == "" or min_tenure == "" or max_tenure == "" or roi == "" or emi_payment == "" or discount_coupons == "":
             Notification("Fill All Required Details").show()
         else:
-            anvil.server.call('product_details', self.id, product_name, product_group, product_discription, product_categories, processing_fee, extension_fee, membership_type, interest_type, max_amount, min_amount, min_tenure, max_tenure, roi, foreclose_type, foreclosure_fee, extension_allowed, emi_payment, discount_coupons)
+            anvil.server.call('product_details', self.id, product_name, product_group, product_discription, product_categories, processing_fee, extension_fee, membership_type, interest_type, max_amount, min_amount, min_tenure, max_tenure, roi, foreclose_type, foreclosure_fee, extension_allowed, emi_payment, first_emi_payment, discount_coupons)
             product_id = self.label_1.text
             # open_form('admin.dashboard.manage_products.add_group',product_id )
         
             Notification("Products added successfully").show()
             open_form('admin.dashboard.manage_products')
+
+    def link_1_copy_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin.dashboard.manage_products')

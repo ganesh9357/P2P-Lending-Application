@@ -32,8 +32,8 @@ components:
       - {id: MLIRND, title: Product ID, data_key: column_1, $$hashKey: 'object:2245'}
       - {id: ZEMFJV, title: Product Group, data_key: column_2, $$hashKey: 'object:2246'}
       - {id: KICZSB, title: Product Categories, data_key: column_3, $$hashKey: 'object:2247'}
-      - {id: AHLIAF, title: Extension Fee, data_key: column_5, $$hashKey: 'object:2297'}
-      - {id: WREVWD, title: Processing Fee, data_key: column_4, $$hashKey: 'object:2295'}
+      - {id: AHLIAF, title: Extension Fee(%), data_key: column_5, $$hashKey: 'object:2297'}
+      - {id: WREVWD, title: Processing Fee(%), data_key: column_4, $$hashKey: 'object:2295'}
       auto_header: true
       tooltip: ''
       border: ''
