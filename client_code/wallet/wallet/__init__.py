@@ -97,8 +97,8 @@ class wallet(walletTemplate):
     try:
         deposit_amount = float(amount_entered)
     except ValueError:
-        # Handle the case where the entered amount is not a valid number
-        return  # You can show an error message or handle it as needed
+        
+        return  
 
     customer_id = 1000 
     
@@ -117,7 +117,7 @@ class wallet(walletTemplate):
         withdraw_amount = float(amount_entered)
     except ValueError:
         # Handle the case where the entered amount is not a valid number
-        return  # You can show an error message or handle it as needed
+        return 
 
     customer_id = 1000 
     
