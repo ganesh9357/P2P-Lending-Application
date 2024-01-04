@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {col_widths: '{"XTLVAT":45}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -140,7 +140,7 @@ components:
             wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
             spacing_below: small, background: '#CBCFD0'}
           name: column_panel_2
-          layout_properties: {x: 177.59325, y: 379, width: 581.969}
+          layout_properties: {x: 177.59325, y: 379, width: 570.2913129882812}
           components:
           - type: Label
             properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
@@ -492,15 +492,14 @@ components:
             underline: false}
           name: first_emi_payment
           layout_properties: {x: 202, y: 888, width: 239.188}
-  - type: Button
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: black, visible: true, text: Save, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
-      bold: false, underline: false, icon: 'fa:save'}
-    name: button_1
-    layout_properties: {x: -11.069435119628906, y: 1391.7133000000001, width: 699,
-      grid_position: 'MNHPMM,JOXZBX'}
-    event_bindings: {click: button_1_click}
+        - type: Button
+          properties: {role: outlined-button, align: center, tooltip: '', border: '',
+            enabled: true, foreground: black, visible: true, text: Save, font_size: null,
+            font: '', spacing_above: small, icon_align: left, spacing_below: small,
+            italic: false, background: '#0876E8', bold: false, underline: false, icon: 'fa:save'}
+          name: button_1
+          layout_properties: {x: 242.69442240521312, y: 1395.93062210083, width: 230.5}
+          event_bindings: {click: button_1_click}
 - type: FlowPanel
   properties: {}
   name: navbar_links
