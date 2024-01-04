@@ -35,7 +35,7 @@ components:
           col_widths: {}
           grid_position: IPMDFU,UZEFCD
     - type: XYPanel
-      properties: {height: 1067.599998474121}
+      properties: {height: 1118.599998474121}
       name: xy_panel_1
       layout_properties: {grid_position: 'EUYFWY,VXIUTQ'}
       components:
@@ -108,20 +108,6 @@ components:
           underline: false, icon: ''}
         name: label_8_copy
         layout_properties: {x: 0, y: 297.796875, width: 160}
-      - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: ' Foreclosure Type', font_size: null, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-          underline: false, icon: ''}
-        name: label_19
-        layout_properties: {x: 0, y: 738.796875, width: 160}
-      - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: ' Processing Fee(%)', font_size: null, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-          underline: false, icon: ''}
-        name: label_6_copy
-        layout_properties: {x: 0, y: 830.796875, width: 152}
       - type: ColumnPanel
         properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
           wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
@@ -219,10 +205,6 @@ components:
         name: label_18
         layout_properties: {x: 182, y: 692.796875, width: 160}
       - type: Label
-        properties: {}
-        name: label_20
-        layout_properties: {x: 182, y: 738.796875, width: 160}
-      - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: ' EMI Payment', font_size: null, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
@@ -235,56 +217,85 @@ components:
           font: '', spacing_above: small, icon_align: left, spacing_below: small,
           italic: false, background: '#0876E8', bold: false, underline: false, icon: 'fa:edit'}
         name: button_1
-        layout_properties: {x: 268, y: 1020.578125, width: 320}
+        layout_properties: {x: 267.99999237060547, y: 1073.2361580078125, width: 320}
         event_bindings: {click: button_1_click}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: ' Processing Fee(%)', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_6_copy
+        layout_properties: {x: 0, y: 890.77783203125, width: 152}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: ' Foreclosure fee(%)', font_size: null, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
           underline: false, icon: ''}
         name: label_25
-        layout_properties: {x: 0, y: 784.796875, width: 160}
+        layout_properties: {x: 0, y: 837.77783203125, width: 160}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: ' Extension Allowed', font_size: null, font: '', spacing_above: small,
+          visible: true, text: ' Foreclosure Type', font_size: null, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
           underline: false, icon: ''}
-        name: label_21
-        layout_properties: {x: 0, y: 876.796875, width: 160}
+        name: label_19
+        layout_properties: {x: 0, y: 784.7916870117188, width: 160}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: ' First EMI Payment ', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_27
+        layout_properties: {x: 0, y: 738.7916870117188, width: 160}
+      - type: Label
+        properties: {}
+        name: label_28
+        layout_properties: {x: 181.9861068725586, y: 738.7916870117188, width: 160}
+      - type: Label
+        properties: {}
+        name: label_20
+        layout_properties: {x: 181.9861068725586, y: 791.7777709960938, width: 160}
+      - type: Label
+        properties: {}
+        name: label_26
+        layout_properties: {x: 181.99999237060547, y: 837.77783203125, width: 160}
+      - type: Label
+        properties: {}
+        name: label_5
+        layout_properties: {x: 181.99999237060547, y: 883.77783203125, width: 232}
+      - type: Label
+        properties: {}
+        name: label_22
+        layout_properties: {x: 181.9861068725586, y: 929.7916259765625, width: 160}
+      - type: Label
+        properties: {}
+        name: label_6
+        layout_properties: {x: 181.9861068725586, y: 975.7916259765625, width: 232}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: ' Extension Fee(%)', font_size: null, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
           underline: false, icon: ''}
         name: label_7_copy
-        layout_properties: {x: 0, y: 922.796875, width: 160}
+        layout_properties: {x: 0, y: 975.7916259765625, width: 160}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: ' Extension Allowed', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_21
+        layout_properties: {x: 0, y: 936.77783203125, width: 160}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: ' Discount  Coupons', font_size: null, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
           underline: false, icon: ''}
         name: label_14_copy
-        layout_properties: {x: 0, y: 968.796875, width: 160}
+        layout_properties: {x: 0, y: 1021.7916259765625, width: 160}
       - type: Label
         properties: {}
         name: label_12
-        layout_properties: {x: 187, y: 968.796875, width: 232}
-      - type: Label
-        properties: {}
-        name: label_6
-        layout_properties: {x: 182, y: 922.796875, width: 232}
-      - type: Label
-        properties: {}
-        name: label_22
-        layout_properties: {x: 182, y: 876.796875, width: 160}
-      - type: Label
-        properties: {}
-        name: label_5
-        layout_properties: {x: 182, y: 830.796875, width: 232}
-      - type: Label
-        properties: {}
-        name: label_26
-        layout_properties: {x: 182, y: 784.796875, width: 160}
+        layout_properties: {x: 181.9861068725586, y: 1021.7916259765625, width: 232}
 - type: FlowPanel
   properties: {}
   name: navbar_links

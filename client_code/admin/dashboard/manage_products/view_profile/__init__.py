@@ -22,6 +22,7 @@ class view_profile(view_profileTemplate):
     self.name_list = []
     self.product_name_lst = []
     self.categories_list = []
+    self.product_descri = []
     self.profee_list = []
     self.extfee_list = []
     self.foreclose_list = []
@@ -35,6 +36,7 @@ class view_profile(view_profileTemplate):
     self.min_tenure_list = []
     self.max_tenure_list = []
     self.emi_payment = []
+    self.first_emi = []
     self.dis_cou = []
 
     a = -1
@@ -44,6 +46,7 @@ class view_profile(view_profileTemplate):
       self.product_name_lst.append(i['product_name'])
       self.name_list.append(i['product_group'])
       self.categories_list.append(i['product_categories'])
+      self.product_descri.append(i['product_discription'])
       self.profee_list.append(i['processing_fee'])
       self.extfee_list.append(i['extension_fee'])
       self.foreclose_list.append(i['foreclose_type'])
@@ -57,6 +60,7 @@ class view_profile(view_profileTemplate):
       self.min_tenure_list.append(i['min_tenure'])
       self.max_tenure_list.append(i['max_tenure'])
       self.emi_payment.append(i['emi_payment'])
+      self.first_emi.append(i['first_emi_payment'])
       self.dis_cou.append(i['discount_coupons'])
 
     if a == -1:
@@ -68,6 +72,7 @@ class view_profile(view_profileTemplate):
         self.label_2.text = self.name_list[b]
         self.label_24.text = self.product_name_lst[b]
         self.label_4.text = self.categories_list[b]
+        self.label_3.text = self.product_descri[b]
         self.label_5.text = self.profee_list[b]
         self.label_6.text = self.extfee_list[b]
         self.label_20.text = self.foreclose_list[b]
@@ -81,6 +86,7 @@ class view_profile(view_profileTemplate):
         self.label_16.text = self.max_tenure_list[b]
         self.label_10.text = self.roi[b]
         self.label_18.text = self.emi_payment[b]
+        self.label_28.text = self.first_emi[b]
         self.label_12.text = self.dis_cou[b]
 
   def button_1_click(self, **event_args):
