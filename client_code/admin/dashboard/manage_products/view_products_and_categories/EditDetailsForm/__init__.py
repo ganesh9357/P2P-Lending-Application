@@ -7,40 +7,47 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from anvile import For
+from anvil import alert
 
 class EditDetailsForm(EditDetailsFormTemplate):
-    def __init__(self, selected_group, selected_category, **properties):
-        # Set Form properties and Data Bindings.
+    def __init__(self, selected_row, **properties):
         self.init_components(**properties)
 
         # Set the initial values for the input components
-        self.text_box_1.text = selected_group
-        self.text_box_2.text = selected_category
+        self.text_box_1.text = selected_row['name']
+        #self.text_box_2.text = selected_row['name_categories']
+        
+        # Store the selected row for later use
+        self.selected_row = selected_row
 
     def button_1_click(self, **event_args):
         """Save changes button click event"""
-        # Get the updated values from the input components
-        updated_group = self.text_box_group.text
-        updated_category = self.text_box_category.text
+        # Get the updated value from the input component
+        updated_group = self.text_box_1.text.lower()  # Convert to lowercase
 
-        # Perform any validation or data processing as needed
+        # Check if the updated value is the same as the existing value
+        if updated_group != self.selected_row['name'].lower():
+            # Convert the existing group names to lowercase for case-insensitive comparison
+            existing_names_lower = [row['name'].lower() for row in app_tables.product_group.search()]
+            
+            if updated_group in existing_names_lower:
+                alert(f'Group "{self.text_box_1.text}" already exists. Please choose a different name.')
+            else:
+                # Update the existing row in the product_categories table
+                self.selected_row['name'] = updated_group
 
-        # Update the existing row in the product_categories table
-        selected_item = self.item  # Assuming you passed the selected item to this form
-        if selected_item is not None:
-            selected_item['name_group'] = updated_group
-            selected_item['name_categories'] = updated_category
+                # Save changes to the database
+                self.selected_row.update()
 
-        # Optionally, show a confirmation message
-        alert("Changes saved successfully!")
+                alert("Changes saved successfully!")
+                open_form('admin.dashboard.manage_products.view_products_and_categories')
 
-        # Close the form after saving changes
-        self.close()
-
+        else:
+            # No changes were made
+            alert("No changes made.")
+            open_form('admin.dashboard.manage_products.view_products_and_categories')
+          
     def button_2_click(self, **event_args):
         """Cancel button click event"""
         # Close the form without saving changes
-        self.close()
-
-  
+        open_form('admin.dashboard.manage_products.view_products_and_categories')

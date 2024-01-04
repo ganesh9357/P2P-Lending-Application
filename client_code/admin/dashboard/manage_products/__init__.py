@@ -34,5 +34,9 @@ class manage_products(manage_productsTemplate):
   def link_5_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('admin.dashboard.manage_products.view_products_and_categories')
+
+  def link_6_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('admin.dashboard.manage_products.view_categories')
  
 

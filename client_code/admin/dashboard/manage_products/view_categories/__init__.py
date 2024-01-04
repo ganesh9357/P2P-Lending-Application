@@ -1,4 +1,4 @@
-from ._anvil_designer import view_products_and_categoriesTemplate
+from ._anvil_designer import view_categoriesTemplate
 from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
@@ -7,18 +7,16 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from .EditDetailsForm import EditDetailsForm
 
-
-class view_products_and_categories(view_products_and_categoriesTemplate):
+class view_categories(view_categoriesTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.repeating_panel_1.items = app_tables.product_group.search()
 
+    # Any code you write here will run before the form opens.
+    self.repeating_panel_1.items = app_tables.product_categories.search()
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('admin.dashboard.manage_products')
 
-  
