@@ -138,49 +138,51 @@ def generate_account_id():
 #         return False  # Withdrawal unsuccessful
 
 def generate_transaction_id():
-    latest_transaction = app_tables.wallet_transactions.search(tables.order_by("transaction_id", ascending=False))
+    latest_transaction = app_tables.wallet_transactions.search(
+        tables.order_by("transaction_id", ascending=False)
+    )
 
     if latest_transaction and len(latest_transaction) > 0:
-        new_transaction_id = latest_transaction[0]['transaction_id']
-        counter = int(new_transaction_id[1:]) + 1
+        last_transaction_id = latest_transaction[0]['transaction_id']
+        counter = int(last_transaction_id[2:]) + 1
     else:
-        counter = 1  
+        counter = 1
 
-    return f"TA{counter:04d}" 
+    return f"TA{counter:04d}"
 
 @anvil.server.callable
 def deposit_money(email, deposit_amount):
-    # Generate unique wallet_id and account_id
     transaction_id = generate_transaction_id()
     
-    existing_transaction = app_tables.wallet_transactions.search(user_email=email)
-    print(existing_transaction)
-    
-    if len(existing_transaction) == 0:
+    # Add try-except block to handle exceptions if the transaction fails
+    try:
         app_tables.wallet_transactions.add_row(
-                user_email=email,
-                customer_id=customer_id,
-                transaction_id=transaction_id,
-                amount=deposit_amount,
-                transaction_type='deposite' 
-            )
+            user_email=email,
+            transaction_id=transaction_id,
+            amount=deposit_amount,
+            transaction_type='deposit',
+            status='success'  # Assuming the initial status is success
+        )
         return True
+    except Exception as e:
+        print(f"Deposit failed: {e}")
+        return False
 
 @anvil.server.callable
 def withdraw_money(email, withdraw_amount):
-    # Generate unique wallet_id and account_id
     transaction_id = generate_transaction_id()
     
-    existing_transaction = app_tables.wallet_transactions.search(user_email=email)
-    print(existing_transaction)
-    
-    if len(existing_transaction) == 0:
+    # Add try-except block to handle exceptions if the transaction fails
+    try:
         app_tables.wallet_transactions.add_row(
-                user_email=email,
-                customer_id=customer_id,
-                transaction_id=transaction_id,
-                amount=withdraw_amount,
-                transaction_type='withdraw' 
-            )
+            user_email=email,
+            transaction_id=transaction_id,
+            amount=withdraw_amount,
+            transaction_type='withdraw',
+            status='success'  # Assuming the initial status is success
+        )
         return True
+    except Exception as e:
+        print(f"Withdrawal failed: {e}")
+        return False
     
