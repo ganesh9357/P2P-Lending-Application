@@ -1,11 +1,9 @@
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{}'}
+container: {type: ColumnPanel}
 components:
 - name: column_panel_1
-  properties: {col_widths: '{"YUNWTP":30,"SYXKKY":30}'}
+  properties: {col_widths: '{}'}
   type: ColumnPanel
-  layout_properties: {grid_position: 'EPUOAT,VKTNNG'}
+  layout_properties: {grid_position: 'KXMAJN,WVDRGU'}
   components:
   - name: image_1_copy
     properties: {role: null, vertical_align: center, height: 61.21429443359375, tooltip: '',
@@ -14,34 +12,37 @@ components:
       spacing_below: small, background: '', horizontal_align: left}
     type: Image
     layout_properties: {grid_position: 'GVFDHL,HZAXGZ'}
-  - type: Spacer
+  - name: spacer_1
     properties: {height: 63}
-    name: spacer_1
+    type: Spacer
     layout_properties: {grid_position: 'JRGSMO,GXTDFM'}
-  - type: TextBox
-    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false}
-    name: text_box_1
+  - name: text_box_1
+    properties: {}
+    type: TextBox
     layout_properties: {grid_position: 'FAYIQN,FYQGWM'}
     data_bindings:
     - {property: text, code: 'self.item[''name_group'']', writeback: true}
-  - type: Button
-    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-      foreground: black, visible: true, text: 'Back
-
-        ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-      italic: false, background: '#0876E8', bold: true, underline: false, icon: 'fa:angle-double-left'}
-    name: button_2
-    layout_properties: {grid_position: 'UTWWBG,YUNWTP'}
-    event_bindings: {click: button_2_click}
-  - type: Button
+  - name: text_box_2
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'FAYIQN,ASDCVV'}
+    data_bindings:
+    - {property: text, code: 'self.item[''name_categories'']', writeback: true}
+  - name: button_1
     properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
       foreground: black, visible: true, text: SAVE, font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
       bold: true, underline: false, icon: ''}
-    name: button_1
-    layout_properties: {grid_position: 'UTWWBG,SYXKKY'}
+    type: Button
+    layout_properties: {grid_position: 'UTWWBG,LXOHTH'}
     event_bindings: {click: button_1_click}
+  - name: button_2
+    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+      foreground: black, visible: true, text: 'cancel
+
+        ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+      italic: false, background: '#0876E8', bold: true, underline: false, icon: ''}
+    type: Button
+    layout_properties: {grid_position: 'UTWWBG,YUNWTP'}
+    event_bindings: {click: button_2_click}
 is_package: true
