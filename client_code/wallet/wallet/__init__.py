@@ -21,6 +21,11 @@ class wallet(walletTemplate):
     self.withdraw_placeholder = "0.00"
     
     # self.email=main_form_module.email
+    # print(self.email)
+
+    self.user_id = main_form_module.userId
+    user_id = self.user_id
+    
     # wallet=app_tables.wallet.get(user_email=self.email)
     # if wallet:
     #   self.amount_text_box.text=wallet['e_wallet']
@@ -98,15 +103,15 @@ class wallet(walletTemplate):
     except ValueError:
         return  # Handle invalid input
     
-    # Replace 'customer_id' with the appropriate value or retrieve it
-    customer_id = 1000  # Replace this with your logic to get customer_id
-    
-    if anvil.server.call('deposit_money', customer_id=customer_id, email='user@example.com', deposit_amount=deposit_amount):
+    email = main_form_module.userId  # Assuming this contains the user's email
+    customer_id = main_form_module.userId  # Replace with the correct logic to get customer_id
+   
+    if anvil.server.call('deposit_money', customer_id=customer_id, email=email, deposit_amount=deposit_amount):
         alert("Deposit successful!")
     else:
         alert("Deposit failed!")
 
-  def withdraw_money_btn_click(self, **event_args):
+def withdraw_money_btn_click(self, **event_args):
     amount_entered = self.amount_text_box.text
     
     try:
@@ -114,10 +119,10 @@ class wallet(walletTemplate):
     except ValueError:
         return  # Handle invalid input
     
-    # Replace 'customer_id' with the appropriate value or retrieve it
-    customer_id = 1000  # Replace this with your logic to get customer_id
+    email = main_form_module.userId  # Assuming this contains the user's email
+    customer_id = main_form_module.userId  # Replace with the correct logic to get customer_id
     
-    if anvil.server.call('withdraw_money', customer_id=customer_id, email='user@example.com', withdraw_amount=withdraw_amount):
+    if anvil.server.call('withdraw_money', customer_id=customer_id, email=email, withdraw_amount=withdraw_amount):
         alert("Withdrawal successful!")
     else:
         alert("Withdrawal failed!")

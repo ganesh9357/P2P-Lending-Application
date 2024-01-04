@@ -156,7 +156,7 @@ def deposit_money(email, deposit_amount, customer_id):
     
     try:
         app_tables.wallet_transactions.add_row(
-            user_email=email,
+            user_email=str(email),
             customer_id=customer_id,
             transaction_id=transaction_id,
             amount=deposit_amount,
@@ -173,7 +173,7 @@ def withdraw_money(email, withdraw_amount, customer_id):
     
     try:
         app_tables.wallet_transactions.add_row(
-            user_email=email,
+            user_email=str(email),
             customer_id=customer_id,
             transaction_id=transaction_id,
             amount=withdraw_amount,
