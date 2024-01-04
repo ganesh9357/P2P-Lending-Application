@@ -38,17 +38,21 @@ class foreclose(forecloseTemplate):
     outstanding_amount_i_amount=int(outstanding_amount_i_amount)
     total_outstanding_amount=outstanding_amount+outstanding_amount_i_amount
     
+    data = tables.app_tables.product_details.search()
+    self.foreclosure_rate_lst = []
+    for i in data:
+        self.foreclosure_rate_lst.append(i['foreclosure_amount'])
 
-    penalty_rate = 0.03  # 3%
-    penalty_amount = outstanding_amount * penalty_rate
-    penalty_amount = int(penalty_amount)
-    total_due_amount = outstanding_amount + penalty_amount
+    self.foreclose_rate.text = self.foreclosure_rate_lst
+    foreclose_amount = outstanding_amount * foreclose_rate
+    foreclose_amount = int(foreclose_amount)
+    total_due_amount = outstanding_amount + foreclose_amount
     total_due_amount = int(total_due_amount)
 
     self.ra_label.text = f"{outstanding_amount}"
     self.tda_label.text = f"{total_due_amount}"
     self.emi_label.text = f"{emi}"
-    self.pa_label.text = f"{penalty_amount}"
+    self.pa_label.text = f"{foreclose_amount}"
     self.paid_label.text = f"{paid_amount}"
     self.mi_label.text = f"{monthly_installment}"
     self.fir_label.text = f"{monthly_interest_amount}"
@@ -87,7 +91,7 @@ class foreclose(forecloseTemplate):
                     total_due_amount=self.tda_label.text,
                     emi_amount=self.emi_label.text,
                     paid_amount=self.paid_label.text,
-                    penalty_amount=self.pa_label.text,
+                    foreclose_amount=self.pa_label.text,
                     requested_on=datetime.now(),
                     reason=reason
                 )
