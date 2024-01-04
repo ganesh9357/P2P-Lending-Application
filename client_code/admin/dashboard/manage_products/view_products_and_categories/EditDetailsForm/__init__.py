@@ -7,6 +7,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from anvil import alert
 
 class EditDetailsForm(EditDetailsFormTemplate):
     def __init__(self, selected_group, selected_category, **properties):
@@ -20,10 +21,8 @@ class EditDetailsForm(EditDetailsFormTemplate):
     def button_1_click(self, **event_args):
         """Save changes button click event"""
         # Get the updated values from the input components
-        updated_group = self.text_box_group.text
-        updated_category = self.text_box_category.text
-
-        # Perform any validation or data processing as needed
+        updated_group = self.text_box_1.text
+        updated_category = self.text_box_2.text
 
         # Update the existing row in the product_categories table
         selected_item = self.item  # Assuming you passed the selected item to this form
@@ -35,11 +34,11 @@ class EditDetailsForm(EditDetailsFormTemplate):
         alert("Changes saved successfully!")
 
         # Close the form after saving changes
-        self.close()
-
+        self.raise_event('x-close-form')
+      
     def button_2_click(self, **event_args):
         """Cancel button click event"""
         # Close the form without saving changes
-        self.close()
-
+        open_form('admin.dashboard.manage_products.view_products_and_categories')
   
+ 
