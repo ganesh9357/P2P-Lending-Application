@@ -7,7 +7,6 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from anvile import For
 
 class EditDetailsForm(EditDetailsFormTemplate):
     def __init__(self, selected_group, selected_category, **properties):
