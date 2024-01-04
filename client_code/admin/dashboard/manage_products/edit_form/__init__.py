@@ -42,6 +42,7 @@ class edit_form(edit_formTemplate):
         self.min_tenure_list = []
         self.max_tenure_list = []
         self.emi_payment_list = []
+        self.first_emi_list = []
         self.disc_coupans_list = []
 
         a = -1
@@ -65,6 +66,7 @@ class edit_form(edit_formTemplate):
             self.min_tenure_list.append(i['min_tenure'])
             self.max_tenure_list.append(i['max_tenure'])
             self.emi_payment_list.append(i['emi_payment'])
+            self.first_emi_list.append(i['first_emi_payment'])
             self.disc_coupans_list.append(i['discount_coupons'])
 
         if a == -1:
@@ -124,6 +126,7 @@ class edit_form(edit_formTemplate):
                     self.foreclose_type.enabled = False
                     self.extension_allowed.enabled = False
                     self.emi_payment.enabled = False
+                    self.first_emi_payment.enabled = False
                     self.name.enabled = False
                     self.product_category.enabled = False
                     self.text_box_3.enabled = False
@@ -147,6 +150,7 @@ class edit_form(edit_formTemplate):
                     self.foreclose_type.enabled = False
                     self.extension_allowed.enabled = False
                     self.emi_payment.enabled = False
+                    self.first_emi_payment.enabled = False
                     self.name.enabled = False
                     self.product_name.enabled = False
                     self.product_category.enabled = False
@@ -183,6 +187,9 @@ class edit_form(edit_formTemplate):
             if self.emi_payment_list:
                 self.emi_payment.selected_value = str(self.emi_payment_list[-1])
 
+            if self.first_emi_list:
+                self.first_emi_payment.text = str(self.first_emi_list[-1])
+
             if self.disc_coupans_list:
                 if self.disc_coupans_list[-1] == "Yes":
                     self.radio_button_3.text = "Yes"
@@ -195,8 +202,11 @@ class edit_form(edit_formTemplate):
         """This method is called when the button is clicked"""
         open_form('admin.dashboard.manage_products.view_product')
 
+        selected_product_id = self.label_1.text
+
         if (
-            self.name.selected_value is None
+            selected_product_id is None
+            or self.name.selected_value is None
             or self.product_category.selected_value is None
             or self.drop_down_2.selected_value == ""
             or self.text_box_3.text == ""
@@ -212,32 +222,29 @@ class edit_form(edit_formTemplate):
         ):
             Notification("Fill All Required Details").show()
         else:
-            data = tables.app_tables.product_details.search()
-            a = -1
-            for row in data:
-                a += 1
-
-            if a == -1:
+            data = app_tables.product_details.get(product_id=selected_product_id)
+            if data is None:
                 alert("No Data Available Here")            
             else:
-                data[a]['product_group'] = self.name.selected_value
-                data[a]['product_name'] = self.product_name.text
-                data[a]['product_discription'] = self.text_area_1.text
-                data[a]['product_categories'] = self.product_category.selected_value
-                data[a]['processing_fee'] = int(self.text_box_3.text)
-                data[a]['extension_fee'] = int(self.text_box_4.text)
-                data[a]['membership_type'] = self.drop_down_2.selected_value
-                data[a]['interest_type'] = self.radio_button_1.text if self.radio_button_1.selected else self.radio_button_2.text
-                data[a]['min_amount'] = int(self.min_amount.text)
-                data[a]['max_amount'] = int(self.max_amount.text)
-                data[a]['min_tenure'] = int(self.min_tenure.text)
-                data[a]['max_tenure'] = int(self.max_tenure.text)
-                data[a]['roi'] = int(self.roi.text)
-                data[a]['foreclose_type'] = self.foreclose_type.selected_value
-                data[a]['foreclosure_fee'] = int(self.foreclosure_fee.text)
-                data[a]['extension_allowed'] = self.extension_allowed.selected_value
-                data[a]['emi_payment'] = self.emi_payment.selected_value
-                data[a]['discount_coupons'] = "Yes" if self.radio_button_3.selected else "No"
+                data['product_group'] = self.name.selected_value
+                data['product_name'] = self.product_name.text
+                data['product_discription'] = self.text_area_1.text
+                data['product_categories'] = self.product_category.selected_value
+                data['processing_fee'] = int(self.text_box_3.text)
+                data['extension_fee'] = int(self.text_box_4.text)
+                data['membership_type'] = self.drop_down_2.selected_value
+                data['interest_type'] = self.radio_button_1.text if self.radio_button_1.selected else self.radio_button_2.text
+                data['min_amount'] = int(self.min_amount.text)
+                data['max_amount'] = int(self.max_amount.text)
+                data['min_tenure'] = int(self.min_tenure.text)
+                data['max_tenure'] = int(self.max_tenure.text)
+                data['roi'] = int(self.roi.text)
+                data['foreclose_type'] = self.foreclose_type.selected_value
+                data['foreclosure_fee'] = int(self.foreclosure_fee.text)
+                data['extension_allowed'] = self.extension_allowed.selected_value
+                data['emi_payment'] = self.emi_payment.selected_value
+                data['first_emi_payment'] = int(self.first_emi_payment.text)
+                data['discount_coupons'] = "Yes" if self.radio_button_3.selected else "No"
 
                 Notification("Product details updated successfully").show()
 

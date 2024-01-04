@@ -94,6 +94,9 @@ db_schema:
     - name: product_name
       admin_ui: {width: 200, order: -2}
       type: string
+    - name: first_emi_payment
+      admin_ui: {order: 18.5, width: 200}
+      type: number
   user_profile:
     client: full
     server: full
@@ -572,6 +575,9 @@ db_schema:
     - name: borrower_last_payment_done
       admin_ui: {order: 25, width: 231}
       type: number
+    - name: product_id
+      admin_ui: {width: 200, order: 26}
+      type: string
     title: loan_details
   product_group:
     title: product_group
