@@ -587,7 +587,7 @@ db_schema:
       admin_ui: {width: 200, order: 21}
       type: number
     - name: foreclosure_type
-      admin_ui: {order: 22, width: 200}
+      admin_ui: {order: 23, width: 200}
       type: string
     - name: loan_closed_date
       admin_ui: {order: 23, width: 200}
