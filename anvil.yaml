@@ -700,13 +700,13 @@ db_schema:
       admin_ui: {width: 200, order: 0}
       type: string
     - name: wallet_id
-      admin_ui: {width: 200, order: 1}
+      admin_ui: {order: 0.5, width: 200}
       type: string
     - name: bank_name
       admin_ui: {width: 200, order: 2}
       type: string
     - name: account_number
-      admin_ui: {width: 200, order: 3}
+      admin_ui: {order: 2.5, width: 200}
       type: number
     - name: branch_name
       admin_ui: {width: 200, order: 4}
@@ -719,6 +719,9 @@ db_schema:
       type: string
     - name: user_email
       admin_ui: {width: 200, order: 0.5}
+      type: string
+    - name: account_name
+      admin_ui: {order: 2, width: 200}
       type: string
     title: wallet_bank_account_table
   borrower:

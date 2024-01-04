@@ -8,7 +8,8 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from anvil import open_form, server
-from ...lendor_registration_form.dashboard import lendor_main_form_module as main_form_module
+# from ...lendor_registration_form.dashboard import lendor_main_form_module as main_form_module
+from ...bank_users.main_form import main_form_module
 
 
 
@@ -20,11 +21,11 @@ class wallet(walletTemplate):
     self.deposit_placeholder = "5000"
     self.withdraw_placeholder = "0.00"
     
-    # self.email=main_form_module.email
-    # print(self.email)
+    self.email=main_form_module.email
+    email = self.email
 
-    self.user_id = main_form_module.userId
-    user_id = self.user_id
+    # self.user_id = main_form_module.userId
+    # user_id = self.user_id
     
     # wallet=app_tables.wallet.get(user_email=self.email)
     # if wallet:
@@ -103,15 +104,15 @@ class wallet(walletTemplate):
     except ValueError:
         return  # Handle invalid input
     
-    email = main_form_module.userId  # Assuming this contains the user's email
-    customer_id = main_form_module.userId  # Replace with the correct logic to get customer_id
-   
-    if anvil.server.call('deposit_money', customer_id=customer_id, email=email, deposit_amount=deposit_amount):
+    customer_id = 1000
+    email = self.email
+    
+    if anvil.server.call('deposit_money', email=email, deposit_amount=deposit_amount, customer_id=customer_id):
         alert("Deposit successful!")
     else:
         alert("Deposit failed!")
 
-def withdraw_money_btn_click(self, **event_args):
+  def withdraw_money_btn_click(self, **event_args):
     amount_entered = self.amount_text_box.text
     
     try:
@@ -119,10 +120,10 @@ def withdraw_money_btn_click(self, **event_args):
     except ValueError:
         return  # Handle invalid input
     
-    email = main_form_module.userId  # Assuming this contains the user's email
-    customer_id = main_form_module.userId  # Replace with the correct logic to get customer_id
+    customer_id = 1000
+    email = self.email  
     
-    if anvil.server.call('withdraw_money', customer_id=customer_id, email=email, withdraw_amount=withdraw_amount):
+    if anvil.server.call('withdraw_money', email=email, withdraw_amount=withdraw_amount, customer_id=customer_id):
         alert("Withdrawal successful!")
     else:
         alert("Withdrawal failed!")
