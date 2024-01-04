@@ -34,6 +34,7 @@ class check_out_form(check_out_formTemplate):
             self.roi = user_request['roi']
             self.processing_fee = user_request['processing_fee']
             self.membership_type = user_request['membership_type']
+            self.product_id = user_request['product_id']
         self.label_2.text = f"₹ {self.loan_amount}"
         self.label_6.text = self.tenure
         self.label_4.text = f"{self.roi}%"
@@ -70,7 +71,7 @@ class check_out_form(check_out_formTemplate):
     processing_fee = self.processing_fee
     processing_fee_amount = self.label_16.text
 
-    anvil.server.call('add_loan_details',loan_amount,tenure,user_id,interest_rate,total_repayment_amount)
+    anvil.server.call('add_loan_details',loan_amount, self.product_id, tenure,user_id,interest_rate,total_repayment_amount)
 
     # self.id = 'LA' + str(1000)  
     # self.label_18.text = self.id
