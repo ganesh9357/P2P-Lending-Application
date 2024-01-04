@@ -5,7 +5,7 @@ components:
   name: label_1
   layout_properties: {column: QLOWGE}
   data_bindings:
-  - {property: text, code: 'self.item[''lender_full_name'']'}
+  - {property: text, code: 'self.item[''borrower_full_name'']', writeback: false}
 - type: Label
   properties: {}
   name: label_2
