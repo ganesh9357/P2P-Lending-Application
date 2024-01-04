@@ -18,12 +18,17 @@ class add_group(add_groupTemplate):
         """This method is called when the button is clicked"""
         # Get the text entered in the TextBox
         group_name = self.text_box_1.text
-        if group_name:
+
+        # Check if the group name already exists
+        if app_tables.product_group.get(name=group_name):
+            alert(f'Group "{group_name}" already exists. Please choose a different Group name.')
+        else:
+            # Add a new row only if the group name does not exist
             app_tables.product_group.add_row(name=group_name)
             self.text_box_1.text = ''
-            alert(f' "{group_name}" added successfully!')
+            alert(f'Group "{group_name}" added successfully!')
             open_form('admin.dashboard.manage_products.add_product_categories_and_groups')
-
+          
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form('admin.dashboard')

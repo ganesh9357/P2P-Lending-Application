@@ -27,9 +27,14 @@ class EditDetailsForm(EditDetailsFormTemplate):
         #updated_category = self.text_box_2.text
 
         # Update the existing row in the product_categories table
-        if self.selected_row is not None:
-            self.selected_row['name'] = updated_group
-            #self.selected_row['name_categories'] = updated_category
+        existing_rows = app_tables.product_group.search(name=updated_group)
+        
+        if existing_rows and existing_rows[0].get_id() != self.selected_row.get_id():
+            alert(f'Group "{updated_group}" already exists. Please choose a different name.')
+        else:
+            # Update the existing row in the product_group table
+            if self.selected_row is not None:
+                self.selected_row['name'] = updated_group
 
             # Save changes to the database
             self.selected_row.update()
