@@ -42,6 +42,7 @@ class edit_form(edit_formTemplate):
         self.min_tenure_list = []
         self.max_tenure_list = []
         self.emi_payment_list = []
+        self.first_emi_list = []
         self.disc_coupans_list = []
 
         a = -1
@@ -65,6 +66,7 @@ class edit_form(edit_formTemplate):
             self.min_tenure_list.append(i['min_tenure'])
             self.max_tenure_list.append(i['max_tenure'])
             self.emi_payment_list.append(i['emi_payment'])
+            self.first_emi_list.append(i['First_emi_payment'])
             self.disc_coupans_list.append(i['discount_coupons'])
 
         if a == -1:
@@ -183,6 +185,9 @@ class edit_form(edit_formTemplate):
             if self.emi_payment_list:
                 self.emi_payment.selected_value = str(self.emi_payment_list[-1])
 
+            if self.first_emi_list:
+                self.first_emi_payment.text = str(self.first_emi_list[-1])
+
             if self.disc_coupans_list:
                 if self.disc_coupans_list[-1] == "Yes":
                     self.radio_button_3.text = "Yes"
@@ -237,6 +242,7 @@ class edit_form(edit_formTemplate):
                 data[a]['foreclosure_fee'] = int(self.foreclosure_fee.text)
                 data[a]['extension_allowed'] = self.extension_allowed.selected_value
                 data[a]['emi_payment'] = self.emi_payment.selected_value
+                data[a]['first_emi_payment'] = self.first_emi_payment.text
                 data[a]['discount_coupons'] = "Yes" if self.radio_button_3.selected else "No"
 
                 Notification("Product details updated successfully").show()
