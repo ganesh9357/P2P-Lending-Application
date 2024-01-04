@@ -10,13 +10,15 @@ from anvil.tables import app_tables
 from anvil import alert
 
 class EditDetailsForm(EditDetailsFormTemplate):
-    def __init__(self, selected_group, selected_category, **properties):
-        # Set Form properties and Data Bindings.
+    def __init__(self, selected_row, **properties):
         self.init_components(**properties)
 
         # Set the initial values for the input components
-        self.text_box_1.text = selected_group
-        self.text_box_2.text = selected_category
+        self.text_box_1.text = selected_row['name_group']
+        self.text_box_2.text = selected_row['name_categories']
+        
+        # Store the selected row for later use
+        self.selected_row = selected_row
 
     def button_1_click(self, **event_args):
         """Save changes button click event"""
@@ -25,20 +27,17 @@ class EditDetailsForm(EditDetailsFormTemplate):
         updated_category = self.text_box_2.text
 
         # Update the existing row in the product_categories table
-        selected_item = self.item  # Assuming you passed the selected item to this form
-        if selected_item is not None:
-            selected_item['name_group'] = updated_group
-            selected_item['name_categories'] = updated_category
+        if self.selected_row is not None:
+            self.selected_row['name_group'] = updated_group
+            self.selected_row['name_categories'] = updated_category
 
-        # Optionally, show a confirmation message
-        alert("Changes saved successfully!")
+            # Save changes to the database
+            self.selected_row.update()
 
-        # Close the form after saving changes
-        self.raise_event('x-close-form')
+            alert("Changes saved successfully!")
+            open_form('admin.dashboard.manage_products.view_products_and_categories')
       
     def button_2_click(self, **event_args):
         """Cancel button click event"""
         # Close the form without saving changes
         open_form('admin.dashboard.manage_products.view_products_and_categories')
-  
- 

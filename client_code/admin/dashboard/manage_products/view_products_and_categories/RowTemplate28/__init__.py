@@ -7,7 +7,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-#from ..EditDetailsForm import EditDetailsForm
+from ..EditDetailsForm import EditDetailsForm
 
 
 class RowTemplate28(RowTemplate28Template):
@@ -19,10 +19,6 @@ class RowTemplate28(RowTemplate28Template):
   def link_1_click(self, **event_args):
         # Assuming you have access to the necessary data in this class
         item_data = self.item
-        selected_group = item_data['name_group']
-        selected_category = item_data['name_categories']
 
-        # Open the EditDetailsForm and pass the selected item_data
-        open_form('admin.dashboard.manage_products.view_products_and_categories.EditDetailsForm',
-                  selected_group=selected_group,
-                  selected_category=selected_category)
+        # Open the EditDetailsForm and pass the selected item_data as a row
+        open_form('admin.dashboard.manage_products.view_products_and_categories.EditDetailsForm', selected_row=item_data)
