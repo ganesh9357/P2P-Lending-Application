@@ -183,7 +183,7 @@ def update_loan_details(loan_id, emi, total_repayment_amount, interest_rate):
 
 
 @anvil.server.callable
-def add_loan_details(loan_amount,product_id, tenure,user_id,interest_rate,total_repayment_amount):
+def add_loan_details(loan_amount, tenure,user_id,interest_rate, total_repayment_amount,product_id):
     
     # Generate a unique loan ID and get the updated counter
     loan_id = generate_loan_id()
@@ -198,6 +198,11 @@ def add_loan_details(loan_amount,product_id, tenure,user_id,interest_rate,total_
         # Extract the full name from the user profile
         borrower_full_name = user_profile['full_name']
         borrower_email_id = user_profile['email_user']
+
+    # product_detail = app_tables.product_details.search(product_id=product_id)
+    # if product_detail and len(product_detail) > 0:
+    #   product_details = product_detail[0]
+    #   product_id = product_details['product_id']
         # Add the loan details to the data table
         app_tables.loan_details.add_row(
           loan_amount=loan_amount,
@@ -209,7 +214,7 @@ def add_loan_details(loan_amount,product_id, tenure,user_id,interest_rate,total_
           borrower_full_name = borrower_full_name,
           borrower_email_id = borrower_email_id,
           loan_updated_status = "under process",
-          product_id = product_id 
+          product_id = product_id
          )
 
         # Return the generated loan ID to the client
