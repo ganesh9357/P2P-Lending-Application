@@ -146,3 +146,7 @@ class manage_producs1(manage_producs1Template):
         
             Notification("Products added successfully").show()
             open_form('admin.dashboard.manage_products')
+
+    def link_1_copy_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin.dashboard.manage_products')
