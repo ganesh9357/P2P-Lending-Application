@@ -484,14 +484,6 @@ components:
             italic: false, background: '', bold: false, checked: false, underline: false}
           name: check_box_2
           layout_properties: {x: 207.578125, y: 1360.734425, width: 442.969}
-        - type: Button
-          properties: {role: outlined-button, align: center, tooltip: '', border: '',
-            enabled: true, foreground: black, visible: true, text: Save, font_size: null,
-            font: '', spacing_above: small, icon_align: left, spacing_below: small,
-            italic: false, background: '#0876E8', bold: false, underline: false, icon: 'fa:save'}
-          name: button_1
-          layout_properties: {x: 108.9375, y: 1401.59, width: 699}
-          event_bindings: {click: button_1_click}
         - type: TextBox
           properties: {role: outlined, align: left, hide_text: false, tooltip: '',
             placeholder: Enter first emi payment, border: '', enabled: true, foreground: '',
@@ -500,6 +492,15 @@ components:
             underline: false}
           name: first_emi_payment
           layout_properties: {x: 202, y: 888, width: 239.188}
+  - type: Button
+    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: black, visible: true, text: Save, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
+      bold: false, underline: false, icon: 'fa:save'}
+    name: button_1
+    layout_properties: {x: -11.069435119628906, y: 1391.7133000000001, width: 699,
+      grid_position: 'MNHPMM,JOXZBX'}
+    event_bindings: {click: button_1_click}
 - type: FlowPanel
   properties: {}
   name: navbar_links
