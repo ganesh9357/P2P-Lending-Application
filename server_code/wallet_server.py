@@ -194,18 +194,33 @@ def fetch_profile_data_and_insert(customer_id):
         profile = app_tables.user_profile.get(customer_id=customer_id)
         
         if profile is not None:
-            # Add a row to wallet_bank_account_table
-            app_tables.wallet_bank_account_table.add_row(
-                user_email=profile['email_user'], 
-                account_name=profile['account_name'],
-                account_number=profile['account_number'],
-                bank_name=profile['select_bank'],  
-                branch_name=profile['account_bank_branch'],  
-                ifsc_code=profile['ifsc_code'],
-                account_type=profile['account_type']
-            )
+            # Fetch wallet data based on customer_id
+            wallet_data = app_tables.wallet.get(customer_id=customer_id)
             
-            return True
+            if wallet_data is not None:
+                wallet_id = wallet_data['wallet_id']
+                account_id = wallet_data['account_id']
+                
+                # Check if account_number is a string before converting to number
+                account_number_value = int(profile['account_number']) if isinstance(profile['account_number'], str) else profile['account_number']
+                
+                # Add a row to wallet_bank_account_table
+                app_tables.wallet_bank_account_table.add_row(
+                    user_email=profile['email_user'], 
+                    account_name=profile['account_name'],
+                    account_number=account_number_value,
+                    bank_name=profile['select_bank'],  
+                    branch_name=profile['account_bank_branch'],  
+                    ifsc_code=profile['ifsc_code'],
+                    account_type=profile['account_type'],
+                    wallet_id=wallet_id,
+                    account_id=account_id
+                )
+                
+                return True
+            else:
+                print("Wallet data not found for the provided customer_id.")
+                return False
         else:
             print("Profile not found for the provided customer_id.")
             return False
