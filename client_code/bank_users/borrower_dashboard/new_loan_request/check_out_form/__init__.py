@@ -16,19 +16,8 @@ class check_out_form(check_out_formTemplate):
         self.userId = user_id
         self.loan_amount = loan_amount
         self.tenure = tenure
-        # self.loan_id = loan_id
         self.Total_Repayment_Amount = 0 
-        
-    
-    
         self.init_components(**properties)
-        # loan_details = anvil_app.tables.loan_details.search(borrower_customer_id=user_id)
-        # if loan_details:
-        #   self.label_2.text = f"['loan_amount']"
-        #   self.label_6.text = f"['tenure']"
-        # else:
-        #   self.label_2.text = f"None"
-        #   self.label_6.text = f"None"
         user_request = app_tables.product_details.get(product_categories=self.prodct_cate)
         if user_request:
             self.roi = user_request['roi']
@@ -39,7 +28,7 @@ class check_out_form(check_out_formTemplate):
         self.label_6.text = self.tenure
         self.label_4.text = f"{self.roi}%"
         p = float(self.loan_amount)
-        t = self.tenure
+        t = int(self.tenure)
         r = float(self.roi/100)
         interest_amount =  p *r
         # interest_amount = float((((p/r)*t)/100)/12)
@@ -53,7 +42,6 @@ class check_out_form(check_out_formTemplate):
         self.label_12.text = f"₹ {int(self.Total_Repayment_Amount)}"
         self.rich_text_1.content = f"Here is a summary of the details of the {self.prodct_cate}. "
 
-  # choose lender
 
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -70,74 +58,11 @@ class check_out_form(check_out_formTemplate):
     membership_type = self.membership_type
     processing_fee = self.processing_fee
     processing_fee_amount = self.label_16.text
+    product_id = self.product_id
 
-    anvil.server.call('add_loan_details',loan_amount, self.product_id, tenure,user_id,interest_rate,total_repayment_amount)
-
-    # self.id = 'LA' + str(1000)  
-    # self.label_18.text = self.id
-    # self.data = tables.app_tables.loan_details.search()
-
-    # a = -1
-    # self.list_1 = []
-
-    # for i in self.data:
-    #         a += 1
-    #         self.list_1.append(i['loan_id']) 
-    # if a == -1:
-    #         self.id = 'LA' + str(1000)
-    #         self.label_18.text = self.id
-    # else:
-    #         last_loan_id = self.list_1[-1]
-    #         numeric_part = last_loan_id[2:]
-    #         self.id = 'LA' + str(int(numeric_part) + 1)
-    #         self.label_18.text = self.id
-
-
-    # loan_id=self.id
-    # app_tables.loan_details.add_row(loan_id = loan_id)
-
-    # borrower_customer_id=user_id
-    # loan_amount=loan_amount
-    # tenure=tenure
-    # interest_rate=interest_rate
-    # total_repayment_amount=total_repayment_amount
-    # monthly_emi=monthly_emi
-    # membership_type=membership_type
-    # processing_fee=processing_fee
-    # processing_fee_amount=processing_fee_amount
+    anvil.server.call('add_loan_details',loan_amount,tenure,user_id,interest_rate, total_repayment_amount,product_id)
     alert("Request Submited")
     open_form('bank_users.borrower_dashboard')
-
-  # def submit_click(self, **event_args):
-  #     user_id = self.userId
-  #     loan_amount = self.label_2.text
-  #     tenure = self.label_6.text
-  #     interest_rate = self.roi
-  #     total_repayment_amount = self.Total_Repayment_Amount
-  #     monthly_emi = self.label_14.text
-  #     membership_type = self.membership_type
-  #     processing_fee = self.processing_fee
-  #     processing_fee_amount = self.label_16.text
-  #     self.id = 'LA' + str(1000)  
-  #     self.loan_id = self.id
-  #     self.data = tables.app_tables.loan_details.search()
-
-  #     a = -1
-  #     self.list_1 = []
-
-  #     for i in self.data:
-  #           a += 1
-  #           self.list_1.append(i['loan_id']) 
-  #     if a == -1:
-  #           self.id = 'LA' + str(1000)
-  #           self.loan_id = self.id
-  #     else:
-  #           last_loan_id = self.list_1[-1]
-  #           numeric_part = last_loan_id[2:]
-  #           self.id = 'LA' + str(int(numeric_part) + 1)
-  #           self.loan_id = self.id
-  #     loan_id = self.loan_id
-  #     open_form('bank_users.borrower_dashboard.choose_lender',self.userId,self.label_2.text,self.label_6.text,self.roi,self.Total_Repayment_Amount,self.label_14.text,self.membership_type,self.processing_fee,self.label_16.text)
 
 
   def button_2_click(self, **event_args):
@@ -157,22 +82,5 @@ class check_out_form(check_out_formTemplate):
             label_text = [str(data[column_name]) for data in product_data]
             label.text = label_text[0] if label_text else None
 
-  # def label_4_show(self, **event_args):
-  #   self.display_label_text(self.label_4, 'roi')
-
-
-# def label_2_show(self, **event_args):
-#     borrower_customer_id = self.borrower_customer_id
-#     loan_amount = anvil.server.call('add_loan_details', borrower_customer_id)
-#     if loan_amount is not None:
-#         self.label_2.text = f"Loan Amount: {loan_amount}"
-#     else:
-#         self.label_2.text = "Loan Amount not available"
-
-  # def label_2_show(self, **event_args):
-  #   self.display_label_text(self.label_2,self.loan_amount)
-
-  # def label_6_show(self, **event_args):
-  #   self.display_label_text(self.label_6,self.tenure)
 
 

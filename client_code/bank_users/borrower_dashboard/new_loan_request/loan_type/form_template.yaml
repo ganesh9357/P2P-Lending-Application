@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"HIIQHH":15,"CRYIRK":20,"PDIDDX":30,"JDDGOM":10,"PFNXDB":25,"XJITYJ":30,"TDCKOL":6,"YUNZEC":12,"NHTIAY":4,"WVQUVC":10,"IXWAHV":10}'}
+  properties: {col_widths: '{"HIIQHH":15,"CRYIRK":25,"PDIDDX":25,"JDDGOM":15,"PFNXDB":20,"XJITYJ":30,"TDCKOL":6,"YUNZEC":18,"NHTIAY":4,"WVQUVC":10,"IXWAHV":10,"GUAQYO":20,"KYSGJQ":40,"RTLKRB":20,"MUYFSD":40,"WDRXMQ":10,"LIJKUG":50}'}
 components:
 - type: Image
   properties: {role: null, vertical_align: center, height: '45', tooltip: '', border: '',
@@ -31,56 +31,81 @@ components:
 - type: Label
   properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
     visible: true, text: Loan Amount, font_size: null, font: '', spacing_above: small,
-    icon_align: right, spacing_below: small, italic: false, background: '', bold: false,
+    icon_align: right, spacing_below: none, italic: false, background: '', bold: false,
     underline: false, icon: ''}
   name: label_2
   layout_properties: {grid_position: 'UOBCSP,HIIQHH'}
 - type: TextBox
   properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
     border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-    font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+    font: '', spacing_above: small, type: text, spacing_below: none, italic: false,
     background: white, bold: false, underline: false}
   name: loan_amount_tb
   layout_properties: {grid_position: 'UOBCSP,CRYIRK'}
 - type: Spacer
-  properties: {height: 32}
+  properties: {visible: true, spacing_above: small, spacing_below: none, height: 32,
+    tooltip: ''}
   name: spacer_3
   layout_properties: {grid_position: 'UOBCSP,PDIDDX'}
 - type: Spacer
-  properties: {height: 8}
+  properties: {visible: true, spacing_above: none, spacing_below: small, height: 32,
+    tooltip: ''}
+  name: spacer_10
+  layout_properties: {grid_position: 'TKDJYE,GUAQYO'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: '', font_size: null, font: '', spacing_above: none, icon_align: left, spacing_below: small,
+    italic: false, background: '', bold: false, underline: false, icon: ''}
+  name: label_22
+  layout_properties: {grid_position: 'TKDJYE,KYSGJQ'}
+- type: Spacer
+  properties: {height: 5}
   name: spacer_8
   layout_properties: {grid_position: 'NFZKJM,NAIRJG'}
 - type: Spacer
-  properties: {height: 32}
+  properties: {visible: true, spacing_above: small, spacing_below: none, height: 32,
+    tooltip: ''}
   name: spacer_5
   layout_properties: {grid_position: 'YKJCUS,NHTIAY'}
 - type: CheckBox
   properties: {role: null, align: left, tooltip: '', border: '', enabled: true, foreground: '',
     allow_indeterminate: false, visible: true, text: 'One Time ', font_size: null,
-    font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
+    font: '', spacing_above: small, spacing_below: none, italic: false, background: '',
     bold: false, checked: false, underline: false}
   name: check_box_1
   layout_properties: {grid_position: 'YKJCUS,TDCKOL'}
 - type: CheckBox
   properties: {role: null, align: left, tooltip: '', border: '', enabled: true, foreground: '',
     allow_indeterminate: false, visible: true, text: Monthly EMI, font_size: null,
-    font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
+    font: '', spacing_above: small, spacing_below: none, italic: false, background: '',
     bold: false, checked: false, underline: false}
   name: check_box_2
   layout_properties: {grid_position: 'YKJCUS,YUNZEC'}
   event_bindings: {show: check_box_2_show, change: check_box_2_change}
 - type: Spacer
-  properties: {height: 12}
+  properties: {visible: true, spacing_above: none, spacing_below: small, height: 32,
+    tooltip: ''}
+  name: spacer_12
+  layout_properties: {grid_position: 'VSOQOE,WDRXMQ'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: '', font_size: null, font: '', spacing_above: none, icon_align: left, spacing_below: small,
+    italic: false, background: '', bold: false, underline: false, icon: ''}
+  name: label_24
+  layout_properties: {grid_position: 'VSOQOE,LIJKUG'}
+- type: Spacer
+  properties: {height: 4}
   name: spacer_7
   layout_properties: {grid_position: 'PUECAC,UIRKOV'}
 - type: Spacer
-  properties: {height: 32}
+  properties: {visible: true, spacing_above: small, spacing_below: none, height: 32,
+    tooltip: ''}
   name: spacer_9
   layout_properties: {grid_position: 'SMNMJJ,IXWAHV'}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: Tenure, font_size: 20, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    spacing_below: none, italic: false, background: '', bold: false, underline: false,
     icon: ''}
   name: label_3
   layout_properties: {grid_position: 'SMNMJJ,JDDGOM'}
@@ -98,7 +123,7 @@ components:
     font_size: null
     font: ''
     spacing_above: small
-    spacing_below: small
+    spacing_below: none
     italic: false
     background: white
     bold: false
@@ -107,11 +132,23 @@ components:
   name: tenure_dd
   layout_properties: {grid_position: 'SMNMJJ,PFNXDB'}
 - type: Spacer
-  properties: {height: 32}
+  properties: {visible: true, spacing_above: small, spacing_below: none, height: 32,
+    tooltip: ''}
   name: spacer_4
   layout_properties: {grid_position: 'SMNMJJ,XJITYJ'}
 - type: Spacer
-  properties: {height: 25}
+  properties: {visible: true, spacing_above: none, spacing_below: small, height: 32,
+    tooltip: ''}
+  name: spacer_11
+  layout_properties: {grid_position: 'CRAANJ,RTLKRB'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: '', font_size: null, font: '', spacing_above: none, icon_align: left, spacing_below: small,
+    italic: false, background: '', bold: false, underline: false, icon: ''}
+  name: label_23
+  layout_properties: {grid_position: 'CRAANJ,MUYFSD'}
+- type: Spacer
+  properties: {height: 12}
   name: spacer_2
   layout_properties: {grid_position: 'HUCDSN,ZMWFUY'}
 - type: ColumnPanel
@@ -217,7 +254,7 @@ components:
     name: label_18
     layout_properties: {grid_position: 'HSFTCE,PXCMQR'}
 - name: spacer_1
-  properties: {visible: true, spacing_above: small, spacing_below: small, height: 51,
+  properties: {visible: true, spacing_above: small, spacing_below: small, height: 14,
     tooltip: ''}
   type: Spacer
   layout_properties: {grid_position: 'ZUZLAG,YLKZBV', full_width_row: true}
