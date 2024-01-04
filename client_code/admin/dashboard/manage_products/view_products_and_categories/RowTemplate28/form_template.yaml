@@ -5,13 +5,7 @@ components:
   name: label_1
   layout_properties: {column: DAXAQF}
   data_bindings:
-  - {property: text, code: 'self.item[''name_group'']'}
-- type: Label
-  properties: {}
-  name: label_2
-  layout_properties: {column: NYOBWY}
-  data_bindings:
-  - {property: text, code: 'self.item[''name_categories'']'}
+  - {property: text, code: 'self.item[''name'']'}
 - type: Link
   properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
     visible: true, text: edit details, font_size: null, wrap_on: mobile, font: '',
