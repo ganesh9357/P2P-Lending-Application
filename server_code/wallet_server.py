@@ -151,17 +151,16 @@ def generate_transaction_id():
     return f"TA{counter:04d}"
 
 @anvil.server.callable
-def deposit_money(email, deposit_amount):
+def deposit_money(email, deposit_amount, customer_id):
     transaction_id = generate_transaction_id()
     
-    # Add try-except block to handle exceptions if the transaction fails
     try:
         app_tables.wallet_transactions.add_row(
             user_email=email,
+            customer_id=customer_id,
             transaction_id=transaction_id,
             amount=deposit_amount,
-            transaction_type='deposit',
-            status='success'  # Assuming the initial status is success
+            transaction_type='deposit'
         )
         return True
     except Exception as e:
@@ -169,17 +168,16 @@ def deposit_money(email, deposit_amount):
         return False
 
 @anvil.server.callable
-def withdraw_money(email, withdraw_amount):
+def withdraw_money(email, withdraw_amount, customer_id):
     transaction_id = generate_transaction_id()
     
-    # Add try-except block to handle exceptions if the transaction fails
     try:
         app_tables.wallet_transactions.add_row(
             user_email=email,
+            customer_id=customer_id,
             transaction_id=transaction_id,
             amount=withdraw_amount,
-            transaction_type='withdraw',
-            status='success'  # Assuming the initial status is success
+            transaction_type='withdraw'
         )
         return True
     except Exception as e:
