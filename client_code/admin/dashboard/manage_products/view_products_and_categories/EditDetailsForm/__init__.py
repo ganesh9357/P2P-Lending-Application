@@ -22,26 +22,31 @@ class EditDetailsForm(EditDetailsFormTemplate):
 
     def button_1_click(self, **event_args):
         """Save changes button click event"""
-        # Get the updated values from the input components
-        updated_group = self.text_box_1.text
-        #updated_category = self.text_box_2.text
+        # Get the updated value from the input component
+        updated_group = self.text_box_1.text.lower()  # Convert to lowercase
 
-        # Update the existing row in the product_categories table
-        existing_rows = app_tables.product_group.search(name=updated_group)
-        
-        if existing_rows and existing_rows[0].get_id() != self.selected_row.get_id():
-            alert(f'Group "{updated_group}" already exists. Please choose a different name.')
-        else:
-            # Update the existing row in the product_group table
-            if self.selected_row is not None:
+        # Check if the updated value is the same as the existing value
+        if updated_group != self.selected_row['name'].lower():
+            # Convert the existing group names to lowercase for case-insensitive comparison
+            existing_names_lower = [row['name'].lower() for row in app_tables.product_group.search()]
+            
+            if updated_group in existing_names_lower:
+                alert(f'Group "{self.text_box_1.text}" already exists. Please choose a different name.')
+            else:
+                # Update the existing row in the product_categories table
                 self.selected_row['name'] = updated_group
 
-            # Save changes to the database
-            self.selected_row.update()
+                # Save changes to the database
+                self.selected_row.update()
 
-            alert("Changes saved successfully!")
+                alert("Changes saved successfully!")
+                open_form('admin.dashboard.manage_products.view_products_and_categories')
+
+        else:
+            # No changes were made
+            alert("No changes made.")
             open_form('admin.dashboard.manage_products.view_products_and_categories')
-      
+          
     def button_2_click(self, **event_args):
         """Cancel button click event"""
         # Close the form without saving changes
