@@ -148,6 +148,7 @@ unique_ids:
     lendor_registration_form.dashboard.vler: '1699962962727731721010167.028'
     bank_users.borrower_dashboard.application_tracker: '1698927021026141533584098.39868'
     admin.dashboard.manage_products.view_product.RowTemplate5: '1700713251863745364072386.9193'
+    admin.dashboard.manage_products.view_categories.editDetails: '1704371947758235068117859.1696'
     bank_users.borrower_dashboard: '1700743782571887751708379.0123'
     admin.dashboard.manage_products.view_products_and_categories.EditDetailsForm: '1704188499874537556678907.86676'
     lendor_registration_form.dashboard.lender_view_loans.view_details_1: '1703138294370237056127607.49118'

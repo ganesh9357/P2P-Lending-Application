@@ -14,3 +14,11 @@ class ItemTemplate2(ItemTemplate2Template):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def link_1_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    selected_row = self.item  # Get the selected row data
+
+    if selected_row is not None:
+        # Open the EditDetailsForm and pass the selected row's data
+        open_form('admin.dashboard.manage_products.view_products_and_categories.EditDetailsFo', selected_row=item_data)

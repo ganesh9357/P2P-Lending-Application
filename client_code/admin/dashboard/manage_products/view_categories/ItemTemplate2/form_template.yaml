@@ -22,3 +22,4 @@ components:
     italic: false, background: '', bold: false, underline: false, icon: ''}
   name: link_1
   layout_properties: {grid_position: 'QTFBEN,IXJTVR'}
+  event_bindings: {click: link_1_click}
