@@ -288,27 +288,27 @@ def get_user_data(user_id):
     
 # @anvil.server.callable
 # def update_wallet_with_profile(customer_id):
-#     try:
-#         profile = app_tables.user_profile.get(customer_id=customer_id)
-#         non_existing_column = profile['non_existing_column'] 
-#         # profile = app_tables.user_profile.get(customer_id=customer_id)
+    # try:
+    #     profile = app_tables.user_profile.get(customer_id=customer_id)
+    #     non_existing_column = profile['non_existing_column'] 
+    #     profile = app_tables.user_profile.get(customer_id=customer_id)
         
-#         if profile is not None:
-#             new_wallet_id = generate_wallet_id(customer_id)
-#             app_tables.wallet.add_row(
-#                 customer_id=customer_id,
-#                 wallet_id=new_wallet_id,
-#                 user_name=profile['full_name'],
-#                 user_email=profile['email_user'], 
-#                 account_name=profile['account_name'],
-#                 account_number=profile['account_number'],
-#                 bank_name=profile['select_bank'],  
-#                 branch_name=profile['account_bank_branch'],  
-#                 ifsc_code=profile['ifsc_code']
-#             )
-#             print("Data added to wallet table successfully.")
-#         else:
-#             print(f"No profile data found for customer_id: {customer_id}")
+    #     if profile is not None:
+    #         new_wallet_id = generate_wallet_id(customer_id)
+    #         app_tables.wallet.add_row(
+    #             customer_id=customer_id,
+    #             wallet_id=new_wallet_id,
+    #             user_name=profile['full_name'],
+    #             user_email=profile['email_user'], 
+    #             account_name=profile['account_name'],
+    #             account_number=profile['account_number'],
+    #             bank_name=profile['select_bank'],  
+    #             branch_name=profile['account_bank_branch'],  
+    #             ifsc_code=profile['ifsc_code']
+    #         )
+    #         print("Data added to wallet table successfully.")
+    #     else:
+    #         print(f"No profile data found for customer_id: {customer_id}")
 #     except Exception as e:
 #         print(f"Error fetching or inserting data: {str(e)}")
 
