@@ -41,7 +41,7 @@ class foreclose(forecloseTemplate):
     data = tables.app_tables.product_details.search()
     self.foreclosure_rate_lst = []
     for i in data:
-        self.foreclosure_rate_lst.append(i['foreclosure_amount'])
+        self.foreclosure_rate_lst.append(i['foreclosure_fee'])
 
     self.foreclose_rate.text = self.foreclosure_rate_lst
     foreclose_amount = outstanding_amount * foreclose_rate
