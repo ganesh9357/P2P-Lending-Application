@@ -155,6 +155,9 @@ class dashboard(dashboardTemplate):
         print(result)
     
     open_form('wallet.wallet')
+    
+    customer_id = 1000
+    anvil.server.call('fetch_profile_data_and_insert', customer_id)
   
 
   # def button_wallet_dashboard_link_click(self, **event_args):
