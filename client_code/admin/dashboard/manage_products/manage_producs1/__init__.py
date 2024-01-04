@@ -16,7 +16,7 @@ class manage_producs1(manage_producs1Template):
         options = app_tables.product_group.search()
         option_strings = [option['name'] for option in options]
         self.name.items = option_strings
-        self.name.selected_value = option_strings[0] if option_strings else None  
+        self.name.selected_value =  None  
           
         # Any code you write here will run before the form opens.
         self.id = 'PD' + str(1000)  
@@ -57,6 +57,9 @@ class manage_producs1(manage_producs1Template):
                 # Display product categories in drop_down_2
                 category_names = [category['name_categories'] for category in product_categories]
                 print(f"Category Names: {category_names}")
+
+                # Insert a placeholder or default value at the beginning
+                # category_names.insert(0, "Select a Category")
                 self.product_category.items = category_names
                 self.product_category.selected_value = category_names[0] if category_names else None
    

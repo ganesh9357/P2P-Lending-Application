@@ -102,7 +102,7 @@ components:
             role: outlined
             align: full
             tooltip: ''
-            placeholder: Enter product group
+            placeholder: Select product group
             border: ''
             enabled: true
             foreground: ''
@@ -118,7 +118,7 @@ components:
             underline: false
             include_placeholder: true
           name: name
-          layout_properties: {x: 175.046875, y: 173.6875, width: 236.14099999999996}
+          layout_properties: {x: 175.04167938232422, y: 173.68057250976562, width: 236.139}
           data_bindings: []
           event_bindings: {change: name_change}
         - type: Label
@@ -283,7 +283,7 @@ components:
             role: outlined
             align: full
             tooltip: ''
-            placeholder: Enter product category
+            placeholder: Select product category
             border: ''
             enabled: true
             foreground: ''
@@ -299,7 +299,7 @@ components:
             underline: false
             include_placeholder: true
           name: product_category
-          layout_properties: {x: 174.969, y: 235.390625, width: 236.21949999999993}
+          layout_properties: {x: 174.95833587646484, y: 235.38888549804688, width: 236.208}
         - name: label_1
           properties: {}
           type: Label
