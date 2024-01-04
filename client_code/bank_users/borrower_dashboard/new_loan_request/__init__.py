@@ -12,7 +12,8 @@ class new_loan_request(new_loan_requestTemplate):
         self.init_components(**properties)
 
         options = app_tables.product_group.search()
-        option_strings = [''] + [option['name'] for option in options]
+        # Exclude empty strings from the drop-down options
+        option_strings = [option['name'] for option in options if option['name'].strip()]
         self.name.items = option_strings
         self.name.selected_value = None  # Set to None initially, as there is no default selection
 
@@ -36,8 +37,8 @@ class new_loan_request(new_loan_requestTemplate):
             )
 
             if product_categories:
-                # Display product categories in drop_down_2
-                self.drop_down_2.items = [''] + [category['name_categories'] for category in product_categories]
+                # Display product categories in drop_down_2, excluding empty strings
+                self.drop_down_2.items = [category['name_categories'] for category in product_categories if category['name_categories'].strip()]
                 self.drop_down_2.selected_value = None
 
     def button_2_click(self, **event_args):
@@ -53,16 +54,17 @@ class new_loan_request(new_loan_requestTemplate):
         else:
             self.label_3.text = ""
 
-        if not category or category == '':
+        if not category:
             self.label_4.text = "Please select a category"
             self.label_4.foreground = '#FF0000'
         else:
             self.label_4.text = ""
 
-        if name and (category and category != ''):
+        if name and category:
             open_form('bank_users.borrower_dashboard.new_loan_request.loan_type', name, category)
 
     def max_amount_lb_show(self, **event_args):
         data = app_tables.product_details.search()
-        data1_strings = [data['max_amount'] for data in data]
+        # Exclude empty strings from the max_amount values
+        data1_strings = [str(data['max_amount']) for data in data if str(data['max_amount']).strip()]
         self.max_amount_lb.text = data1_strings[0] if data1_strings else None

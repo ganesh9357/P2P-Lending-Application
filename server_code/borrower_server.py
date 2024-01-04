@@ -215,6 +215,7 @@ def add_loan_details(loan_amount, tenure,user_id,interest_rate, total_repayment_
           borrower_email_id = borrower_email_id,
           loan_updated_status = "under process",
           product_id = product_id
+          # borrower_loan_created_timestamp = datetime.now()
          )
 
         # Return the generated loan ID to the client
