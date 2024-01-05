@@ -97,8 +97,8 @@ db_schema:
     - name: first_emi_payment
       admin_ui: {order: 18.5, width: 200}
       type: number
-    - name: min-months
-      admin_ui: {width: 200, order: 23}
+    - name: min_months
+      admin_ui: {order: 23, width: 200}
       type: number
   user_profile:
     client: full
