@@ -203,7 +203,7 @@ def generate_loan_id():
         counter = int(last_loan_id[2:]) + 1
     else:
         # If there are no existing loans, start the counter at 100001
-        counter = 100001
+        counter = 1000001
 
     # Return the new loan ID
     return f"LA{counter}"
