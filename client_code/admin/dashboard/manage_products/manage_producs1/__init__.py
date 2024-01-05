@@ -7,6 +7,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+import json
 
 class manage_producs1(manage_producs1Template):
     def __init__(self, **properties):
@@ -16,7 +17,7 @@ class manage_producs1(manage_producs1Template):
         options = app_tables.product_group.search()
         option_strings = [option['name'] for option in options]
         self.name.items = option_strings
-        self.name.selected_value = option_strings[0] if option_strings else None  
+        self.name.selected_value =  None  
           
         # Any code you write here will run before the form opens.
         self.id = 'PD' + str(1000)  
@@ -57,6 +58,9 @@ class manage_producs1(manage_producs1Template):
                 # Display product categories in drop_down_2
                 category_names = [category['name_categories'] for category in product_categories]
                 print(f"Category Names: {category_names}")
+
+                # Insert a placeholder or default value at the beginning
+                # category_names.insert(0, "Select a Category")
                 self.product_category.items = category_names
                 self.product_category.selected_value = category_names[0] if category_names else None
    
@@ -120,12 +124,19 @@ class manage_producs1(manage_producs1Template):
             self.label_7_copy.visible = False
             self.text_box_4.visible = False
         
-        emi_payment = self.drop_down_1.selected_value
+        emi_payment = [
+            "Monthly" if self.monthly.checked else "",
+            "One Time" if self.one_time.checked else "",
+            "Three Month" if self.three_month.checked else "",
+            "Six Month" if self.six_month.checked else "",
+        ]
+        emi_payment = json.dumps(emi_payment)
         first_emi_payment = self.first_emi_payment.text
         if not first_emi_payment.isdigit() or int(first_emi_payment) < 1:
             Notification("Please enter a valid value for First EMI Payment (>= 1)").show()
             return
         first_emi_payment = int(first_emi_payment)
+        min_months = int(self.min_moths.text)
  
         if self.radio_button_3.selected:
             # Code to execute when radio_button_3 is selected
@@ -137,10 +148,10 @@ class manage_producs1(manage_producs1Template):
             # Code to execute when neither radio_button_3 nor radio_button_4 is selected
             discount_coupons = None  # or any default value
         
-        if product_group == "" or product_name == "" or product_categories == "" or membership_type == "" or processing_fee == "" or extension_fee == "" or interest_type == "" or max_amount == "" or min_amount == "" or min_tenure == "" or max_tenure == "" or roi == "" or emi_payment == "" or discount_coupons == "":
+        if product_group == "" or product_name == "" or product_categories == "" or membership_type == "" or processing_fee == "" or extension_fee == "" or interest_type == "" or max_amount == "" or min_amount == "" or min_tenure == "" or max_tenure == "" or roi == "" or emi_payment == "" or min_months == "" or discount_coupons == "":
             Notification("Fill All Required Details").show()
         else:
-            anvil.server.call('product_details', self.id, product_name, product_group, product_discription, product_categories, processing_fee, extension_fee, membership_type, interest_type, max_amount, min_amount, min_tenure, max_tenure, roi, foreclose_type, foreclosure_fee, extension_allowed, emi_payment, first_emi_payment, discount_coupons)
+            anvil.server.call('product_details', self.id, product_name, product_group, product_discription, product_categories, processing_fee, extension_fee, membership_type, interest_type, max_amount, min_amount, min_tenure, max_tenure, roi, foreclose_type, foreclosure_fee, extension_allowed, emi_payment, first_emi_payment, min_months, discount_coupons)
             product_id = self.label_1.text
             # open_form('admin.dashboard.manage_products.add_group',product_id )
         

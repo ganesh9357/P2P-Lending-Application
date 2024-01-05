@@ -51,3 +51,27 @@ class EditDetailsForm(EditDetailsFormTemplate):
         """Cancel button click event"""
         # Close the form without saving changes
         open_form('admin.dashboard.manage_products.view_products_and_categories')
+
+    def delete_button(self, **event_args):
+        """Delete button click event"""
+        # Confirm the deletion with the user
+        confirmation = alert(
+            "Are you sure you want to delete this group?",
+            title="Confirm Deletion",
+            buttons=[("Cancel", False), ("Delete", True)],
+        )
+
+        if confirmation:
+            # Get the name of the group to be deleted
+            group_name = self.selected_row['name'].lower()
+
+            # Delete the rows from the product_group table
+            self.selected_row.delete()
+
+            # Delete the corresponding rows from the product_categories table
+            categories_to_delete = app_tables.product_categories.search(q.any_of(name_group=group_name))
+            for category_row in categories_to_delete:
+                category_row.delete()
+
+            alert("Group and corresponding categories deleted successfully!")
+            open_form('admin.dashboard.manage_products.view_products_and_categories')

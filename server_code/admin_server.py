@@ -10,7 +10,7 @@ import anvil.server
 
 
 @anvil.server.callable
-def product_details(product_id, product_name, product_group,product_discription, product_categories,processing_fee,  extension_fee, membership_type, interest_type, max_amount, min_amount, min_tenure, max_tenure, roi, foreclose_type, foreclosure_fee, extension_allowed, emi_payment, first_emi_payment, discount_coupons):
+def product_details(product_id, product_name, product_group,product_discription, product_categories,processing_fee,  extension_fee, membership_type, interest_type, max_amount, min_amount, min_tenure, max_tenure, roi, foreclose_type, foreclosure_fee, extension_allowed, emi_payment, min_months, first_emi_payment, discount_coupons):
   row = app_tables.product_details.add_row(product_id=product_id,
                                            product_name = product_name,
                                            product_group=product_group,
@@ -32,6 +32,7 @@ def product_details(product_id, product_name, product_group,product_discription,
                                            extension_allowed=extension_allowed,
                                            # lapsed_status=lapsed_status,
                                            emi_payment = emi_payment,
+                                           min_months=min_months,
                                            first_emi_payment=first_emi_payment,
                                            discount_coupons = discount_coupons
                                           )
