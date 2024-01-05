@@ -55,12 +55,12 @@ components:
       col_xs: 6, width: 133}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: '', font_size: null, font: '', spacing_above: none, icon_align: left,
+      visible: true, text: '', font_size: 12, font: '', spacing_above: none, icon_align: left,
       spacing_below: small, italic: false, background: '', bold: false, underline: false,
       icon: ''}
     name: label_22
     layout_properties: {grid_position: 'TKDJYE,KYSGJQ', row: QBXVRJ, width_xs: 4,
-      col_xs: 6}
+      col_xs: 6, width: 219.462}
   - type: Label
     properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
       visible: true, text: Interest Rate, font_size: 15, font: '', spacing_above: small,
@@ -112,16 +112,37 @@ components:
     layout_properties: {row: FBTPXY, width_xs: 3, col_xs: 6, width: 133}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: '', font_size: null, font: '', spacing_above: none, icon_align: left,
+      visible: true, text: '', font_size: 12, font: '', spacing_above: none, icon_align: left,
       spacing_below: small, italic: false, background: '', bold: false, underline: false,
       icon: ''}
     name: label_23
     layout_properties: {grid_position: 'CRAANJ,MUYFSD', row: ZASHWW, width_xs: 4,
-      col_xs: 6}
+      col_xs: 6, width: 219.462}
+  - type: Label
+    properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+      visible: true, text: Start Date of Loan, font_size: 15, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_37
+    layout_properties: {row: QTNEIG, width_xs: 3, col_xs: 3, width: 157.1}
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: 15, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: label_38
+    layout_properties: {row: QTNEIG, width_xs: 3, col_xs: 6, width: 157.1}
 - type: Spacer
   properties: {height: 18}
   name: spacer_2
   layout_properties: {grid_position: 'HCXEWC,HZSNGS'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: EMI Payment Type, font_size: 17, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
+  name: label_39
+  layout_properties: {grid_position: 'OVKXGZ,WUYONQ'}
 - type: RadioButton
   properties: {role: null, selected: false, align: left, tooltip: '', border: '',
     enabled: true, foreground: '', value: '', visible: true, text: One Time, font_size: null,
@@ -168,6 +189,7 @@ components:
     bold: false, underline: false, icon: 'fa:angle-double-right'}
   name: button_4
   layout_properties: {grid_position: 'FEYOOS,MEYCXV'}
+  event_bindings: {click: button_4_click}
 - type: Spacer
   properties: {visible: true, spacing_above: none, spacing_below: small, height: 32,
     tooltip: ''}
@@ -175,7 +197,7 @@ components:
   layout_properties: {grid_position: 'CRAANJ,RTLKRB'}
 - type: GridPanel
   properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
-    border: '', visible: true, role: outlined-card, tooltip: ''}
+    border: '', visible: false, role: outlined-card, tooltip: ''}
   name: grid_panel_2
   layout_properties: {grid_position: 'XJJRJH,QVERCH'}
   components:
@@ -202,107 +224,60 @@ components:
     layout_properties: {row: OTEILU, width_xs: 3, col_xs: 6, width: 157.1}
   - type: Label
     properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
-      visible: true, text: Total Interest Amount, font_size: null, font: '', spacing_above: small,
+      visible: true, text: Total Interest Amount, font_size: 15, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
     name: label_29
     layout_properties: {row: FHKFTV, width_xs: 3, col_xs: 3, width: 157.1}
   - type: Label
     properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+      visible: true, text: '', font_size: 15, font: '', spacing_above: small, icon_align: left,
       spacing_below: small, italic: false, background: '', bold: false, underline: false,
       icon: ''}
     name: label_30
     layout_properties: {row: FHKFTV, width_xs: 3, col_xs: 6, width: 157.1}
   - type: Label
-    properties: {text: Processing fee Amount}
+    properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+      visible: true, text: Processing fee Amount, font_size: 15, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
     name: label_31
     layout_properties: {row: YFKQRV, width_xs: 3, col_xs: 3, width: 157.1}
   - type: Label
-    properties: {}
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: 15, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
     name: label_32
-    layout_properties: {row: YFKQRV, width_xs: 3, col_xs: 6}
-- type: ColumnPanel
-  properties: {role: elevated-card, tooltip: '', border: '', foreground: black, visible: true,
-    wrap_on: tablet, col_spacing: small, spacing_above: medium, col_widths: '{"ZYUWEF":11,"NWASTJ":10,"TVLJTB":10,"PXCMQR":9}',
-    spacing_below: medium, background: lightblue}
-  name: column_panel_1
-  layout_properties: {grid_position: 'BRUTJN,GTBGJE', full_width_row: false, row_background: 'theme:On
-      Secondary'}
-  components:
-  - type: ColumnPanel
-    properties: {col_widths: '{}'}
-    name: column_panel_2
-    layout_properties: {grid_position: 'HUGMZZ,QNHJET'}
-    components: []
+    layout_properties: {row: YFKQRV, width_xs: 3, col_xs: 6, width: 157.1}
   - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Min Amount, font_size: null, font: '', spacing_above: small,
+    properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+      visible: true, text: Monthly EMI, font_size: 15, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
-    name: label_6
-    layout_properties: {grid_position: 'HUGMZZ,OJMFHT'}
-    event_bindings: {show: label_6_show}
+    name: label_35
+    layout_properties: {row: YXRTVR, width_xs: 3, col_xs: 3, width: 157.1}
   - type: Label
-    properties: {}
-    name: label_5
-    layout_properties: {grid_position: 'HUGMZZ,EIVVGU'}
-    event_bindings: {show: label_5_show}
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: 15, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: label_36
+    layout_properties: {row: YXRTVR, width_xs: 3, col_xs: 6, width: 157.1}
   - type: Label
-    properties: {text: Minimum Tenure}
-    name: label_12
-    layout_properties: {grid_position: 'HUGMZZ,IMLZYU'}
-  - type: Label
-    properties: {}
-    name: label_13
-    layout_properties: {grid_position: 'HUGMZZ,SYXHLZ'}
-    event_bindings: {show: label_13_show}
-  - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Forclosure Eligibility, font_size: null, font: '', spacing_above: small,
+    properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+      visible: true, text: Total Repayment Amount, font_size: 15, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
-    name: label_8
-    layout_properties: {grid_position: 'YPBOAV,ATDGSJ'}
+    name: label_33
+    layout_properties: {row: ZRTKDP, width_xs: 4, col_xs: 2, width: 219.462}
   - type: Label
-    properties: {}
-    name: label_9
-    layout_properties: {grid_position: 'YPBOAV,BYNWYK'}
-    event_bindings: {show: label_9_show}
-  - type: Label
-    properties: {text: Max Amount}
-    name: label_10
-    layout_properties: {grid_position: 'YPBOAV,FFWLUG'}
-  - type: Label
-    properties: {}
-    name: label_11
-    layout_properties: {grid_position: 'YPBOAV,TOBYEC'}
-    event_bindings: {show: label_11_show}
-  - type: Label
-    properties: {text: Maximum Tenure}
-    name: label_14
-    layout_properties: {grid_position: 'YPBOAV,JFXAZN'}
-  - type: Label
-    properties: {}
-    name: label_15
-    layout_properties: {grid_position: 'YPBOAV,KMXVOR'}
-    event_bindings: {show: label_15_show}
-  - type: Label
-    properties: {}
-    name: label_19
-    layout_properties: {grid_position: 'HSFTCE,ZYUWEF'}
-  - type: Label
-    properties: {}
-    name: label_16
-    layout_properties: {grid_position: 'HSFTCE,NWASTJ'}
-  - type: Label
-    properties: {}
-    name: label_17
-    layout_properties: {grid_position: 'HSFTCE,TVLJTB'}
-  - type: Label
-    properties: {}
-    name: label_18
-    layout_properties: {grid_position: 'HSFTCE,PXCMQR'}
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: 15, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: label_34
+    layout_properties: {row: ZRTKDP, width_xs: 3, col_xs: 6, width: 157.1}
 - name: spacer_1
   properties: {visible: true, spacing_above: small, spacing_below: small, height: 14,
     tooltip: ''}
@@ -310,7 +285,7 @@ components:
   layout_properties: {grid_position: 'ZUZLAG,YLKZBV', full_width_row: true}
 - type: Button
   properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
-    foreground: black, visible: true, text: ' Back', font_size: null, font: '', spacing_above: small,
+    foreground: black, visible: false, text: ' Back', font_size: null, font: '', spacing_above: small,
     icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
     bold: false, underline: false, icon: 'fa:angle-double-left'}
   name: button_2
@@ -320,7 +295,7 @@ components:
   event_bindings: {click: button_2_click}
 - type: Button
   properties: {role: elevated-button, align: left, tooltip: '', border: '', enabled: true,
-    foreground: black, visible: true, text: Next, font_size: null, font: '', spacing_above: small,
+    foreground: black, visible: false, text: Next, font_size: null, font: '', spacing_above: small,
     icon_align: right, spacing_below: small, italic: false, background: '#0876E8',
     bold: false, underline: false, icon: 'fa:angle-double-right'}
   name: button_3
