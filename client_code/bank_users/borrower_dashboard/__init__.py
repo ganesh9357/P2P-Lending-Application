@@ -16,6 +16,8 @@ class borrower_dashboard(borrower_dashboardTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
+    self.email = main_form_module.email
+    email = self.email
     # Any code you write here will run before the form opens.
 
 
@@ -68,3 +70,27 @@ class borrower_dashboard(borrower_dashboardTemplate):
   def contact_main_form_link_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form("bank_users.borrower_dashboard_contact")
+
+  def notification_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('lendor_registration_form.dashboard.notification')
+
+  def wallet_dashboard_link_click(self, **event_args):
+    user_profiles = server.call('fetch_user_profiles')
+    
+    for profile in user_profiles:
+        result = server.call(
+            'create_wallet_entry',
+            profile['email_user'],
+            profile['customer_id'],
+            profile['full_name'],
+            profile['usertype']
+        )
+        
+        print(result)
+    
+    open_form('wallet.wallet')
+    
+    customer_id = 1000
+    email = self.email
+    anvil.server.call('fetch_profile_data_and_insert', email, customer_id)

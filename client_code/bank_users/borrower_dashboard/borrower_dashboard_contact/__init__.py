@@ -33,3 +33,11 @@ class borrower_dashboard_contact(borrower_dashboard_contactTemplate):
   def contact_main_form_link_click(self, **event_args):
     """This method is called when the link is clicked"""
     pass
+
+  def notification_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('lendor_registration_form.dashboard.notification')
+
+  def wallet_dashboard_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('wallet.wallet')
