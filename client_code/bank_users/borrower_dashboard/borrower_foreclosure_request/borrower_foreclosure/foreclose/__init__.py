@@ -38,17 +38,21 @@ class foreclose(forecloseTemplate):
     outstanding_amount_i_amount=int(outstanding_amount_i_amount)
     total_outstanding_amount=outstanding_amount+outstanding_amount_i_amount
     
-    data = tables.app_tables.product_details.search()
+    product_id_to_search = selected_row['product_id']
+    data = tables.app_tables.product_details.search(product_id=product_id_to_search)
     self.foreclosure_fee_lst = []
+    
     for i in data:
         self.foreclosure_fee_lst.append(i['foreclosure_fee'])
+      
+    foreclosure_fee_str = ', '.join(map(str, self.foreclosure_fee_lst))
+    self.foreclose_fee.text = foreclosure_fee_str
 
-    self.foreclose_fee.text = self.foreclosure_fee_lst
-    foreclose_fee = int(self.foreclose_fee.text)
-    foreclose_amount = outstanding_amount * foreclose_fee
-    foreclose_amount = int(foreclose_amount)
+    foreclose_fee = float(self.foreclosure_fee_lst[0])
+    foreclose_amount = outstanding_amount * (foreclose_fee/100)
+    foreclose_amount = float(foreclose_amount)
     total_due_amount = outstanding_amount + foreclose_amount
-    total_due_amount = int(total_due_amount)
+    total_due_amount = float(total_due_amount)
 
     self.ra_label.text = f"{outstanding_amount}"
     self.tda_label.text = f"{total_due_amount}"
@@ -63,6 +67,7 @@ class foreclose(forecloseTemplate):
     self.label_17.text = f"{outstanding_amount}"
     self.label_23.text = f"({borrower_last_payment_done} months)"
     self.label_24.text = f"({oustanding_month} months)"
+    
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form('bank_users.borrower_dashboard')

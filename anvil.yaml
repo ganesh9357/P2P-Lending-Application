@@ -489,8 +489,8 @@ db_schema:
     - name: status
       admin_ui: {width: 200, order: 11}
       type: string
-    - name: foreclosure_amount
-      admin_ui: {width: 200}
+    - name: foreclose_amount
+      admin_ui: {order: 1, width: 200}
       type: string
     title: foreclosure
   loan_details:
