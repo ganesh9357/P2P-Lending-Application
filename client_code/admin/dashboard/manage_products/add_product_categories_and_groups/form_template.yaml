@@ -31,7 +31,7 @@ components:
     name: spacer_1
     layout_properties: {grid_position: 'KKFONF,HHEVLC'}
   - type: Label
-    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: Product Group, font_size: 16, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
@@ -61,7 +61,7 @@ components:
     layout_properties: {grid_position: 'SPGCWB,VRVUMX'}
     event_bindings: {change: name_change}
   - type: Label
-    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: Categories, font_size: 16, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
@@ -84,7 +84,7 @@ components:
   layout_properties: {grid_position: 'RJCZCI,VFLUTA'}
   event_bindings: {click: button_3_click}
 - type: Button
-  properties: {role: tonal-button, align: right, tooltip: '', border: '', enabled: true,
+  properties: {role: tonal-button, align: full, tooltip: '', border: '', enabled: true,
     foreground: black, visible: true, text: SAVE, font_size: null, font: '', spacing_above: small,
     icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
     bold: true, underline: false, icon: ''}

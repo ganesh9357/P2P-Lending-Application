@@ -122,6 +122,6 @@ components:
         spacing_below: small, italic: false, background: '#0876E8', bold: true, underline: false,
         icon: 'fa:compass'}
       name: button_13
-      layout_properties: {x: 317, y: 281.3999938964844, width: 241}
+      layout_properties: {x: 317, y: 281.3999938964844, width: 254.99999999999997}
       event_bindings: {click: button_13_click}
 is_package: true

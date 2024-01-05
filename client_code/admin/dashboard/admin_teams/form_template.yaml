@@ -163,7 +163,7 @@ components:
       layout_properties: {x: 312.2000366210938, y: 305.8000122070313, width: 246.4}
       event_bindings: {change: drop_down_1_change}
     - type: Link
-      properties: {role: null, url: '', align: right, tooltip: '', border: '', foreground: '#0876E8',
+      properties: {role: null, url: '', align: center, tooltip: '', border: '', foreground: '#0876E8',
         visible: true, text: View Profile, font_size: null, wrap_on: mobile, font: '',
         col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
         spacing_below: small, italic: false, background: '', bold: true, underline: false,

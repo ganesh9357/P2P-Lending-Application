@@ -1,7 +1,7 @@
 container: {type: ColumnPanel}
 components:
 - name: column_panel_1
-  properties: {col_widths: '{"FYQGWM":19,"ASDCVV":19,"UCDNIP":11,"SMUBYP":11}'}
+  properties: {col_widths: '{"FYQGWM":20,"ASDCVV":20,"UCDNIP":10,"SMUBYP":10}'}
   type: ColumnPanel
   layout_properties: {grid_position: 'LLRWQK,COABPV'}
   components:
@@ -17,7 +17,7 @@ components:
       foreground: black, visible: true, text: 'Back
 
         ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-      italic: false, background: '#0876E8', bold: true, underline: false, icon: 'fa:angle-double-left'}
+      italic: false, background: '#0876E8', bold: false, underline: false, icon: 'fa:angle-double-left'}
     type: Button
     layout_properties: {grid_position: 'GVFDHL,SRBQBH'}
     event_bindings: {click: button_2_click}
@@ -26,30 +26,30 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'JRGSMO,GXTDFM'}
   - name: text_box_1
-    properties: {}
+    properties: {role: outlined}
     type: TextBox
     layout_properties: {grid_position: 'FAYIQN,FYQGWM'}
     data_bindings:
     - {property: text, code: 'self.item[''name_group'']', writeback: true}
   - name: text_box_2
-    properties: {}
+    properties: {role: outlined}
     type: TextBox
     layout_properties: {grid_position: 'FAYIQN,ASDCVV'}
     data_bindings:
     - {property: text, code: 'self.item[''name_categories'']', writeback: true}
     event_bindings: {pressed_enter: text_box_2_pressed_enter}
   - name: button_1
-    properties: {role: tonal-button, align: right, tooltip: '', border: '', enabled: true,
+    properties: {role: tonal-button, align: full, tooltip: '', border: '', enabled: true,
       foreground: black, visible: true, text: SAVE, font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
-      bold: true, underline: false, icon: ''}
+      bold: false, underline: false, icon: ''}
     type: Button
     layout_properties: {grid_position: 'FAYIQN,UCDNIP'}
     event_bindings: {click: button_1_click}
   - name: button_1_copy
-    properties: {role: tonal-button, align: right, tooltip: '', border: '', enabled: true,
+    properties: {role: tonal-button, align: full, tooltip: '', border: '', enabled: true,
       foreground: black, visible: true, text: DELETE, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: red, bold: true,
+      icon_align: left, spacing_below: small, italic: false, background: red, bold: false,
       underline: false, icon: ''}
     type: Button
     layout_properties: {grid_position: 'FAYIQN,SMUBYP'}
