@@ -491,6 +491,14 @@ components:
             bold: false, underline: false, icon: ''}
           name: label_10
           layout_properties: {x: 5.1875, y: 1055, width: 160}
+        - type: TextBox
+          properties: {role: outlined, align: left, hide_text: false, tooltip: '',
+            placeholder: Enter min months, border: '', enabled: true, foreground: '',
+            visible: true, text: '', font_size: null, font: '', spacing_above: small,
+            type: text, spacing_below: small, italic: false, background: '', bold: false,
+            underline: false}
+          name: text_box_1
+          layout_properties: {x: 203.1875, y: 1055, width: 198}
 - type: FlowPanel
   properties: {}
   name: navbar_links
