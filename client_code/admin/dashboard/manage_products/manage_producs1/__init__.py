@@ -124,11 +124,13 @@ class manage_producs1(manage_producs1Template):
             self.label_7_copy.visible = False
             self.text_box_4.visible = False
         
-        emi_payment = ("Monthly" if self.monthly.checked else None 
-                      "One Time" if self.one_time.checked else None 
-                      "Three Month" if self.three_month.checked else None
-                      "Six Month" if self.six_month.checked else None)
-      emi_payment = [value for value in emi_payment if value is not None]
+        emi_payment = [
+            "Monthly" if self.monthly.checked else "",
+            "One Time" if self.one_time.checked else "",
+            "Three Month" if self.three_month.checked else "",
+            "Six Month" if self.six_month.checked else "",
+        ]
+        emi_payment = json.dumps(emi_payment)
         first_emi_payment = self.first_emi_payment.text
         if not first_emi_payment.isdigit() or int(first_emi_payment) < 1:
             Notification("Please enter a valid value for First EMI Payment (>= 1)").show()
