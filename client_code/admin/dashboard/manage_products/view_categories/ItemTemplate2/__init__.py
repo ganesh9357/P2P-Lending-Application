@@ -7,6 +7,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from ..editDetails import editDetails
 
 class ItemTemplate2(ItemTemplate2Template):
   def __init__(self, **properties):
@@ -17,8 +18,7 @@ class ItemTemplate2(ItemTemplate2Template):
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
-    selected_row = self.item  # Get the selected row data
+    item_data = self.item
 
-    if selected_row is not None:
-        # Open the EditDetailsForm and pass the selected row's data
-        open_form('admin.dashboard.manage_products.view_products_and_categories.EditDetailsFo', selected_row=item_data)
+        # Open the EditDetailsForm and pass the selected item_data as a row
+    open_form('admin.dashboard.manage_products.view_categories.editDetails', selected_row=item_data)
