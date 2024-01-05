@@ -14,7 +14,7 @@ class add_product_categories_and_groups(add_product_categories_and_groupsTemplat
     self.init_components(**properties)
 
     options = app_tables.product_group.search()
-    option_strings = [option['name'] for option in options]
+    option_strings = [" "]+[option['name'] for option in options]
     self.drop_down_1.items = option_strings
     self.drop_down_1.selected_value = option_strings[0] if option_strings else None
 
