@@ -39,12 +39,13 @@ class foreclose(forecloseTemplate):
     total_outstanding_amount=outstanding_amount+outstanding_amount_i_amount
     
     data = tables.app_tables.product_details.search()
-    self.foreclosure_rate_lst = []
+    self.foreclosure_fee_lst = []
     for i in data:
-        self.foreclosure_rate_lst.append(i['foreclosure_fee'])
+        self.foreclosure_fee_lst.append(i['foreclosure_fee'])
 
-    self.foreclose_rate.text = self.foreclosure_rate_lst
-    foreclose_amount = outstanding_amount * foreclose_rate
+    self.foreclose_fee.text = self.foreclosure_fee_lst
+    foreclose_fee = int(self.foreclose_fee.text)
+    foreclose_amount = outstanding_amount * foreclose_fee
     foreclose_amount = int(foreclose_amount)
     total_due_amount = outstanding_amount + foreclose_amount
     total_due_amount = int(total_due_amount)
