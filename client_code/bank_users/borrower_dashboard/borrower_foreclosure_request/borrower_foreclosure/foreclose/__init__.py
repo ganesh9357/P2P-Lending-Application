@@ -31,23 +31,21 @@ class foreclose(forecloseTemplate):
     monthly_interest_amount=emi-monthly_installment
     monthly_interest_amount=int( monthly_interest_amount)
 
-    outstanding_amount= loan_amount - monthly_installment*borrower_last_payment_done
+    outstanding_amount= loan_amount - (monthly_installment*borrower_last_payment_done)
     outstanding_amount = int(outstanding_amount)
-    oustanding_month=tenure-borrower_last_payment_done
-    outstanding_amount_i_amount=monthly_interest_amount*oustanding_month
-    outstanding_amount_i_amount=int(outstanding_amount_i_amount)
-    total_outstanding_amount=outstanding_amount+outstanding_amount_i_amount
+    oustanding_month = tenure-borrower_last_payment_done
+    outstanding_amount_i_amount = monthly_interest_amount*oustanding_month
+    outstanding_amount_i_amount = int(outstanding_amount_i_amount)
+    total_outstanding_amount = outstanding_amount+outstanding_amount_i_amount
     
     product_id_to_search = selected_row['product_id']
     data = tables.app_tables.product_details.search(product_id=product_id_to_search)
-    self.foreclosure_fee_lst = []
-    
+    self.foreclosure_fee_lst = []    
     for i in data:
         self.foreclosure_fee_lst.append(i['foreclosure_fee'])
       
     foreclosure_fee_str = ', '.join(map(str, self.foreclosure_fee_lst))
     self.foreclose_fee.text = foreclosure_fee_str
-
     foreclose_fee = float(self.foreclosure_fee_lst[0])
     foreclose_amount = outstanding_amount * (foreclose_fee/100)
     foreclose_amount = float(foreclose_amount)
