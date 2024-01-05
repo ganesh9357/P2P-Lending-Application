@@ -619,6 +619,9 @@ db_schema:
     - name: product_id
       admin_ui: {width: 200, order: 26}
       type: string
+    - name: borrower_first_payment_done
+      admin_ui: {width: 200, order: 27}
+      type: date
     title: loan_details
   product_group:
     title: product_group

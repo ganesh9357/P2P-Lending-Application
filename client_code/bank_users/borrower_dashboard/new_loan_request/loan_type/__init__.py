@@ -24,7 +24,9 @@ class loan_type(loan_typeTemplate):
         open_form('bank_users.borrower_dashboard.new_loan_request')
 
     def button_3_click(self, **event_args):
-      open_form('bank_users.borrower_dashboard.new_loan_request.check_out_form', self.proctct_g, self.prodct_cate, str(loan_amount), tenure, self.user_id)
+        loan_amount = self.loan_amount_tb.text
+        tenure = self.text_box_1.text
+        open_form('bank_users.borrower_dashboard.new_loan_request.check_out_form', self.proctct_g, self.prodct_cate, str(loan_amount), tenure, self.user_id)
 
     def fetch_product_data(self):
         return app_tables.product_details.search(
