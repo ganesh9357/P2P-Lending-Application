@@ -97,6 +97,9 @@ db_schema:
     - name: first_emi_payment
       admin_ui: {order: 18.5, width: 200}
       type: number
+    - name: min_months
+      admin_ui: {order: 23, width: 200}
+      type: number
   user_profile:
     client: full
     server: full
@@ -506,9 +509,6 @@ db_schema:
     - name: paid_amount
       admin_ui: {width: 200, order: 3}
       type: string
-    - name: penalty_amount
-      admin_ui: {width: 200, order: 5}
-      type: string
     - name: total_due_amount
       admin_ui: {width: 200, order: 6}
       type: string
@@ -529,6 +529,9 @@ db_schema:
       type: string
     - name: status
       admin_ui: {width: 200, order: 11}
+      type: string
+    - name: foreclose_amount
+      admin_ui: {order: 1, width: 200}
       type: string
     title: foreclosure
   loan_details:
@@ -590,7 +593,7 @@ db_schema:
       admin_ui: {width: 200, order: 21}
       type: number
     - name: foreclosure_type
-      admin_ui: {order: 22, width: 200}
+      admin_ui: {order: 23, width: 200}
       type: string
     - name: loan_closed_date
       admin_ui: {order: 23, width: 200}

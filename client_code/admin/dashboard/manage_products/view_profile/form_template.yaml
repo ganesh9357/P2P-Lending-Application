@@ -35,7 +35,7 @@ components:
           col_widths: {}
           grid_position: IPMDFU,UZEFCD
     - type: XYPanel
-      properties: {height: 1118.599998474121}
+      properties: {height: 1169.2666854858398}
       name: xy_panel_1
       layout_properties: {grid_position: 'EUYFWY,VXIUTQ'}
       components:
@@ -91,23 +91,9 @@ components:
         name: label_4
         layout_properties: {x: 194, y: 205.796875, width: 232}
       - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: ' Product Description', font_size: null, font: '',
-          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-          background: '', bold: false, underline: false, icon: ''}
-        name: label_4_copy
-        layout_properties: {x: 0, y: 251.796875, width: 160}
-      - type: Label
         properties: {}
         name: label_3
         layout_properties: {x: 194, y: 251.796875, width: 232}
-      - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: ' Interest  Rate(%)', font_size: null, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-          underline: false, icon: ''}
-        name: label_8_copy
-        layout_properties: {x: 0, y: 297.796875, width: 160}
       - type: ColumnPanel
         properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
           wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
@@ -139,11 +125,11 @@ components:
           layout_properties: {grid_position: 'NLYEYP,EMKDSK'}
         - type: Label
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: '     ROI', font_size: null, font: '', spacing_above: small,
-            icon_align: left, spacing_below: small, italic: false, background: '',
-            bold: false, underline: false, icon: ''}
+            visible: true, text: '    Rate Of Interest(%)', font_size: null, font: '',
+            spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+            background: '', bold: false, underline: false, icon: ''}
           name: label_13_copy
-          layout_properties: {grid_position: 'ODQTDO,NWLACN'}
+          layout_properties: {grid_position: 'ODQTDO,SJDTXR'}
         - type: Label
           properties: {}
           name: label_10
@@ -172,9 +158,9 @@ components:
           layout_properties: {grid_position: 'WNTQXR,ULIJYJ'}
         - type: Label
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: '    Min Tenure', font_size: null, font: '', spacing_above: small,
-            icon_align: left, spacing_below: small, italic: false, background: '',
-            bold: false, underline: false, icon: ''}
+            visible: true, text: "    Min Tenure \n    (in months)", font_size: null,
+            font: '', spacing_above: small, icon_align: left, spacing_below: small,
+            italic: false, background: '', bold: false, underline: false, icon: ''}
           name: label_13
           layout_properties: {grid_position: 'FIKNJI,XJVVSP'}
         - type: Label
@@ -183,9 +169,9 @@ components:
           layout_properties: {grid_position: 'FIKNJI,ZRNORB'}
         - type: Label
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: '    Max Tenure', font_size: null, font: '', spacing_above: small,
-            icon_align: left, spacing_below: small, italic: false, background: '',
-            bold: false, underline: false, icon: ''}
+            visible: true, text: "    Max Tenure\n     (in months)\n", font_size: null,
+            font: '', spacing_above: small, icon_align: left, spacing_below: small,
+            italic: false, background: '', bold: false, underline: false, icon: ''}
           name: label_14
           layout_properties: {grid_position: 'NFHBIS,MZZLGV'}
         - type: Label
@@ -201,101 +187,126 @@ components:
           name: link_2
           layout_properties: {grid_position: 'RBEGUU,FUCJSH'}
       - type: Label
-        properties: {}
-        name: label_18
-        layout_properties: {x: 182, y: 692.796875, width: 160}
-      - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: ' EMI Payment', font_size: null, font: '', spacing_above: small,
+          visible: true, text: ' Interest  Rate(%)', font_size: null, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
           underline: false, icon: ''}
-        name: label_17
-        layout_properties: {x: 0, y: 692.796875, width: 110}
+        name: label_8_copy
+        layout_properties: {x: 0, y: 312.7916564941406, width: 160}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: ' Product Description', font_size: null, font: '',
+          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false, icon: ''}
+        name: label_4_copy
+        layout_properties: {x: 0, y: 251.79165649414062, width: 160}
       - type: Button
         properties: {role: outlined-button, align: center, tooltip: '', border: '',
           enabled: true, foreground: black, visible: true, text: Edit, font_size: null,
           font: '', spacing_above: small, icon_align: left, spacing_below: small,
           italic: false, background: '#0876E8', bold: false, underline: false, icon: 'fa:edit'}
         name: button_1
-        layout_properties: {x: 267.99999237060547, y: 1073.2361580078125, width: 320}
+        layout_properties: {x: 248.99999237060547, y: 1122.3733, width: 320}
         event_bindings: {click: button_1_click}
       - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: ' Processing Fee(%)', font_size: null, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-          underline: false, icon: ''}
-        name: label_6_copy
-        layout_properties: {x: 0, y: 890.77783203125, width: 152}
-      - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: ' Foreclosure fee(%)', font_size: null, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-          underline: false, icon: ''}
-        name: label_25
-        layout_properties: {x: 0, y: 837.77783203125, width: 160}
+        properties: {}
+        name: label_20
+        layout_properties: {x: 181.9861068725586, y: 818.7916870117188, width: 160}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: ' Foreclosure Type', font_size: null, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
           underline: false, icon: ''}
         name: label_19
-        layout_properties: {x: 0, y: 784.7916870117188, width: 160}
+        layout_properties: {x: 0, y: 818.7916870117188, width: 160}
+      - type: Label
+        properties: {}
+        name: label_18
+        layout_properties: {x: 181.9861068725586, y: 718.7916870117188, width: 160}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: ' First EMI Payment ', font_size: null, font: '', spacing_above: small,
+          visible: true, text: ' EMI Payment', font_size: null, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
           underline: false, icon: ''}
+        name: label_17
+        layout_properties: {x: 10, y: 718.7916870117188, width: 110}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: " First EMI Payment \n (in months)", font_size: null,
+          font: '', spacing_above: small, icon_align: left, spacing_below: small,
+          italic: false, background: '', bold: false, underline: false, icon: ''}
         name: label_27
-        layout_properties: {x: 0, y: 738.7916870117188, width: 160}
+        layout_properties: {x: 0, y: 764.7916870117188, width: 160}
       - type: Label
         properties: {}
         name: label_28
-        layout_properties: {x: 181.9861068725586, y: 738.7916870117188, width: 160}
+        layout_properties: {x: 181.9861068725586, y: 772.7916870117188, width: 160}
       - type: Label
         properties: {}
-        name: label_20
-        layout_properties: {x: 181.9861068725586, y: 791.7777709960938, width: 160}
-      - type: Label
-        properties: {}
-        name: label_26
-        layout_properties: {x: 181.99999237060547, y: 837.77783203125, width: 160}
-      - type: Label
-        properties: {}
-        name: label_5
-        layout_properties: {x: 181.99999237060547, y: 883.77783203125, width: 232}
-      - type: Label
-        properties: {}
-        name: label_22
-        layout_properties: {x: 181.9861068725586, y: 929.7916259765625, width: 160}
-      - type: Label
-        properties: {}
-        name: label_6
-        layout_properties: {x: 181.9861068725586, y: 975.7916259765625, width: 232}
-      - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: ' Extension Fee(%)', font_size: null, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-          underline: false, icon: ''}
-        name: label_7_copy
-        layout_properties: {x: 0, y: 975.7916259765625, width: 160}
-      - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: ' Extension Allowed', font_size: null, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-          underline: false, icon: ''}
-        name: label_21
-        layout_properties: {x: 0, y: 936.77783203125, width: 160}
+        name: label_12
+        layout_properties: {x: 181.9861068725586, y: 1082.7916259765625, width: 232}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: ' Discount  Coupons', font_size: null, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
           underline: false, icon: ''}
         name: label_14_copy
-        layout_properties: {x: 0, y: 1021.7916259765625, width: 160}
+        layout_properties: {x: -7.62939453125E-6, y: 1082.7916259765625, width: 160}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: ' Extension Fee(%)', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_7_copy
+        layout_properties: {x: 0, y: 1042.7916259765625, width: 160}
       - type: Label
         properties: {}
-        name: label_12
-        layout_properties: {x: 181.9861068725586, y: 1021.7916259765625, width: 232}
+        name: label_6
+        layout_properties: {x: 181.9861068725586, y: 1042.7916259765625, width: 232}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: ' Extension Allowed', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_21
+        layout_properties: {x: -7.62939453125E-6, y: 1002.77783203125, width: 160}
+      - type: Label
+        properties: {}
+        name: label_30
+        layout_properties: {x: 181.9861068725586, y: 910.7916870117188, width: 160}
+      - type: Label
+        properties: {}
+        name: label_5
+        layout_properties: {x: 181.9861068725586, y: 956.7916259765625, width: 232}
+      - type: Label
+        properties: {}
+        name: label_22
+        layout_properties: {x: 181.9861068725586, y: 1002.77783203125, width: 160}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: ' Foreclosure fee(%)', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_25
+        layout_properties: {x: 0, y: 870.77783203125, width: 160}
+      - type: Label
+        properties: {}
+        name: label_26
+        layout_properties: {x: 181.9861068725586, y: 870.77783203125, width: 160}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: ' Min Months', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_29
+        layout_properties: {x: 0, y: 910.7916259765625, width: 160}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: ' Processing Fee(%)', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_6_copy
+        layout_properties: {x: 0, y: 956.7916259765625, width: 152}
 - type: FlowPanel
   properties: {}
   name: navbar_links
