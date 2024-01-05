@@ -40,9 +40,9 @@ components:
     event_bindings: {click: button_2_click}
   - name: button_1_copy
     properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: black, visible: true, text: delete, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: 'theme:Error',
-      bold: true, underline: false, icon: ''}
+      foreground: black, visible: true, text: DELETE, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: red, bold: true,
+      underline: false, icon: ''}
     type: Button
     layout_properties:
       col_widths: {}
