@@ -91,7 +91,7 @@ components:
     border: ''
     enabled: true
     foreground: ''
-    items: [Public, Private]
+    items: [Partnership, cooperation, sole proprietorship, cooperative limited liability company]
     visible: true
     font_size: null
     font: ''

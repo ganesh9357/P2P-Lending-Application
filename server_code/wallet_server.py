@@ -47,6 +47,7 @@ def create_wallet_entry(email, customer_id, full_name, user_type):
 @anvil.server.callable
 def fetch_user_profiles():
     user_profiles = app_tables.user_profile.search()
+    print(user_profiles)
     return user_profiles
 
 def generate_wallet_id():
@@ -93,7 +94,7 @@ def deposit_money(email, deposit_amount, customer_id):
     
     try:
         # Fetch user_email and wallet_id based on customer_id
-        wallet_row = app_tables.wallet.get(customer_id=customer_id)
+        wallet_row = app_tables.wallet.get(user_email=email)
         
         if wallet_row is not None:
             user_email = wallet_row['user_email']
@@ -133,7 +134,7 @@ def withdraw_money(email, withdraw_amount, customer_id):
     
     try:
         # Fetch user_email and wallet_id based on customer_id
-        wallet_row = app_tables.wallet.get(customer_id=customer_id)
+        wallet_row = app_tables.wallet.get(user_email=email)
         
         if wallet_row is not None:
             user_email = wallet_row['user_email']
@@ -188,14 +189,14 @@ def withdraw_money(email, withdraw_amount, customer_id):
 
 
 @anvil.server.callable
-def fetch_profile_data_and_insert(customer_id):
+def fetch_profile_data_and_insert(email, customer_id):
     try:
         # Fetch user profile based on customer_id
-        profile = app_tables.user_profile.get(customer_id=customer_id)
+        profile = app_tables.user_profile.get(email_user=email)
         
         if profile is not None:
             # Fetch wallet data based on customer_id
-            wallet_data = app_tables.wallet.get(customer_id=customer_id)
+            wallet_data = app_tables.wallet.get(user_email=email)
             
             if wallet_data is not None:
                 wallet_id = wallet_data['wallet_id']

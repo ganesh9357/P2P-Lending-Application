@@ -7,7 +7,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 def add_bessem():
-  final_value = calulate_bessem()
+  final_value = calulate_besem()
   users = anvil.users.get_user()
   if users:
     email = users['email']
