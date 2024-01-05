@@ -92,11 +92,11 @@ components:
             layout_properties: {row: CULTKB, width_xs: 4, col_xs: 6, width: 149.656}
           - type: Label
             properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-              visible: true, text: 'Interest rate :', font_size: null, font: '', spacing_above: small,
-              icon_align: left, spacing_below: small, italic: false, background: '',
-              bold: false, underline: false, icon: ''}
+              visible: true, text: 'Interest Amount :', font_size: null, font: '',
+              spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+              background: '', bold: false, underline: false, icon: ''}
             name: label_12
-            layout_properties: {row: ANIWUU, width_xs: 4, col_xs: 1, width: 147.656}
+            layout_properties: {row: ANIWUU, width_xs: 4, col_xs: 1, width: 260.984}
           - type: Label
             properties: {}
             name: fir_label
@@ -166,11 +166,11 @@ components:
             layout_properties: {row: YBWOLB, width_xs: 2, col_xs: 6, width: 67.1562}
           - type: Label
             properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-              visible: true, text: 'Overall Interest Rate :', font_size: null, font: '',
+              visible: true, text: 'Overall Interest Amount :', font_size: null, font: '',
               spacing_above: small, icon_align: left, spacing_below: small, italic: false,
               background: '', bold: false, underline: false, icon: ''}
             name: label_14
-            layout_properties: {row: DJHESH, width_xs: 4, col_xs: 1, width: 131.5}
+            layout_properties: {row: DJHESH, width_xs: 4, col_xs: 1, width: 260.984}
           - type: Label
             properties: {}
             name: label_8
@@ -217,18 +217,29 @@ components:
             layout_properties: {row: QBZOQM, width_xs: 3, col_xs: 6}
           - type: Label
             properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+              visible: true, text: 'Foreclosure Fee(%) :', font_size: null, font: '',
+              spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+              background: '', bold: false, underline: false, icon: ''}
+            name: label_22
+            layout_properties: {row: TJRHMK, width_xs: 3, col_xs: 1, width: 188.25}
+          - type: Label
+            properties: {}
+            name: foreclose_fee
+            layout_properties: {row: TJRHMK, width_xs: 3, col_xs: 6}
+          - type: Label
+            properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
               visible: true, text: 'Foreclosure Amount :', font_size: null, font: '',
               spacing_above: small, icon_align: left, spacing_below: small, italic: false,
               background: '', bold: false, underline: false, icon: ''}
             name: label_16
-            layout_properties: {row: OJMWOS, width_xs: 3, col_xs: 1, width: 149.143}
+            layout_properties: {row: OYIXZR, width_xs: 3, col_xs: 1, width: 149.143}
           - type: Label
             properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
               visible: true, text: '', font_size: null, font: '', spacing_above: small,
               icon_align: left, spacing_below: small, italic: false, background: '',
               bold: false, underline: false, icon: ''}
             name: pa_label
-            layout_properties: {row: OJMWOS, width_xs: 2, col_xs: 6, width: 103.75}
+            layout_properties: {row: OYIXZR, width_xs: 2, col_xs: 6, width: 103.75}
           - type: Label
             properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
               visible: true, text: 'Total Due Amount :
