@@ -16,7 +16,7 @@ class view_categories(view_categoriesTemplate):
     # Any code you write here will run before the form opens.
     self.repeating_panel_1.items = app_tables.product_categories.search()
 
-  def link_1_click(self, **event_args):
+  def button_1_copy_5_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('admin.dashboard')
 
