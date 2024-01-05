@@ -50,4 +50,12 @@ components:
     properties: {spacing_above: none, spacing_below: none, item_template: admin.dashboard.manage_products.view_products_and_categories.RowTemplate28}
     name: repeating_panel_1
     layout_properties: {}
+  - name: button_1_copy_2
+    properties: {role: null, align: right, tooltip: '', border: '', enabled: true,
+      foreground: black, visible: true, text: Back, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
+      bold: true, underline: false, icon: 'fa:angle-double-left'}
+    type: Button
+    layout_properties: {}
+    event_bindings: {click: button_1_copy_2_click}
 is_package: true

@@ -3,7 +3,7 @@ container:
   properties: {col_widths: '{"VFLUTA":50,"DWCUBC":10}', visible: true}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"FDDXVJ":20,"HACQJG":40,"GVPHFB":20,"VRVUMX":40}'}
+  properties: {col_widths: '{"FDDXVJ":15,"HACQJG":45,"GVPHFB":15,"VRVUMX":45,"SWHIBY":35,"FRYFRA":25}'}
   name: column_panel_2
   layout_properties: {grid_position: 'UQCZNB,KHJKIT'}
   components:
@@ -31,7 +31,7 @@ components:
     name: spacer_1
     layout_properties: {grid_position: 'KKFONF,HHEVLC'}
   - type: Label
-    properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
       visible: true, text: Product Group, font_size: 16, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
@@ -61,7 +61,7 @@ components:
     layout_properties: {grid_position: 'SPGCWB,VRVUMX'}
     event_bindings: {change: name_change}
   - type: Label
-    properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
       visible: true, text: Categories, font_size: 16, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}

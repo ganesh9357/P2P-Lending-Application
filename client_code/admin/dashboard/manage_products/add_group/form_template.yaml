@@ -34,7 +34,7 @@ components:
     name: spacer_1
     layout_properties: {grid_position: 'KKFONF,HHEVLC'}
   - type: Label
-    properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
       visible: true, text: Product Group, font_size: 16, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
@@ -46,7 +46,7 @@ components:
     layout_properties: {grid_position: 'SPGCWB,OPUDKW'}
     event_bindings: {pressed_enter: add_button_click}
   - type: Button
-    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+    properties: {role: null, align: right, tooltip: '', border: '', enabled: true,
       foreground: black, visible: true, text: ADD, font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
       bold: true, underline: false, icon: ''}
