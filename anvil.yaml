@@ -430,41 +430,6 @@ db_schema:
       admin_ui: {width: 200, order: 16}
       type: string
     title: wallet
-  wallet_transactions_:
-    title: 'wallet_transactions '
-    client: full
-    server: full
-    columns:
-    - name: transaction_id
-      admin_ui: {width: 200}
-      type: string
-    - name: user_email
-      admin_ui: {width: 200}
-      type: string
-    - name: customer_id
-      admin_ui: {width: 200}
-      type: number
-    - name: wallet_id
-      admin_ui: {width: 200}
-      type: string
-    - name: transaction_type
-      admin_ui: {width: 200}
-      type: string
-    - name: amount
-      admin_ui: {width: 200}
-      type: number
-    - name: transaction_time_stamp
-      admin_ui: {width: 200}
-      type: datetime
-    - name: status
-      admin_ui: {width: 200}
-      type: string
-    - name: description
-      admin_ui: {width: 200}
-      type: string
-    - name: gate_way_type
-      admin_ui: {width: 200}
-      type: string
   user_issues_bugreports:
     title: user_issues_bugreports
     client: full

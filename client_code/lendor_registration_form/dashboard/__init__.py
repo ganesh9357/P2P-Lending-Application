@@ -22,7 +22,7 @@ class dashboard(dashboardTemplate):
     self.init_components(**properties)
    
     self.email = main_form_module.email
-    print(self.email)
+    email = self.email
     # Any code you write here will run before the form opens.
 
 
@@ -150,24 +150,12 @@ class dashboard(dashboardTemplate):
             profile['customer_id'],
             profile['full_name'],
             profile['usertype']
-        )
-        
+        ) 
         print(result)
     
     open_form('wallet.wallet')
     
     customer_id = 1000
-    anvil.server.call('fetch_profile_data_and_insert', customer_id)
+    email = self.email
+    anvil.server.call('fetch_profile_data_and_insert', email, customer_id)
   
-
-  # def button_wallet_dashboard_link_click(self, **event_args):
-  #   # Call server function to generate wallet_id and store in the wallet table
-  #   wallet_id = server.call('generate_wallet_id', self.email)
-  #   if wallet_id:
-  #       # Handle successful generation and display wallet_id
-  #       open_form('wallet_dashboard_form', wallet_id=wallet_id)
-  #   else:
-  #       # Handle case where user doesn't exist
-  #       print("User does not exist.")
-
-
