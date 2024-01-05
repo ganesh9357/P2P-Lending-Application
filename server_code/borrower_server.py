@@ -7,7 +7,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 from datetime import datetime
-
+from . import bessem
 
 @anvil.server.callable
 def add_borrower_step1(full_name,gender,dob,user_id):
@@ -134,6 +134,7 @@ def add_borrower_step9(ifsc,salary_type,select_bank, user_id):
     row[0]['usertype'] = 'borrower'
     row[0]['last_confirm'] = True
     row[0]['form_count']=9
+    row[0]['bessem_value'] = bessem.add_bessem()
 
 
 
@@ -150,35 +151,6 @@ def update_loan_details(loan_id, emi, total_repayment_amount, interest_rate):
         row.update()
     else:
         raise ValueError(f"Row not found for loan_id {loan_id}")
-
-# @anvil.server.callable
-# def add_loan_details(loan_amount,tenure,user_id,interest_rate,total_repayment_amount,loan_id):
-#   app_tables.loan_details.add_row(
-#     loan_amount=loan_amount,
-#     tenure=tenure,
-#     borrower_customer_id=user_id,
-#     interest_rate = interest_rate,
-#     total_repayment_amount = total_repayment_amount,
-#     loan_id = loan_id
-#   )
-
-
-# @anvil.server.callable
-# def generate_loan_id():
-#     # Get all existing loan IDs
-#     existing_ids = app_tables.loan_details.search()['loan_id']
-
-#     if existing_ids:
-#         # Extract the numeric part, convert to integers, and find the maximum
-#         max_numeric_part = max(int(loan_id[2:]) for loan_id in existing_ids)
-        
-#         # Generate the new loan ID with the next numeric part
-#         new_loan_id = f'LA{max_numeric_part + 1:04d}'
-#     else:
-#         # If no existing IDs, start with 'LA0001'
-#         new_loan_id = 'LA0001'
-
-#     return new_loan_id
 
 
 
@@ -199,11 +171,7 @@ def add_loan_details(loan_amount, tenure,user_id,interest_rate, total_repayment_
         borrower_full_name = user_profile['full_name']
         borrower_email_id = user_profile['email_user']
 
-    # product_detail = app_tables.product_details.search(product_id=product_id)
-    # if product_detail and len(product_detail) > 0:
-    #   product_details = product_detail[0]
-    #   product_id = product_details['product_id']
-        # Add the loan details to the data table
+ 
         app_tables.loan_details.add_row(
           loan_amount=loan_amount,
           tenure=tenure,
@@ -214,7 +182,8 @@ def add_loan_details(loan_amount, tenure,user_id,interest_rate, total_repayment_
           borrower_full_name = borrower_full_name,
           borrower_email_id = borrower_email_id,
           loan_updated_status = "under process",
-          product_id = product_id
+          product_id = product_id,beseem_score=bessem.fetch_bessem(borrower_email_id)
+          
           # borrower_loan_created_timestamp = datetime.now()
          )
 
