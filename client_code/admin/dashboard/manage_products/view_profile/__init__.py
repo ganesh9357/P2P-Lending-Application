@@ -61,6 +61,7 @@ class view_profile(view_profileTemplate):
       self.min_tenure_list.append(i['min_tenure'])
       self.max_tenure_list.append(i['max_tenure'])
       self.emi_payment.append(i['emi_payment'])
+      self.min_month_lst.append(i['min_months'])
       self.first_emi.append(i['first_emi_payment'])
       self.dis_cou.append(i['discount_coupons'])
 
@@ -87,6 +88,7 @@ class view_profile(view_profileTemplate):
         self.label_16.text = self.max_tenure_list[b]
         self.label_10.text = self.roi[b]
         self.label_18.text = self.emi_payment[b]
+        self.label_30.text = self.min_month_lst[b]
         self.label_28.text = self.first_emi[b]
         self.label_12.text = self.dis_cou[b]
 

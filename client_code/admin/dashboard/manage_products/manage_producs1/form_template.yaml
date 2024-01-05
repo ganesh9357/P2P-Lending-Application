@@ -382,13 +382,13 @@ components:
           layout_properties: {x: 5.0416717529296875, y: 1021.388916015625, width: 160}
         - type: Label
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: 'Min Months
+            visible: true, text: 'Min Months For Foreclosure
 
               (min months need to be paid before applying for foreclosure)', font_size: null,
             font: '', spacing_above: small, icon_align: left, spacing_below: small,
             italic: false, background: '', bold: false, underline: false, icon: ''}
           name: label_11
-          layout_properties: {x: 7.583335876464844, y: 1073.1666259765625, width: 198.73588549804685}
+          layout_properties: {x: 7.578125, y: 1073.15625, width: 198.734}
         - type: RadioButton
           properties: {role: null, selected: false, align: left, tooltip: '', border: '',
             enabled: true, foreground: '', value: '', visible: true, text: 'Yes',
