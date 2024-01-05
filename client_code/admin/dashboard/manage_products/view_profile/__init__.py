@@ -36,6 +36,7 @@ class view_profile(view_profileTemplate):
     self.min_tenure_list = []
     self.max_tenure_list = []
     self.emi_payment = []
+    self.min_month_lst = []
     self.first_emi = []
     self.dis_cou = []
 
