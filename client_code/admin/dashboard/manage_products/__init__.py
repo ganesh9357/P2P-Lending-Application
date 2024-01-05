@@ -15,15 +15,15 @@ class manage_products(manage_productsTemplate):
 
     # Any code you write here will run before the form opens.
 
-  def link_2_click(self, **event_args):
+  def button_1_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('admin.dashboard.manage_products.manage_producs1')
 
-  def link_3_click(self, **event_args):
+  def button_1_copy_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('admin.dashboard.manage_products.view_product')
 
-  def link_4_click(self, **event_args):
+  def button_1_copy_2_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('admin.dashboard.manage_products.add_group')
 
@@ -31,12 +31,17 @@ class manage_products(manage_productsTemplate):
     """This method is called when the link is clicked"""
     open_form('admin.dashboard')
 
-  def link_5_click(self, **event_args):
+  def button_1_copy_3_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('admin.dashboard.manage_products.view_products_and_categories')
 
-  def link_6_click(self, **event_args):
+  def button_1_copy_4_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('admin.dashboard.manage_products.view_categories')
+
+
+
+
+ 
  
 
