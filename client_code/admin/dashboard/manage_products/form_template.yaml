@@ -13,7 +13,7 @@ components:
   layout_properties: {slot: default}
   components:
   - type: ColumnPanel
-    properties: {col_widths: '{"LPNHKI":18,"DUAONS":22,"AHBFVH":20,"WLHNNP":45,"GRROVV":15}'}
+    properties: {col_widths: '{"LPNHKI":18,"DUAONS":22,"AHBFVH":20,"WLHNNP":50,"GRROVV":10}'}
     name: content_panel_copy_2
     layout_properties:
       col_widths: {}
@@ -29,7 +29,7 @@ components:
         col_widths: {}
         grid_position: YBYCGC,WLHNNP
     - name: button_1_copy_5
-      properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
+      properties: {role: tonal-button, align: right, tooltip: '', border: '', enabled: true,
         foreground: black, visible: true, text: Home, font_size: null, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
         bold: false, underline: false, icon: 'fa:home'}
