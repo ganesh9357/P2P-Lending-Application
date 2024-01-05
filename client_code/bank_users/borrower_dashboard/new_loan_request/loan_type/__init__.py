@@ -26,9 +26,9 @@ class loan_type(loan_typeTemplate):
     def button_3_click(self, **event_args):
         loan_amount = self.loan_amount_tb.text
         tenure = self.tenure_dd.selected_value
-        one_time = self.check_box_1.checked
-        monthly_emi = self.check_box_2.checked
-
+        one_time = self.radio_button_1.selected
+        monthly_emi = self.radio_button_2.selected
+    
         # Validate loan_amount
         if not loan_amount:
             self.label_22.text = "Please fill the loan amount"
@@ -39,29 +39,29 @@ class loan_type(loan_typeTemplate):
         else:
             min_amount, max_amount = self.get_min_max_amount()
             loan_amount = int(loan_amount)
-
-            if loan_amount < min_amount or loan_amount > max_amount:
+    
+            if min_amount <= loan_amount <= max_amount:
+                self.label_22.text = ""
+            else:
                 self.label_22.text = f"Loan amount should be between {min_amount} and {max_amount}"
                 self.label_22.foreground = '#FF0000'
-            else:
-                self.label_22.text = ""
-
+    
         # Validate tenure
         if not tenure:
             self.label_23.text = "Please select tenure"
             self.label_23.foreground = '#FF0000'
         else:
             self.label_23.text = ""
-
-        # Validate check_box_1 and check_box_2
+    
+        # Validate radio_button_1 and radio_button_2
         if not (one_time or monthly_emi):
             self.label_24.text = "Please select either One-time or Monthly EMI"
             self.label_24.foreground = '#FF0000'
         else:
             self.label_24.text = ""
-
+    
         # Proceed to the next form only if all validations pass
-        if loan_amount and tenure and (one_time or monthly_emi):
+        if not any([self.label_22.text, self.label_23.text, self.label_24.text]):
             open_form('bank_users.borrower_dashboard.new_loan_request.check_out_form', self.proctct_g, self.prodct_cate, str(loan_amount), tenure, self.user_id)
 
     def fetch_product_data(self):
@@ -107,9 +107,3 @@ class loan_type(loan_typeTemplate):
 
     def label_18_show(self, **event_args):
         self.display_label_text(self.label_18, 'membership_type')
-
-    def check_box_1_change(self, **event_args):
-        self.check_box_2.checked = not self.check_box_1.checked
-
-    def check_box_2_change(self, **event_args):
-        self.check_box_1.checked = not self.check_box_2.checked
