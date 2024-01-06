@@ -14,15 +14,14 @@ components:
       spacing_below: small, background: '', horizontal_align: left}
     type: Image
     layout_properties: {grid_position: 'GVFDHL,HZAXGZ'}
-  - type: Button
-    properties: {role: null, align: right, tooltip: '', border: '', enabled: true,
-      foreground: black, visible: true, text: 'Back
-
-        ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-      italic: false, background: '#0876E8', bold: false, underline: false, icon: 'fa:angle-double-left'}
-    name: button_2
-    layout_properties: {grid_position: 'GVFDHL,NZVQWP'}
-    event_bindings: {click: button_2_click}
+  - name: button_1_copy_copy
+    properties: {role: tonal-button, align: right, tooltip: '', border: '', enabled: true,
+      foreground: black, visible: true, text: Home, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '#0876E8',
+      bold: false, underline: false, icon: 'fa:home'}
+    type: Button
+    layout_properties: {grid_position: 'GVFDHL,ELSCTK'}
+    event_bindings: {click: home_button}
   - type: Spacer
     properties: {height: 63}
     name: spacer_1
@@ -54,4 +53,13 @@ components:
       col_widths: {}
       grid_position: FAYIQN,DCZLJB
     event_bindings: {click: delete_button}
+- type: Button
+  properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+    foreground: black, visible: true, text: 'Back
+
+      ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+    italic: false, background: '#0876E8', bold: false, underline: false, icon: 'fa:angle-double-left'}
+  name: button_2
+  layout_properties: {grid_position: 'BCJQOJ,SQFDHK'}
+  event_bindings: {click: button_2_click}
 is_package: true
