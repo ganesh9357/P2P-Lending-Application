@@ -15,7 +15,6 @@ class EditDetailsForm(EditDetailsFormTemplate):
 
         # Set the initial values for the input components
         self.text_box_1.text = selected_row['name']
-        #self.text_box_2.text = selected_row['name_categories']
         
         # Store the selected row for later use
         self.selected_row = selected_row
