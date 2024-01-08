@@ -93,49 +93,44 @@ def generate_transaction_id():
     return f"TA{counter:04d}"
 
 
-@anvil.server.callable
-def deposit_money(email, deposit_amount, customer_id):
-    transaction_id = generate_transaction_id()
+# @anvil.server.callable
+# def deposit_money(email, deposit_amount, customer_id):
+#     transaction_id = generate_transaction_id()
     
-    try:
-        # Fetch user_email and wallet_id based on customer_id
-        wallet_row = app_tables.wallet.get(user_email=email)
+#     try:
+#         # Fetch user_email and wallet_id based on customer_id
+#         wallet_row = app_tables.wallet.get(user_email=email)
         
-        if wallet_row is not None:
-            user_email = wallet_row['user_email']
-            wallet_id = wallet_row['wallet_id']
+#         if wallet_row is not None:
+#             user_email = wallet_row['user_email']
+#             wallet_id = wallet_row['wallet_id']
             
-            # Add a row to wallet_transactions table with transaction timestamp
-            app_tables.wallet_transactions.add_row(
-                user_email=str(user_email),
-                wallet_id=str(wallet_id),
-                customer_id=customer_id,
-                transaction_id=transaction_id,
-                amount=deposit_amount,
-                transaction_type='deposit',
-                transaction_time_stamp=datetime.now(),
-                status='success' 
-            )
-            # Update wallet_amount only if the deposit status is 'success'
-            if status == 'success':
-                wallet_row['wallet_amount'] += deposit_amount
-                wallet_row.save()
-                # return True
-            return True
-        else:
-            print("Customer not found in the wallet table.")
-            return False
-    except Exception as e:
-        print(f"Deposit failed: {e}")
-        app_tables.wallet_transactions.add_row(
-            customer_id=customer_id,
-            transaction_id=transaction_id,
-            amount=deposit_amount,
-            transaction_type='deposit',
-            transaction_time_stamp=datetime.now(),  
-            status='fail'
-        )
-        return False
+#             # Add a row to wallet_transactions table with transaction timestamp
+#             app_tables.wallet_transactions.add_row(
+#                 user_email=str(user_email),
+#                 wallet_id=str(wallet_id),
+#                 customer_id=customer_id,
+#                 transaction_id=transaction_id,
+#                 amount=deposit_amount,
+#                 transaction_type='deposit',
+#                 transaction_time_stamp=datetime.now(),
+#                 status='success' 
+#             )
+           
+#         else:
+#             print("Customer not found in the wallet table.")
+#             return False
+#     except Exception as e:
+#         print(f"Deposit failed: {e}")
+#         app_tables.wallet_transactions.add_row(
+#             customer_id=customer_id,
+#             transaction_id=transaction_id,
+#             amount=deposit_amount,
+#             transaction_type='deposit',
+#             transaction_time_stamp=datetime.now(),  
+#             status='fail'
+#         )
+#         return False
 
 # @anvil.server.callable
 # def deposit_money(email, deposit_amount, customer_id):
@@ -188,6 +183,57 @@ def deposit_money(email, deposit_amount, customer_id):
 #             status=deposit_status  # Use the determined deposit status here
 #         )
 #         return False
+
+@anvil.server.callable
+def deposit_money(email, deposit_amount, customer_id):
+    transaction_id = generate_transaction_id()
+    
+    try:
+        # Fetch user_email and wallet_id based on customer_id
+        wallet_row = app_tables.wallet.get(user_email=email)
+        
+        if wallet_row is None:
+            # Create a new row in the wallet table if the user does not exist
+            wallet_row = app_tables.wallet.add_row(user_email=email, wallet_amount=0)
+        
+        user_email = wallet_row['user_email']
+        wallet_id = wallet_row['wallet_id']
+        
+        # Add a row to wallet_transactions table with transaction timestamp
+        new_transaction = app_tables.wallet_transactions.add_row(
+            user_email=str(user_email),
+            wallet_id=str(wallet_id),
+            customer_id=customer_id,
+            transaction_id=transaction_id,
+            amount=deposit_amount,
+            transaction_type='deposit',
+            transaction_time_stamp=datetime.now(),
+            status='success' 
+        )
+        
+        # Retrieve the deposit status from the added row in wallet_transactions
+        deposit_status = new_transaction['status']
+        
+        # Update wallet_amount only if the deposit status is 'success'
+        if deposit_status == 'success':
+            wallet_row['wallet_amount'] += deposit_amount
+            wallet_row.save()
+            return True
+        else:
+            print("Deposit status not successful. Wallet amount not updated.")
+            return False
+    
+    except Exception as e:
+        print(f"Deposit failed: {e}")
+        app_tables.wallet_transactions.add_row(
+            customer_id=customer_id,
+            transaction_id=transaction_id,
+            amount=deposit_amount,
+            transaction_type='deposit',
+            transaction_time_stamp=datetime.now(),  
+            status='fail'
+        )
+        return False
 
 @anvil.server.callable
 def withdraw_money(email, withdraw_amount, customer_id):
