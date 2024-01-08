@@ -20,7 +20,12 @@ from datetime import datetime
 #   print("Hello, " + name + "!")
 #   return 42
 #
-
+# try:
+#         # Fetch user_email and wallet_id based on customer_id
+#         lender_row = app_tables.lender.get(email_id=email)
+        
+#         if lender_row is not None:
+#             wallet_amount = lender_row['investment']
 
 @anvil.server.callable
 def create_wallet_entry(email, customer_id, full_name, user_type):
