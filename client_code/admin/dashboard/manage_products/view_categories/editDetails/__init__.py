@@ -54,3 +54,7 @@ class editDetails(editDetailsTemplate):
             
             # Optionally, navigate to a different form or perform other actions
             open_form('admin.dashboard.manage_products.view_categories')
+
+    def home_button(self, **event_args):
+      """This method is called when the button is clicked"""
+      open_form('admin.dashboard')

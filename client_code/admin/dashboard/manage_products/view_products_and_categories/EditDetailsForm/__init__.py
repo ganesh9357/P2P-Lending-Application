@@ -15,7 +15,6 @@ class EditDetailsForm(EditDetailsFormTemplate):
 
         # Set the initial values for the input components
         self.text_box_1.text = selected_row['name']
-        #self.text_box_2.text = selected_row['name_categories']
         
         # Store the selected row for later use
         self.selected_row = selected_row
@@ -75,3 +74,7 @@ class EditDetailsForm(EditDetailsFormTemplate):
 
             alert("Group and corresponding categories deleted successfully!")
             open_form('admin.dashboard.manage_products.view_products_and_categories')
+
+    def home_button(self, **event_args):
+      """This method is called when the button is clicked"""
+      open_form('admin.dashboard')

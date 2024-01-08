@@ -1,57 +1,53 @@
-is_package: true
-container:
-  type: DataRowPanel
-  properties: {align: center, visible: true, auto_display_data: true}
+container: {type: DataRowPanel}
 components:
-- name: loan_id_label
-  properties: {text: '', visible: true}
-  type: Label
+- type: Label
+  properties: {}
+  name: loan_id
   layout_properties: {column: JKSDUP}
   data_bindings:
-  - {property: text, code: 'self.item[''loan_id'']', writeback: false}
-- name: loan_amount_label
+  - {property: text, code: 'self.item[''loan_id'']'}
+- type: Label
   properties: {}
-  type: Label
+  name: label_2
   layout_properties: {column: VJQQOR}
   data_bindings:
-  - {property: text, code: 'self.item[''loan_amount'']', writeback: false}
-- name: intrest_rate_label
+  - {property: text, code: 'self.item[''loan_amount'']'}
+- type: Label
   properties: {}
-  type: Label
+  name: label_3
   layout_properties: {column: OJLQEN}
   data_bindings:
   - {property: text, code: 'self.item[''interest_rate'']', writeback: false}
-- name: tenure_label
+- type: Label
   properties: {}
-  type: Label
+  name: label_4
   layout_properties: {column: CHVOCG}
   data_bindings:
   - {property: text, code: 'self.item[''tenure'']', writeback: false}
-- name: name_label
+- type: Label
   properties: {}
-  type: Label
+  name: label_5
   layout_properties: {column: VKTTOA}
   data_bindings:
   - {property: text, code: 'self.item[''lender_full_name'']', writeback: false}
-- name: date_of_apply_label
+- type: Label
   properties: {}
-  type: Label
+  name: label_6
   layout_properties: {column: HEMILB}
   data_bindings:
   - {property: text, code: 'self.item[''borrower_loan_created_timestamp'']', writeback: false}
+- type: Label
+  properties: {}
+  name: label_7
+  layout_properties: {column: SQXFPE}
+  data_bindings:
+  - {property: text, code: 'self.item[''loan_updated_status'']', writeback: false}
 - type: Link
   properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
     visible: true, text: view details, font_size: null, wrap_on: mobile, font: '',
-    col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '{}',
-    spacing_below: small, italic: false, background: '', bold: false, underline: false,
-    icon: ''}
+    col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
+    italic: false, background: '', bold: false, underline: false, icon: ''}
   name: link_1
   layout_properties: {column: TZDREV}
-  components: []
   event_bindings: {click: link_1_click}
-- type: Label
-  properties: {}
-  name: label_1_loan_status
-  layout_properties: {column: SQXFPE, grid_position: 'NTSSBE,BGLOXQ'}
-  data_bindings:
-  - {property: text, code: 'self.item[''loan_updated_status'']'}
+is_package: true

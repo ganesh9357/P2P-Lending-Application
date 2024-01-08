@@ -174,6 +174,7 @@ unique_ids:
     lendor_registration_form.dashboard.opbal: '1699956535223911918554378.0013'
     admin.dashboard.manage_products.add_group: '1703758557054939760657519.5975'
     lendor_registration_form.dashboard.lender_view_loans.RowTemplate22: '1703141013007184309847389.77017'
+    bank_users.borrower_dashboard.application_tracker.RowTemplate26: '1704699099052678345492761.1499'
     admin.dashboard.loan_management.closed_loans.view_profile_5: '1701079991010941258272977.0447'
     lendor_registration_form.dashboard.vlfr.RowTemplate7: '1700215849908648465910279.8993'
     admin.dashboard.borrowers.RowTemplate3: '1700662180254721391598758.9972'
