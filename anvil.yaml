@@ -552,7 +552,7 @@ db_schema:
       admin_ui: {order: -1, width: 200}
       type: string
     - name: borrower_compLeted_monthly_emi
-      admin_ui: {order: 16.5, width: 262}
+      admin_ui: {order: 20, width: 277}
       type: number
     - name: lender_email_id
       admin_ui: {order: -0.015625, width: 200}
@@ -702,10 +702,10 @@ db_schema:
       admin_ui: {order: 6, width: 234}
       type: date
     - name: lender_accepted_timestamp
-      admin_ui: {width: 200, order: 12}
+      admin_ui: {order: 8, width: 228}
       type: date
     - name: wallet_id
-      admin_ui: {width: 200, order: 12}
+      admin_ui: {order: 12, width: 200}
       type: string
   fin_emi_table:
     title: fin_emi_table
