@@ -148,13 +148,13 @@ class Borr_loan_request(Borr_loan_requestTemplate):
      else:
         # Insufficient balance or lender data not found
         alert("You don't have enough balance. Please add the amount in wallet.", buttons=[("OK")])
-        self.open_opbal_form()
+        # self.open_opbal_form()
 
-    def open_opbal_form(self):
-      try:
-          open_form("wallet.wallet")
-      except Exception as e:
-          print(f"Error opening opbal form: {e}")
+    # def open_opbal_form(self):
+    #   try:
+    #       open_form("wallet.wallet")
+    #   except Exception as e:
+    #       print(f"Error opening opbal form: {e}")
 
     def rejected_btn_click(self, **event_args):
         """This method is called when the button is clicked"""
