@@ -32,17 +32,17 @@ components:
   type: Label
   layout_properties: {column: VKTTOA}
   data_bindings:
-  - {property: text, code: 'self.item[''lender_name'']', writeback: false}
+  - {property: text, code: 'self.item[''lender_full_name'']', writeback: false}
 - name: date_of_apply_label
   properties: {}
   type: Label
   layout_properties: {column: HEMILB}
   data_bindings:
-  - {property: text, code: 'self.item[''timestamp'']', writeback: false}
+  - {property: text, code: 'self.item[''borrower_loan_created_timestamp'']', writeback: false}
 - name: loan_status
   properties: {text: ''}
   type: Link
   layout_properties: {column: SQXFPE}
   event_bindings: {click: loan_status_click}
   data_bindings:
-  - {property: text, code: 'self.item[''loan_updated_status'']', writeback: false}
+  - {property: text, code: 'self.item[''loan_status'']', writeback: false}
