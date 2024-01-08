@@ -90,6 +90,26 @@ class wallet(walletTemplate):
     else:
         alert("Deposit failed!")
 
+  # def withdraw_money_btn_click(self, **event_args):
+  #   amount_entered = self.amount_text_box.text
+  #   wallet_amount = app_tables.wallet.search()
+    
+  #   try:
+  #       withdraw_amount = float(amount_entered)
+  #   except ValueError:
+  #       return  # Handle invalid input
+    
+  #   customer_id = 1000
+  #   email = self.email  
+    
+  #   if anvil.server.call('withdraw_money', email=email, withdraw_amount=withdraw_amount, customer_id=customer_id):
+  #       alert("Withdrawal successful!")
+  #   elif withdraw_amount < wallet_amount:
+  #     alert("Insufficient funds for withdrawal.")
+  #   else:
+  #       alert("Withdrawal failed!")
+
+
   def withdraw_money_btn_click(self, **event_args):
     amount_entered = self.amount_text_box.text
     
@@ -101,8 +121,14 @@ class wallet(walletTemplate):
     customer_id = 1000
     email = self.email  
     
+    wallet_row = app_tables.wallet.get(user_email=email)  # Retrieve the wallet row for the user
+    
+    if wallet_row is None:
+        wallet_row = app_tables.wallet.add_row(user_email=email, wallet_amount=0)
+    
     if anvil.server.call('withdraw_money', email=email, withdraw_amount=withdraw_amount, customer_id=customer_id):
         alert("Withdrawal successful!")
+    elif withdraw_amount > wallet_row['wallet_amount']:
+        alert("Insufficient funds for withdrawal.")
     else:
         alert("Withdrawal failed!")
-
