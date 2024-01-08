@@ -13,15 +13,22 @@ class vblr(vblrTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     
-    # Call the server function to get data
-    #data = anvil.server.call('get_data')
+   
+    self.repeating_panel_1.items=app_tables.loan_details.search(loan_updated_status=q.like('under_process%'))
 
-        # Set the items property of the Repeating Panel to the fetched data
-    #self.repeating_panel_1.items = data
-    self.repeating_panel_1.items=app_tables.loan_details.search(
-      loan_updated_status = under_process
-    )
-    
+    # # Fetch data from loan_details table
+    # loan_details_data = app_tables.loan_details.search()
+
+    # # Validate and filter data
+    # filtered_data = []
+    # for loan_detail in loan_details_data:
+    #    # Check if the loan_updated_status is 'under_process'
+    #    if loan_detail['loan_updated_status'] == 'under_process':
+    #             # If validated, append to the filtered data
+    #             filtered_data.append(loan_detail)
+
+    #  # Set the filtered data to self.repeating_panel_1.items
+    # self.repeating_panel_1.items = filtered_data
 
 # Call the server function to get data
     #loan_details_data = anvil.server.call('get_data')
