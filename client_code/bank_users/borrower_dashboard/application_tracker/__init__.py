@@ -16,13 +16,13 @@ class application_tracker(application_trackerTemplate):
     self.user_id=main_form_module.userId
     
     # Any code you write here will run before the form oopens.
-    under_process_items = app_tables.loan_details.search(loan_updated_status=q.like('under process%'), borrower_customer_id=self.user_id)
+    under_process_items = app_tables.loan_details.search(loan_updated_status=q.like('under proces%'), borrower_customer_id=self.user_id)
     self.repeating_panel_5.items = under_process_items
     self.label_1.text = str(len(under_process_items))
 
-    approved_items = app_tables.loan_details.search(loan_updated_status=q.like('approved%'), borrower_customer_id=self.user_id)
+    approved_items = app_tables.loan_details.search(loan_updated_status=q.like('approve%'), borrower_customer_id=self.user_id)
     self.repeating_panel_1.items = approved_items
-    self.label_1.text = str(len(approved_items))
+    self.label_1.text = str(len(approved_items))      
   
   def home_borrower_registration_button_click(self, **event_args):
     open_form('bank_users.borrower_dashboard')
