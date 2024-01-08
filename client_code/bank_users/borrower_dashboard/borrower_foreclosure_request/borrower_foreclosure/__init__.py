@@ -89,10 +89,22 @@ class borrower_foreclosure(borrower_foreclosureTemplate):
         # Set the label text
         self.label_tpm.text = f"{self.months_difference} months"
 
-        loan_details_row = app_tables.loan_details.add_row(loan_id=loan_id)
+        # Check if a row with the given loan_id exists
+        rows = app_tables.loan_details.search(loan_id=loan_id)
+
+        if rows:
+            # If the row exists, get the first one (assuming loan_id is unique)
+            loan_details_row = rows[0]
+        else:
+            # If the row does not exist, create a new one
+            loan_details_row = app_tables.loan_details.add_row(loan_id=loan_id)
+        
         # Add months_difference to the loan_details table
         loan_details_row['total_payments_made'] = self.months_difference
+        
+        # Update the row
         loan_details_row.update()
+
 
     def button_foreclose_click(self, **event_args):
         selected_row = self.selected_row
