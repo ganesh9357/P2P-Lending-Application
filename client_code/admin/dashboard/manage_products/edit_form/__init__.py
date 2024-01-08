@@ -43,6 +43,7 @@ class edit_form(edit_formTemplate):
         self.max_tenure_list = []
         self.emi_payment_list = []
         self.first_emi_list = []
+        self.min_month_list = []
         self.disc_coupans_list = []
 
         a = -1
@@ -67,6 +68,7 @@ class edit_form(edit_formTemplate):
             self.max_tenure_list.append(i['max_tenure'])
             self.emi_payment_list.append(i['emi_payment'])
             self.first_emi_list.append(i['first_emi_payment'])
+            self.min_month_list.append(i['min_months'])
             self.disc_coupans_list.append(i['discount_coupons'])
 
         if a == -1:
@@ -125,7 +127,7 @@ class edit_form(edit_formTemplate):
                     self.foreclosure_fee.enabled = False
                     self.foreclose_type.enabled = False
                     self.extension_allowed.enabled = False
-                    self.emi_payment.enabled = False
+                    self.min_months.enabled = False
                     self.first_emi_payment.enabled = False
                     self.name.enabled = False
                     self.product_category.enabled = False
@@ -149,7 +151,7 @@ class edit_form(edit_formTemplate):
                     self.max_tenure.enabled = False
                     self.foreclose_type.enabled = False
                     self.extension_allowed.enabled = False
-                    self.emi_payment.enabled = False
+                    self.min_months.enabled = False
                     self.first_emi_payment.enabled = False
                     self.name.enabled = False
                     self.product_name.enabled = False
@@ -185,10 +187,24 @@ class edit_form(edit_formTemplate):
                 self.max_tenure.text = str(self.max_tenure_list[-1])
 
             if self.emi_payment_list:
-                self.emi_payment.selected_value = str(self.emi_payment_list[-1])
+                self.checkbox_values = [
+                    self.check_box_1.checked,
+                    self.check_box_2.checked,
+                    self.check_box_3.checked,
+                    self.check_box_4.checked
+                ]
+            if self.emi_payment_list:
+                checkbox_values = self.emi_payment_list[-1]
+                self.check_box_1.checked = checkbox_values[0]
+                self.check_box_2.checked = checkbox_values[1]
+                self.check_box_3.checked = checkbox_values[2]
+                self.check_box_4.checked = checkbox_values[3]
 
             if self.first_emi_list:
                 self.first_emi_payment.text = str(self.first_emi_list[-1])
+
+            if self.min_month_list:
+                self.min_months.text = str(self.min_month_list[-1])
 
             if self.disc_coupans_list:
                 if self.disc_coupans_list[-1] == "Yes":
@@ -201,8 +217,6 @@ class edit_form(edit_formTemplate):
     def button_1_click(self, **event_args):
         """This method is called when the button is clicked"""
         open_form('admin.dashboard.manage_products.view_product')
-
-        selected_product_id = self.label_1.text
 
         if (
             selected_product_id is None
@@ -217,11 +231,15 @@ class edit_form(edit_formTemplate):
             or self.min_tenure.text == ""
             or self.max_tenure.text == ""
             or self.roi.text == ""
-            or self.emi_payment.selected_value == ""
             or self.radio_button_3.text == ""
         ):
             Notification("Fill All Required Details").show()
         else:
+            selected_row = self.product_data_grid.selected_row
+
+            if selected_row is not None:
+                selected_product_id = selected_row['product_id']
+              
             data = app_tables.product_details.get(product_id=selected_product_id)
             if data is None:
                 alert("No Data Available Here")            
@@ -242,8 +260,8 @@ class edit_form(edit_formTemplate):
                 data['foreclose_type'] = self.foreclose_type.selected_value
                 data['foreclosure_fee'] = int(self.foreclosure_fee.text)
                 data['extension_allowed'] = self.extension_allowed.selected_value
-                data['emi_payment'] = self.emi_payment.selected_value
                 data['first_emi_payment'] = int(self.first_emi_payment.text)
+                data['min_months'] = int(self.min_months.text)
                 data['discount_coupons'] = "Yes" if self.radio_button_3.selected else "No"
 
                 Notification("Product details updated successfully").show()

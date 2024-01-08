@@ -492,7 +492,7 @@ components:
             visible: true, text: '', font_size: null, font: '', spacing_above: small,
             type: text, spacing_below: small, italic: false, background: '', bold: false,
             underline: false}
-          name: min_moths
+          name: min_months
           layout_properties: {x: 215.16745037841804, y: 1094, width: 231.458}
         - type: Label
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',

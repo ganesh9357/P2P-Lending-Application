@@ -136,7 +136,7 @@ class manage_producs1(manage_producs1Template):
             Notification("Please enter a valid value for First EMI Payment (>= 1)").show()
             return
         first_emi_payment = int(first_emi_payment)
-        min_months = int(self.min_moths.text)
+        min_months = int(self.min_months.text)
  
         if self.radio_button_3.selected:
             # Code to execute when radio_button_3 is selected
@@ -146,7 +146,9 @@ class manage_producs1(manage_producs1Template):
             discount_coupons = self.radio_button_4.text
         else:
             # Code to execute when neither radio_button_3 nor radio_button_4 is selected
-            discount_coupons = None  # or any default value
+            discount_coupons = None  
+
+        
         
         if product_group == "" or product_name == "" or product_categories == "" or membership_type == "" or processing_fee == "" or extension_fee == "" or interest_type == "" or max_amount == "" or min_amount == "" or min_tenure == "" or max_tenure == "" or roi == "" or emi_payment == "" or min_months == "" or discount_coupons == "":
             Notification("Fill All Required Details").show()
