@@ -167,3 +167,11 @@ class loan_type(loan_typeTemplate):
             Monthly_EMI = int(self.Total_Repayment_Amount / float(t))
             self.label_36.text = f"₹ {int(Monthly_EMI)}"
             self.label_34.text = f"₹ {int(self.Total_Repayment_Amount)}"
+
+            # Disable editing after clicking button_4
+            self.loan_amount_tb.enabled = False
+            self.text_box_1.enabled = False
+            self.radio_button_1.enabled = False
+            self.radio_button_2.enabled = False
+            self.radio_button_3.enabled = False
+            self.radio_button_4.enabled = False
