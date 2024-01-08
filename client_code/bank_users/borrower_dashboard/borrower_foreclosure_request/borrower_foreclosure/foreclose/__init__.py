@@ -47,6 +47,8 @@ class foreclose(forecloseTemplate):
     foreclosure_fee_str = ', '.join(map(str, self.foreclosure_fee_lst))
     self.foreclose_fee.text = foreclosure_fee_str
     foreclose_fee = float(self.foreclosure_fee_lst[0])
+    if foreclose_fee == 0:
+      Notification("foreclosure not available for this loan")
     foreclose_amount = outstanding_amount * (foreclose_fee/100)
     foreclose_amount = float(foreclose_amount)
     total_due_amount = outstanding_amount + foreclose_amount
