@@ -18,7 +18,10 @@ class vblr(vblrTemplate):
 
         # Set the items property of the Repeating Panel to the fetched data
     #self.repeating_panel_1.items = data
-    self.repeating_panel_1.items=app_tables.loan_details.search()
+    self.repeating_panel_1.items=app_tables.loan_details.search(
+      loan_updated_status = under_process
+    )
+    
 
 # Call the server function to get data
     #loan_details_data = anvil.server.call('get_data')

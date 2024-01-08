@@ -110,7 +110,7 @@ class wallet(walletTemplate):
   #       alert("Withdrawal failed!")
 
 
-def withdraw_money_btn_click(self, **event_args):
+  def withdraw_money_btn_click(self, **event_args):
     amount_entered = self.amount_text_box.text
     
     try:
