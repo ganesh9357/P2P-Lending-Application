@@ -16,6 +16,9 @@ class loan_type(loan_typeTemplate):
         self.proctct_g = product_group
         self.prodct_cate = product_cat
         self.init_components(**properties)
+        user_request = app_tables.product_details.get(product_categories=self.prodct_cate)
+        if user_request:
+            self.roi = user_request['roi']
 
     def button_1_click(self, **event_args):
         open_form('bank_users.borrower_dashboard')
