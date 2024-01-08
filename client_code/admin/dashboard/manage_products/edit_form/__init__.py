@@ -218,8 +218,6 @@ class edit_form(edit_formTemplate):
         """This method is called when the button is clicked"""
         open_form('admin.dashboard.manage_products.view_product')
 
-        selected_product_id = self.label_1.text
-
         if (
             selected_product_id is None
             or self.name.selected_value is None
@@ -233,11 +231,15 @@ class edit_form(edit_formTemplate):
             or self.min_tenure.text == ""
             or self.max_tenure.text == ""
             or self.roi.text == ""
-            or self.emi_payment.selected_value == ""
             or self.radio_button_3.text == ""
         ):
             Notification("Fill All Required Details").show()
         else:
+            selected_row = self.product_data_grid.selected_row
+
+            if selected_row is not None:
+                selected_product_id = selected_row['product_id']
+              
             data = app_tables.product_details.get(product_id=selected_product_id)
             if data is None:
                 alert("No Data Available Here")            
@@ -258,7 +260,6 @@ class edit_form(edit_formTemplate):
                 data['foreclose_type'] = self.foreclose_type.selected_value
                 data['foreclosure_fee'] = int(self.foreclosure_fee.text)
                 data['extension_allowed'] = self.extension_allowed.selected_value
-                data['emi_payment'] = self.emi_payment.checkbox_values
                 data['first_emi_payment'] = int(self.first_emi_payment.text)
                 data['min_months'] = int(self.min_months.text)
                 data['discount_coupons'] = "Yes" if self.radio_button_3.selected else "No"
