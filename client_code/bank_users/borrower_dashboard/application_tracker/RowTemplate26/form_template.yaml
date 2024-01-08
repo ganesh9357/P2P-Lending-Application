@@ -16,22 +16,32 @@ components:
   properties: {}
   name: label_3
   layout_properties: {column: OJLQEN}
+  data_bindings:
+  - {property: text, code: 'self.item[''interest_rate'']', writeback: false}
 - type: Label
   properties: {}
   name: label_4
   layout_properties: {column: CHVOCG}
+  data_bindings:
+  - {property: text, code: 'self.item[''tenure'']', writeback: false}
 - type: Label
   properties: {}
   name: label_5
   layout_properties: {column: VKTTOA}
+  data_bindings:
+  - {property: text, code: 'self.item[''lender_full_name'']', writeback: false}
 - type: Label
   properties: {}
   name: label_6
   layout_properties: {column: HEMILB}
+  data_bindings:
+  - {property: text, code: 'self.item[''borrower_loan_created_timestamp'']', writeback: false}
 - type: Label
   properties: {}
   name: label_7
   layout_properties: {column: SQXFPE}
+  data_bindings:
+  - {property: text, code: 'self.item[''loan_updated_status'']', writeback: false}
 - type: Link
   properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
     visible: true, text: view details, font_size: null, wrap_on: mobile, font: '',
@@ -39,4 +49,5 @@ components:
     italic: false, background: '', bold: false, underline: false, icon: ''}
   name: link_1
   layout_properties: {column: TZDREV}
+  event_bindings: {click: link_1_click}
 is_package: true
