@@ -77,9 +77,16 @@ class borrower_foreclosure(borrower_foreclosureTemplate):
       selected_row = self.selected_row
       loan_id = selected_row['loan_id']
 
-      borrower_last_payment_done  = selected_row['borrower_last_payment_done']
+      borrower_first_payment_done = selected_row['borrower_first_payment_done']
+      borrower_last_payment_done = selected_row['borrower_last_payment_done']
+      product_id = selected_row['product_id']
+      product_details_row = app_tables.product_details.get(product_id=product_id)
+      min_months = product_details_row['min_months']
+      min_months = int(min_months)
+      print(min_months)
 
-      if borrower_last_payment_done > 12:
+
+      if borrower_last_payment_done > min_months:
             open_form('bank_users.borrower_dashboard.borrower_foreclosure_request.borrower_foreclosure.foreclose', selected_row=selected_row)
       else:
             alert('You are not eligible for foreclosure! You have to pay at least 12 months.')
