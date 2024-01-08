@@ -17,7 +17,7 @@ class foreclose(forecloseTemplate):
         # Any code you write here will run before the form opens.
     loan_amount = selected_row['loan_amount']
     loan_amount = int(loan_amount)
-    borrower_last_payment_done = selected_row['borrower_last_payment_done']
+    total_payments_made = selected_row['total_payments_made']
     tenure = selected_row['tenure']  # Assuming tenure is given in months
     tenure = int(tenure)
     monthly_interest_rate = selected_row['interest_rate'] / (12 * 100)  # Assuming interest rate is in percentage
@@ -26,14 +26,14 @@ class foreclose(forecloseTemplate):
     emi = int(emi)
     monthly_installment = loan_amount / tenure
     monthly_installment=int(monthly_installment)
-    paid_amount = emi * borrower_last_payment_done
+    paid_amount = emi * total_payments_made
     paid_amount = int(paid_amount)
     monthly_interest_amount=emi-monthly_installment
     monthly_interest_amount=int( monthly_interest_amount)
 
-    outstanding_amount= loan_amount - (monthly_installment*borrower_last_payment_done)
+    outstanding_amount= loan_amount - (monthly_installment*total_payments_made)
     outstanding_amount = int(outstanding_amount)
-    oustanding_month = tenure-borrower_last_payment_done
+    oustanding_month = tenure-total_payments_made
     outstanding_amount_i_amount = monthly_interest_amount*oustanding_month
     outstanding_amount_i_amount = int(outstanding_amount_i_amount)
     total_outstanding_amount = outstanding_amount+outstanding_amount_i_amount
@@ -47,6 +47,8 @@ class foreclose(forecloseTemplate):
     foreclosure_fee_str = ', '.join(map(str, self.foreclosure_fee_lst))
     self.foreclose_fee.text = foreclosure_fee_str
     foreclose_fee = float(self.foreclosure_fee_lst[0])
+    if foreclose_fee == 0:
+      Notification("foreclosure not available for this loan")
     foreclose_amount = outstanding_amount * (foreclose_fee/100)
     foreclose_amount = float(foreclose_amount)
     total_due_amount = outstanding_amount + foreclose_amount
@@ -63,7 +65,7 @@ class foreclose(forecloseTemplate):
     self.label_8.text = f"{outstanding_amount_i_amount}"
     self.label_18.text = f"{total_outstanding_amount} "
     self.label_17.text = f"{outstanding_amount}"
-    self.label_23.text = f"({borrower_last_payment_done} months)"
+    self.label_23.text = f"({total_payments_made} months)"
     self.label_24.text = f"({oustanding_month} months)"
     
   def button_1_click(self, **event_args):

@@ -217,6 +217,7 @@ class edit_form(edit_formTemplate):
     def button_1_click(self, **event_args):
         """This method is called when the button is clicked"""
         open_form('admin.dashboard.manage_products.view_product')
+        selected_product_id = None
 
         if (
             selected_product_id is None
@@ -259,6 +260,7 @@ class edit_form(edit_formTemplate):
                 data['roi'] = int(self.roi.text)
                 data['foreclose_type'] = self.foreclose_type.selected_value
                 data['foreclosure_fee'] = int(self.foreclosure_fee.text)
+                data['emi_payment'] = self.checkbox_values
                 data['extension_allowed'] = self.extension_allowed.selected_value
                 data['first_emi_payment'] = int(self.first_emi_payment.text)
                 data['min_months'] = int(self.min_months.text)

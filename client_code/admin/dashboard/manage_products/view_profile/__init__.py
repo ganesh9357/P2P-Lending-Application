@@ -13,8 +13,6 @@ class view_profile(view_profileTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    
-
     # Any code you write here will run before the form opens.
     self.data = tables.app_tables.product_details.search()
     
