@@ -232,23 +232,17 @@ def deposit_money(email, deposit_amount, customer_id):
             user_email = wallet_row['user_email']
             wallet_id = wallet_row['wallet_id']
             
-            # Add a row to wallet_transactions table with transaction timestamp
-            app_tables.wallet_transactions.add_row(
-                user_email=str(user_email),
-                wallet_id=str(wallet_id),
-                customer_id=customer_id,
-                transaction_id=transaction_id,
-                amount=deposit_amount,
-                transaction_type='deposit',
-                transaction_time_stamp=datetime.now(),
-                status='success' 
-            )
-            
             # Update wallet_amount in the wallet table only for successful transactions
-            wallet_row['wallet_amount'] = wallet_row['wallet_amount'] + deposit_amount if wallet_row['wallet_amount'] is not None else deposit_amount
+            if wallet_row['wallet_amount'] is None:
+                wallet_row['wallet_amount'] = deposit_amount
+            else:
+                wallet_row['wallet_amount'] += deposit_amount
+            
             wallet_row.save()
             
+            # Set success flag for successful transactions
             success = True
+            
         else:
             print("Customer not found in the wallet table.")
         
@@ -256,8 +250,12 @@ def deposit_money(email, deposit_amount, customer_id):
         print(f"Deposit failed: {e}")
     
     finally:
-        if not success:
-            # If not successful, set status to 'fail' and don't update wallet_amount
+        # Add a row to wallet_transactions table based on success or failure
+        if success:
+            status = 'success'
+        else:
+            status = 'fail'
+            # If not successful, add only one row for failed status
             app_tables.wallet_transactions.add_row(
                 user_email=str(user_email),
                 wallet_id=str(wallet_id),
@@ -267,6 +265,19 @@ def deposit_money(email, deposit_amount, customer_id):
                 transaction_type='deposit',
                 transaction_time_stamp=datetime.now(),  
                 status='fail'
+            )
+        
+        if success:
+            # Add a row for successful deposit only if it was successful
+            app_tables.wallet_transactions.add_row(
+                user_email=str(user_email),
+                wallet_id=str(wallet_id),
+                customer_id=customer_id,
+                transaction_id=transaction_id,
+                amount=deposit_amount,
+                transaction_type='deposit',
+                transaction_time_stamp=datetime.now(),
+                status='success' 
             )
         
         return success
