@@ -19,6 +19,22 @@ class loan_type(loan_typeTemplate):
         user_request = app_tables.product_details.get(product_categories=self.prodct_cate)
         if user_request:
             self.roi = user_request['roi']
+            self.processing_fee = user_request['processing_fee']
+            self.membership_type = user_request['membership_type']
+            self.product_id = user_request['product_id']
+            self.emi_payment_options = user_request['emi_payment']
+
+            # Show/hide and adjust properties of radio buttons based on emi_payment options
+            self.set_radio_button_visibility()
+
+    def set_radio_button_visibility(self):
+        visible_options = [emi_option for emi_option in ["One Time", "Monthly", "Three Month", "Six Month"] if emi_option in self.emi_payment_options]
+
+        for i, emi_option in enumerate(visible_options):
+            radio_button = getattr(self, f'radio_button_{i + 1}')
+            radio_button.visible = True
+            radio_button.text = emi_option
+            radio_button.x = 20 + i * 150  # Adjust the value (20 and 150) according to your layout preference
 
     def button_1_click(self, **event_args):
         open_form('bank_users.borrower_dashboard')
@@ -127,7 +143,7 @@ class loan_type(loan_typeTemplate):
 
         # Validate radio_button_1 and radio_button_2
         if not (one_time or monthly_emi or three_month or six_month):
-            self.label_24.text = "Please select either One-time or Monthly EMI"
+            self.label_24.text = "Please select the EMI Payment Type"
             self.label_24.foreground = '#FF0000'
         else:
             self.label_24.text = ""
@@ -137,14 +153,9 @@ class loan_type(loan_typeTemplate):
             self.grid_panel_2.visible = True
             self.button_2.visible = True
             self.button_3.visible = True
+            self.button_5.visible = True
             self.button_4.visible = False
 
-            user_request = app_tables.product_details.get(product_categories=self.prodct_cate)
-            if user_request:
-                self.roi = user_request['roi']
-                self.processing_fee = user_request['processing_fee']
-                self.membership_type = user_request['membership_type']
-                self.product_id = user_request['product_id']
             self.label_28.text = f"₹ {loan_amount}"
             p = float(loan_amount)
             t = int(tenure)
@@ -157,3 +168,25 @@ class loan_type(loan_typeTemplate):
             Monthly_EMI = int(self.Total_Repayment_Amount / float(t))
             self.label_36.text = f"₹ {int(Monthly_EMI)}"
             self.label_34.text = f"₹ {int(self.Total_Repayment_Amount)}"
+
+            # Disable editing after clicking button_4
+            self.loan_amount_tb.enabled = False
+            self.text_box_1.enabled = False
+            self.radio_button_1.enabled = False
+            self.radio_button_2.enabled = False
+            self.radio_button_3.enabled = False
+            self.radio_button_4.enabled = False
+
+    def button_5_click(self, **event_args):
+            self.loan_amount_tb.enabled = True
+            self.text_box_1.enabled = True
+            self.radio_button_1.enabled = True
+            self.radio_button_2.enabled = True
+            self.radio_button_3.enabled = True
+            self.radio_button_4.enabled = True
+            self.grid_panel_2.visible = False
+            self.button_2.visible = False
+            self.button_3.visible = False
+            self.button_5.visible = False
+            self.button_4.visible = True
+            
