@@ -184,7 +184,7 @@ class loan_type(loan_typeTemplate):
             self.radio_button_2.enabled = True
             self.radio_button_3.enabled = True
             self.radio_button_4.enabled = True
-            self.grid_panel_2.visible = 
+            self.grid_panel_2.visible = False
             self.button_2.visible = False
             self.button_3.visible = False
             self.button_5.visible = False
