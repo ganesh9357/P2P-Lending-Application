@@ -153,6 +153,7 @@ class loan_type(loan_typeTemplate):
             self.grid_panel_2.visible = True
             self.button_2.visible = True
             self.button_3.visible = True
+            self.button_5.visible = True
             self.button_4.visible = False
 
             self.label_28.text = f"₹ {loan_amount}"
@@ -175,3 +176,17 @@ class loan_type(loan_typeTemplate):
             self.radio_button_2.enabled = False
             self.radio_button_3.enabled = False
             self.radio_button_4.enabled = False
+
+    def button_5_click(self, **event_args):
+            self.loan_amount_tb.enabled = True
+            self.text_box_1.enabled = True
+            self.radio_button_1.enabled = True
+            self.radio_button_2.enabled = True
+            self.radio_button_3.enabled = True
+            self.radio_button_4.enabled = True
+            self.grid_panel_2.visible = 
+            self.button_2.visible = False
+            self.button_3.visible = False
+            self.button_5.visible = False
+            self.button_4.visible = True
+            
